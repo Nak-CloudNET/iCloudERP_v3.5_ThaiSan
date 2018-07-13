@@ -5192,8 +5192,8 @@ class Products extends MY_Controller
 				<li class="edit_using"><a href="'.site_url('products/edit_using_stock_by_id/$1/$2').'" ><i class="fa fa-edit"></i>'.lang('edit_using_stock').'</a></li>	
 				<li class="add_return" ><a href="'.site_url('products/return_using_stock/$1/$2').'" ><i class="fa fa-reply"></i>'.lang('return_using_stock').'</a></li>	
 				<li><a href="'.site_url('products/print_using_stock_by_id/$1/$2').'" ><i class="fa fa-newspaper-o"></i>'.lang('print_using_stock').'</a></li>
-				<li><a href="'.site_url('products/print_sample_form_ppcp/$1/$2').'" ><i class="fa fa-newspaper-o"></i>'.lang('print_sample_form_ppcp').'</a></li>
-			</ul>
+				
+				</ul>
 		</div>';
 
         $this->datatables
