@@ -2099,11 +2099,21 @@ class Products_model extends CI_Model
 
     public function getUsingStockProjectByRef($ref)
 	{
-        $this->db->select('erp_companies.company');
-        $this->db->from('erp_enter_using_stock');
-        $this->db->join('erp_companies','erp_enter_using_stock.shop = erp_companies.id','left');
-        $this->db->where('erp_enter_using_stock.reference_no', $ref);
-        $q=$this->db->get();
+//        $this->db->select('erp_companies.company');
+//        $this->db->from('erp_enter_using_stock');
+//        $this->db->join('erp_companies','erp_enter_using_stock.shop = erp_companies.id','left');
+//        $this->db->where('erp_enter_using_stock.reference_no', $ref);
+//        $q=$this->db->get();
+
+//            $ref = str_replace('_', '&', $r_r);
+            $this->db->select('erp_companies.*, erp_enter_using_stock.*,warehouses.name as warehouse_name, authorize.username as authorize_name, employee.username as employee_name');
+            $this->db->from('erp_enter_using_stock');
+            $this->db->join('erp_companies','erp_enter_using_stock.shop = erp_companies.id','left');
+            $this->db->join('erp_warehouses', 'erp_enter_using_stock.warehouse_id = erp_warehouses.id', 'left');
+            $this->db->join('erp_users as authorize', 'erp_enter_using_stock.authorize_id = authorize.id', 'left');
+            $this->db->join('erp_users as employee', 'erp_enter_using_stock.employee_id = employee.id', 'left');
+            $this->db->where('erp_enter_using_stock.reference_no', $ref);
+            $q=$this->db->get();
         if($q){
             return $q->row();
         }else{return false;}
