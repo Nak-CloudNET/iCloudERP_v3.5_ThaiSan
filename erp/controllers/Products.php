@@ -382,16 +382,14 @@ class Products extends MY_Controller
 			
 			'</ul>
 		</div></div>';
-
         if($warehouse_id) {
             $warehouse_id = explode('-', $warehouse_id);
         }
-
         $this->load->library('datatables');
             if ($this->session->userdata('warehouse_id')) {
                 $this->datatables
-                ->select($this->db->dbprefix('products') . ".id as productid, " . 
-                $this->db->dbprefix('products') . ".image as image, " . 
+                ->select($this->db->dbprefix('products') . ".id as productid, " .
+                $this->db->dbprefix('products') . ".image as image, " .
                 $this->db->dbprefix('products') . ".code as code, " . 
                 $this->db->dbprefix('products') . ".name as name, " . 
                 $this->db->dbprefix('products') . ".name_kh as kname, " .
@@ -400,13 +398,13 @@ class Products extends MY_Controller
 				cost as cost, 
 				price as price, 
 				IF(erp_products.type = 'service', 
-						CONCAT(COALESCE(erp_products.quantity, 0), '=', 
-						erp_products.id),
-						CONCAT(COALESCE(SUM(wp.quantity), 0), '=', 
-						erp_products.id)
+						CONCAT(COALESCE(erp_products.quantity, 0), '=',
+                            erp_products.id),
+						CONCAT(COALESCE(SUM(wp.quantity), 0), '=',
+                            erp_products.id)
 					) as quantity, " .
                 $this->db->dbprefix("units").".name as unit, 
-				alert_quantity", FALSE)        
+				alert_quantity", FALSE)
                 ->from('products');
 
                 if ($this->Settings->display_all_products) {
@@ -452,7 +450,6 @@ class Products extends MY_Controller
                 ->join('categories', 'products.category_id=categories.id', 'left')
 				->join('subcategories', 'subcategories.id=products.subcategory_id', 'left')
 				->join('units', 'products.unit=units.id', 'left');
-
 				if($warehouse_id){
 					$this->datatables->where_in('wp.warehouse_id', $warehouse_id);
                     $this->datatables->where('wp.quantity <>', NULL);
@@ -460,12 +457,11 @@ class Products extends MY_Controller
                 $this->datatables->group_by("products.id");
 
             }
-  
         if (!$this->Owner && !$this->Admin) {
-            if (!$this->session->userdata('show_cost')) {
+            if ($this->GP['products-cost'] <> 1) {
                 $this->datatables->unset_column("cost");
             }
-            if (!$this->session->userdata('show_price')) {
+            if ($this->GP['products-price'] <> 1) {
                 $this->datatables->unset_column("price");
             }
         }
@@ -509,10 +505,8 @@ class Products extends MY_Controller
             $this->data['rack'] = $wh_pr['rack'];
             $this->data['modal_js'] = $this->site->modal_js();
             $this->load->view($this->theme . 'products/set_rack', $this->data);
-
         }
     }
-
     function product_barcode($product_code = NULL, $bcs = 'code128', $height = 60)
     {
         return "<img src='" . site_url('products/gen_barcode/' . $product_code . '/' . $bcs . '/' . $height) . "' alt='{$product_code}' class='bcimg' />";

@@ -589,11 +589,11 @@
                                                 <i class="fa fa-envelope"></i><span class="text"> <?= lang('email_templates'); ?></span>
                                             </a>
                                         </li>-->
-                                        <!--<li id="system_settings_user_groups">
-                                            <a href="<?/*= site_url('system_settings/user_groups') */?>">
-                                                <i class="fa fa-key"></i><span class="text"> <?/*= lang('group_permissions'); */?></span>
+                                        <li id="system_settings_user_groups">
+                                            <a href="<?= site_url('system_settings/user_groups') ?>">
+                                                <i class="fa fa-key"></i><span class="text"> <?= lang('group_permissions'); ?></span>
                                             </a>
-                                        </li>-->
+                                        </li>
                                         <!--
                                         <li id="system_settings_define_principle">
                                             <a href="<?= site_url('system_settings/define_principle') ?>">
@@ -761,16 +761,16 @@
                                             </ul>
                                         </li>
                                                                                
-                                        <!--  <li id="drivers_index">
-                                            <a class="submenu" href="<?/*= site_url('drivers'); */?>">
-                                                <i class="fa fa-users"></i><span class="text"> <?/*= lang('list_drivers'); */?></span>
+                                      <li id="drivers_index">
+                                            <a class="submenu" href="<?= site_url('drivers'); ?>">
+                                                <i class="fa fa-users"></i><span class="text"> <?= lang('list_drivers'); ?></span>
                                             </a>
-                                        </li>-->
-                                        <!-- <li id="drivers_index">
-                                            <a class="submenu" href="<?/*= site_url('drivers/add'); */?>" data-toggle="modal" data-target="#myModal">
-                                                <i class="fa fa-plus-circle"></i><span class="text"> <?/*= lang('add_driver'); */?></span>
+                                        </li>
+                                        <li id="drivers_index">
+                                            <a class="submenu" href="<?= site_url('drivers/add'); ?>" data-toggle="modal" data-target="#myModal">
+                                                <i class="fa fa-plus-circle"></i><span class="text"> <?= lang('add_driver'); ?></span>
                                             </a>
-                                        </li>-->
+                                        </li>
 
                                         <!-- <li id="employees_index">
 													<a class="submenu" href="<?= site_url('employees'); ?>">
