@@ -383,6 +383,7 @@ class Products extends MY_Controller
 			'</ul>
 		</div></div>';
         if($warehouse_id) {
+
             $warehouse_id = explode('-', $warehouse_id);
         }
         $this->load->library('datatables');
@@ -419,15 +420,13 @@ class Products extends MY_Controller
 						->where("wp.rack LIKE '%##" . $this->session->userdata('user_id') . "##%'");
 					}
                 }
-
                 $this->datatables->join('categories', 'products.category_id=categories.id', 'left')
                 ->join('units', 'products.unit=units.id', 'left')
                 ->join('subcategories', 'subcategories.id=products.subcategory_id', 'left')
                 ->group_by("products.id");
-              
             } else {
                 $this->datatables
-                ->select(
+                 ->select(
 					$this->db->dbprefix('products') . ".id as productid, " . 
 					$this->db->dbprefix('products') . ".image as image, " . 
 					$this->db->dbprefix('products') . ".code as code, " . 

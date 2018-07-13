@@ -660,11 +660,19 @@ if ($modal) {
         <span class="pull-left col-xs-12"><a class="btn btn-block btn-success" href="#"
                                              id="email"><?= lang("email"); ?></a></span>
         <span class="col-xs-12">
-                <a class="btn btn-block btn-warning" href="<?= site_url('pos'); ?>"><?= lang("back_to_pos"); ?></a>
+                <a class="btn btn-block btn-info" href="<?= site_url('pos'); ?>"><?= lang("back_to_pos"); ?></a>
         </span>
-		<span class="col-xs-12">
+        <span class="col-xs-12">
+                <a class="btn btn-block btn-warning" href="<?= site_url('sale_order/standard_delivery_invoice/'); ?>"><?= lang("invoice_delivery"); ?></a>
+        </span>
+        <span class="col-xs-12">
+                <a class="btn btn-block btn-primary" href="<?= site_url('sale_order/delivery_invoice_a5/'); ?>"><?= lang("invoice_a5"); ?></a>
+        </span>
+
+		<!--<span class="col-xs-12">
                 <a class="btn btn-block btn-warning" href="<?= site_url('pos/invoice_ktv/'.$inv->id); ?>"><?= lang("invoice_ktv"); ?></a>
-        </span>
+        </span>-->
+
         <?php if (!$pos_settings->java_applet) { ?>
             <div style="clear:both;"></div>
             <div class="col-xs-12" style="background:#F5F5F5; padding:10px;">
