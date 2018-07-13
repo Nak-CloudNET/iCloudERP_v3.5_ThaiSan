@@ -1,0 +1,5 @@
+Code,Name,Name KH,Category Code,Unit ID,Cost,Price,Alert Quantity, Tax Rate Name,Tax Method,Subcategory Code,Product Variants Separated by |,Supplier1(No),Supplier2(No),Supplier3(No),Supplier4(No),Supplier5(No),Custom Field 1,Custom Field 2,Custom Field 3,Custom Field 4,Custom Field 5,Custom Field 6,Image,Type(standard or service)
+CK-0001,SOM,,D0001,1,0.5,2,10, No Tax, exclusive, SC1,Each=1_0.5|Case=12_6|Box=24_12,,,,,,,,,,,,no_image.png,standard
+CK-0002,Cara,,D0001,1,0.2,3,10, No Tax, exclusive,,Each=1_0.2|Case=12_6|Box=24_13,,,,,,,,,,,,no_image.png,standard
+CK-0003,Moly,,D0001,1,0.3,4,10, No Tax, exclusive,,Each=1_0.3|Case=12_6|Box=24_14,,,,,,,,,,,,no_image.png,standard
+CK-0004,Man,,D0001,1,0.5,5,10, No Tax, exclusive,,Each=1_0.5|Case=12_6|Box=24_15,,,,,,,,,,,,no_image.png,standard

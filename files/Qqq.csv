@@ -1,0 +1,5 @@
+Code,Quantity,option_id,warehouse_id,opening_stock,cost,expiry,serial
+CK-0001,10,1,1,1,,,
+CK-0002,20,1,1,1,,,
+CK-0003,30,1,1,1,,,
+CK-0004,40,1,1,1,,,
