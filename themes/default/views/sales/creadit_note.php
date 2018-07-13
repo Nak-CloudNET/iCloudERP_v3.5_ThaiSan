@@ -371,7 +371,21 @@
 				</tbody>
 				
 			</table>
-			</div>
+                <div class="row">
+                    <div class="col-lg-4 col-sm-4 col-xs-4" style="magin-left:20px !important;">
+
+                        <a class="btn btn-warning no-print" href="<?= site_url('sales/return_sales'); ?>" style="border-radius: 0">
+                            <i class="fa fa-hand-o-left" aria-hidden="true"></i>&nbsp;Back        </a>
+                        <br><br>
+                    </div>
+                    <div class="col-lg-4 col-sm-4 col-xs-4">
+
+                    </div>
+                    <div class="col-lg-4 col-sm-4 col-xs-4">
+
+                    </div>
+                </div>
+            </div>
 		    <div class="row">
 				<div class="col-lg-4 col-sm-4 col-xs-4" style="magin-left:20px !important;">
 					<center><p>Customer</p></center>
