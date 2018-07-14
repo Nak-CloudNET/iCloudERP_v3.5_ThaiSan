@@ -2419,6 +2419,29 @@ class Pos extends MY_Controller
         $this->load->view($this->theme . 'pos/invoice_ktv', $this->data);
     }
 
+    function invoice_delivery_id($sale_id = NULL , $modal = NULL ){
+        $this->erp->checkPermissions('index');
+        $this->data['rows'] = $this->pos_model->getAllInvoiceItems($sale_id);
+        //$this->erp->print_arrays($this->pos_model->getAllInvoiceItems($sale_id));
+        $inv = $this->pos_model->getInvoicePosByID($sale_id);
+        $biller_id = $inv->biller_id;
+        $customer_id = $inv->customer_id;
+        $this->data['biller'] = $this->pos_model->getCompanyByID($biller_id);
+        $this->data['customer'] = $this->pos_model->getCompanyByID($customer_id);
+        $this->data['payments'] = $this->pos_model->getInvoicePaymentsPOS($sale_id);
+        $this->data['pos'] = $this->pos_model->getSetting();
+        $this->data['barcode'] = $this->barcode($inv->reference_no, 'code39', 30);
+        $this->data['inv'] = $inv;
+        $this->data['sid'] = $sale_id;
+        $this->data['exchange_rate'] = $this->pos_model->getExchange_rate();
+        $this->data['outexchange_rate'] = $this->pos_model->getExchange_rate('KHM_o');
+        $this->data['exchange_rate_th'] = $this->pos_model->getExchange_rate('THA');
+        $this->data['exchange_rate_kh_c'] = $this->pos_model->getExchange_rate('KHM');
+        $this->data['modal'] = $modal;
+        $this->data['page_title'] = $this->lang->line("invoice");
+
+        $this->load->view($this->theme . 'sale_order/standard_delivery_invoice', $this->data);
+    }
     function chp_invoice($sale_id = NULL, $modal = NULL)
     {
         $this->erp->checkPermissions('index');
@@ -2436,7 +2459,7 @@ class Pos extends MY_Controller
         $customer_id = $inv->customer_id;
         $this->data['biller'] = $this->pos_model->getCompanyByID($biller_id);
         $this->data['customer'] = $this->pos_model->getCompanyByID($customer_id);
-        // $this->erp->print_arrays($this->pos_model->getCompanyByID($customer_id));
+        //$this->erp->print_arrays($this->pos_model->getCompanyByID($customer_id));
         $this->data['payments'] = $this->pos_model->getInvoicePaymentsPOS($sale_id);
         // $this->erp->print_arrays($this->pos_model->getInvoicePaymentsPOS($sale_id));
         $this->data['pos'] = $this->pos_model->getSetting();

@@ -137,20 +137,20 @@
 				$no = 1;
 				$row = 1;
 			?>
-			<?php foreach($inv_items as $inv_item) { ?>
+			<?php foreach($rows as $inv_item) { ?>
 				<tr>
 					<td style="border-top:none !important;border-bottom:none !important; text-align: center;"><?= $no ?></td>
 					<td style="border-top:none !important;border-bottom:none !important; text-align: center;"><?= $inv_item->brand ?></td>
-					<td style="border-top:none !important;border-bottom:none !important;"><?= $inv_item->description ?></td>
+					<td style="border-top:none !important;border-bottom:none !important;"><?= $inv_item->product_name ?></td>
 					<td style="border-top:none !important;border-bottom:none !important;"></td>
 					<?php if ($inv_item->option_id >= 1) { ?>
 						<td style="border-top:none !important;border-bottom:none !important; text-align: center;"><?= $inv_item->variant ?></td>
 						<td style="border-top:none !important;border-bottom:none !important; text-align: center;"><?= $this->erp->formatQuantity($inv_item->qty); ?></td>
 					<?php } else { ?>
-						<td style="border-top:none !important;border-bottom:none !important; text-align: center;"><?= $inv_item->unit ?></td>
+						<td style="border-top:none !important;border-bottom:none !important; text-align: center;"><?= $inv_item->product_type ?></td>
 						<td style="border-top:none !important;border-bottom:none !important; text-align: center;"><?= $this->erp->formatQuantity($inv_item->qty); ?></td>
 					<?php } ?>
-					<td style="border-top:none !important;border-bottom:none !important;"></td>
+					<td style="border-top:none !important;border-bottom:none !important;"><?= $inv_item->product_note ?></td>
 				</tr>
 			<?php
 				$no++;

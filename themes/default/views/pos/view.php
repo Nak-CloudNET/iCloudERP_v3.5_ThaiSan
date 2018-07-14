@@ -663,11 +663,11 @@ if ($modal) {
                 <a class="btn btn-block btn-info" href="<?= site_url('pos'); ?>"><?= lang("back_to_pos"); ?></a>
         </span>
         <span class="col-xs-12">
-                <a class="btn btn-block btn-warning" href="<?= site_url('sale_order/standard_delivery_invoice/'); ?>"><?= lang("invoice_delivery"); ?></a>
+                <a class="btn btn-block btn-warning" href="<?= site_url('pos/invoice_delivery_id/'.  $inv->id); ?>"><?= lang("invoice_delivery"); ?></a>
         </span>
-        <span class="col-xs-12">
-                <a class="btn btn-block btn-primary" href="<?= site_url('sale_order/delivery_invoice_a5/'); ?>"><?= lang("invoice_a5"); ?></a>
-        </span>
+        <!--<span class="col-xs-12">
+                <a class="btn btn-block btn-primary" href="<?= site_url('pos/invoice_a5/'.  $inv->id); ?>"><?= lang("invoice_a5"); ?></a>
+        </span>-->
 
 		<!--<span class="col-xs-12">
                 <a class="btn btn-block btn-warning" href="<?= site_url('pos/invoice_ktv/'.$inv->id); ?>"><?= lang("invoice_ktv"); ?></a>
