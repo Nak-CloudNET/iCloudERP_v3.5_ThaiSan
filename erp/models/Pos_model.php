@@ -1036,6 +1036,7 @@ class Pos_model extends CI_Model
         return FALSE;
     }
 
+
     public function getSuspendedSaleItems($id)
     {
         $q = $this->db->get_where('suspended_items', array('suspend_id' => $id));

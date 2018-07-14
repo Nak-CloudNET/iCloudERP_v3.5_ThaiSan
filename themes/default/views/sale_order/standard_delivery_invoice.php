@@ -160,6 +160,8 @@
                                     <?php if($biller->company) { ?>
                                         <h3 class="header"><?= $biller->company ?></h3>
                                     <?php }?>
+                                    <?php //$this->erp->print_arrays($biller->company);   ?>
+
 
                                     <div style="margin-top: 15px;">
                                         <?php if(!empty($biller->vat_no)) { ?>
@@ -280,22 +282,22 @@
             $no = 1;
             $erow = 1;
             $totalRow = 0;
-            foreach ($inv_items as $inv_item) {
+            foreach ($rows as $inv_item) {
                 $no = 1;
                 $row = 1;
                 ?>
                 <tr class="border">
                     <td style="vertical-align: middle; text-align: center"><?php echo $no ?></td>
                     <td style="vertical-align: middle;">
-                        <?=$inv_item->code;?>
+                        <?=$inv_item->product_code;?>
                     </td>
                     <td style="vertical-align: middle;">
-                        <?php echo $inv_item->description;?>
+                        <?php echo $inv_item->product_name;?>
                     </td>
                         <?php if ($inv_item->option_id >= 1) { ?>
                     <td style="text-align: center"><?= $inv_item->variant ?></td>
                     <?php } else { ?>
-                        <td style="text-align: center"><?= $inv_item->unit ?></td>
+                        <td style="text-align: center"><?= $inv_item->product_type ?></td>
                     <?php } ?>
                     <td style="vertical-align: middle; text-align: center">
                         <?=$inv_item->piece?>
@@ -304,7 +306,7 @@
                         <?=$inv_item->wpiece?>
                     </td>
                     <td style="vertical-align: middle; text-align: center">
-                        <?=$this->erp->formatQuantity($inv_item->qty)?>
+                        <?=$this->erp->formatQuantity($inv_item->quantity)?>
                     </td>
 
                 </tr>
