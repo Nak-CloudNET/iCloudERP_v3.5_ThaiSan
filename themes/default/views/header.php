@@ -760,8 +760,27 @@
 		                                        <?php } ?>
                                             </ul>
                                         </li>
-                                                                               
-                                      <li id="drivers_index">
+
+                                        <li id="drivers_index">
+                                            <a class="dropmenu" href="<?= site_url('drivers'); ?>">
+                                                <i class="fa fa-users"></i><span class="text"> <?= lang('list_drivers'); ?></span>
+                                                <span class="chevron closed"></span>
+                                            </a>
+
+                                            <ul>
+                                                <li>
+                                                    <a class="submenu" href="<?= site_url('drivers'); ?>">
+                                                        <i class="fa fa-users"></i><span class="text"> <?= lang('list_drivers'); ?></span>
+                                                    </a>
+                                                <li id="drivers_index">
+                                                    <a class="submenu" href="<?= site_url('drivers/add'); ?>" >
+                                                        <i class="fa fa-plus-circle"></i><span class="text"> <?= lang('add_driver'); ?></span>
+                                                    </a>
+                                                </li>
+
+                                            </ul>
+                                        </li>
+                                     <!-- <li id="drivers_index">
                                             <a class="submenu" href="<?= site_url('drivers'); ?>">
                                                 <i class="fa fa-users"></i><span class="text"> <?= lang('list_drivers'); ?></span>
                                             </a>
@@ -770,7 +789,7 @@
                                             <a class="submenu" href="<?= site_url('drivers/add'); ?>" data-toggle="modal" data-target="#myModal">
                                                 <i class="fa fa-plus-circle"></i><span class="text"> <?= lang('add_driver'); ?></span>
                                             </a>
-                                        </li>
+                                        </li>-->
 
                                         <!-- <li id="employees_index">
 													<a class="submenu" href="<?= site_url('employees'); ?>">
