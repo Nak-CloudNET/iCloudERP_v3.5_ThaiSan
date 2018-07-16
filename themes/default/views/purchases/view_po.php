@@ -39,6 +39,7 @@
                             </a>
                         </li>
                         <?php } ?>
+
                     </ul>
                 </li>
             <?php } ?>
@@ -331,12 +332,13 @@
                     </div>
                     <?php } ?>
                     <?php if ($Owner || $Admin || $GP['purchases_order-export']) { ?>
-                    <div class="btn-group">
-                        <a href="<?= site_url('purchases/pdf/' . $inv->id) ?>" class="tip btn btn-primary" title="<?= lang('download_pdf') ?>">
-                            <i class="fa fa-download"></i> <span class="hidden-sm hidden-xs"><?= lang('pdf') ?></span>
-                        </a>
-                    </div>
+                        <div class="btn-group">
+                            <a href="<?= site_url('purchases/pdf/' . $inv->id) ?>" class="tip btn btn-primary" title="<?= lang('download_pdf') ?>">
+                                <i class="fa fa-download"></i> <span class="hidden-sm hidden-xs"><?= lang('pdf') ?></span>
+                            </a>
+                        </div>
                     <?php } ?>
+
                     <?php if ($inv->status != 'approved' && $inv->status != 'reject') { ?>
                         <?php if ($Owner || $Admin || $GP['purchases_order-edit']) { ?>
                         <div class="btn-group">
