@@ -665,7 +665,7 @@ if ($modal) {
         <span class="col-xs-12">
                 <a class="btn btn-block btn-warning" href="<?= site_url('pos/invoice_delivery_id/'.  $inv->id); ?>"><?= lang("invoice_delivery"); ?></a>
         </span><span class="col-xs-12">
-                <a class="btn btn-block btn-primary" href="<?= site_url('sales/print_st_invoice_2/'.  $inv->id); ?>"><?= lang("invoice_a5"); ?></a>
+                <a class="btn btn-block btn-primary" href="<?= site_url('sales/print_st_invoice_2/pos/'.  $inv->id); ?>"><?= lang("invoice_a5"); ?></a>
         </span>
 
 		<!--<span class="col-xs-12">

@@ -358,8 +358,8 @@
                     }
                     ?>
                     <?php
-                    if($erow<11){
-                        $k=11 - $erow;
+                    if($erow<6){
+                        $k=6 - $erow;
                         for($j=1;$j<=$k;$j++) {
                             if($discount != 0) {
                                 echo  '<tr>
@@ -530,9 +530,22 @@
     </div>
 
     <div style="width: 821px;margin: 20px">
-        <a class="btn btn-warning no-print" href="<?= site_url('sales'); ?>" style="border-radius: 0">
-            <i class="fa fa-hand-o-left" aria-hidden="true"></i>&nbsp;<?= lang("back"); ?>
-        </a>
+        <?php
+            if ($type == 'pos') {
+        ?>
+                <a class="btn btn-warning no-print" href="<?= site_url('pos/sales'); ?>" style="border-radius: 0">
+                    <i class="fa fa-hand-o-left" aria-hidden="true"></i>&nbsp;<?= lang("back"); ?>
+                </a>
+        <?php
+            } else {
+        ?>
+                <a class="btn btn-warning no-print" href="<?= site_url('sales'); ?>" style="border-radius: 0">
+                    <i class="fa fa-hand-o-left" aria-hidden="true"></i>&nbsp;<?= lang("back"); ?>
+                </a>
+        <?php
+            }
+        ?>
+
     </div>
 </div>
 
