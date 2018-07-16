@@ -62,7 +62,12 @@
 		}
 	.table thead > tr > th, .table tbody > tr > th, .table tfoot > tr > th, .table thead > tr > td, .table tbody > tr > td, .table tfoot > tr > td {
 		border: 1px solid #000 !important;
-	}	
+	}
+    @media print {
+        .no-print {
+            display:none !important;
+        }
+    }
 </style>
 <body>
     <div class="container">
@@ -371,20 +376,7 @@
 				</tbody>
 				
 			</table>
-                <div class="row">
-                    <div class="col-lg-4 col-sm-4 col-xs-4" style="magin-left:20px !important;">
 
-                        <a class="btn btn-warning no-print" href="<?= site_url('sales/return_sales'); ?>" style="border-radius: 0">
-                            <i class="fa fa-hand-o-left" aria-hidden="true"></i>&nbsp;Back        </a>
-                        <br><br>
-                    </div>
-                    <div class="col-lg-4 col-sm-4 col-xs-4">
-
-                    </div>
-                    <div class="col-lg-4 col-sm-4 col-xs-4">
-
-                    </div>
-                </div>
             </div>
 		    <div class="row">
 				<div class="col-lg-4 col-sm-4 col-xs-4" style="magin-left:20px !important;">
@@ -400,6 +392,20 @@
 			
 		</div>
 	</div>
-	
+    <div class="row">
+        <div class="col-lg-3 col-sm-3 col-xs-3" style="magin-left:20px !important;">
+
+        </div>
+        <div class="col-lg-4 col-sm-4 col-xs-4">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a class="btn btn-warning no-print" href="<?= site_url('sales/return_sales'); ?>" style="border-radius: 0">
+                <i class="fa fa-hand-o-left" aria-hidden="true"></i>&nbsp;Back        </a>
+            <br><br>
+
+        </div>
+        <div class="col-lg-4 col-sm-4 col-xs-4">
+
+        </div>
+    </div>
 </body>
 </html>
