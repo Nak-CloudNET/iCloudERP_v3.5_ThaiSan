@@ -5675,7 +5675,7 @@ class Products extends MY_Controller
 			$using_stock = $this->products_model->get_enter_using_stock_by_id($id);
 			$ref_no		 = $using_stock->reference_no;
 			$stock_item  = $this->products_model->get_enter_using_stock_item_by_ref($ref_no);
-
+            $this->data['invs'] = $this->products_model->getUsingStockProjectByRef($ref_no);
 			$this->data['using_stock'] 	= $using_stock;
             $this->data['stock_item'] 	= $stock_item;
 			$this->data['info'] 		= $this->products_model->get_enter_using_stock_info();
