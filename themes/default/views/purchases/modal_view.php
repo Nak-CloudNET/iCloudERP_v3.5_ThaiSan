@@ -384,6 +384,16 @@
                                 <span class="hidden-sm hidden-xs"><?= lang('print_purchase') ?></span>
                             </a>
                         </div>
+                        <?php if($Owner || $Admin || $GP['purchases-edit']) { ?>
+                            <?php if($inv->payment_status != 'paid' && $inv->payment_status != 'partial') {?>
+                                <div class="btn-group">
+                                    <a href="<?= site_url('purchases/received/' . $inv->id) ?>" class="tip btn btn-primary sledit" title="<?= lang('edit') ?>">
+                                        <i class="fa fa-file-text-o"></i>
+                                        <span class="hidden-sm hidden-xs"><?= lang('items received') ?></span>
+                                    </a>
+                                </div>
+                            <?php } ?>
+                        <?php } ?>
                         <!--<div class="btn-group">
                             <a href="<?= site_url('purchases/received_kh/' . $inv->id) ?>" target="_blank" class="tip btn btn-primary" title="<?= lang('received_form') ?>">
                                 <i class="fa fa-file-text-o"></i>
@@ -416,6 +426,7 @@
                             </div>
                             <?php } ?>
 						<?php } ?>
+
 						<?php if($Owner || $Admin || $GP['purchases-delete']) { ?>
                         <!-- <div class="btn-group">
                             <a href="#" class="tip btn btn-danger bpo" title="<b><?= $this->lang->line("return_purchase") ?></b>"
