@@ -9,7 +9,7 @@
     }
     hr{
     border-color:#333;
-    
+
     }
 </style>
 <div class="modal-dialog modal-lg no-modal-header">
@@ -44,7 +44,7 @@
 						<?php if($inv->due_date) { ?>
 							<?= lang("due_date"); ?>: <?= $inv->due_date; ?><br>
 						<?php  } ?>
-                        
+
                         <?= lang("sale_status"); ?>:
                         <?php if ($inv->sale_status == 'completed') { ?>
                             <span class="label label-success" ><?= lang($inv->sale_status); ?></span>
@@ -178,7 +178,7 @@
 						$free = lang('free');
 						$product_unit = '';
 						$total = 0;
-						
+
 						if($row->variant){
 							$product_unit = $row->variant;
 						}else{
@@ -220,7 +220,7 @@
 									echo '<td style="width: 100px; text-align:right; vertical-align:middle;">' . ($row->discount != 0 ? '<small>(' . $row->discount . ')</small> ' : '') . $this->erp->formatMoney($row->item_discount) . '</td>';
 								}
 								?>
-								<td style="text-align:right; width:120px;"><?= $row->subtotal!=0?$this->erp->formatMoney($row->subtotal):$free; 
+								<td style="text-align:right; width:120px;"><?= $row->subtotal!=0?$this->erp->formatMoney($row->subtotal):$free;
 									$total += $row->subtotal;
 									?></td>
 							</tr>
@@ -287,7 +287,7 @@
                         echo '<tr><td></td><td colspan="' . $col . '" style="text-align:right; padding-right:10px;;">' . lang("shipping") . ' (' . $default_currency->code . ')</td><td style="text-align:right; padding-right:10px;">' . $this->erp->formatMoney($inv->shipping) . '</td></tr>';
                     }
                     ?>
-					
+
                     <tr>
                         <td></td>
                         <td colspan="<?= $col; ?>"
@@ -346,7 +346,7 @@
                         <?php } ?>
                 </div>
 				<br/>
-				
+
 				<br/>
 				<div class="row">
 					<div class="clearfix"></div>
@@ -391,7 +391,7 @@
                 </div>
             </div>
             <?php if (!$Supplier || !$Customer) { ?>
-							 
+
                 <div class="buttons">
                     <div class="btn-group btn-group-justified">
 						<!--
@@ -433,12 +433,12 @@
                             </a>
                         </div>
 						-->
-						<div class="btn-group">
-                            <a href="<?= site_url('sales/invoice_thai_san/' . $inv->id) ?>" target="_blank" class="tip btn btn-primary" title="<?= lang('st_invoice') ?>">
-                                <i class="fa fa-print"></i>
-                                <span class="hidden-sm hidden-xs"><?= lang('st_invoice') ?></span>
-                            </a>
-                        </div>
+<!--						<div class="btn-group">-->
+<!--                            <a href="--><?//= site_url('sales/invoice_thai_san/' . $inv->id) ?><!--" target="_blank" class="tip btn btn-primary" title="--><?//= lang('st_invoice') ?><!--">-->
+<!--                                <i class="fa fa-print"></i>-->
+<!--                                <span class="hidden-sm hidden-xs">--><?//= lang('st_invoice') ?><!--</span>-->
+<!--                            </a>-->
+<!--                        </div>-->
 						<div class="btn-group">
                             <a href="<?= site_url('sales/print_st_invoice/' . $inv->id) ?>" target="_blank" class="tip btn btn-primary" title="<?= lang('standard_invoice') ?>">
                                 <i class="fa fa-print"></i>
@@ -527,7 +527,7 @@
                                 <span class="hidden-sm hidden-xs"><?= lang('sales_invoice') ?></span>
                             </a>
                         </div>
-						
+
                         <?php if ($inv->sale_status != 'completed') { ?>
 						<?php if ($GP['sales-edit']) { ?>
                         <div class="btn-group">
@@ -588,8 +588,8 @@
                                 <span class="hidden-sm hidden-xs"><?= lang('invoice_dragon_fly') ?></span>
                             </a>
                         </div>
-                     
-						
+
+
 						<!--<div class="btn-group">
                             <a href="<?= site_url('sales/print_st_invoice_uy_sing/' . $inv->id) ?>" target="_blank" class="tip btn btn-primary" title="<?= lang('print') ?>">
                                 <i class="fa fa-print"></i>
@@ -738,7 +738,7 @@
                         </a>
                     </div>
 					<div class="btn-group">
-					
+
                         <a href="<?= site_url('sales/invoice_chim_socheat/' . $inv->id) ?>" target="_blank" class="tip btn btn-primary" title="<?= lang('Chim Socheat') ?>">
                             <i class="fa fa-print"></i>
                             <span class="hidden-sm hidden-xs"><?= lang('Chim Socheat') ?></span>
@@ -784,7 +784,7 @@
                             <span class="hidden-sm hidden-xs"><?= lang('Ly_Huy_Khim') ?></span>
                         </a>
                     </div>
-					
+
                 </div>-->
 
             <?php } ?>

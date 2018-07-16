@@ -355,24 +355,24 @@
 							 
                 <div class="buttons">
                     <div class="btn-group btn-group-justified">
-						<div class="btn-group">
+						<!--<div class="btn-group">
                             <a href="<?= site_url('sales/invoice_return_chea_kheng/' . $inv->id) ?>" class="tip btn btn-primary" title="<?= lang('Return_Chea_Kheng') ?>">
                                 <i class="fa fa-angle-double-left"></i>
                                 <span class="hidden-sm hidden-xs"><?= lang('Return_Chea_Kheng') ?></span>
                             </a>
-                        </div>
+                        </div>-->
 						<div class="btn-group">
                             <a href="<?= site_url('sales/creadit_note/' . $inv->id) ?>" class="tip btn btn-primary" title="<?= lang('Creadit_Note') ?>">
                                 <i class="fa fa-angle-double-left"></i>
                                 <span class="hidden-sm hidden-xs"><?= lang('Creadit_Note') ?></span>
                             </a>
                         </div>
-						<div class="btn-group">
+						<!--<div class="btn-group">
                             <a href="<?= site_url('sales/invoice_return_sbps/' . $inv->id) ?>" class="tip btn btn-primary" title="<?= lang('SBPS') ?>">
                                 <i class="fa fa-angle-double-left"></i>
                                 <span class="hidden-sm hidden-xs"><?= lang('SBPS') ?></span>
                             </a>
-                        </div>
+                        </div>-->
 						<div class="btn-group">
 							<button type="button" class="btn btn-primary"  onclick="window.print();">
 								<i class="fa fa-print"></i> <?= lang('print'); ?>
