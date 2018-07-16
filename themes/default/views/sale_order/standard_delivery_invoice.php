@@ -245,15 +245,15 @@
                         </div>
                         <div class="col-sm-5 col-xs-5">
                             <table class="noPadding" border="none">
-                                <tr>
+                               <!-- <tr>
                                     <td style="width: 45%;"><?= lang('do_no') ?></td>
                                     <td style="width: 5%;">:</td>
                                     <td style="width: 50%;"><?= $inv->do_reference_no ?></td>
-                                </tr>
+                                </tr>-->
                                 <tr>
                                     <td><?= lang('refer_no') ?></td>
                                     <td>:</td>
-                                    <td><?= $inv->sale_reference_no ?></td>
+                                    <td><?= $inv->reference_no ?></td>
                                 </tr>
                                 <tr>
                                     <td><?= lang('date') ?> </td>
