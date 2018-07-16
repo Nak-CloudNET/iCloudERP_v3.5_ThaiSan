@@ -1,14 +1,18 @@
 <style type="text/css">
     @media print {
+        .modal {
+            position: relative;
+        }
         .modal-dialog {
-            width: 95% !important;
+            width: 98% !important;
         }
         .modal-content {
             border: none !important;
         }
+
     }
     hr{
-    border-color:#333;
+        border-color:#333;
 
     }
 </style>
@@ -22,54 +26,54 @@
                 <i class="fa fa-print"></i> <?= lang('print'); ?>
             </button>
             <?php
-                if ($Settings->system_management == 'project') { ?>
-                    <div class="text-center" style="margin-bottom:20px;">
-                        <img src="<?= base_url() . 'assets/uploads/logos/' . $Settings->logo2; ?>"
-                             alt="<?= $Settings->site_name != '-' ? $Settings->site_name : $Settings->site_name; ?>">
-                    </div>
+            if ($Settings->system_management == 'project') { ?>
+                <div class="text-center" style="margin-bottom:20px;">
+                    <img src="<?= base_url() . 'assets/uploads/logos/' . $Settings->logo2; ?>"
+                         alt="<?= $Settings->site_name != '-' ? $Settings->site_name : $Settings->site_name; ?>">
+                </div>
             <?php } else { ?>
-                    <?php if ($logo) { ?>
-                        <div class="text-center" style="margin-bottom:20px;">
-                            <img src="<?= base_url() . 'assets/uploads/logos/' . $biller->logo; ?>"
-                                 alt="<?= $biller->company != '-' ? $biller->company : $biller->name; ?>">
-                        </div>
-                    <?php } ?>
+                <?php if ($logo) { ?>
+                    <div class="text-center" style="margin-bottom:20px;">
+                        <img src="<?= base_url() . 'assets/uploads/logos/' . $biller->logo; ?>"
+                             alt="<?= $biller->company != '-' ? $biller->company : $biller->name; ?>">
+                    </div>
+                <?php } ?>
             <?php } ?>
             <div class="well well-sm">
                 <div class="row bold" style="font-size:12px;">
                     <div class="col-xs-5">
-                    <p class="bold">
-                        <?= lang("ref"); ?>: <?= $inv->reference_no; ?><br>
-                        <?= lang("date"); ?>: <?= $this->erp->hrld($inv->date); ?><br>
-						<?php if($inv->due_date) { ?>
-							<?= lang("due_date"); ?>: <?= $inv->due_date; ?><br>
-						<?php  } ?>
+                        <p class="bold">
+                            <?= lang("ref"); ?>: <?= $inv->reference_no; ?><br>
+                            <?= lang("date"); ?>: <?= $this->erp->hrld($inv->date); ?><br>
+                            <?php if($inv->due_date) { ?>
+                                <?= lang("due_date"); ?>: <?= $inv->due_date; ?><br>
+                            <?php  } ?>
 
-                        <?= lang("sale_status"); ?>:
-                        <?php if ($inv->sale_status == 'completed') { ?>
-                            <span class="label label-success" ><?= lang($inv->sale_status); ?></span>
-                        <?php } elseif ($inv->sale_status == 'pending') { ?>
-                            <span class="label label-warning" ><?= lang($inv->sale_status); ?></span>
-                        <?php } else { ?>
-                            <span class="label label-danger" ><?= lang($inv->sale_status); ?></span>
-                        <?php } ?>
-                        <br>
+                            <?= lang("sale_status"); ?>:
+                            <?php if ($inv->sale_status == 'completed') { ?>
+                                <span class="label label-success" ><?= lang($inv->sale_status); ?></span>
+                            <?php } elseif ($inv->sale_status == 'pending') { ?>
+                                <span class="label label-warning" ><?= lang($inv->sale_status); ?></span>
+                            <?php } else { ?>
+                                <span class="label label-danger" ><?= lang($inv->sale_status); ?></span>
+                            <?php } ?>
+                            <br>
 
-                        <?= lang("payment_status"); ?>:
-                        <?php if ($inv->payment_status == 'paid') { ?>
-                            <span class="label label-success" ><?= lang($inv->payment_status); ?></span>
-                        <?php } elseif ($inv->payment_status == 'partial') { ?>
-                            <span class="label label-info" ><?= lang($inv->payment_status); ?></span>
-                        <?php } elseif($inv->payment_status == 'pending'){?>
-                            <span class="label label-warning" ><?= lang($inv->payment_status); ?></span>
-                        <?php }else { ?>
-                            <span class="label label-danger" ><?= lang($inv->payment_status); ?></span>
-                        <?php } ?>
+                            <?= lang("payment_status"); ?>:
+                            <?php if ($inv->payment_status == 'paid') { ?>
+                                <span class="label label-success" ><?= lang($inv->payment_status); ?></span>
+                            <?php } elseif ($inv->payment_status == 'partial') { ?>
+                                <span class="label label-info" ><?= lang($inv->payment_status); ?></span>
+                            <?php } elseif($inv->payment_status == 'pending'){?>
+                                <span class="label label-warning" ><?= lang($inv->payment_status); ?></span>
+                            <?php }else { ?>
+                                <span class="label label-danger" ><?= lang($inv->payment_status); ?></span>
+                            <?php } ?>
 
-                    </p>
+                        </p>
                     </div>
                     <div class="col-xs-7 text-right">
-						<p style="font-size:16px; margin:0 !important;"><?= lang("INVOICE"); ?></p>
+                        <p style="font-size:16px; margin:0 !important;"><?= lang("INVOICE"); ?></p>
                         <?php $br = $this->erp->save_barcode($inv->reference_no, 'code39', 70, false); ?>
                         <img height="45px" src="<?= base_url() ?>assets/uploads/barcode<?= $this->session->userdata('user_id') ?>.png"
                              alt="<?= $inv->reference_no ?>"/>
@@ -147,11 +151,11 @@
 
                     <tr>
                         <th><?= lang("no"); ?></th>
-						<?php if($setting->show_code == 1 && $setting->separate_code == 1) { ?>
-						<th><?= lang('product_code'); ?></th>
-						<?php } ?>
+                        <?php if($setting->show_code == 1 && $setting->separate_code == 1) { ?>
+                            <th><?= lang('product_code'); ?></th>
+                        <?php } ?>
                         <th><?= lang("description"); ?></th>
-						<th><?= lang("unit"); ?></th>
+                        <th><?= lang("unit"); ?></th>
                         <th><?= lang("quantity"); ?></th>
                         <?php if ($Owner || $Admin || $GP['sales-price']) { ?>
                             <th><?= lang("unit_price"); ?></th>
@@ -173,61 +177,61 @@
 
                     <?php $r = 1;
                     $tax_summary = array();
-					if(is_array($rows)){
-						foreach ($rows as $row):
-						$free = lang('free');
-						$product_unit = '';
-						$total = 0;
+                    if(is_array($rows)){
+                        foreach ($rows as $row):
+                            $free = lang('free');
+                            $product_unit = '';
+                            $total = 0;
 
-						if($row->variant){
-							$product_unit = $row->variant;
-						}else{
-							$product_unit = $row->uname;
-						}
-						$product_name_setting;
-						if($setting->show_code == 0) {
-							$product_name_setting = $row->product_name . ($row->variant ? ' (' . $row->variant . ')' : '');
-						}else {
-							if($setting->separate_code == 0) {
-								$product_name_setting = $row->product_name . " (" . $row->product_code . ")" . ($row->variant ? ' (' . $row->variant . ')' : '');
-							}else {
-								$product_name_setting = $row->product_name . ($row->variant ? ' (' . $row->variant . ')' : '');
-							}
-						}
-						?>
-							<tr>
-								<td style="text-align:center; width:40px; vertical-align:middle;"><?= $r; ?></td>
-								<?php if($setting->show_code == 1 && $setting->separate_code == 1) { ?>
-								<td style="vertical-align:middle;">
-									<?= $row->product_code ?>
-								</td>
-								<?php } ?>
-								<td style="vertical-align:middle;">
-									<?= $product_name_setting ?>
-									<?= $row->details ? '<br>' . $row->details : ''; ?>
-									<?= $row->serial_no ? '<br>' . $row->serial_no : ''; ?>
-								</td>
-								<td style="width: 80px; text-align:center; vertical-align:middle;"><?php echo $product_unit ?></td>
-								<td style="width: 80px; text-align:center; vertical-align:middle;"><?= $this->erp->formatQuantity($row->quantity); ?></td>
-                                <?php if ($Owner || $Admin || $GP['sales-price']) { ?>
-								    <td style="text-align:right; width:100px;"><?= $this->erp->formatMoney($row->unit_price); ?></td>
+                            if($row->variant){
+                                $product_unit = $row->variant;
+                            }else{
+                                $product_unit = $row->uname;
+                            }
+                            $product_name_setting;
+                            if($setting->show_code == 0) {
+                                $product_name_setting = $row->product_name . ($row->variant ? ' (' . $row->variant . ')' : '');
+                            }else {
+                                if($setting->separate_code == 0) {
+                                    $product_name_setting = $row->product_name . " (" . $row->product_code . ")" . ($row->variant ? ' (' . $row->variant . ')' : '');
+                                }else {
+                                    $product_name_setting = $row->product_name . ($row->variant ? ' (' . $row->variant . ')' : '');
+                                }
+                            }
+                            ?>
+                            <tr>
+                                <td style="text-align:center; width:40px; vertical-align:middle;"><?= $r; ?></td>
+                                <?php if($setting->show_code == 1 && $setting->separate_code == 1) { ?>
+                                    <td style="vertical-align:middle;">
+                                        <?= $row->product_code ?>
+                                    </td>
                                 <?php } ?>
-								<?php
-								if ($Settings->tax1) {
-									echo '<td style="width: 100px; text-align:right; vertical-align:middle;">' . ($row->item_tax != 0 && $row->tax_code ? '<small>('.$row->tax_code.')</small>' : '') . ' ' . $this->erp->formatMoney($row->item_tax) . '</td>';
-								}
-								if ($Settings->product_discount && $inv->product_discount != 0) {
-									echo '<td style="width: 100px; text-align:right; vertical-align:middle;">' . ($row->discount != 0 ? '<small>(' . $row->discount . ')</small> ' : '') . $this->erp->formatMoney($row->item_discount) . '</td>';
-								}
-								?>
-								<td style="text-align:right; width:120px;"><?= $row->subtotal!=0?$this->erp->formatMoney($row->subtotal):$free;
-									$total += $row->subtotal;
-									?></td>
-							</tr>
-							<?php
-							$r++;
-						endforeach;
-					}
+                                <td style="vertical-align:middle;">
+                                    <?= $product_name_setting ?>
+                                    <?= $row->details ? '<br>' . $row->details : ''; ?>
+                                    <?= $row->serial_no ? '<br>' . $row->serial_no : ''; ?>
+                                </td>
+                                <td style="width: 80px; text-align:center; vertical-align:middle;"><?php echo $product_unit ?></td>
+                                <td style="width: 80px; text-align:center; vertical-align:middle;"><?= $this->erp->formatQuantity($row->quantity); ?></td>
+                                <?php if ($Owner || $Admin || $GP['sales-price']) { ?>
+                                    <td style="text-align:right; width:100px;"><?= $this->erp->formatMoney($row->unit_price); ?></td>
+                                <?php } ?>
+                                <?php
+                                if ($Settings->tax1) {
+                                    echo '<td style="width: 100px; text-align:right; vertical-align:middle;">' . ($row->item_tax != 0 && $row->tax_code ? '<small>('.$row->tax_code.')</small>' : '') . ' ' . $this->erp->formatMoney($row->item_tax) . '</td>';
+                                }
+                                if ($Settings->product_discount && $inv->product_discount != 0) {
+                                    echo '<td style="width: 100px; text-align:right; vertical-align:middle;">' . ($row->discount != 0 ? '<small>(' . $row->discount . ')</small> ' : '') . $this->erp->formatMoney($row->item_discount) . '</td>';
+                                }
+                                ?>
+                                <td style="text-align:right; width:120px;"><?= $row->subtotal!=0?$this->erp->formatMoney($row->subtotal):$free;
+                                    $total += $row->subtotal;
+                                    ?></td>
+                            </tr>
+                            <?php
+                            $r++;
+                        endforeach;
+                    }
                     ?>
                     <?php
                     $col = 3;
@@ -296,33 +300,33 @@
                         </td>
                         <td style="text-align:right; padding-right:10px; font-weight:bold;"><?= $this->erp->formatMoney($inv->grand_total); ?></td>
                     </tr>
-					<?php if ($inv->deposit != 0) {?>
-					<tr>
-                        <td></td>
-                        <td colspan="<?= $col; ?>"
-                            style="text-align:right; font-weight:bold;"><?= lang("deposit"); ?>
-                            (<?= $default_currency->code; ?>)
-                        </td>
-                        <td style="text-align:right; font-weight:bold;"><?= $this->erp->formatMoney($inv->deposit); ?></td>
-                    </tr>
-					<?php } ?>
+                    <?php if ($inv->deposit != 0) {?>
+                        <tr>
+                            <td></td>
+                            <td colspan="<?= $col; ?>"
+                                style="text-align:right; font-weight:bold;"><?= lang("deposit"); ?>
+                                (<?= $default_currency->code; ?>)
+                            </td>
+                            <td style="text-align:right; font-weight:bold;"><?= $this->erp->formatMoney($inv->deposit); ?></td>
+                        </tr>
+                    <?php } ?>
                     <?php if(($inv->paid) != 0){?>
-                    <tr>
-                        <td></td>
-                        <td colspan="<?= $col; ?>"
-                            style="text-align:right; font-weight:bold;"><?= lang("paid"); ?>
-                            (<?= $default_currency->code; ?>)
-                        </td>
-                        <td style="text-align:right; font-weight:bold;"><?= $this->erp->formatMoney($inv->paid-$inv->deposit); ?></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td colspan="<?= $col; ?>"
-                            style="text-align:right; font-weight:bold;"><?= lang("balance"); ?>
-                            (<?= $default_currency->code; ?>)
-                        </td>
-                        <td style="text-align:right; font-weight:bold;"><?= $this->erp->formatMoney($inv->grand_total - ($inv->deposit+($inv->paid-$inv->deposit))); ?></td>
-                    </tr>
+                        <tr>
+                            <td></td>
+                            <td colspan="<?= $col; ?>"
+                                style="text-align:right; font-weight:bold;"><?= lang("paid"); ?>
+                                (<?= $default_currency->code; ?>)
+                            </td>
+                            <td style="text-align:right; font-weight:bold;"><?= $this->erp->formatMoney($inv->paid-$inv->deposit); ?></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td colspan="<?= $col; ?>"
+                                style="text-align:right; font-weight:bold;"><?= lang("balance"); ?>
+                                (<?= $default_currency->code; ?>)
+                            </td>
+                            <td style="text-align:right; font-weight:bold;"><?= $this->erp->formatMoney($inv->grand_total - ($inv->deposit+($inv->paid-$inv->deposit))); ?></td>
+                        </tr>
                     <?php }?>
                     </tbody>
                 </table>
@@ -331,50 +335,50 @@
             <div class="row">
                 <div class="col-xs-12">
                     <?php
-                        if ($inv->note || $inv->note != "") { ?>
-                            <div class="well well-sm">
-                                <p class="bold"><?= lang("note"); ?>:</p>
-                                <div><?= $this->erp->decode_html($inv->note); ?></div>
-                            </div>
+                    if ($inv->note || $inv->note != "") { ?>
+                        <div class="well well-sm">
+                            <p class="bold"><?= lang("note"); ?>:</p>
+                            <div><?= $this->erp->decode_html($inv->note); ?></div>
+                        </div>
                         <?php
-                        }
-                        if ($inv->staff_note || $inv->staff_note != "") { ?>
-                            <div class="well well-sm staff_note">
-                                <p class="bold"><?= lang("staff_note"); ?>:</p>
-                                <div><?= $this->erp->decode_html($inv->staff_note); ?></div>
-                            </div>
-                        <?php } ?>
+                    }
+                    if ($inv->staff_note || $inv->staff_note != "") { ?>
+                        <div class="well well-sm staff_note">
+                            <p class="bold"><?= lang("staff_note"); ?>:</p>
+                            <div><?= $this->erp->decode_html($inv->staff_note); ?></div>
+                        </div>
+                    <?php } ?>
                 </div>
-				<br/>
+                <br/>
 
-				<br/>
-				<div class="row">
-					<div class="clearfix"></div>
-					<div class="col-xs-3  pull-left" style="text-align:center">
-						<hr/>
-						<p><?= lang("seller"); ?>
-							<!--: <?= $biller->company != '-' ? $biller->company : $biller->name; ?> --></p>
-						<!--<p><?= lang("stamp_sign"); ?></p>-->
-					</div>
-					<div class="col-xs-3  pull-right" style="text-align:center">
-						<hr/>
-						<p><?= lang("customer"); ?>
-						   <!-- : <?= $customer->company ? $customer->company : $customer->names; ?> --></p>
-						<!--<p><?= lang("stamp_sign"); ?></p>-->
-					</div>
-					<div class="col-xs-3  pull-right" style="text-align:center">
-						<hr/>
-						<p><?= lang("Account"); ?>
-							<!--: <?= $customer->company ? $customer->company : $customer->names; ?>--> </p>
-						<!--<p><?= lang("stamp_sign"); ?></p>-->
-					</div>
-					<div class="col-xs-3  pull-right" style="text-align:center">
-						<hr/>
+                <br/>
+                <div class="row">
+                    <div class="clearfix"></div>
+                    <div class="col-xs-3  pull-left" style="text-align:center">
+                        <hr/>
+                        <p><?= lang("seller"); ?>
+                            <!--: <?= $biller->company != '-' ? $biller->company : $biller->name; ?> --></p>
+                        <!--<p><?= lang("stamp_sign"); ?></p>-->
+                    </div>
+                    <div class="col-xs-3  pull-right" style="text-align:center">
+                        <hr/>
+                        <p><?= lang("customer"); ?>
+                            <!-- : <?= $customer->company ? $customer->company : $customer->names; ?> --></p>
+                        <!--<p><?= lang("stamp_sign"); ?></p>-->
+                    </div>
+                    <div class="col-xs-3  pull-right" style="text-align:center">
+                        <hr/>
+                        <p><?= lang("Account"); ?>
+                            <!--: <?= $customer->company ? $customer->company : $customer->names; ?>--> </p>
+                        <!--<p><?= lang("stamp_sign"); ?></p>-->
+                    </div>
+                    <div class="col-xs-3  pull-right" style="text-align:center">
+                        <hr/>
                         <p><?= lang("Warehouse"); ?>
-							<!--: <?= $warehouse->company ? $warehouse->company : $warehouse->name; ?>--> </p>
-						<!--<p><?= lang("stamp_sign"); ?></p>-->
-					</div>
-				</div>
+                            <!--: <?= $warehouse->company ? $warehouse->company : $warehouse->name; ?>--> </p>
+                        <!--<p><?= lang("stamp_sign"); ?></p>-->
+                    </div>
+                </div>
                 <div class="col-xs-5 pull-right no-print" >
                     <div class="well well-sm">
                         <p>
@@ -382,10 +386,10 @@
                             <?= lang("date"); ?>: <?= $this->erp->hrld($inv->date); ?>
                         </p>
                         <?php if ($inv->updated_by) { ?>
-                        <p>
-                            <?= lang("updated_by"); ?>: <?= $updated_by->first_name . ' ' . $updated_by->last_name;; ?><br>
-                            <?= lang("update_at"); ?>: <?= $this->erp->hrld($inv->updated_at); ?>
-                        </p>
+                            <p>
+                                <?= lang("updated_by"); ?>: <?= $updated_by->first_name . ' ' . $updated_by->last_name;; ?><br>
+                                <?= lang("update_at"); ?>: <?= $this->erp->hrld($inv->updated_at); ?>
+                            </p>
                         <?php } ?>
                     </div>
                 </div>
@@ -394,7 +398,7 @@
 
                 <div class="buttons">
                     <div class="btn-group btn-group-justified">
-						<!--
+                        <!--
 						<div class="btn-group">
                             <a href="<?= site_url('sales/tax_invoice/' . $inv->id) ?>" target="_blank" class="tip btn btn-primary" title="<?= lang('tax_invoice') ?>">
                                 <i class="fa fa-print"></i>
@@ -433,19 +437,32 @@
                             </a>
                         </div>
 						-->
-<!--						<div class="btn-group">-->
-<!--                            <a href="--><?//= site_url('sales/invoice_thai_san/' . $inv->id) ?><!--" target="_blank" class="tip btn btn-primary" title="--><?//= lang('st_invoice') ?><!--">-->
-<!--                                <i class="fa fa-print"></i>-->
-<!--                                <span class="hidden-sm hidden-xs">--><?//= lang('st_invoice') ?><!--</span>-->
-<!--                            </a>-->
-<!--                        </div>-->
-						<div class="btn-group">
-                            <a href="<?= site_url('sales/print_st_invoice/' . $inv->id) ?>" target="_blank" class="tip btn btn-primary" title="<?= lang('standard_invoice') ?>">
+                        <div class="btn-group">
+                            <a href="<?= site_url('sales/print_st_invoice/' . $inv->id) ?>" target="_blank" class="tip btn btn-primary" title="<?= lang('st_invoice') ?>">
                                 <i class="fa fa-print"></i>
-                                <span class="hidden-sm hidden-xs"><?= lang('standard_invoice') ?></span>
+                                <span class="hidden-sm hidden-xs"><?= lang('st_invoice') ?></span>
                             </a>
                         </div>
-						<div class="btn-group">
+                        <div class="btn-group">
+                            <a href="<?= site_url('sales/print_st_invoice_2/' . $inv->id) ?>" target="_blank" class="tip btn btn-primary" title="<?= lang('invoice_st_a5') ?>">
+                                <i class="fa fa-print"></i>
+                                <span class="hidden-sm hidden-xs"><?= lang('invoice_st_a5') ?></span>
+                            </a>
+                        </div>
+                        <!--<div class="btn-group">
+                            <a href="<?= site_url('sales/print_iphoto_invoice/' . $inv->id) ?>" target="_blank" class="tip btn btn-primary" title="<?= lang('st_invoice') ?>">
+                                <i class="fa fa-print"></i>
+                                <span class="hidden-sm hidden-xs"><?= lang('iphoto_invoice') ?></span>
+                            </a>
+                        </div>
+                        <div class="btn-group">
+                            <a href="<?= site_url('sales/invoice_camera_city/' . $inv->id) ?>" target="_blank" class="tip btn btn-primary" title="<?= lang('invoice_camera_city') ?>">
+                                <i class="fa fa-print"></i>
+                                <span class="hidden-sm hidden-xs"><?= lang('invoice_camera_city') ?></span>
+                            </a>
+                        </div>-->
+
+                        <div class="btn-group">
                             <a href="<?= site_url('sales/tax_invoice/' . $inv->id) ?>" target="_blank" class="tip btn btn-primary" title="<?= lang('tax_invoice') ?>">
                                 <i class="fa fa-download"></i>
                                 <span class="hidden-sm hidden-xs"><?= lang('tax_invoice') ?></span>
@@ -514,7 +531,7 @@
                                 </a>
                             </div>
                         <?php } ?>
-						<!--
+                        <!--
 						<div class="btn-group">
                             <a href="<?= site_url('sales/invoice_deveryStatement/' . $inv->id) ?>" target="_blank" class="tip btn btn-primary" title="<?= lang('invoice_delivery_statement') ?>">
                                 <i class="fa fa-car"></i>
@@ -596,7 +613,7 @@
                                 <span class="hidden-sm hidden-xs"><?= lang('uy_sing') ?></span>
                             </a>
                         </div>-->
-						<!--<div class="btn-group">
+                <!--<div class="btn-group">
                             <a href="<?= site_url('sales/tax_invoice/' . $inv->id) ?>" target="_blank" class="tip btn btn-primary" title="<?= lang('tax_invoice') ?>">
                                 <i class="fa fa-download"></i>
                                 <span class="hidden-sm hidden-xs"><?= lang('tax_invoice') ?></span>
@@ -614,7 +631,7 @@
                                 <span class="hidden-sm hidden-xs"><?= lang('tax_invoice_ck') ?></span>
                             </a>
                         </div>-->
-                       <!-- <div class="btn-group">
+                <!-- <div class="btn-group">
                             <a href="<?= site_url('sales/idd_invoice/' . $inv->id) ?>" target="_blank" class="tip btn btn-primary" title="<?= lang('idd_invoice') ?>">
                                 <i class="fa fa-print"></i>
                                 <span class="hidden-sm hidden-xs"><?= lang('idd_invoice') ?></span>
