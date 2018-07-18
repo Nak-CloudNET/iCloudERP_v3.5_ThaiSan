@@ -296,7 +296,7 @@
                         <th>តម្លៃសរុប<br /><?= strtoupper(lang('subtotal')) ?></th>
                     </tr>
                     <?php
-
+//$this->erp->print_arrays($rows);
                     $no = 1;
                     $erow = 1;
                     $totalRow = 0;
@@ -321,32 +321,43 @@
                             }
                         }
                         ?>
-                        <tr>
+                        <tr class="border">
                             <td style="vertical-align: middle; text-align: center"><?php echo $no ?></td>
                             <td style="vertical-align: middle;">
                                 <?=$row->product_code;?>
                             </td>
+
                             <td style="vertical-align: middle; text-align: center">
                                 <?= $product_unit ?>
                             </td>
                             <td style="vertical-align: middle; text-align: center">
-                                <?= $this->erp->formatQuantity($row->quantity);?>
+                                <?=$this->erp->formatQuantity($row->quantity);?>
                             </td>
                             <td style="vertical-align: middle; text-align: right">
-                                $<?= $this->erp->formatMoney($row->real_unit_price); ?>
+                                <?php
+                                if($row->real_unit_price==0){echo "Free";}
+                                else{
+                                    echo $this->erp->formatMoney($row->real_unit_price);
+                                }
+                                ?>
                             </td>
                             <?php if ($row->item_discount) {?>
                                 <td style="vertical-align: middle; text-align: center">
-                                    $<?=$this->erp->formatMoney($row->item_discount);?></td>
+                                    <?=$this->erp->formatMoney($row->item_discount);?></td>
                             <?php } ?>
                             <?php if ($row->item_tax) {?>
                                 <td style="vertical-align: middle; text-align: center">
                                     <?=$this->erp->formatMoney($row->item_tax);?></td>
                             <?php } ?>
-                            <td style="vertical-align: middle; text-align: right">$<?= $this->erp->formatMoney($row->subtotal);?>
+                            <td style="vertical-align: middle; text-align: right">
+                                <?php
+                                if($row->subtotal==0){echo "Free";}
+                                else{
+                                    echo $this->erp->formatMoney($row->subtotal);
+                                }
+                                ?>
                             </td>
                         </tr>
-
                         <?php
                         $no++;
                         $erow++;
@@ -396,7 +407,7 @@
                     if($invs->total_discount){$col=3;$col2=3;}
                     if($invs->product_tax){$col=3;$col2=3;}
                     if($invs->total_discount>0 && $invs->product_tax>0 ){$col=3;$col2=4;}
-                    if($invs->total_discount==0 && $invs->product_tax==0 ){$col=2;$col2=3;}
+                    if($invs->total_discount==0 && $invs->product_tax==0 ){$col=3;$col2=2;}
                     if ($discount != 0) {
                         $col =3;
                     }
