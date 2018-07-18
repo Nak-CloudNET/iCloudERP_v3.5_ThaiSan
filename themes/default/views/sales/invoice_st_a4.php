@@ -276,7 +276,12 @@
                                                 <td>:</td>
                                                 <td><?= $this->erp->hrsd($invs->due_date) ?></td>
                                             </tr>
-                                        <?php } ?>
+                                        <?php }   $dis=0;
+                                        $taxx=0;
+                                        foreach ($rows as $row2) {
+                                            $dis+=$row2->item_discount;
+                                            $taxx+=$row2->item_tax;
+                                        }?>
                                     </table>
                                 </div>
                             </div>
@@ -452,8 +457,17 @@
                 }elseif ($invs->paid == 0 && $invs->deposit != 0) {
                     $row += 2;
                 }
+                $col=4;
+                if($dis==0){
+                    $col-=1;
+                }
+                if($taxx==0){
+                    $col-=1;
+                }
+                ?>
                 ?>
                 <?php
+
                 if ($invs->grand_total != $invs->total) { ?>
                     <tr class="border-foot">
                         <td rowspan = "<?= $row; ?>" colspan="<?= $col2; ?>" style="border-left: 1px solid #FFF !important; border-bottom: 1px solid #FFF !important;">
