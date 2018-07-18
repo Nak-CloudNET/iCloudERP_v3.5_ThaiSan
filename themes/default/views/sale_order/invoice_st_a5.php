@@ -514,22 +514,9 @@
     </div>
 
     <div style="width: 821px;margin: 20px">
-        <?php
-            if ($type == 'pos') {
-        ?>
-                <a class="btn btn-warning no-print" href="<?= site_url('pos/sales'); ?>" style="border-radius: 0">
-                    <i class="fa fa-hand-o-left" aria-hidden="true"></i>&nbsp;<?= lang("back"); ?>
-                </a>
-        <?php
-            } else {
-        ?>
-                <a class="btn btn-warning no-print" href="<?= site_url('sales'); ?>" style="border-radius: 0">
-                    <i class="fa fa-hand-o-left" aria-hidden="true"></i>&nbsp;<?= lang("back"); ?>
-                </a>
-        <?php
-            }
-        ?>
-
+        <a class="btn btn-warning no-print" href="<?= site_url('sale_order/list_sale_order'); ?>" style="border-radius: 0">
+            <i class="fa fa-hand-o-left" aria-hidden="true"></i>&nbsp;<?= lang("back"); ?>
+        </a>
     </div>
 </div>
 </body>
