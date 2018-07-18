@@ -191,6 +191,7 @@
 								<div  class="text-center"  style="margin-top: -20px !important;">
 									<div class="invoice" style="margin-top:20px;">
 										<center>
+                                            <h1 class="title"><strong>បញ្ជីសម្រង់តម្លៃ</strong></h1>
 											<h1 class="title"><strong>QUOTATION</strong></h1>
 										</center>
 									</div>
@@ -223,17 +224,17 @@
                         </th>
                     </tr>
                     <tr class="border thead print">
-                        <th style="width:50px !important;"><b>No</b></th>
-                        <th style="width:300px !important;"><b>Description</b></th>
-                        <th style="width:150px !important;"><b>Size</b></th>
-                        <th style="width:70px !important;"><b>QTY</b></th>
-                        <th style="width:70px !important;"><b>U/N</b></th>
-                        <th style="width:80px !important;"><b>U/PRICE</b></th>
+                        <th style="width:50px !important;"><b>ល.រ<br>No</b></th>
+                        <th style="width:300px !important;"><b>បរិយាយមុខទំនិញ<br>Description</b></th>
+                        <th style="width:150px !important;"><b>ទំហំ<br>Size</b></th>
+                        <th style="width:70px !important;"><b>ចំនួន<br>QTY</b></th>
+                        <th style="width:70px !important;"><b>ខ្នាត<br>U/N</b></th>
+                        <th style="width:80px !important;"><b>តម្លៃ<br>U/PRICE</b></th>
 						<?php 
 							if($invs->product_discount > 0){ ?>
-								<th style="width:80px !important;"><b>Dis</b></th>
+								<th style="width:80px !important;"><b>បញ្ចុះតម្លៃ<br>Dis</b></th>
 						<?php } ?>		
-                        <th style="width:100px !important;"><b>AMOUNT</b></th>
+                        <th style="width:100px !important;"><b>តម្លៃសរុប<br>AMOUNT</b></th>
                     </tr>
                 </thead>
                 <tbody>
