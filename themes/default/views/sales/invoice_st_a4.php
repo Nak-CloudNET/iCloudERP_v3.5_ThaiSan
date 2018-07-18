@@ -276,7 +276,13 @@
                                                 <td>:</td>
                                                 <td><?= $this->erp->hrsd($invs->due_date) ?></td>
                                             </tr>
-                                        <?php } ?>
+                                        <?php }
+                                        $dis=0;
+                                        $taxx=0;
+                                        foreach ($rows as $row2) {
+                                            $dis+=$row2->item_discount;
+                                            $taxx+=$row2->item_tax;
+                                        }?>
                                     </table>
                                 </div>
                             </div>
@@ -291,12 +297,16 @@
                         <th>ចំនួន<br /><?= strtoupper(lang('qty')) ?></th>
                         <th>តម្លៃ<br /><?= strtoupper(lang('price')) ?></th>
 
-                        <?php if ($Settings->product_discount) { ?>
+                        <?php if ($dis>0 ){ ?>
                             <th>បញ្ចុះតម្លៃ<br /><?= strtoupper(lang('discount')) ?></th>
+                        <?php }  echo $taxx; ?>
+
+                        <?php if ($taxx>0) { ?>
+                            <th style="width: 10%; display: none;">ពន្ធទំនិញ<br /><?= strtoupper(lang('tax')) ?></th>
+                            <th style="width: 10%;">ពន្ធទំនិញ<br /><?= strtoupper(lang('tax')) ?></th>
                         <?php } ?>
-                        <?php if ($Settings->tax1) { ?>
-                            <th style="width: 10%">ពន្ធទំនិញ<br /><?= strtoupper(lang('tax')) ?></th>
-                        <?php } ?>
+
+
                         <th>តម្លៃសរុប<br /><?= strtoupper(lang('subtotal')) ?></th>
                     </tr>
 
@@ -349,7 +359,7 @@
                                 }
                             ?>
                         </td>
-                        <?php if ($row->item_discount) {?>
+                        <?php if ($dis!=0) {?>
                             <td style="vertical-align: middle; text-align: center">
 
                                 <?php
@@ -360,8 +370,9 @@
                                 ?>
                             </td>
                         <?php } ?>
-                        <?php if ($row->item_tax) {?>
-                            <td style="vertical-align: middle; text-align: center">
+                        <?php if ($taxx!=0) {?>
+                            <td style="display: none;"></td>
+                            <td >
                                 <?=$this->erp->formatMoney($row->item_tax);?></td>
                         <?php } ?>
                         <td style="vertical-align: middle; text-align: right">
@@ -386,35 +397,68 @@
                 }
                 ?>
                 <?php
+
                 if($erow<16){
                     $k=16 - $erow;
                     for($j=1;$j<=$k;$j++) {
-                        if($discount != 0) {
-                            echo  '<tr class="border">
+                        if($dis>0) {
+                            if($taxx>0){
+                                echo  '<tr class="border">
                                     <td height="34px" style="text-align: center; vertical-align: middle">'.$no.'</td>
+                                    
                                     <td></td>
                                     <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                   
-                                    <td></td>
-                                </tr>';
-                        }else {
-                            echo  '<tr class="border">
-                                    <td height="34px" style="text-align: center; vertical-align: middle">'.$no.'</td>
                                     <td></td>
                                     <td></td>
                                     <td></td>
                                     <td></td>
                                     <td></td>
                                     
+                                </tr>';
+                            }else{
+                                echo  '<tr class="border">
+                                    <td height="34px" style="text-align: center; vertical-align: middle">'.$no.'</td>
+                                     
+                                   
+                                     <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
                                     <td></td>
                                     <td></td>
                                 </tr>';
-        }
+                            }
+
+
+                        }else {
+                            if($taxx>0){
+                                echo  '<tr class="border">
+                                    <td height="34px" style="text-align: center; vertical-align: middle">'.$no.'</td>
+                                    <!--<td></td>-->
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td style="display: none;"></td>
+                                    <td></td>
+                                    <td></td>
+                                    
+                                </tr>';
+                            }else{
+                                echo  '<tr class="border">
+                                    <td height="34px" style="text-align: center; vertical-align: middle">'.$no.'</td>
+                                    
+                                    
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>';
+                            }
+
+                        }
                         $no++;
                     }
                 }
@@ -452,8 +496,17 @@
                 }elseif ($invs->paid == 0 && $invs->deposit != 0) {
                     $row += 2;
                 }
+                $col=3;
+                if($dis==0){
+                    $col-=1;
+                }
+                if($taxx==0){
+                    $col-=1;
+                }
                 ?>
+
                 <?php
+
                 if ($invs->grand_total != $invs->total) { ?>
                     <tr class="border-foot">
                         <td rowspan = "<?= $row; ?>" colspan="<?= $col2; ?>" style="border-left: 1px solid #FFF !important; border-bottom: 1px solid #FFF !important;">

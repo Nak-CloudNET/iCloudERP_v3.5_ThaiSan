@@ -168,17 +168,31 @@
                                 </div>
 								<div  class="div_header col-md-4 col-sm-4 col-xs-4" style="font-size:10px !important; line-height: 20px !important;margin-left:-13px;margin-top:25px;">
 									<div>
+
 										<?php if(!empty($biller->address)) { ?>
-											<p class="address" style="margin-top:-15px !important;text-align-last:left !important;">អាសយដ្ឋាន ៖ &nbsp;<?= $biller->address; ?></p>
+                                            <table>
+                                                <tr>
+                                                    <td style="text-align:left; vertical-align: top; ">អាសយដ្ឋាន:&nbsp;&nbsp;&nbsp;</td>
+                                                    <td style="text-align: left;"><?= $biller->address; ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="text-align:left; ">H/P :</td>
+                                                    <td style="text-align: left;">012 736 868/088 8736 868 or 011 515 999</td>
+                                                </tr>
+
+
+
+
+
+
+										<?php  } if(!empty($biller->phone)) { ?>
+                                            <tr>
+                                                <td style="text-align:left; ">Tel:</td>
+                                                <td style="text-align: left;"><?= $biller->phone; ?> Fax:&nbsp;063 966 399</td>
+                                            </tr>
+
 										<?php } ?>
-									</div>
-									<div class="fax_phone" style="margin-left:-12px;">
-										<p style="margin-top:-10px ;">H/P:&nbsp;012 736 868/088 8736 868 or 011 515 999</p>
-									</div>
-									<div class="phone" style="margin-left:-65px;">
-										<?php if(!empty($biller->phone)) { ?>
-												<p style="margin-top:-15px ;">Tel:&nbsp;<?= $biller->phone; ?> Fax:&nbsp;063 966 399</p>
-										<?php } ?>
+                                            </table>
 									</div>
                                 </div>
                                 <div class="col-sm-3 col-xs-3 pull-right">
