@@ -170,7 +170,7 @@
 									<div>
 
 										<?php if(!empty($biller->address)) { ?>
-                                            <table>
+                                            <table style="font-size: 13px">
                                                 <tr>
                                                     <td style="text-align:left; vertical-align: top; ">អាសយដ្ឋាន:&nbsp;&nbsp;&nbsp;</td>
                                                     <td style="text-align: left;"><?= $biller->address; ?></td>
