@@ -131,6 +131,7 @@
 <div class="container" style="width: 821px;margin: 0 auto;">
     <div class="col-xs-12"
         <?php
+
         $cols = 6;
         if ($discount != 0) {
             $cols = 7;
@@ -281,10 +282,11 @@
                             </div>
                         </th>
                     </tr>
+
                     <tr class="border thead print" style="background-color: #444 !important; color: #FFF !important;">
                         <th>ល.រ<br /><?= strtoupper(lang('no')) ?></th>
-                        <th>បរិយាយមុខទំនិញ<br /><?= strtoupper(lang('description')) ?></th>
-                        <th>ការបញ្ជាក់<br /><?= strtoupper(lang('specification')) ?></th>
+                        <th>លេខកូដទំនិញ<br /><?= strtoupper(lang('Product code')) ?></th>
+<!--                        <th>ការបញ្ជាក់<br />--><?//= strtoupper(lang('specification')) ?><!--</th>-->
                         <th>ខ្នាត<br /><?= strtoupper(lang('unit')) ?></th>
                         <th>ចំនួន<br /><?= strtoupper(lang('qty')) ?></th>
                         <th>តម្លៃ<br /><?= strtoupper(lang('price')) ?></th>
@@ -297,11 +299,12 @@
                         <?php } ?>
                         <th>តម្លៃសរុប<br /><?= strtoupper(lang('subtotal')) ?></th>
                     </tr>
+
                 </thead>
                 <tbody>
 
                 <?php
-
+               // $this->erp->print_arrays($invs->order_discount);
                 $no = 1;
                 $erow = 1;
                 $totalRow = 0;
@@ -329,11 +332,9 @@
                     <tr class="border">
                         <td style="vertical-align: middle; text-align: center"><?php echo $no ?></td>
                         <td style="vertical-align: middle;">
-                            <?=$row->product_name;?>
+                            <?=$row->product_code;?>
                         </td>
-                        <td style="vertical-align: middle;">
-                            <?=$row->product_noted;?>
-                        </td>
+
                         <td style="vertical-align: middle; text-align: center">
                             <?= $product_unit ?>
                         </td>
@@ -374,6 +375,7 @@
                     </tr>
 
                     <?php
+
                     $no++;
                     $erow++;
                     $totalRow++;
@@ -397,7 +399,7 @@
                                     <td></td>
                                     <td></td>
                                     <td></td>
-                                    <td></td>
+                                   
                                     <td></td>
                                 </tr>';
                         }else {
@@ -408,7 +410,7 @@
                                     <td></td>
                                     <td></td>
                                     <td></td>
-                                    <td></td>
+                                    
                                     <td></td>
                                     <td></td>
                                 </tr>';
@@ -419,24 +421,29 @@
                 ?>
                 <?php
                 $row = 1;
-                $col =5;
+                $col =3;
+                $col2 = 4;
+                if($invs->total_discount){$col=3;$col2=4;}
+                if($invs->product_tax){$col=3;$col2=4;}
+                if($invs->total_discount>0 && $invs->product_tax>0 ){$col=3;$col2=4;}
+                if($invs->total_discount==0 && $invs->product_tax==0 ){$col=2;$col2=3;}
                 if ($discount != 0) {
-                    $col = 4;
+                    $col = 3;
                 }
                 if ($invs->grand_total != $invs->total) {
                     $row++;
                 }
                 if ($invs->order_discount != 0) {
                     $row++;
-                    $col =5;
+                    $col =3;
                 }
                 if ($invs->shipping != 0) {
                     $row++;
-                    $col =5;
+                    $col =3;
                 }
-                if ($invs->order_tax != 0) {
+                if ($invs->order_tax > 0) {
                     $row++;
-                    $col =5;
+                    $col =3;
                 }
                 if($invs->paid != 0 && $invs->deposit != 0) {
                     $row += 3;
@@ -446,11 +453,10 @@
                     $row += 2;
                 }
                 ?>
-
                 <?php
                 if ($invs->grand_total != $invs->total) { ?>
                     <tr class="border-foot">
-                        <td rowspan = "<?= $row; ?>" colspan="3" style="border-left: 1px solid #FFF !important; border-bottom: 1px solid #FFF !important;">
+                        <td rowspan = "<?= $row; ?>" colspan="<?= $col2; ?>" style="border-left: 1px solid #FFF !important; border-bottom: 1px solid #FFF !important;">
                             <?php if (!empty($invs->invoice_footer)) { ?>
                                 <p ><strong><u>Note:</u></strong></p>
                                 <p style="margin-top:-5px !important; line-height: 2"><?= $invs->invoice_footer ?></p>
@@ -486,7 +492,7 @@
 
                 <tr class="border-foot">
                     <?php if ($invs->grand_total == $invs->total) { ?>
-                        <td rowspan="<?= $row; ?>" colspan="3" style="border-left: 1px solid #FFF !important; border-bottom: 1px solid #FFF !important;">
+                        <td rowspan="<?= $row; ?>" colspan="<?= $col2; ?>" style="border-left: 1px solid #FFF !important; border-bottom: 1px solid #FFF !important;">
                             <?php if (!empty($invs->invoice_footer)) { ?>
                                 <p><strong><u>Note:</u></strong></p>
                                 <p><?= $invs->invoice_footer ?></p>
@@ -547,15 +553,15 @@
                                 <div class="col-sm-4 col-xs-4">
                                     <center>
                                         <hr style="margin:0; border:1px solid #000; width: 80%">
-                                        <p style=" margin-top: 4px !important">ហត្ថលេខា និងឈ្មោះអ្នករៀបចំ</p>
-                                        <p style="margin-top:-10px;">Prepared's Signature & Name</p>
+                                        <p style=" margin-top: 4px !important">ហត្ថលេខា និងឈ្មោះអ្នកលក់</p>
+                                        <p style="margin-top:-10px;">Seller's Signature & Name</p>
                                     </center>
                                 </div>
                                 <div class="col-sm-4 col-xs-4">
                                     <center>
                                         <hr style="margin:0; border:1px solid #000; width: 80%">
-                                        <p style="margin-top: 4px !important">ហត្ថលេខា និងឈ្មោះអ្នកលក់</p>
-                                        <p style="margin-top:-10px;">Seller's Signature & Name</p>
+                                        <p style="margin-top: 4px !important">ហត្ថលេខា និងឈ្មោះអ្នកដឹក</p>
+                                        <p style="margin-top:-10px;">Delivery's Signature & Name</p>
                                     </center>
                                 </div>
                                 <div class="col-sm-4 col-xs-4">
@@ -584,4 +590,12 @@
     </div>
 
 </body>
+<script type="text/javascript">
+    if(!<?=$invs->total_discount?$invs->total_discount:0; ?>){
+        $('td:nth-child(6),th:nth-child(6)').hide();
+    }
+    if(!<?=$invs->product_tax?$invs->product_tax:0; ?>){
+        $('td:nth-child(7),th:nth-child(7)').hide();
+    }
+</script>
 </html>
