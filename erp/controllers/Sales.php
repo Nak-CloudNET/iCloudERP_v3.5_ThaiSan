@@ -17718,7 +17718,7 @@ class Sales extends MY_Controller
         $this->load->view($this->theme .'sales/invoice_st_a4',$this->data);
     }
 
-    function print_st_invoice_2($id=null)
+    function print_st_invoice_2($_type = null, $id=null)
     {
         $this->erp->checkPermissions('add', true, 'sales');
 
@@ -17753,6 +17753,7 @@ class Sales extends MY_Controller
             }
         }
         $this->data['rows'] = $records;
+        $this->data['type'] = $_type;
         $this->data['sale_order'] = $this->sales_model->getSaleOrderById($inv->type_id);
         $this->data['return_items'] = $return ? $this->sales_model->getAllReturnItems($return->id) : NULL;
         $this->data['title'] = "2";

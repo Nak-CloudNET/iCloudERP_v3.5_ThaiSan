@@ -82,6 +82,10 @@ class Purchases extends MY_Controller
         $this->page_construct('purchases/index', $meta, $this->data);
     }
 
+    public function purchases_received(){
+        $this->erp->checkPermissions('index',null,'purchases');
+        $this->load->view($this->theme . 'purchases/invoice_receive', $this->data);
+}
     public function getPurchases_old($warehouse_id = null)
     {
         $this->erp->checkPermissions('index',null,'purchases');
@@ -1936,7 +1940,7 @@ class Purchases extends MY_Controller
         $this->data['payments'] = $this->purchases_model->getPaymentsForPurchase($purchase_id);
         $this->data['created_by'] = $this->site->getUser($inv->created_by);
         $this->data['updated_by'] = $inv->updated_by ? $this->site->getUser($inv->updated_by) : null;
-        //$this->erp->print_arrays($this->data);
+        //$this->erp->print_arrays($this->data['rows']);
         $this->load->view($this->theme .'purchases/invoice_receive',$this->data);
         // $bc = array(array('link' => base_url(), 'page' => lang('home')), array('link' => site_url('purchases'), 'page' => lang('purchases')), array('link' => '#', 'page' => lang('view')));
         // $meta = array('page_title' => lang('view_purchase_details'), 'bc' => $bc);
