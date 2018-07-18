@@ -440,23 +440,17 @@
 
                     <?php if ($invs->order_discount != 0) : ?>
                         <tr>
-                            <td colspan="<?= $col; ?>" style="text-align: right; font-weight: bold;">បញ្ចុះតម្លៃលើការបញ្ជាទិញ / <?= strtoupper(lang('order_discount')) ?></td>
+                            <td colspan="<?= $col; ?>" style="text-align: right; font-weight: bold;">បញ្ចុះតម្លៃ / <?= strtoupper(lang('order_discount')) ?></td>
                             <td align="right">$<?php echo $this->erp->formatQuantity($invs->order_discount).' $'; ?></td>
                         </tr>
                     <?php endif; ?>
 
                     <?php if ($invs->shipping != 0) : ?>
-                        <tr>
-                            <td colspan="<?= $col; ?>" style="text-align: right; font-weight: bold;">ដឹកជញ្ជូន / <?= strtoupper(lang('shipping')) ?></td>
-                            <td align="right">$<?php echo $this->erp->formatQuantity($invs->shipping); ?></td>
-                        </tr>
+
                     <?php endif; ?>
 
                     <?php if ($invs->order_tax != 0) : ?>
-                        <tr>
-                            <td colspan="<?= $col; ?>" style="text-align: right; font-weight: bold;">ពន្ធអាករ / <?= strtoupper(lang('order_tax')) ?></td>
-                            <td align="right">$<?= $this->erp->formatQuantity($invs->order_tax); ?></td>
-                        </tr>
+
                     <?php endif; ?>
 
                     <tr>
@@ -475,27 +469,12 @@
                     </tr>
                     <?php if($invs->paid != 0 || $invs->deposit != 0){ ?>
                         <?php if($invs->deposit != 0) { ?>
-                            <tr>
-                                <td colspan="<?= $col; ?>" style="text-align: right; font-weight: bold;">បានកក់ / <?= strtoupper(lang('deposit')) ?>
-                                    (<?= $default_currency->code; ?>)
-                                </td>
-                                <td align="right">$<?php echo $this->erp->formatMoney($invs->deposit); ?></td>
-                            </tr>
+
                         <?php } ?>
                         <?php if($invs->paid != 0) { ?>
-                            <tr>
-                                <td colspan="<?= $col; ?>" style="text-align: right; font-weight: bold;">បានបង់ / <?= strtoupper(lang('paid')) ?>
-                                    (<?= $default_currency->code; ?>)
-                                </td>
-                                <td align="right">$<?php echo $this->erp->formatMoney($invs->paid-$invs->deposit); ?></td>
-                            </tr>
-                        <?php } ?>
-                        <tr>
-                            <td colspan="<?= $col; ?>" style="text-align: right; font-weight: bold;">នៅខ្វះ / <?= strtoupper(lang('balance')) ?>
-                                (<?= $default_currency->code; ?>)
-                            </td>
-                            <td align="right">$<?= $this->erp->formatMoney($invs->grand_total - (($invs->paid-$invs->deposit) + $invs->deposit)); ?></td>
-                        </tr>
+
+                    <?php } ?>
+
                     <?php } ?>
 
                     </tbody>
@@ -535,22 +514,9 @@
     </div>
 
     <div style="width: 821px;margin: 20px">
-        <?php
-            if ($type == 'pos') {
-        ?>
-                <a class="btn btn-warning no-print" href="<?= site_url('pos/sales'); ?>" style="border-radius: 0">
-                    <i class="fa fa-hand-o-left" aria-hidden="true"></i>&nbsp;<?= lang("back"); ?>
-                </a>
-        <?php
-            } else {
-        ?>
-                <a class="btn btn-warning no-print" href="<?= site_url('sales'); ?>" style="border-radius: 0">
-                    <i class="fa fa-hand-o-left" aria-hidden="true"></i>&nbsp;<?= lang("back"); ?>
-                </a>
-        <?php
-            }
-        ?>
-
+        <a class="btn btn-warning no-print" href="<?= site_url('sale_order/list_sale_order'); ?>" style="border-radius: 0">
+            <i class="fa fa-hand-o-left" aria-hidden="true"></i>&nbsp;<?= lang("back"); ?>
+        </a>
     </div>
 </div>
 </body>
