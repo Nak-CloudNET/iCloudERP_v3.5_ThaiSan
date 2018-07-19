@@ -17753,11 +17753,11 @@ class Sales extends MY_Controller
             }
         }
         $this->data['rows'] = $records;
-        $this->data['type'] = $_type;
         $this->data['sale_order'] = $this->sales_model->getSaleOrderById($inv->type_id);
         $this->data['return_items'] = $return ? $this->sales_model->getAllReturnItems($return->id) : NULL;
         $this->data['title'] = "2";
         $this->data['sid'] = $id;
+        $this->data['type'] = $_type;
         $this->load->view($this->theme .'sales/invoice_st_a4_2',$this->data);
     }
 

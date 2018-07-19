@@ -286,6 +286,7 @@
                     <tr class="border thead print" style="background-color: #444 !important; color: #FFF !important;">
                         <th>ល.រ<br /><?= strtoupper(lang('no')) ?></th>
                         <th>លេខកូដទំនិញ<br /><?= strtoupper(lang('product code')) ?></th>
+                        <th>ឈ្មោះទំនិញ<br /><?= strtoupper(lang('product name')) ?></th>
 <!--                        <th>ការបញ្ជាក់<br />--><?//= strtoupper(lang('specification')) ?><!--</th>-->
                         <th>ខ្នាត<br /><?= strtoupper(lang('unit')) ?></th>
                         <th>ចំនួន<br /><?= strtoupper(lang('qty')) ?></th>
@@ -303,7 +304,7 @@
                 <tbody>
 
                 <?php
-
+               // $this->erp->print_arrays($rows);
                 $no = 1;
                 $erow = 1;
                 $totalRow = 0;
@@ -332,6 +333,9 @@
                         <td style="vertical-align: middle; text-align: center"><?php echo $no ?></td>
                         <td style="vertical-align: middle;">
                             <?=$row->product_code;?>
+                        </td>
+                        <td style="vertical-align: middle;">
+                            <?=$row->product_name;?>
                         </td>
 
                         <td style="vertical-align: middle; text-align: center">
@@ -390,8 +394,8 @@
                                     <td></td>
                                     <td></td>
                                     <td></td>
-                                    
                                     <td></td>
+                                   
                                 </tr>';
                         }else {
                             echo  '<tr class="border">
@@ -403,6 +407,8 @@
                                     <td></td>
                                     <td></td>
                                     <td></td>
+                                    <td></td>
+                                 
                                    
                                 </tr>';
         }
@@ -416,8 +422,8 @@
                 $col2 = 5;
                 if($invs->total_discount){$col=3;$col2=4;}
                 if($invs->product_tax){$col=3;$col2=4;}
-                if($invs->total_discount>0 && $invs->product_tax>0 ){$col=3;$col2=4;}
-                if($invs->total_discount==0 && $invs->product_tax==0 ){$col=3;$col2=2;}
+                if($invs->total_discount>0 && $invs->product_tax>0 ){$col=4;$col2=4;}
+                if($invs->total_discount==0 && $invs->product_tax==0 ){$col=4;$col2=2;}
                 if ($discount != 0) {
                     $col = 3;
                 }
@@ -584,10 +590,10 @@
 </body>
 <script type="text/javascript">
     if(!<?=$invs->total_discount?$invs->total_discount:0; ?>){
-        $('td:nth-child(6),th:nth-child(6)').hide();
+        $('td:nth-child(7),th:nth-child(7)').hide();
     }
     if(!<?=$invs->product_tax?$invs->product_tax:0; ?>){
-        $('td:nth-child(7),th:nth-child(7)').hide();
+        $('td:nth-child(8),th:nth-child(8)').hide();
     }
 </script>
 </html>

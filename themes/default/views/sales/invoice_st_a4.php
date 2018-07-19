@@ -292,6 +292,7 @@
                     <tr class="border thead print" style="background-color: #444 !important; color: #FFF !important;">
                         <th>ល.រ<br /><?= strtoupper(lang('no')) ?></th>
                         <th>លេខកូដទំនិញ<br /><?= strtoupper(lang('Product code')) ?></th>
+                        <th>ឈ្មោះទំនិញ<br /><?= strtoupper(lang('Product Name')) ?></th>
 <!--                        <th>ការបញ្ជាក់<br />--><?//= strtoupper(lang('specification')) ?><!--</th>-->
                         <th>ខ្នាត<br /><?= strtoupper(lang('unit')) ?></th>
                         <th>ចំនួន<br /><?= strtoupper(lang('qty')) ?></th>
@@ -343,6 +344,9 @@
                         <td style="vertical-align: middle; text-align: center"><?php echo $no ?></td>
                         <td style="vertical-align: middle;">
                             <?=$row->product_code;?>
+                        </td>
+                        <td style="vertical-align: middle;">
+                            <?=$row->product_name;?>
                         </td>
 
                         <td style="vertical-align: middle; text-align: center">
@@ -401,8 +405,8 @@
                 if($erow<16){
                     $k=16 - $erow;
                     for($j=1;$j<=$k;$j++) {
-                        if($dis>0) {
-                            if($taxx>0){
+                        if($dis != 0) {
+
                                 echo  '<tr class="border">
                                     <td height="34px" style="text-align: center; vertical-align: middle">'.$no.'</td>
                                     
@@ -413,12 +417,14 @@
                                     <td></td>
                                     <td></td>
                                     <td></td>
+                                    <td></td>
+
+                             
                                     
                                 </tr>';
                             }else{
                                 echo  '<tr class="border">
-                                    <td height="34px" style="text-align: center; vertical-align: middle">'.$no.'</td>
-                                     
+                                    <td height="34px" style="text-align: center; vertical-align: middle">'.$no.'</td>                                     
                                    
                                      <td></td>
                                     <td></td>
@@ -427,81 +433,47 @@
                                     <td></td>
                                     <td></td>
                                     <td></td>
+                                   
                                 </tr>';
                             }
 
 
-                        }else {
-                            if($taxx>0){
-                                echo  '<tr class="border">
-                                    <td height="34px" style="text-align: center; vertical-align: middle">'.$no.'</td>
-                                    <!--<td></td>-->
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td style="display: none;"></td>
-                                    <td></td>
-                                    <td></td>
-                                    
-                                </tr>';
-                            }else{
-                                echo  '<tr class="border">
-                                    <td height="34px" style="text-align: center; vertical-align: middle">'.$no.'</td>
-                                    
-                                    
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>';
-                            }
 
-                        }
                         $no++;
                     }
                 }
                 ?>
                 <?php
-                $row = 1;
-                $col =3;
+                $row = 3;
+                $col =4;
                 $col2 = 4;
-                if($invs->total_discount){$col=3;$col2=4;}
-                if($invs->product_tax){$col=3;$col2=4;}
-                if($invs->total_discount>0 && $invs->product_tax>0 ){$col=3;$col2=4;}
-                if($invs->total_discount==0 && $invs->product_tax==0 ){$col=2;$col2=3;}
+                if($invs->total_discount){$col=4;$col2=3;}
+                if($invs->product_tax){$col=4;$col2=3;}
+                if($invs->total_discount>0 && $invs->product_tax>0 ){$col=5;$col2=3;}
+                if($invs->total_discount==0 && $invs->product_tax==0 ){$col=4;$col2=2;}
                 if ($discount != 0) {
-                    $col = 3;
+                    $col =4;
                 }
                 if ($invs->grand_total != $invs->total) {
                     $row++;
                 }
                 if ($invs->order_discount != 0) {
                     $row++;
-                    $col =3;
+                    $col =4;
                 }
                 if ($invs->shipping != 0) {
                     $row++;
-                    $col =3;
+                    $col =4;
                 }
-                if ($invs->order_tax > 0) {
+                if ($invs->order_tax != 0) {
                     $row++;
-                    $col =3;
+                    $col =4;
                 }
                 if($invs->paid != 0 && $invs->deposit != 0) {
                     $row += 3;
                 }elseif ($invs->paid != 0 && $invs->deposit == 0) {
                     $row += 2;
                 }elseif ($invs->paid == 0 && $invs->deposit != 0) {
-                    $row += 2;
-                }
-                $col=3;
-                if($dis==0){
-                    $col-=1;
-                }
-                if($taxx==0){
-                    $col-=1;
                 }
                 ?>
 
@@ -645,10 +617,10 @@
 </body>
 <script type="text/javascript">
     if(!<?=$invs->total_discount?$invs->total_discount:0; ?>){
-        $('td:nth-child(6),th:nth-child(6)').hide();
+        $('td:nth-child(8),th:nth-child(8)').hide();
     }
     if(!<?=$invs->product_tax?$invs->product_tax:0; ?>){
-        $('td:nth-child(7),th:nth-child(7)').hide();
+        $('td:nth-child(9),th:nth-child(9)').hide();
     }
 </script>
 </html>
