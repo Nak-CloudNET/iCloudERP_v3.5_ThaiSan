@@ -97,7 +97,7 @@ class Sale_order extends MY_Controller
         $this->load->view($this->theme .'sale_order/invoice_ppcp',$this->data);
     }
 	
-	/*=================================Chin local updated================================*/
+	/*=================================Chin local updated================================ */
 	function add_sale_order($quote_ID = NULL)
     {
 		$this->erp->checkPermissions('add', null, 'sale_order');
@@ -533,6 +533,7 @@ class Sale_order extends MY_Controller
 					$row->digital_code	  = "";
 					$row->digital_name	  = "";
 					$row->digital_id	  = 0;
+					$row->note            = $item->product_noted;
 					if($dig){
 						$row->digital_code 	= $dig->code .' ['. $row->code .']';
 						$row->digital_name 	= $dig->name .' ['. $row->name .']';
