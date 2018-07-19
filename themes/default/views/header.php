@@ -516,11 +516,11 @@
                                                 <i class="fa fa-chain"></i><span class="text"> <?= lang('customer_groups'); ?></span>
                                             </a>
                                         </li>
-                                       <!-- <li id="system_settings_index">
-                                            <a href="<?/*= site_url('system_settings') */?>">
-                                                <i class="fa fa-cog"></i><span class="text"> <?/*= lang('system_settings'); */?></span>
+                                        <li id="system_settings_index">
+                                            <a href="<?= site_url('system_settings') ?>">
+                                                <i class="fa fa-cog"></i><span class="text"> <?= lang('system_settings'); ?></span>
                                             </a>
-                                        </li>-->
+                                        </li>
                                         <?php if (POS) { ?>
                                           <!--  <li id="pos_settings">
                                                 <a href="<?/*= site_url('pos/settings') */?>">
@@ -535,11 +535,11 @@
                                             </a>
                                         </li>
                                         -->
-                                    <!--    <li id="system_settings_change_logo">
-                                            <a href="<?/*= site_url('system_settings/change_logo') */?>" data-toggle="modal" data-target="#myModal">
-                                                <i class="fa fa-upload"></i><span class="text"> <?/*= lang('change_logo'); */?></span>
+                                    <li id="system_settings_change_logo">
+                                            <a href="<?= site_url('system_settings/change_logo') ?>" data-toggle="modal" data-target="#myModal">
+                                                <i class="fa fa-upload"></i><span class="text"> <?= lang('change_logo'); ?></span>
                                             </a>
-                                        </li>-->
+                                        </li>
                                   <!--      <li id="system_settings_tax_rates">
                                             <a href="<?/*= site_url('system_settings/tax_rates') */?>">
                                                 <i class="fa fa-plus-circle"></i><span class="text"> <?/*= lang('tax_rates'); */?></span>

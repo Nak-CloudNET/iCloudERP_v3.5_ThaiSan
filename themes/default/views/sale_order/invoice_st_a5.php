@@ -16,7 +16,11 @@
     .container {
         width: 19.3cm;
     }
-
+    .title{
+        font-family:"Khmer OS Muol Light";
+        -mox-font-family:"Khmer OS Muol Light";
+        font-size: 15px;
+    }
     @page {
         size: 8.5in 11in;
         margin: 2%;
@@ -133,6 +137,7 @@
     <div class="col-xs-12" style="padding: 0">
         <div class="row" style="margin-top: 20px !important;">
             <div class="col-sm-3 col-xs-3 " style="margin-top: 0px !important;">
+                <br>
                 <?php if(!empty($biller->logo)) { ?>
                     <img class="img-responsive myhide" src="<?= base_url() ?>assets/uploads/logos/<?= $biller->logo; ?>"id="hidedlo" style="width: 140px; margin-top: -10px;" />
                 <?php } ?>
@@ -182,10 +187,10 @@
         </div>
 
         <div class="row">
-            <div class="col-sm-12 col-xs-12 inv" style="margin-top: -10px !important">
+            <div class="invoice" style="margin-top: -10px !important">
                 <center>
-                    <h4>វិក្កយបត្រ</h4>
-                    <h4 style="margin-top:-10px !important;">INVOICE</h4>
+                    <h4 class="title">វិក្កយបត្របញ្ជាទិញ</h4>
+                    <h4 class="title" style="margin-top:-10px !important;">Sale Orders Invoice</h4>
                 </center>
             </div>
         </div>
@@ -503,6 +508,7 @@
                 <p style="margin-left: 10px;margin-top:10px;"><?php echo strip_tags($invs->note); ?></p>
             </div>
         <?php } ?>
+        <br> <br> <br> <br>
     </div>	<!--div col sm 6 -->
 
     <div id="footer" class="row">
