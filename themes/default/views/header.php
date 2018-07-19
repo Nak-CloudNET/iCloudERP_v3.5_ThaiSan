@@ -1662,7 +1662,7 @@
                                                 </li>
                                             </ul>
                                         </li>-->
-                                      
+
 
                                 <li class="mm_reports">
                                     <a class="dropmenu" href="#">
@@ -1672,58 +1672,57 @@
                                     </a>
 
                                     <ul>
-                                        <!--
-                                        <li class="mm_chart_report">
-                                                    <a class="dropmenu" href="#">
-                                                        <i class="fa fa-bar-chart-o"></i>
-                                                        <span class="text"> <?= lang('chart_report'); ?> </span>
-                                                        <span class="chevron closed"></span>
-                                                    </a>
-                                                    <ul>
-                                            <li id="reports_index">
-                                                <a href="<?= site_url('reports') ?>">
-                                                    <i class="fa fa-bar-chart-o"></i><span class="text"> <?= lang('overview_chart'); ?></span>
-                                                </a>
-                                            </li>
-                                            <li id="reports_warehouse_stock">
-                                                <a href="<?= site_url('reports/warehouse_stock') ?>">
-                                                    <i class="fa fa-bar-chart-o"></i><span class="text"> <?= lang('warehouse_stock'); ?></span>
-                                                </a>
-                                            </li>
-                                            <li id="reports_category_stock">
-                                                <a href="<?= site_url('reports/category_stock') ?>">
-                                                    <i class="fa fa-bar-chart-o"></i><span class="text"> <?= lang('category_stock_chart'); ?></span>
-                                                </a>
-                                            </li>
-                                            <li id="reports_profit_chart">
-                                                <a href="<?= site_url('reports/profit_chart') ?>">
-                                                    <i class="fa fa-bar-chart-o"></i><span class="text"> <?= lang('profit_chart'); ?></span>
-                                                </a>
-                                            </li>
-                                            <li id="reports_cash_chart">
-                                                <a href="<?= site_url('reports/cash_chart') ?>">
-                                                    <i class="fa fa-bar-chart-o"></i><span class="text"> <?= lang('cash_analysis_chart'); ?></span>
-                                                </a>
-                                            </li>
-                                            </ul>
-                                        </li>
+                                        <!--<li class="mm_chart_report">
+															<a class="dropmenu" href="#">
+																<i class="fa fa-bar-chart-o"></i>
+																<span class="text"> <?= lang('chart_report'); ?> </span>
+																<span class="chevron closed"></span>
+															</a>
+															<ul>
+													<li id="reports_index">
+														<a href="<?= site_url('reports') ?>">
+															<i class="fa fa-bar-chart-o"></i><span class="text"> <?= lang('overview_chart'); ?></span>
+														</a>
+													</li>
+													<li id="reports_warehouse_stock">
+														<a href="<?= site_url('reports/warehouse_stock') ?>">
+															<i class="fa fa-bar-chart-o"></i><span class="text"> <?= lang('warehouse_stock'); ?></span>
+														</a>
+													</li>
+													<li id="reports_category_stock">
+														<a href="<?= site_url('reports/category_stock') ?>">
+															<i class="fa fa-bar-chart-o"></i><span class="text"> <?= lang('category_stock_chart'); ?></span>
+														</a>
+													</li>
+													<li id="reports_profit_chart">
+														<a href="<?= site_url('reports/profit_chart') ?>">
+															<i class="fa fa-bar-chart-o"></i><span class="text"> <?= lang('profit_chart'); ?></span>
+														</a>
+													</li>
+													<li id="reports_cash_chart">
+														<a href="<?= site_url('reports/cash_chart') ?>">
+															<i class="fa fa-bar-chart-o"></i><span class="text"> <?= lang('cash_analysis_chart'); ?></span>
+														</a>
+													</li>
+													</ul>
+												</li>-->
                                         <li class="mm_profit_report">
-                                                <a class="dropmenu" href="#">
-                                                    <i class="fa fa-money"></i>
-                                                    <span class="text"> <?= lang('profit_report'); ?> </span>
-                                                    <span class="chevron closed"></span>
-                                                </a>
+                                            <a class="dropmenu" href="#">
+                                                <i class="fa fa-money"></i>
+                                                <span class="text"> <?= lang('profit_report'); ?> </span>
+                                                <span class="chevron closed"></span>
+                                            </a>
                                             <ul>
-                                            <li id="reports_profit_loss">
-                                                <a href="<?= site_url('reports/profit_loss') ?>">
-                                                    <i class="fa fa-money"></i><span class="text"> <?= lang('profit_and_loss'); ?></span>
-                                                </a>
-                                            </li>
-                                            <li id="reports_payments">
-                                                <a href="<?= site_url('reports/payments') ?>">
-                                                    <i class="fa fa-money"></i><span class="text"> <?= lang('payments_report'); ?></span>
-                                                </a>
-                                            </li>
+                                                <li id="reports_profit_loss">
+                                                    <a href="<?= site_url('reports/profit_loss') ?>">
+                                                        <i class="fa fa-money"></i><span class="text"> <?= lang('profit_and_loss'); ?></span>
+                                                    </a>
+                                                </li>
+                                                <li id="reports_payments">
+                                                    <a href="<?= site_url('reports/payments') ?>">
+                                                        <i class="fa fa-money"></i><span class="text"> <?= lang('payments_report'); ?></span>
+                                                    </a>
+                                                </li>
                                                 <?php if (POS) { ?>
                                                 <li id="reports_register">
                                                     <a href="<?= site_url('reports/register') ?>">
@@ -1732,132 +1731,129 @@
                                                 </li>
                                             </ul>
                                         </li>
-                                        -->
                                         <li class="mm_product_report">
-                                                <a class="dropmenu" href="#">
-                                                    <i class="fa fa-barcode"></i>
-                                                    <span class="text"> <?= lang('product_report'); ?> </span>
-                                                    <span class="chevron closed"></span>
-                                                </a>
-                                                <ul>
+                                            <a class="dropmenu" href="#">
+                                                <i class="fa fa-barcode"></i>
+                                                <span class="text"> <?= lang('product_report'); ?> </span>
+                                                <span class="chevron closed"></span>
+                                            </a>
+                                            <ul>
                                                 <?php } ?>
-                                                   <!-- <li id="reports_quantity_alerts">
-                                                        <a href="<?/*= site_url('reports/quantity_alerts') */?>">
-                                                            <i class="fa fa-barcode"></i><span class="text"> <?/*= lang('product_quantity_alerts'); */?></span>
+                                                <li id="reports_quantity_alerts">
+                                                    <a href="<?= site_url('reports/quantity_alerts') ?>">
+                                                        <i class="fa fa-barcode"></i><span class="text"> <?= lang('product_quantity_alerts'); ?></span>
+                                                    </a>
+                                                </li>
+                                                <?php if ($this->Settings->product_expiry) { ?>
+                                                    <li id="reports_expiry_alerts">
+                                                        <a href="<?= site_url('reports/expiry_alerts') ?>">
+                                                            <i class="fa fa-barcode"></i><span class="text"> <?= lang('product_expiry_alerts'); ?></span>
                                                         </a>
-                                                    </li>-->
-                                                    <?php if ($this->Settings->product_expiry) { ?>
-                                                        <li id="reports_expiry_alerts">
-                                                            <a href="<?= site_url('reports/expiry_alerts') ?>">
-                                                                <i class="fa fa-barcode"></i><span class="text"> <?= lang('product_expiry_alerts'); ?></span>
-                                                            </a>
-                                                        </li>
-                                                    <?php } ?>
-                                                            <li id="reports_inventory_inout">
-                                                                <a href="<?= site_url('reports/inventory_inout') ?>">
-                                                                    <i class="fa fa-barcode"></i><span class="text"> <?= lang('product_valuation_summary'); ?></span>
-                                                                </a>
-                                                            </li>
-                                                            <li id="reports_inventory_valuation_detail">
-                                                                <a href="<?= site_url('reports/inventory_valuation_detail') ?>">
-                                                                    <i class="fa fa-barcode"></i><span class="text"> <?= lang('product_valuation_detail'); ?></span>
-                                                                </a>
-                                                            </li>
-                                                            <li id="reports_warehouse_products">
-                                                                <a href="<?= site_url('reports/warehouse_products') ?>">
-                                                                    <i class="fa fa-barcode"></i><span class="text"> <?= lang('warehouse_products'); ?></span>
-                                                                </a>
-                                                            </li>
-                                                <!--
-                                                            <li id="reports_product_monthlyinout">
-                                                                <a href="<?= site_url('reports/product_monthlyinout') ?>">
-                                                                    <i class="fa fa-barcode"></i><span class="text"> <?= lang('monthly_product'); ?></span>
-                                                                </a>
-                                                            </li>
-                                                            <li id="reports_product_dailyinout">
-                                                                <a href="<?= site_url('reports/product_dailyinout') ?>">
-                                                                    <i class="fa fa-barcode"></i><span class="text"> <?= lang('daily_product'); ?></span>
-                                                                </a>
-                                                            </li>
-                                                            <li id="reports_categories">
-                                                                <a href="<? /*= site_url('reports/categories') */ ?>">
-                                                                    <i class="fa fa-barcode"></i><span class="text"> <? /*= lang('categories_report'); */ ?></span>
-                                                                </a>
-                                                            </li>
-                                                            <li id="reports_categories_value">
-                                                                <a href="<? /*= site_url('reports/categories_value') */ ?>">
-                                                                    <i class="fa fa-barcode"></i><span class="text"> <? /*= lang('categories_value_report'); */ ?></span>
-                                                                </a>
-                                                            </li>
-                                                            <li id="reports_adjustment_report">
-                                                                <a href="<?= site_url('reports/adjustment_report') ?>">
-                                                                    <i class="fa fa-barcode"></i><span class="text"> <?= lang('adjustment_report'); ?></span>
-                                                                </a>
-                                                            </li>
+                                                    </li>
+                                                <?php } ?>
+                                                <li id="reports_inventory_inout">
+                                                    <a href="<?= site_url('reports/inventory_inout') ?>">
+                                                        <i class="fa fa-barcode"></i><span class="text"> <?= lang('products_in_out'); ?></span>
+                                                    </a>
+                                                </li>
+                                                <li id="reports_warehouse_products">
+                                                    <a href="<?= site_url('reports/warehouse_products') ?>">
+                                                        <i class="fa fa-barcode"></i><span class="text"> <?= lang('warehouse_products'); ?></span>
+                                                    </a>
+                                                </li>
 
-                                                            <li id="reports_supplier_details">
-                                                                <a href="<?= site_url('reports/supplier_details') ?>">
-                                                                    <i class="fa fa-barcode"></i><span class="text"> <?= lang('supplier_products'); ?></span>
-                                                                </a>
-                                                            </li>
-                                                            <li id="reports_supplier_details">
-                                                                <a href="<?= site_url('reports/product_profit') ?>">
-                                                                    <i class="fa fa-barcode"></i><span class="text"> <?= lang('product_profit'); ?></span>
-                                                                </a>
-                                                            </li>
-                                                            <li id="reports_customer_details">
-                                                                <a href="<?= site_url('reports/customer_details') ?>">
-                                                                    <i class="fa fa-barcode"></i><span class="text"> <?= lang('product_customers'); ?></span>
-                                                                </a>
-                                                            </li>
-                                                            <li id="reports_customer_sale_top">
-                                                                <a href="<?= site_url('reports/report_sale_top') ?>">
-                                                                    <i class="fa fa-barcode"></i><span class="text"> <?= lang('product_sale_top'); ?></span>
-                                                                </a>
-                                                            </li>
-                                                            <li id="reports_production_report">
-                                                                <a href="<?= site_url('reports/production_report') ?>">
-                                                                    <i class="fa fa-barcode"></i><span class="text"> <?= lang('production_report'); ?></span>
-                                                                </a>
-                                                            </li>
-                                                            <li id="reports_transfers_report">
-                                                                <a href="<?= site_url('reports/transfers_report') ?>">
-                                                                    <i class="fa fa-barcode"></i><span class="text"> <?= lang('transfers_report'); ?></span>
-                                                                </a>
-                                                            </li>
-                                                            <li id="reports_transfers_summary_report">
-                                                                <a href="<?= site_url('reports/transfers_summary_report') ?>">
-                                                                    <i class="fa fa-barcode"></i><span
-                                                                            class="text"> <?= lang('transfers_summary_report'); ?></span>
-                                                                </a>
-                                                            </li>
-                                                            <li id="reports_list_using_stock_report">
-                                                                <a href="<?= site_url('reports/list_using_stock_report') ?>">
-                                                                    <i class="fa fa-barcode"></i><span class="text"> <?= lang('list_using_stock_report'); ?></span>
-                                                                </a>
-                                                            </li>
-                                                            <li id="reports_convert_reports">
-                                                                <a href="<?= site_url('reports/convert_reports') ?>">
-                                                                    <i class="fa fa-barcode"></i><span class="text"> <?= lang('convert_report'); ?></span>
-                                                                </a>
-                                                            </li>
-                                                            <li id="reports_track_costs">
-                                                                <a href="<?= site_url('reports/track_costs') ?>">
-                                                                    <i class="fa fa-dollar"></i><span class="text"> <?= lang('track_costs'); ?></span>
-                                                                </a>
-                                                            </li>
-                                                            <li id="reports_supplier_by_items">
-                                                                <a href="<?= site_url('reports/supplier_by_items') ?>">
-                                                                    <i class="fa fa-barcode"></i><span class="text"> <?= lang('supplier_products'); ?></span>
-                                                                </a>
-                                                            </li>
-                                                            <li id="reports_customer_products">
-                                                                <a href="<?= site_url('reports/customer_products') ?>">
-                                                                    <i class="fa fa-barcode"></i><span class="text"> <?= lang('product_customers'); ?></span>
-                                                                </a>
-                                                            </li>
-                                                            -->
-                                                        </ul>
+                                                <li id="reports_product_monthlyinout">
+                                                    <a href="<?= site_url('reports/product_monthlyinout') ?>">
+                                                        <i class="fa fa-barcode"></i><span class="text"> <?= lang('monthly_product'); ?></span>
+                                                    </a>
+                                                </li>
+                                                <li id="reports_product_dailyinout">
+                                                    <a href="<?= site_url('reports/product_dailyinout') ?>">
+                                                        <i class="fa fa-barcode"></i><span class="text"> <?= lang('daily_product'); ?></span>
+                                                    </a>
+                                                </li>
+                                                <li id="reports_categories">
+                                                    <a href="<?= site_url('reports/categories') ?>">
+                                                        <i class="fa fa-barcode"></i><span class="text"> <?= lang('categories_report'); ?></span>
+                                                    </a>
+                                                </li>
+                                                <li id="reports_categories_value">
+                                                    <a href="<?= site_url('reports/categories_value') ?>">
+                                                        <i class="fa fa-barcode"></i><span class="text"> <?= lang('categories_value_report'); ?></span>
+                                                    </a>
+                                                </li>
+                                                <li id="reports_adjustment_report">
+                                                    <a href="<?= site_url('reports/adjustment_report') ?>">
+                                                        <i class="fa fa-barcode"></i><span class="text"> <?= lang('adjustment_report'); ?></span>
+                                                    </a>
+                                                </li>
+                                                <li id="reports_inventory_valuation_detail">
+                                                    <a href="<?= site_url('reports/inventory_valuation_detail') ?>">
+                                                        <i class="fa fa-barcode"></i><span class="text"> <?= lang('inventory_valuation_detail'); ?></span>
+                                                    </a>
+                                                </li>
+                                                <li id="reports_supplier_details">
+                                                    <a href="<?= site_url('reports/supplier_details') ?>">
+                                                        <i class="fa fa-barcode"></i><span class="text"> <?= lang('supplier_products'); ?></span>
+                                                    </a>
+                                                </li>
+                                                <li id="reports_supplier_details">
+                                                    <a href="<?= site_url('reports/product_profit') ?>">
+                                                        <i class="fa fa-barcode"></i><span class="text"> <?= lang('product_profit'); ?></span>
+                                                    </a>
+                                                </li>
+                                                <li id="reports_customer_details">
+                                                    <a href="<?= site_url('reports/customer_details') ?>">
+                                                        <i class="fa fa-barcode"></i><span class="text"> <?= lang('product_customers'); ?></span>
+                                                    </a>
+                                                </li>
+                                                <li id="reports_customer_sale_top">
+                                                    <a href="<?= site_url('reports/report_sale_top') ?>">
+                                                        <i class="fa fa-barcode"></i><span class="text"> <?= lang('product_sale_top'); ?></span>
+                                                    </a>
+                                                </li>
+                                                <li id="reports_production_report">
+                                                    <a href="<?= site_url('reports/production_report') ?>">
+                                                        <i class="fa fa-barcode"></i><span class="text"> <?= lang('production_report'); ?></span>
+                                                    </a>
+                                                </li>
+                                                <li id="reports_transfers_report">
+                                                    <a href="<?= site_url('reports/transfers_report') ?>">
+                                                        <i class="fa fa-barcode"></i><span class="text"> <?= lang('transfers_report'); ?></span>
+                                                    </a>
+                                                </li>
+                                                <li id="reports_transfers_summary_report">
+                                                    <a href="<?= site_url('reports/transfers_summary_report') ?>">
+                                                        <i class="fa fa-barcode"></i><span
+                                                                class="text"> <?= lang('transfers_summary_report'); ?></span>
+                                                    </a>
+                                                </li>
+                                                <li id="reports_list_using_stock_report">
+                                                    <a href="<?= site_url('reports/list_using_stock_report') ?>">
+                                                        <i class="fa fa-barcode"></i><span class="text"> <?= lang('list_using_stock_report'); ?></span>
+                                                    </a>
+                                                </li>
+                                                <li id="reports_convert_reports">
+                                                    <a href="<?= site_url('reports/convert_reports') ?>">
+                                                        <i class="fa fa-barcode"></i><span class="text"> <?= lang('convert_report'); ?></span>
+                                                    </a>
+                                                </li>
+                                                <li id="reports_track_costs">
+                                                    <a href="<?= site_url('reports/track_costs') ?>">
+                                                        <i class="fa fa-dollar"></i><span class="text"> <?= lang('track_costs'); ?></span>
+                                                    </a>
+                                                </li>
+                                                <!--<li id="reports_supplier_by_items">
+																		<a href="<?= site_url('reports/supplier_by_items') ?>">
+																			<i class="fa fa-barcode"></i><span class="text"> <?= lang('supplier_products'); ?></span>
+																		</a>
+																	</li>
+																	<li id="reports_customer_products">
+																		<a href="<?= site_url('reports/customer_products') ?>">
+																			<i class="fa fa-barcode"></i><span class="text"> <?= lang('product_customers'); ?></span>
+																		</a>
+																	</li>-->
+                                            </ul>
                                         </li>
                                         <li class="mm_sale_report">
                                             <a class="dropmenu" href="#">
@@ -1866,23 +1862,6 @@
                                                 <span class="chevron closed"></span>
                                             </a>
                                             <ul>
-                                               <li id="account_ar_by_customer">
-                                                    <a class="submenu" href="<?= site_url('account/ar_by_customer'); ?>">
-                                                        <i class="fa fa-list"></i><span class="text"> <?= lang('ar_by_customer'); ?></span>
-                                                    </a>
-                                                </li>
-                                                <li id="reports_customers">
-                                                    <a href="<?= site_url('reports/customers') ?>">
-                                                        <i class="fa fa-users"></i><span class="text"> <?= lang('customers_report'); ?></span>
-                                                    </a>
-                                                </li>
-                                                <li id="account_list_ar_aging">
-                                                    <a class="submenu" href="<?= site_url('account/list_ar_aging'); ?>">
-                                                        <i class="fa fa-list"></i><span class="text"> <?= lang('list_ar_aging'); ?></span>
-                                                    </a>
-                                                </li>
-
-                                                <!--
                                                 <li id="reports_sales">
                                                     <a href="<?= site_url('reports/sales') ?>">
                                                         <i class="fa fa-heart"></i><span class="text"> <?= lang('sales_report'); ?></span>
@@ -1923,17 +1902,21 @@
                                                         <i class="fa fa-heart"></i><span class="text"> <?= lang('sales_delivery_detail'); ?></span>
                                                     </a>
                                                 </li>
-                                                <li id="reports_suspend_report" <?=($this->uri->segment(2) === 'suspends' ? 'class="active"' : '')?> >
-                                                    <a href="<?= site_url('reports/suspends') ?>">
-                                                        <i class="fa fa-heart"></i><span class="text"> <?= lang('suspend_report'); ?></span>
+                                                <!--<li id="reports_suspend_report" <?=($this->uri->segment(2) === 'suspends' ? 'class="active"' : '')?> >
+															<a href="<?= site_url('reports/suspends') ?>">
+																<i class="fa fa-heart"></i><span class="text"> <?= lang('suspend_report'); ?></span>
+															</a>
+														</li>-->
+                                                <li id="reports_customers">
+                                                    <a href="<?= site_url('reports/customers') ?>">
+                                                        <i class="fa fa-users"></i><span class="text"> <?= lang('customers_report'); ?></span>
                                                     </a>
                                                 </li>
-
-                                                       <li id="reports_users">
-															<a href="><?= site_url('reports/users') ?>
-																<i class="fa fa-users"></i><span class="text"><?//= lang('staff_report'); ?></span>
-															</a>
-														</li>
+                                                <!--                                                        <li id="reports_users">-->
+                                                <!--															<a href="--><?//= site_url('reports/users') ?><!--">-->
+                                                <!--																<i class="fa fa-users"></i><span class="text"> --><?//= lang('staff_report'); ?><!--</span>-->
+                                                <!--															</a>-->
+                                                <!--														</li>-->
                                                 <li id="reports_saleman">
                                                     <a href="<?= site_url('reports/saleman') ?>">
                                                         <i class="fa fa-users"></i><span class="text"> <?= lang('saleman_report'); ?></span>
@@ -1954,7 +1937,6 @@
                                                         <i class="fa fa-money"></i><span class="text"> <?= lang('sale_payment_report'); ?></span>
                                                     </a>
                                                 </li>
-                                                -->
                                             </ul>
                                         </li>
 
@@ -1965,17 +1947,6 @@
                                                 <span class="chevron closed"></span>
                                             </a>
                                             <ul>
-                                                <li id="account_ap_by_supplier">
-                                                    <a class="submenu" href="<?= site_url('account/ap_by_supplier'); ?>">
-                                                        <i class="fa fa-list"></i><span class="text"> <?= lang('ap_by_supplier'); ?></span>
-                                                    </a>
-                                                </li>
-                                                <li id="account_list_ap_aging">
-                                                    <a class="submenu" href="<?= site_url('account/list_ap_aging'); ?>">
-                                                        <i class="fa fa-list"></i><span class="text"> <?= lang('list_ap_aging'); ?></span>
-                                                    </a>
-                                                </li>
-                                                <!--
                                                 <li id="reports_purchases">
                                                     <a href="<?= site_url('reports/purchases') ?>">
                                                         <i class="fa fa-star"></i><span class="text"> <?= lang('purchases_report'); ?></span>
@@ -2001,13 +1972,13 @@
                                                         <i class="fa fa-users"></i><span class="text"> <?= lang('expense_report'); ?></span>
                                                     </a>
                                                 </li>
-
-                                                <li id="reports_purchase_by_invoice">
-                                                    <a href="<?= site_url('reports/purchase_report_by_invoice') ?>">
-                                                        <i class="fa fa-users"></i><span class="text"> <?= lang('purchase_report_by_invoice'); ?></span>
-                                                    </a>
-                                                </li>
-                                                -->
+                                                <!--
+														<li id="reports_purchase_by_invoice">
+															<a href="<?= site_url('reports/purchase_report_by_invoice') ?>">
+																<i class="fa fa-users"></i><span class="text"> <?= lang('purchase_report_by_invoice'); ?></span>
+															</a>
+														</li>
+														-->
 
                                             </ul>
                                         </li>
@@ -2054,11 +2025,11 @@
                                                         <i class="fa fa-money"></i><span class="text"> <?= lang('income_statement_by_customer'); ?></span>
                                                     </a>
                                                 </li>
-                                                <li id="reports_income_by_project">
-                                                    <a href="<?= site_url('reports/income_statement_by_project')?>">
-                                                        <i class="fa fa-money"></i><span class="text">​ <?= lang('income_statement_by_project');?></span>
-                                                    </a>
-                                                </li>
+                                                <!--<li id="reports_income_by_project">
+															<a href="<?= site_url('reports/income_statement_by_project')?>">
+																<i class="fa fa-money"></i><span class="text">​ <?= lang('income_statement_by_project');?></span>
+															</a>
+														</li>-->
                                                 <li id="reports_cash_book_report" <?=($this->uri->segment(2) === 'cash_books' ? 'class="active"' : '')?> >
                                                     <a href="<?= site_url('reports/cash_books') ?>">
                                                         <i class="fa fa-money"></i><span class="text"> <?= lang('cash_book'); ?></span>
@@ -3072,518 +3043,485 @@
 								</ul>
 							</li>
 							-->
-							
-							<?php if(1){ ?>
-								<li class="mm_reports">
-									<a class="dropmenu" href="#">
-										<i class="fa fa-pie-chart"></i>
-										<span class="text"> <?= lang('reports'); ?> </span>
-										<span class="chevron closed"></span>
-									</a>
-									
-									<ul>
-										<?php if($GP['chart_report-index']){ ?>
-										<li class="mm_chart_report">
-											<a class="dropmenu" href="#">
-												<i class="fa fa-bar-chart-o"></i>
-												<span class="text"> <?= lang('chart_report'); ?> </span>
-												<span class="chevron closed"></span>
-											</a>
-											<ul>
-														
-												<?php if($GP['chart_report-over_view']){ ?>
-													<li id="reports_index">
-														<a href="<?= site_url('reports') ?>">
-															<i class="fa fa-bar-chart-o"></i><span class="text"> <?= lang('overview_chart'); ?></span>
-														</a>
-													</li>
-												<?php } ?>
-												
-												<?php if($GP['chart_report-warehouse_stock']){ ?>
-													<li id="reports_warehouse_stock">
-														<a href="<?= site_url('reports/warehouse_stock') ?>">
-															<i class="fa fa-bar-chart-o"></i><span class="text"> <?= lang('warehouse_stock'); ?></span>
-														</a>
-													</li>
-												<?php } ?>
-												<?php if($GP['chart_report-category_stock']){ ?>
-													<li id="reports_category_stock">
-														<a href="<?= site_url('reports/category_stock') ?>">
-															<i class="fa fa-bar-chart-o"></i><span class="text"> <?= lang('category_stock_chart'); ?></span>
-														</a>
-													</li>
-												<?php } ?>
-												<?php if($GP['chart_report-profit']){ ?>
-													<li id="reports_profit_chart">
-														<a href="<?= site_url('reports/profit_chart') ?>">
-															<i class="fa fa-bar-chart-o"></i><span class="text"> <?= lang('profit_chart'); ?></span>
-														</a>
-													</li>
-												<?php } ?>
-												<?php if($GP['chart_report-cash_analysis']){ ?>
-													<li id="reports_cash_chart">
-														<a href="<?= site_url('reports/cash_chart') ?>">
-															<i class="fa fa-bar-chart-o"></i><span class="text"> <?= lang('cash_analysis_chart'); ?></span>
-														</a>
-													</li>
-												<?php } ?>
-												
-											</ul>
-										</li>
-										<?php } ?>
-										
-										<?php if($GP['report_profit-index']){ ?>
-                                            <!--
-										<li class="mm_profit_report">
-											<a class="dropmenu" href="#">
-												<i class="fa fa-money"></i>
-												<span class="text"> <?= lang('profit_report'); ?> </span>
-												<span class="chevron closed"></span>
-											</a>
-											<ul>
-                                                <?php if ($GP['report_profit-profit_andOr_lose']) { ?>
-												<li id="reports_profit_loss">
-													<a href="<?= site_url('reports/profit_loss') ?>">
-														<i class="fa fa-money"></i><span class="text"> <?= lang('profit_and_loss'); ?></span>
-													</a>
-												</li>
-                                                <?php } ?>
 
-                                                <?php if ($GP['report_profit-payments']) { ?>
-												<li id="reports_payments">
-													<a href="<?= site_url('reports/payments') ?>">
-														<i class="fa fa-money"></i><span class="text"> <?= lang('payments_report'); ?></span>
-													</a>
-												</li>
-                                                <?php } ?>
+                                <?php if($GP['reports-index']){ ?>
+                                    <li class="mm_reports">
+                                        <a class="dropmenu" href="#">
+                                            <i class="fa fa-pie-chart"></i>
+                                            <span class="text"> <?= lang('reports'); ?> </span>
+                                            <span class="chevron closed"></span>
+                                        </a>
 
-												<?php if ($GP['sale_report-register']) { ?>
-												<li id="reports_register">
-													<a href="<?= site_url('reports/register') ?>">
-														<i class="fa fa-money"></i><span class="text"> <?= lang('register_report'); ?></span>
-													</a>
-												</li>
-												<?php } ?>
+                                        <ul>
+                                            <?php if($GP['chart_report-index']){ ?>
+                                                <li class="mm_chart_report">
+                                                    <a class="dropmenu" href="#">
+                                                        <i class="fa fa-bar-chart-o"></i>
+                                                        <span class="text"> <?= lang('chart_report'); ?> </span>
+                                                        <span class="chevron closed"></span>
+                                                    </a>
+                                                    <ul>
 
-											</ul>
-										</li>
-										-->
-										<?php } ?>
-										
-										<?php if($GP['product_report-index']){ ?>
-										<li class="mm_product_report">
-											<a class="dropmenu" href="#">
-												<i class="fa fa-barcode"></i>
-												<span class="text"> <?= lang('product_report'); ?> </span>
-												<span class="chevron closed"></span>
-											</a>
-											<ul>
-                                                <?php if($GP['product_report-in_out']){ ?>
-                                                    <li id="reports_inventory_inout">
-                                                        <a href="<?= site_url('reports/inventory_inout') ?>">
-                                                            <i class="fa fa-money"></i><span class="text"> <?= lang('products_in_out'); ?></span>
-                                                        </a>
-                                                    </li>
-                                                <?php } ?>
-                                                <?php if($GP['product_report-inventory_valuation_detail']){ ?>
-                                                    <li id="reports_inventory_valuation_details">
-                                                        <a href="<?= site_url('reports/inventory_valuation_detail') ?>">
-                                                            <i class="fa fa-barcode"></i><span class="text"> <?= lang('inventory_valuation_detail'); ?></span>
-                                                        </a>
-                                                    </li>
-                                                <?php } ?>
+                                                        <?php if($GP['chart_report-over_view']){ ?>
+                                                            <li id="reports_index">
+                                                                <a href="<?= site_url('reports') ?>">
+                                                                    <i class="fa fa-bar-chart-o"></i><span class="text"> <?= lang('overview_chart'); ?></span>
+                                                                </a>
+                                                            </li>
+                                                        <?php } ?>
 
-                                                <?php if($GP['product_report-warehouse']){ ?>
-                                                    <li id="reports_warehouse_products">
-                                                        <a href="<?= site_url('reports/warehouse_products') ?>">
-                                                            <i class="fa fa-barcode"></i><span class="text"> <?= lang('warehouse_reports'); ?></span>
-                                                        </a>
-                                                    </li>
-                                                <?php } ?>
-                                            <!--
-												<?php if($GP['product_report-quantity_alert']){ ?>
-													<li id="reports_quantity_alerts">
-														<a href="<?= site_url('reports/quantity_alerts') ?>">
-															<i class="fa fa-bar-chart-o"></i><span class="text"> <?= lang('product_quantity_alerts'); ?></span>
-														</a>
-													</li>
-												<?php } ?>
-												<?php if ($this->Settings->product_expiry) { ?>
-													<li id="reports_expiry_alerts">
-														<a href="<?= site_url('reports/expiry_alerts') ?>">
-															<i class="fa fa-bar-chart-o"></i><span class="text"> <?= lang('product_expiry_alerts'); ?></span>
-														</a>
-													</li>
-												<?php } ?>
-												<?php if($GP['product_report-product']){ ?>
-													<li id="reports_products">
+                                                        <?php if($GP['chart_report-warehouse_stock']){ ?>
+                                                            <li id="reports_warehouse_stock">
+                                                                <a href="<?= site_url('reports/warehouse_stock') ?>">
+                                                                    <i class="fa fa-bar-chart-o"></i><span class="text"> <?= lang('warehouse_stock'); ?></span>
+                                                                </a>
+                                                            </li>
+                                                        <?php } ?>
+                                                        <?php if($GP['chart_report-category_stock']){ ?>
+                                                            <li id="reports_category_stock">
+                                                                <a href="<?= site_url('reports/category_stock') ?>">
+                                                                    <i class="fa fa-bar-chart-o"></i><span class="text"> <?= lang('category_stock_chart'); ?></span>
+                                                                </a>
+                                                            </li>
+                                                        <?php } ?>
+                                                        <?php if($GP['chart_report-profit']){ ?>
+                                                            <li id="reports_profit_chart">
+                                                                <a href="<?= site_url('reports/profit_chart') ?>">
+                                                                    <i class="fa fa-bar-chart-o"></i><span class="text"> <?= lang('profit_chart'); ?></span>
+                                                                </a>
+                                                            </li>
+                                                        <?php } ?>
+                                                        <?php if($GP['chart_report-cash_analysis']){ ?>
+                                                            <li id="reports_cash_chart">
+                                                                <a href="<?= site_url('reports/cash_chart') ?>">
+                                                                    <i class="fa fa-bar-chart-o"></i><span class="text"> <?= lang('cash_analysis_chart'); ?></span>
+                                                                </a>
+                                                            </li>
+                                                        <?php } ?>
+
+                                                    </ul>
+                                                </li>
+                                            <?php } ?>
+
+                                            <?php if($GP['report_profit-index']){ ?>
+                                                <li class="mm_profit_report">
+                                                    <a class="dropmenu" href="#">
+                                                        <i class="fa fa-money"></i>
+                                                        <span class="text"> <?= lang('profit_report'); ?> </span>
+                                                        <span class="chevron closed"></span>
+                                                    </a>
+                                                    <ul>
+                                                        <?php if ($GP['report_profit-profit_andOr_lose']) { ?>
+                                                            <li id="reports_profit_loss">
+                                                                <a href="<?= site_url('reports/profit_loss') ?>">
+                                                                    <i class="fa fa-money"></i><span class="text"> <?= lang('profit_and_loss'); ?></span>
+                                                                </a>
+                                                            </li>
+                                                        <?php } ?>
+
+                                                        <?php if ($GP['report_profit-payments']) { ?>
+                                                            <li id="reports_payments">
+                                                                <a href="<?= site_url('reports/payments') ?>">
+                                                                    <i class="fa fa-money"></i><span class="text"> <?= lang('payments_report'); ?></span>
+                                                                </a>
+                                                            </li>
+                                                        <?php } ?>
+
+                                                        <?php if ($GP['sale_report-register']) { ?>
+                                                            <li id="reports_register">
+                                                                <a href="<?= site_url('reports/register') ?>">
+                                                                    <i class="fa fa-money"></i><span class="text"> <?= lang('register_report'); ?></span>
+                                                                </a>
+                                                            </li>
+                                                        <?php } ?>
+
+                                                    </ul>
+                                                </li>
+                                            <?php } ?>
+
+                                            <?php if($GP['product_report-index']){ ?>
+                                                <li class="mm_product_report">
+                                                    <a class="dropmenu" href="#">
+                                                        <i class="fa fa-barcode"></i>
+                                                        <span class="text"> <?= lang('product_report'); ?> </span>
+                                                        <span class="chevron closed"></span>
+                                                    </a>
+                                                    <ul>
+                                                        <?php if($GP['product_report-quantity_alert']){ ?>
+                                                            <li id="reports_quantity_alerts">
+                                                                <a href="<?= site_url('reports/quantity_alerts') ?>">
+                                                                    <i class="fa fa-bar-chart-o"></i><span class="text"> <?= lang('product_quantity_alerts'); ?></span>
+                                                                </a>
+                                                            </li>
+                                                        <?php } ?>
+                                                        <?php if ($this->Settings->product_expiry) { ?>
+                                                            <li id="reports_expiry_alerts">
+                                                                <a href="<?= site_url('reports/expiry_alerts') ?>">
+                                                                    <i class="fa fa-bar-chart-o"></i><span class="text"> <?= lang('product_expiry_alerts'); ?></span>
+                                                                </a>
+                                                            </li>
+                                                        <?php } ?>
+                                                        <?php if($GP['product_report-product']){ ?>
+                                                            <!--<li id="reports_products">
 														<a href="<?= site_url('reports/products') ?>">
 															<i class="fa fa-barcode"></i><span class="text"> <?= lang('products_report'); ?></span>
 														</a>
-													</li>
-												<?php } ?>
+													</li>-->
+                                                        <?php } ?>
+                                                        <?php if($GP['product_report-in_out']){ ?>
+                                                            <li id="reports_inventory_inout">
+                                                                <a href="<?= site_url('reports/inventory_inout') ?>">
+                                                                    <i class="fa fa-money"></i><span class="text"> <?= lang('products_in_out'); ?></span>
+                                                                </a>
+                                                            </li>
+                                                        <?php } ?>
+                                                        <?php if($GP['product_report-warehouse']){ ?>
+                                                            <li id="reports_warehouse_products">
+                                                                <a href="<?= site_url('reports/warehouse_products') ?>">
+                                                                    <i class="fa fa-barcode"></i><span class="text"> <?= lang('warehouse_reports'); ?></span>
+                                                                </a>
+                                                            </li>
+                                                        <?php } ?>
 
-                                                <?php if($GP['product_report-warehouse']){ ?>
-                                                    <li id="reports_warehouse_products">
-                                                        <a href="<?= site_url('reports/warehouse_products') ?>">
-                                                            <i class="fa fa-barcode"></i><span class="text"> <?= lang('warehouse_reports'); ?></span>
-                                                        </a>
-                                                    </li>
-                                                <?php } ?>
-											
-													<li id="reports_product_price_history">
+                                                        <!--<li id="reports_product_price_history">
 														<a href="<?= site_url('reports/product_price_history') ?>">
 															<i class="fa fa-barcode"></i><span class="text"> <?= lang('product_price_history'); ?></span>
 														</a>
-													</li>
-												
-												<?php if($GP['product_report-monthly']){ ?>
-													<li id="reports_product_monthlyinout">
-														<a href="<?= site_url('reports/product_monthlyinout') ?>">
-															<i class="fa fa-barcode"></i><span class="text"> <?= lang('monthly_product'); ?></span>
-														</a>
-													</li>
-												<?php } ?>
-												<?php if($GP['product_report-daily']){ ?>
-													<li id="reports_product_dailyinout">
-														<a href="<?= site_url('reports/product_dailyinout') ?>">
-															<i class="fa fa-barcode"></i><span class="text"> <?= lang('daily_product'); ?></span>
-														</a>
-													</li>
-												<?php } ?>
-                                                <?php if($GP['products-adjustments']){ ?>
-                                                <li id="reports_adjustment_report">
-                                                    <a href="<?= site_url('reports/adjustment_report') ?>">
-                                                        <i class="fa fa-barcode"></i><span class="text"> <?= lang('adjustment_report'); ?></span>
-                                                    </a>
-                                                </li>
-                                                <?php } ?>
+													</li>-->
 
-												<?php if($GP['product_report-suppliers']){ ?>
-													<li id="reports_supplier_details">
-														<a href="<?= site_url('reports/supplier_details') ?>">
-															<i class="fa fa-barcode"></i><span class="text"> <?= lang('supplier_products'); ?></span>
-														</a>
-													</li>
-												<?php } ?>
-												<?php if($GP['product_report-customers']){ ?>
-													<li id="reports_customer_details">
-														<a href="<?= site_url('reports/customer_details') ?>">
-															<i class="fa fa-barcode"></i><span class="text"> <?= lang('product_customers'); ?></span>
-														</a>
-													</li>
-												<?php } ?>
-                                                <?php if($GP['reports-product_top_sale']){ ?>
-                                                <li id="reports_customer_sale_top">
-                                                    <a href="<?= site_url('reports/report_sale_top') ?>">
-                                                        <i class="fa fa-barcode"></i><span class="text"> <?= lang('Product_sale_top'); ?></span>
-                                                    </a>
-                                                </li>
-                                                <?php } ?>
-												<?php if($GP['report_transfers']){ ?>												
-												<li id="reports_transfers_report">
-													<a href="<?= site_url('reports/transfers_report') ?>">
-														<i class="fa fa-barcode"></i><span class="text"> <?= lang('transfers_report'); ?></span>
-													</a>
-												</li>	
-												<?php } ?>
-												<?php if($GP['report_list_using_stock']){ ?>				
-												<li id="reports_list_using_stock_report">
-													<a href="<?= site_url('reports/list_using_stock_report') ?>">
-														<i class="fa fa-barcode"></i><span class="text"> <?= lang('list_using_stock_report'); ?></span>
-													</a>
-												</li>
-												<?php } ?>
-												<?php if($GP['report_convert']){ ?>		
-												<li id="reports_convert_reports">
-													<a href="<?= site_url('reports/convert_reports') ?>">
-														<i class="fa fa-barcode"></i><span class="text"> <?= lang('convert_report'); ?></span>
-													</a>
-												</li>
-												<?php } ?>														
-												<?php if($GP['product_report-categories']){ ?>
-													<li id="reports_categories">
+                                                        <?php if($GP['product_report-monthly']){ ?>
+                                                            <li id="reports_product_monthlyinout">
+                                                                <a href="<?= site_url('reports/product_monthlyinout') ?>">
+                                                                    <i class="fa fa-barcode"></i><span class="text"> <?= lang('monthly_product'); ?></span>
+                                                                </a>
+                                                            </li>
+                                                        <?php } ?>
+                                                        <?php if($GP['product_report-daily']){ ?>
+                                                            <li id="reports_product_dailyinout">
+                                                                <a href="<?= site_url('reports/product_dailyinout') ?>">
+                                                                    <i class="fa fa-barcode"></i><span class="text"> <?= lang('daily_product'); ?></span>
+                                                                </a>
+                                                            </li>
+                                                        <?php } ?>
+                                                        <?php if($GP['product_report-categories_value']){ ?>
+                                                            <li id="reports_categories_value">
+                                                                <a href="<?= site_url('reports/categories_value') ?>">
+                                                                    <i class="fa fa-folder-open"></i><span class="text"> <?= lang('categories_value_report'); ?></span>
+                                                                </a>
+                                                            </li>
+                                                        <?php } ?>
+                                                        <?php if($GP['products-adjustments']){ ?>
+                                                            <li id="reports_adjustment_report">
+                                                                <a href="<?= site_url('reports/adjustment_report') ?>">
+                                                                    <i class="fa fa-barcode"></i><span class="text"> <?= lang('adjustment_report'); ?></span>
+                                                                </a>
+                                                            </li>
+                                                        <?php } ?>
+                                                        <?php if($GP['product_report-inventory_valuation_detail']){ ?>
+                                                            <li id="reports_inventory_valuation_details">
+                                                                <a href="<?= site_url('reports/inventory_valuation_detail') ?>">
+                                                                    <i class="fa fa-barcode"></i><span class="text"> <?= lang('inventory_valuation_detail'); ?></span>
+                                                                </a>
+                                                            </li>
+                                                        <?php } ?>
+                                                        <?php if($GP['product_report-suppliers']){ ?>
+                                                            <li id="reports_supplier_details">
+                                                                <a href="<?= site_url('reports/supplier_details') ?>">
+                                                                    <i class="fa fa-barcode"></i><span class="text"> <?= lang('supplier_products'); ?></span>
+                                                                </a>
+                                                            </li>
+                                                        <?php } ?>
+                                                        <?php if($GP['product_report-customers']){ ?>
+                                                            <li id="reports_customer_details">
+                                                                <a href="<?= site_url('reports/customer_details') ?>">
+                                                                    <i class="fa fa-barcode"></i><span class="text"> <?= lang('product_customers'); ?></span>
+                                                                </a>
+                                                            </li>
+                                                        <?php } ?>
+                                                        <?php if($GP['reports-product_top_sale']){ ?>
+                                                            <li id="reports_customer_sale_top">
+                                                                <a href="<?= site_url('reports/report_sale_top') ?>">
+                                                                    <i class="fa fa-barcode"></i><span class="text"> <?= lang('Product_sale_top'); ?></span>
+                                                                </a>
+                                                            </li>
+                                                        <?php } ?>
+                                                        <?php if($GP['report_transfers']){ ?>
+                                                            <li id="reports_transfers_report">
+                                                                <a href="<?= site_url('reports/transfers_report') ?>">
+                                                                    <i class="fa fa-barcode"></i><span class="text"> <?= lang('transfers_report'); ?></span>
+                                                                </a>
+                                                            </li>
+                                                        <?php } ?>
+                                                        <?php if($GP['report_list_using_stock']){ ?>
+                                                            <li id="reports_list_using_stock_report">
+                                                                <a href="<?= site_url('reports/list_using_stock_report') ?>">
+                                                                    <i class="fa fa-barcode"></i><span class="text"> <?= lang('list_using_stock_report'); ?></span>
+                                                                </a>
+                                                            </li>
+                                                        <?php } ?>
+                                                        <?php if($GP['report_convert']){ ?>
+                                                            <li id="reports_convert_reports">
+                                                                <a href="<?= site_url('reports/convert_reports') ?>">
+                                                                    <i class="fa fa-barcode"></i><span class="text"> <?= lang('convert_report'); ?></span>
+                                                                </a>
+                                                            </li>
+                                                        <?php } ?>
+                                                        <?php if($GP['product_report-categories']){ ?>
+                                                            <!--<li id="reports_categories">
 														<a href="<?= site_url('reports/categories') ?>">
 															<i class="fa fa-folder-open"></i><span class="text"> <?= lang('categories_report'); ?></span>
 														</a>
-													</li>
-												<?php } ?>
-                                                -->
-											</ul>
-										</li>
-										<?php } ?>
-										
-										<?php if($GP['sale_report-index']){ ?>
-										<li class="mm_sale_report">
-											<a class="dropmenu" href="#">
-												<i class="fa fa-heart"></i>
-												<span class="text"> <?= lang('sale_report'); ?> </span>
-												<span class="chevron closed"></span>
-											</a>
-											<ul>
-                                                <li id="account_ap_by_supplier">
-                                                    <a class="submenu" href="<?= site_url('account/ap_by_supplier'); ?>">
-                                                        <i class="fa fa-list"></i><span class="text"> <?= lang('ap_by_supplier'); ?></span>
-                                                    </a>
+													</li>-->
+                                                        <?php } ?>
+                                                    </ul>
                                                 </li>
-                                                <?php if($GP['sale_report-customer']){ ?>
-                                                    <li id="reports_customers">
-                                                        <a href="<?= site_url('reports/customers') ?>">
-                                                            <i class="fa fa-users"></i><span class="text"> <?= lang('customers_report'); ?></span>
-                                                        </a>
-                                                    </li>
-                                                <?php } ?>
-                                                <li id="account_list_ar_aging">
-                                                    <a class="submenu" href="<?= site_url('account/list_ar_aging'); ?>">
-                                                        <i class="fa fa-list"></i><span class="text"> <?= lang('list_ar_aging'); ?></span>
+                                            <?php } ?>
+
+                                            <?php if($GP['sale_report-index']){ ?>
+                                                <li class="mm_sale_report">
+                                                    <a class="dropmenu" href="#">
+                                                        <i class="fa fa-heart"></i>
+                                                        <span class="text"> <?= lang('sale_report'); ?> </span>
+                                                        <span class="chevron closed"></span>
                                                     </a>
-                                                </li>
-                                                <!--
-                                                <?php if($GP['sale_report-report_sale']){ ?>
-                                                    <li id="reports_sales">
-                                                        <a href="<?= site_url('reports/sales') ?>">
-                                                            <i class="fa fa-heart"></i><span class="text"> <?= lang('sales_report'); ?></span>
-                                                        </a>
-                                                    </li>
-                                                <?php } ?>
-												<?php if($GP['sale_report-detail']){ ?>
-													<li id="reports_sales_detail">
-														<a href="<?= site_url('reports/sales_detail') ?>">
-															<i class="fa fa-heart"></i><span class="text"> <?= lang('sales_detail_report'); ?></span>
-														</a>
-													</li>
-												<?php } ?>
-												<?php if($GP['sale_report-sale_profit']){ ?>
-													<li id="reports_sales_profit">
-														<a href="<?= site_url('reports/sales_profit') ?>">
-															<i class="fa fa-heart"></i><span class="text"> <?= lang('sales_profit_report'); ?></span>
-														</a>
-													</li>
-												<?php } ?>	
-                                                <?php if($GP['sale_report-daily']){ ?>
-                                                    <li id="reports_daily_sales">
-                                                        <a href="<?= site_url('reports/daily_sales') ?>">
-                                                            <i class="fa fa-calendar-o"></i><span class="text"> <?= lang('daily_sales'); ?></span>
-                                                        </a>
-                                                    </li>
-                                                <?php } ?>
-                                                <?php if($GP['sale_report-monthly']){ ?>
-                                                    <li id="reports_monthly_sales">
-                                                        <a href="<?= site_url('reports/monthly_sales') ?>">
-                                                            <i class="fa fa-calendar-o"></i><span class="text"> <?= lang('monthly_sales'); ?></span>
-                                                        </a>
-                                                    </li>
-                                                <?php } ?>
-                                                <?php if($GP['sale_report-by_invoice']){ ?>
+                                                    <ul>
+                                                        <?php if($GP['sale_report-report_sale']){ ?>
+                                                            <li id="reports_sales">
+                                                                <a href="<?= site_url('reports/sales') ?>">
+                                                                    <i class="fa fa-heart"></i><span class="text"> <?= lang('sales_report'); ?></span>
+                                                                </a>
+                                                            </li>
+                                                        <?php } ?>
+                                                        <?php if($GP['sale_report-detail']){ ?>
+                                                            <li id="reports_sales_detail">
+                                                                <a href="<?= site_url('reports/sales_detail') ?>">
+                                                                    <i class="fa fa-heart"></i><span class="text"> <?= lang('sales_detail_report'); ?></span>
+                                                                </a>
+                                                            </li>
+                                                        <?php } ?>
+                                                        <?php if($GP['sale_report-sale_profit']){ ?>
+                                                            <li id="reports_sales_profit">
+                                                                <a href="<?= site_url('reports/sales_profit') ?>">
+                                                                    <i class="fa fa-heart"></i><span class="text"> <?= lang('sales_profit_report'); ?></span>
+                                                                </a>
+                                                            </li>
+                                                        <?php } ?>
+                                                        <?php if($GP['sale_report-daily']){ ?>
+                                                            <li id="reports_daily_sales">
+                                                                <a href="<?= site_url('reports/daily_sales') ?>">
+                                                                    <i class="fa fa-calendar-o"></i><span class="text"> <?= lang('daily_sales'); ?></span>
+                                                                </a>
+                                                            </li>
+                                                        <?php } ?>
+                                                        <?php if($GP['sale_report-monthly']){ ?>
+                                                            <li id="reports_monthly_sales">
+                                                                <a href="<?= site_url('reports/monthly_sales') ?>">
+                                                                    <i class="fa fa-calendar-o"></i><span class="text"> <?= lang('monthly_sales'); ?></span>
+                                                                </a>
+                                                            </li>
+                                                        <?php } ?>
+                                                        <!-- <?php if($GP['sale_report-by_invoice']){ ?>
                                                     <li id="reports_getSaleReportByInvoice">
                                                         <a href="<?= site_url('reports/getSaleReportByInvoice') ?>">
                                                             <i class="fa fa-heart"></i><span class="text"> <?= lang('sales_report_by_invoice'); ?></span>
                                                         </a>
                                                     </li>
-                                                <?php } ?>
-												<?php if($GP['sale_report-disccount']){ ?>
-													<li id="reports_sales_discount">
-														<a href="<?= site_url('reports/sales_discount') ?>">
-															<i class="fa fa-gift"></i><span class="text"> <?= lang('sales_discount_report'); ?></span>
-														</a>
-													</li>
-												<?php } ?>
-												<?php if($GP['sale_report-by_delivery_person']){ ?>
-													<li id="reports_deliveries">
-														<a href="<?= site_url('reports/deliveries') ?>">
-															<i class="fa fa-heart"></i><span class="text"> <?= lang('sale_by_delivery_person'); ?></span>
-														</a>
-													</li>
-												<?php } ?>
-                                                <?php if($GP['sale_report-delivery_detail']){ ?>
-                                                <li id="reports_sales_detail_delivery">
-                                                    <a href="<?= site_url('reports/sales_detail_delivery') ?>">
-                                                        <i class="fa fa-heart"></i><span class="text"> <?= lang('Sales_Delivery_Detail'); ?></span>
-                                                    </a>
-                                                </li>
-                                                <?php } ?>
-												<?php if($GP['sale_report-room_table']){ ?>
-													<li id="reports_suspend_report" <?=($this->uri->segment(2) === 'suspends' ? 'class="active"' : '')?>
-														<a href="<?= site_url('reports/suspends') ?>">
-															<i class="fa fa-heart"></i><span class="text"> <?= lang('suspend_report'); ?></span>
-														</a>
-													</li>
-												<?php } ?>	
-                                                <?php if($GP['sale_report-customer_transfers']){ ?>
+                                                <?php } ?> -->
+                                                        <?php if($GP['sale_report-disccount']){ ?>
+                                                            <li id="reports_sales_discount">
+                                                                <a href="<?= site_url('reports/sales_discount') ?>">
+                                                                    <i class="fa fa-gift"></i><span class="text"> <?= lang('sales_discount_report'); ?></span>
+                                                                </a>
+                                                            </li>
+                                                        <?php } ?>
+                                                        <?php if($GP['sale_report-by_delivery_person']){ ?>
+                                                            <li id="reports_deliveries">
+                                                                <a href="<?= site_url('reports/deliveries') ?>">
+                                                                    <i class="fa fa-heart"></i><span class="text"> <?= lang('sale_by_delivery_person'); ?></span>
+                                                                </a>
+                                                            </li>
+                                                        <?php } ?>
+                                                        <?php if($GP['sale_report-delivery_detail']){ ?>
+                                                            <li id="reports_sales_detail_delivery">
+                                                                <a href="<?= site_url('reports/sales_detail_delivery') ?>">
+                                                                    <i class="fa fa-heart"></i><span class="text"> <?= lang('Sales_Delivery_Detail'); ?></span>
+                                                                </a>
+                                                            </li>
+                                                        <?php } ?>
+                                                        <?php if($GP['sale_report-room_table']){ ?>
+                                                            <li id="reports_suspend_report" <?=($this->uri->segment(2) === 'suspends' ? 'class="active"' : '')?> >
+                                                                <a href="<?= site_url('reports/suspends') ?>">
+                                                                    <i class="fa fa-heart"></i><span class="text"> <?= lang('suspend_report'); ?></span>
+                                                                </a>
+                                                            </li>
+                                                        <?php } ?>
+                                                        <!-- <?php if($GP['sale_report-customer_transfers']){ ?>
                                                     <li id="reports_customers">
-                                                        <a href="<?= site_url('reports/customer_transfers') ?>">
-                                                            <i class="fa fa-users"></i><span class="text"> <?= lang('customer_transfers'); ?></span>
-                                                        </a>
-                                                    </li>
-                                                <?php } ?>
-
-												<?php if($GP['sale_report-staff']){ ?>
-													<li id="reports_users">
-														<a href="<?= site_url('reports/users') ?>">
-															<i class="fa fa-users"></i><span class="text"><?= lang('staff_report'); ?></span>
-                                                        </a>
-													</li>
-
-												<?php } ?>
-												<?php if($GP['sale_report-saleman']){ ?>
-													<li id="reports_saleman">
-														<a href="<?= site_url('reports/saleman') ?>">
-															<i class="fa fa-users"></i><span class="text"> <?= lang('saleman_report'); ?></span>
-														</a>
-													</li>
-												<?php } ?>
-												<?php if($GP['sale_report-saleman_detail']){ ?>
-												<li id="reports_saleman_detail">
-													<a href="<?= site_url('reports/saleman_detail') ?>">
-														<i class="fa fa-users"></i><span class="text"> <?= lang('saleman_detail_report_'); ?></span>
-													</a>
-												</li>
-												<?php } ?>
-												<?php if($GP['sale_report-project']){ ?>	
-													<li id="reports_shops">
-														<a href="<?= site_url('reports/shops') ?>">
-															<i class="fa fa-building"></i><span class="text"> <?= lang('biller_report'); ?></span>
-														</a>
-													</li>
-                                                <?php } ?>
-                                                <?php if($GP['sale_report-project_manager']){ ?>
-                                                    <li id="reports_project_manager_report">
-                                                        <a href="<?= site_url('reports/project_manager_report') ?>">
-                                                            <i class="fa fa-building"></i><span class="text"> <?= lang('project_manager_report'); ?></span>
-                                                        </a>
-                                                    </li>
-												<?php } ?>
-												<?php if($GP['sale_report-sale_payment_report']){ ?>
-													<li id="reports_sale_payment_report">
-														<a href="<?= site_url('reports/sale_payment_report') ?>">
-															<i class="fa fa-money"></i><span class="text"> <?= lang('sale_payment_report'); ?></span>
-														</a>
-													</li>
-												<?php } ?>
-                                                -->
-
-											</ul>
-										</li>
-										<?php }?>
-										
-										<?php if($GP['purchase_report-index']) { ?>
-										<li class="mm_purchase_report">
-											<a class="dropmenu" href="#">
-												<i class="fa fa-star"></i>
-												<span class="text"> <?= lang('purchase_report'); ?> </span>
-												<span class="chevron closed"></span>
-											</a>
-											<ul>
-                                                <li id="account_ap_by_supplier">
-                                                    <a class="submenu" href="<?= site_url('account/ap_by_supplier'); ?>">
-                                                        <i class="fa fa-list"></i><span class="text"> <?= lang('ap_by_supplier'); ?></span>
+                                                    <a href="<?= site_url('reports/customer_transfers') ?>">
+                                                        <i class="fa fa-users"></i><span class="text"> <?= lang('customer_transfers'); ?></span>
                                                     </a>
                                                 </li>
-                                                <li id="account_list_ap_aging">
-                                                    <a class="submenu" href="<?= site_url('account/list_ap_aging'); ?>">
-                                                        <i class="fa fa-list"></i><span class="text"> <?= lang('list_ap_aging'); ?></span>
-                                                    </a>
-                                                </li>
-                                                <!--
-												<?php if($GP['purchase_report-purchas']){ ?>
-												<li id="reports_purchases">
-													<a href="<?= site_url('reports/purchases') ?>">
-														<i class="fa fa-star"></i><span class="text"> <?= lang('purchases_report'); ?></span>
-													</a>
-												</li>
-												<?php } ?>
-												<?php if($GP['purchase_report-daily']){ ?>
-												<li id="reports_daily_purchases">
-													<a href="<?= site_url('reports/daily_purchases') ?>">
-														<i class="fa fa-star"></i><span class="text"> <?= lang('daily_purchases'); ?></span>
-													</a>
-												</li>
-												<?php } ?>
-												<?php if($GP['purchase_report-monthly']){ ?>
-												<li id="reports_monthly_purchases">
-													<a href="<?= site_url('reports/monthly_purchases') ?>">
-														<i class="fa fa-star"></i><span class="text"> <?= lang('monthly_purchases'); ?></span>
-													</a>
-												</li>
-												<?php } ?>
-												
-												<?php if($GP['purchase_report-supplier']){ ?>
-												 <li id="reports_suppliers">
-													<a href="<?= site_url('reports/suppliers') ?>">
-														<i class="fa fa-users"></i><span class="text"> <?= lang('suppliers_report'); ?></span>
-													</a>
-												</li>
-												<?php } ?>
-												-->
-											</ul>
-										</li>
-										<?php } ?>
+                                                <?php } ?> -->
+                                                        <?php if($GP['sale_report-customer']){ ?>
+                                                            <li id="reports_customers">
+                                                                <a href="<?= site_url('reports/customers') ?>">
+                                                                    <i class="fa fa-users"></i><span class="text"> <?= lang('customers_report'); ?></span>
+                                                                </a>
+                                                            </li>
+                                                        <?php } ?>
+                                                        <!--												--><?php //if($GP['sale_report-staff']){ ?><!--	-->
+                                                        <!--													<li id="reports_users">-->
+                                                        <!--														<a href="--><?//= site_url('reports/users') ?><!--">-->
+                                                        <!--															<i class="fa fa-users"></i><span class="text"> --><?//= lang('staff_report'); ?><!--</span>-->
+                                                        <!--														</a>-->
+                                                        <!--													</li>-->
+                                                        <!--												--><?php //} ?>
+                                                        <?php if($GP['sale_report-saleman']){ ?>
+                                                            <li id="reports_saleman">
+                                                                <a href="<?= site_url('reports/saleman') ?>">
+                                                                    <i class="fa fa-users"></i><span class="text"> <?= lang('saleman_report'); ?></span>
+                                                                </a>
+                                                            </li>
+                                                        <?php } ?>
+                                                        <?php if($GP['sale_report-saleman_detail']){ ?>
+                                                            <li id="reports_saleman_detail">
+                                                                <a href="<?= site_url('reports/saleman_detail') ?>">
+                                                                    <i class="fa fa-users"></i><span class="text"> <?= lang('saleman_detail_report_'); ?></span>
+                                                                </a>
+                                                            </li>
+                                                        <?php } ?>
+                                                        <?php if($GP['sale_report-project']){ ?>
+                                                            <li id="reports_shops">
+                                                                <a href="<?= site_url('reports/shops') ?>">
+                                                                    <i class="fa fa-building"></i><span class="text"> <?= lang('biller_report'); ?></span>
+                                                                </a>
+                                                            </li>
+                                                        <?php } ?>
+                                                        <?php if($GP['sale_report-project_manager']){ ?>
+                                                            <li id="reports_project_manager_report">
+                                                                <a href="<?= site_url('reports/project_manager_report') ?>">
+                                                                    <i class="fa fa-building"></i><span class="text"> <?= lang('project_manager_report'); ?></span>
+                                                                </a>
+                                                            </li>
+                                                        <?php } ?>
+                                                        <?php if($GP['sale_report-sale_payment_report']){ ?>
+                                                            <li id="reports_sale_payment_report">
+                                                                <a href="<?= site_url('reports/sale_payment_report') ?>">
+                                                                    <i class="fa fa-money"></i><span class="text"> <?= lang('sale_payment_report'); ?></span>
+                                                                </a>
+                                                            </li>
+                                                        <?php } ?>
 
-										<?php if($GP['account_report-index']){ ?>
-										<li class="mm_ac_report">
-											<a class="dropmenu" href="#">
-												<i class="fa fa-book"></i>
-												<span class="text"> <?= lang('ac_report'); ?> </span>
-												<span class="chevron closed"></span>
-											</a>
-											<ul>
-												<?php if($GP['account_report-ledger']){ ?>
-												<li id="reports_ledger">
-													<a href="<?= site_url('reports/ledger') ?>">
-														<i class="fa fa-book"></i><span class="text"> <?= lang('ledger'); ?></span>
-													</a>
-												</li>
-												<?php } ?>
-												<?php if($GP['account_report-trail_balance']){ ?>
-												<li id="reports_trial_balance">
-													<a href="<?= site_url('reports/trial_balance') ?>">
-														<i class="fa fa-bars"></i><span class="text"> <?= lang('trial_balance'); ?></span>
-													</a>
-												</li>
-												<?php } ?>
-												<?php if($GP['account_report-balance_sheet']){ ?>
-												<li id="reports_balance_sheet">
-													<a href="<?= site_url('reports/balance_sheet') ?>">
-														<i class="fa fa-balance-scale"></i><span class="text"> <?= lang('balance_sheet'); ?></span>
-													</a>
-												</li>
-												<?php } ?>
-												<?php if($GP['account_report-balance_sheet']){ ?>
-												<li id="reports_balance_sheet_details">
-													<a href="<?= site_url('reports/balance_sheet_details') ?>">
-														<i class="fa fa-balance-scale"></i><span class="text"> <?= lang('balance_sheet_details'); ?></span>
-													</a>
-												</li>
-												<?php } ?>
-												<?php if($GP['account_report-income_statement']){ ?>
-												<li id="reports_income_statement">
-													<a href="<?= site_url('reports/income_statement') ?>">
-														<i class="fa fa-money"></i><span class="text"> <?= lang('income_statement'); ?></span>
-													</a>
-												</li>
-												<?php } ?>
-												<?php if($GP['account_report-income_statement_detail']){ ?>
-												<li id="reports_income_statement_detail">
-													<a href="<?= site_url('reports/income_statement_detail') ?>">
-														<i class="fa fa-money"></i><span class="text"> <?= lang('income_statement_detail'); ?></span>
-													</a>
-												</li>
-												<?php } ?>
-												<?php if($GP['account_report-cash_book']){ ?>
-												<li id="reports_cash_book_report" <?=($this->uri->segment(2) === 'cash_books' ? 'class="active"' : '')?> >
-													<a href="<?= site_url('reports/cash_books') ?>">
-														<i class="fa fa-money"></i><span class="text"> <?= lang('cash_book'); ?></span>
-													</a>
-												</li>
-												<?php } ?>
-											</ul>
-											
-										</li>
-										<?php }?>
-									</ul>
-								</li>
-							<?php } ?>		
-					   <?php } ?>
+                                                    </ul>
+                                                </li>
+                                            <?php }?>
+
+                                            <?php if($GP['purchase_report-index']) { ?>
+                                                <li class="mm_purchase_report">
+                                                    <a class="dropmenu" href="#">
+                                                        <i class="fa fa-star"></i>
+                                                        <span class="text"> <?= lang('purchase_report'); ?> </span>
+                                                        <span class="chevron closed"></span>
+                                                    </a>
+                                                    <ul>
+                                                        <?php if($GP['purchase_report-purchas']){ ?>
+                                                            <li id="reports_purchases">
+                                                                <a href="<?= site_url('reports/purchases') ?>">
+                                                                    <i class="fa fa-star"></i><span class="text"> <?= lang('purchases_report'); ?></span>
+                                                                </a>
+                                                            </li>
+                                                        <?php } ?>
+                                                        <?php if($GP['purchase_report-daily']){ ?>
+                                                            <li id="reports_daily_purchases">
+                                                                <a href="<?= site_url('reports/daily_purchases') ?>">
+                                                                    <i class="fa fa-star"></i><span class="text"> <?= lang('daily_purchases'); ?></span>
+                                                                </a>
+                                                            </li>
+                                                        <?php } ?>
+                                                        <?php if($GP['purchase_report-monthly']){ ?>
+                                                            <li id="reports_monthly_purchases">
+                                                                <a href="<?= site_url('reports/monthly_purchases') ?>">
+                                                                    <i class="fa fa-star"></i><span class="text"> <?= lang('monthly_purchases'); ?></span>
+                                                                </a>
+                                                            </li>
+                                                        <?php } ?>
+
+                                                        <?php if($GP['purchase_report-supplier']){ ?>
+                                                            <li id="reports_suppliers">
+                                                                <a href="<?= site_url('reports/suppliers') ?>">
+                                                                    <i class="fa fa-users"></i><span class="text"> <?= lang('suppliers_report'); ?></span>
+                                                                </a>
+                                                            </li>
+                                                        <?php } ?>
+                                                    </ul>
+                                                </li>
+                                            <?php } ?>
+
+                                            <?php if($GP['account_report-index']){ ?>
+                                                <li class="mm_ac_report">
+                                                    <a class="dropmenu" href="#">
+                                                        <i class="fa fa-book"></i>
+                                                        <span class="text"> <?= lang('ac_report'); ?> </span>
+                                                        <span class="chevron closed"></span>
+                                                    </a>
+                                                    <ul>
+                                                        <?php if($GP['account_report-ledger']){ ?>
+                                                            <li id="reports_ledger">
+                                                                <a href="<?= site_url('reports/ledger') ?>">
+                                                                    <i class="fa fa-book"></i><span class="text"> <?= lang('ledger'); ?></span>
+                                                                </a>
+                                                            </li>
+                                                        <?php } ?>
+                                                        <?php if($GP['account_report-trail_balance']){ ?>
+                                                            <li id="reports_trial_balance">
+                                                                <a href="<?= site_url('reports/trial_balance') ?>">
+                                                                    <i class="fa fa-bars"></i><span class="text"> <?= lang('trial_balance'); ?></span>
+                                                                </a>
+                                                            </li>
+                                                        <?php } ?>
+                                                        <?php if($GP['account_report-balance_sheet']){ ?>
+                                                            <li id="reports_balance_sheet">
+                                                                <a href="<?= site_url('reports/balance_sheet') ?>">
+                                                                    <i class="fa fa-balance-scale"></i><span class="text"> <?= lang('balance_sheet'); ?></span>
+                                                                </a>
+                                                            </li>
+                                                        <?php } ?>
+                                                        <?php if($GP['account_report-balance_sheet']){ ?>
+                                                            <li id="reports_balance_sheet_details">
+                                                                <a href="<?= site_url('reports/balance_sheet_details') ?>">
+                                                                    <i class="fa fa-balance-scale"></i><span class="text"> <?= lang('balance_sheet_details'); ?></span>
+                                                                </a>
+                                                            </li>
+                                                        <?php } ?>
+                                                        <?php if($GP['account_report-income_statement']){ ?>
+                                                            <li id="reports_income_statement">
+                                                                <a href="<?= site_url('reports/income_statement') ?>">
+                                                                    <i class="fa fa-money"></i><span class="text"> <?= lang('income_statement'); ?></span>
+                                                                </a>
+                                                            </li>
+                                                        <?php } ?>
+                                                        <?php if($GP['account_report-income_statement_detail']){ ?>
+                                                            <li id="reports_income_statement_detail">
+                                                                <a href="<?= site_url('reports/income_statement_detail') ?>">
+                                                                    <i class="fa fa-money"></i><span class="text"> <?= lang('income_statement_detail'); ?></span>
+                                                                </a>
+                                                            </li>
+                                                        <?php } ?>
+                                                        <?php if($GP['account_report-cash_book']){ ?>
+                                                            <li id="reports_cash_book_report" <?=($this->uri->segment(2) === 'cash_books' ? 'class="active"' : '')?> >
+                                                                <a href="<?= site_url('reports/cash_books') ?>">
+                                                                    <i class="fa fa-money"></i><span class="text"> <?= lang('cash_book'); ?></span>
+                                                                </a>
+                                                            </li>
+                                                        <?php } ?>
+                                                    </ul>
+
+                                                </li>
+                                            <?php }?>
+                                        </ul>
+                                    </li>
+                                <?php } ?>
+                            <?php } ?>
                         </ul>
                     </div>
                     <a href="#" id="main-menu-act" class="full visible-md visible-lg">
