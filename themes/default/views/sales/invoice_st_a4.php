@@ -144,6 +144,7 @@
                         <th colspan="9" style="border-left:none;border-right: none;border-top:none;border-bottom: 1px solid #000 !important;">
                             <div class="row" style="margin-top: 0px !important;">
                                 <div class="col-sm-3 col-xs-3 " style="margin-top: 0px !important;">
+                                    <br>
                                     <?php if(!empty($biller->logo)) { ?>
                                         <img class="img-responsive myhide" src="<?= base_url() ?>assets/uploads/logos/<?= $biller->logo; ?>"id="hidedlo" style="width: 140px; margin-left: 25px;margin-top: -10px;" />
                                     <?php } ?>

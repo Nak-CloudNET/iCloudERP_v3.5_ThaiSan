@@ -137,7 +137,9 @@
 <div class="container" style="margin: 0 auto;">
     <div class="col-xs-12" style="padding: 0">
         <div class="row" style="margin-top: 20px !important;">
+
             <div class="col-sm-3 col-xs-3 " style="margin-top: 0px !important;">
+                <br>
                 <?php if(!empty($biller->logo)) { ?>
                     <img class="img-responsive myhide" src="<?= base_url() ?>assets/uploads/logos/<?= $biller->logo; ?>"id="hidedlo" style="width: 140px; margin-top: -10px;" />
                 <?php } ?>
