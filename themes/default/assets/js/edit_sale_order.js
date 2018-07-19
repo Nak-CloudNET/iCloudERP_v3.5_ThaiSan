@@ -2345,7 +2345,7 @@ $(document).on('change','#piece,#wpiece',function(){
 		$("#pquantity").val(formatDecimal(total)).trigger("change");
 		$("#pnote").val(piece+" x "+wpiece);
 	}else {
-		$("#pnote").val('');
+		//$("#pnote").val('');
 	}
 });
 function add_invoice_item(item) {
