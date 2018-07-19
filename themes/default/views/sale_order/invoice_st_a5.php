@@ -278,8 +278,8 @@
         ?>
         <div class="row">
             <div class="col-sm-12 col-xs-12">
-                <table class="table table-bordered" style="width: 100%; margin-top: 10px;">
-                    <tbody style="font-size: 12px;">
+                <table class="table table-bordered" style=" white-space: nowrap;width: 100%; margin-top: 10px;">
+                    <tbody style="font-size: 14px;">
                     <tr class="thead" style="background-color: #444 !important; color: #FFF !important;">
                         <th>ល.រ<br /><?= strtoupper(lang('no')) ?></th>
                         <th>លេខកូដទំនិញ<br /><?= strtoupper(lang('Product code')) ?></th>
