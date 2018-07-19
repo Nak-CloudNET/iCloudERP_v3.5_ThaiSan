@@ -438,6 +438,12 @@
                         </div>
 						-->
                         <div class="btn-group">
+                            <a href="<?= site_url('sales/invoice_thai_san/' . $inv->id) ?>" target="_blank" class="tip btn btn-primary" title="<?= lang('print invoice') ?>">
+                                <i class="fa fa-print"></i>
+                                <span class="hidden-sm hidden-xs"><?= lang('print invoice') ?></span>
+                            </a>
+                        </div>
+                        <div class="btn-group">
                             <a href="<?= site_url('sales/print_st_invoice/' . $inv->id) ?>" target="_blank" class="tip btn btn-primary" title="<?= lang('st_invoice') ?>">
                                 <i class="fa fa-print"></i>
                                 <span class="hidden-sm hidden-xs"><?= lang('st_invoice') ?></span>

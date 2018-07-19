@@ -243,20 +243,20 @@
                 $no = 1;
                 $erow = 1;
                 $totalRow = 0;
-				$arr_product_name = array();
-				$arr_count = array();
-				$product_name = '';
-				$pt_name = array();
-				$cn = 1;
-				$newArr = array();
-				foreach ($rows as $count_row) {
-					$arr_count[$count_row->product_invoice]++;	
-				}
-				
+                $arr_product_name = array();
+                $arr_count = array();
+                $product_name = '';
+                $pt_name = array();
+                $cn = 1;
+                $newArr = array();
+                foreach ($rows as $count_row) {
+                    $arr_count[$count_row->product_name]++;
+                }
+
                 foreach ($rows as $row) {
                     $free = lang('free');
                     $product_unit = '';
-                    $total = 0;				
+                    $total = 0;
                     if($row->variant){
                         $product_unit = $row->variant;
                     }else{
@@ -264,22 +264,22 @@
                     }
                     ?>
                     <tr class="border">
-						
-						<?php
-							
-							if(in_array($row->product_invoice, $arr_product_name)){ 
-								$product_name = '';
-							}else{							
-								$product_name = $row->product_invoice;
-								$arr_product_name[] = $row->product_invoice;
-						?>							
-							<td style="vertical-align: top; text-align: center" rowspan="<?= $arr_count[$product_name]; ?>"><?php echo $no ?></td>
-							<td style="vertical-align: top;" rowspan="<?= $arr_count[$product_name]?>"><?= $product_name; ?></td>
-						<?php	
-							$no++;
-						} 
-						
-						?>						
+
+                        <?php
+
+                        if(in_array($row->product_name, $arr_product_name)){
+                            $product_name = '';
+                        }else{
+                            $product_name = $row->product_name;
+                            $arr_product_name[] = $row->product_name;
+                            ?>
+                            <td style="vertical-align: top; text-align: center" rowspan="<?= $arr_count[$product_name]; ?>"><?php echo $no ?></td>
+                            <td style="vertical-align: top;" rowspan="<?= $arr_count[$product_name]?>"><?= $product_name; ?></td>
+                            <?php
+                            $no++;
+                        }
+
+                        ?>
                         <td style="vertical-align: middle;text-align:center">
                             <?=$row->product_noted;?>
                         </td>
@@ -291,31 +291,32 @@
                         </td>
                         <td style="vertical-align: middle; text-align: right"><span style="float:left;">$</span>
                             <?php
-								if($row->real_unit_price==0){
-									echo "Free";
-								}else
-								{
-									echo $this->erp->formatMoney($row->real_unit_price);
-								}
-							?>
+                            if($row->real_unit_price==0){
+                                echo "Free";
+                            }else
+                            {
+                                echo $this->erp->formatMoney($row->real_unit_price);
+                            }
+                            ?>
                         </td>
-						<?php if($invs->product_discount > 0){ ?>
-							<td style="vertical-align: middle; text-align: right"><span style="float:left;">$</span>
-								<?php echo $this->erp->formatMoney($row->item_discount); ?>
-							</td>
-						<?php  } ?>
-						
+                        <?php if($invs->product_discount > 0){ ?>
+                            <td style="vertical-align: middle; text-align: right"><span style="float:left;">$</span>
+                                <?php echo $this->erp->formatMoney($row->item_discount); ?>
+                            </td>
+                        <?php  } ?>
+
                         <td style="vertical-align: middle; text-align: right"><span style="float:left;">$</span>
                             <?php
-                                if($row->subtotal==0){
-									echo "Free";
-								}
-                                else{
-                                    echo $this->erp->formatMoney($row->subtotal);
-                                }
+                            if($row->subtotal==0){
+                                echo "Free";
+                            }
+                            else{
+                                echo $this->erp->formatMoney($row->subtotal);
+                            }
                             ?>
                         </td>
                     </tr>
+
 
                     <?php
 					

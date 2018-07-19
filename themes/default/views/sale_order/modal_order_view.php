@@ -365,7 +365,7 @@
                         <div class="btn-group">
                             <a href="<?= site_url('sale_order/print_st_invoice_5/' . $inv->id) ?>" target="_blank" class="tip btn btn-primary" title="<?= lang('sale order') ?>">
                                 <i class="fa fa-print"></i>
-                                <span class="hidden-sm hidden-xs"><?= lang('standard_invoice A45') ?></span>
+                                <span class="hidden-sm hidden-xs"><?= lang('standard_invoice A5') ?></span>
                             </a>
                         </div>
 						<!--<div class="btn-group">
