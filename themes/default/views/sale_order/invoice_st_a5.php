@@ -188,8 +188,8 @@
         <div class="row">
             <div class="invoice" style="margin-top: -10px !important">
                 <center>
-                    <h4 class="title">វិក្កយបត្រ</h4>
-                    <h4 class="title" style="margin-top:-10px !important;">INVOICE</h4>
+                    <h4 class="title">វិក្កយបត្របញ្ជាទិញ</h4>
+                    <h4 class="title" style="margin-top:-10px !important;">Sale Orders Invoice</h4>
                 </center>
             </div>
         </div>
