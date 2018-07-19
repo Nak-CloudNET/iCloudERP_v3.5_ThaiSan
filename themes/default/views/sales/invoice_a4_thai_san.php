@@ -191,6 +191,7 @@
                                 <div class="col-sm-3 col-xs-3 pull-right">
 									<div style="margin-top:55px;font-size:11px !important;">
 										<p>Date:&nbsp; <?= $invs->date; ?></p>
+                                        <p>Reference: <?= $invs->reference_no ?></p>
 									</div>
                                 </div>
                             </div>
