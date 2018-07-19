@@ -533,6 +533,7 @@ class Sale_order extends MY_Controller
 					$row->digital_code	  = "";
 					$row->digital_name	  = "";
 					$row->digital_id	  = 0;
+					$row->note            = $item->product_noted;
 					if($dig){
 						$row->digital_code 	= $dig->code .' ['. $row->code .']';
 						$row->digital_name 	= $dig->name .' ['. $row->name .']';
