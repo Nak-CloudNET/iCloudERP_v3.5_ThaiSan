@@ -452,22 +452,22 @@
                 if($invs->total_discount>0 && $invs->product_tax>0 ){$col=5;$col2=3;}
                 if($invs->total_discount==0 && $invs->product_tax==0 ){$col=4;$col2=2;}
                 if ($discount != 0) {
-                    $col =4;
+                    $col =3;
                 }
                 if ($invs->grand_total != $invs->total) {
                     $row++;
                 }
                 if ($invs->order_discount != 0) {
                     $row++;
-                    $col =4;
+                    $col =3;
                 }
                 if ($invs->shipping != 0) {
                     $row++;
-                    $col =4;
+                    $col =3;
                 }
                 if ($invs->order_tax != 0) {
                     $row++;
-                    $col =4;
+                    $col =3;
                 }
                 if($invs->paid != 0 && $invs->deposit != 0) {
                     $row += 3;
