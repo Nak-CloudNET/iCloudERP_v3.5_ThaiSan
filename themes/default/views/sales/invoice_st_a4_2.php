@@ -280,10 +280,10 @@
         <div class="row">
             <div class="col-sm-12 col-xs-12">
                 <table class="table table-bordered" style="width: 100%; margin-top: 10px;">
-                    <tbody style="font-size: 12px;">
-                    <tr class="thead" style="background-color: #444 !important; color: #FFF !important;">
+                    <tbody style="font-size: 14px;">
+                    <tr class="thead" style="white-space: nowrap;background-color: #444 !important; color: #FFF !important;">
                         <th>ល.រ<br /><?= strtoupper(lang('no')) ?></th>
-                        <th>លេខកូដទំនិញ<br /><?= strtoupper(lang('Product code')) ?></th>
+                        <th >លេខកូដទំនិញ<br /><?= strtoupper(lang('Product code')) ?></th>
                         <th>ឈ្មោះទំនិញ<br /><?= strtoupper(lang('Product Name')) ?></th>
                         <th>ខ្នាត<br /><?= strtoupper(lang('unit')) ?></th>
                         <th>ចំនួន<br /><?= strtoupper(lang('qty')) ?></th>

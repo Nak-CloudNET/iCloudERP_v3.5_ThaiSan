@@ -283,7 +283,7 @@
                             </div>
                         </th>
                     </tr>
-                    <tr class="border thead print" style="background-color: #444 !important; color: #FFF !important;">
+                    <tr class="border thead print" style="white-space: nowrap;background-color: #444 !important; color: #FFF !important;">
                         <th>ល.រ<br /><?= strtoupper(lang('no')) ?></th>
                         <th>លេខកូដទំនិញ<br /><?= strtoupper(lang('product code')) ?></th>
                         <th>ឈ្មោះទំនិញ<br /><?= strtoupper(lang('product name')) ?></th>
