@@ -183,6 +183,7 @@ class Sale_order extends MY_Controller
 				$item_peice     = $_POST['piece'][$r];
 				$item_wpeice	= $_POST['wpiece'][$r];
 				$product_note = $_POST['product_note'][$r];
+                $product_invoice = $_POST['product_invoice'][$r];
                 $item_option = isset($_POST['product_option'][$r]) && $_POST['product_option'][$r] != 'false' ? $_POST['product_option'][$r] : null;
                 $real_unit_price = $this->erp->formatDecimal($_POST['real_unit_price'][$r]);
                 $unit_price = $this->erp->formatDecimal($_POST['unit_price'][$r]);
@@ -273,13 +274,13 @@ class Sale_order extends MY_Controller
 						'group_price_id'=>$group_price_id,
                         'tax' => $tax,
 						'product_noted' => $product_note,
+                        'product_invoice' => $product_invoice,
                         'discount' => $item_discount,
                         'item_discount' => $pr_item_discount * $item_quantity,
                         'subtotal' => $subtotal,
                         'real_unit_price' => $real_unit_price,
                         'price_id' => $item_price_id
                     );
-					
                     $total += $subtotal;
 					
 					
@@ -534,6 +535,7 @@ class Sale_order extends MY_Controller
 					$row->digital_name	  = "";
 					$row->digital_id	  = 0;
 					$row->note            = $item->product_noted;
+                    $row->product_invoice            = $item->product_invoice;
 					if($dig){
 						$row->digital_code 	= $dig->code .' ['. $row->code .']';
 						$row->digital_name 	= $dig->name .' ['. $row->name .']';
@@ -588,7 +590,6 @@ class Sale_order extends MY_Controller
                     }
                     $c++;
                 }
-				
                 $this->data['sale_order_items'] = json_encode($pr);
 				$this->data['payment_deposit'] = (isset($payment_deposit)?$payment_deposit:0);
 				$this->data['quote_id'] = $quote_ID;
@@ -2226,6 +2227,8 @@ class Sale_order extends MY_Controller
                 $item_type = $_POST['product_type'][$r];
                 $item_code = $_POST['product_code'][$r];
                 $item_name = $_POST['product_name'][$r];
+                $product_noted = $_POST['product_note'][$r];
+                $product_invoice = $_POST['product_invoice'][$r];
 				$item_peice     = $_POST['piece'][$r];
 				$item_wpeice	= $_POST['wpiece'][$r];
 				$group_price_id = $_POST['group_price_id'][$r];
@@ -2306,6 +2309,8 @@ class Sale_order extends MY_Controller
                         'digital_id' => $digital_id,
                         'product_code' => $item_code,
                         'product_name' => $item_name,
+                        'product_noted' => $product_noted,
+                        'product_invoice' => $product_invoice,
                         'product_type' => $item_type,
                         'option_id' => $item_option,
                         'net_unit_price' => $item_net_price,
@@ -2534,6 +2539,7 @@ class Sale_order extends MY_Controller
                 $row->option = $item->option_id;
 				$row->unit = $row->unit;
 				$row->note = $item->product_noted;
+                $row->product_invoice = $item->product_invoice;
 				$options = $this->sales_model->getProductOptions($row->id, $item->warehouse_id);
 				$test = $this->sales_model->getWP2($row->id, $item->warehouse_id);
 				$row->quantity = $test->quantity;
