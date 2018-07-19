@@ -1,4 +1,3 @@
-<?php //$this->erp->print_arrays($discount['discount']) ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -129,7 +128,7 @@
 </script>
 <body>
 <div class="container" style="width: 821px;margin: 0 auto;">
-    <div class="col-xs-12"
+    <div class="col-xs-12">
         <?php
 
         $cols = 6;
@@ -137,6 +136,7 @@
             $cols = 7;
         }
         ?>
+
         <div class="row">
             <table class="table">
                 <thead>
@@ -197,6 +197,7 @@
 
                                 </div>
                             </div>
+
                             <div class="row" style="text-align: left;">
                                 <div class="col-sm-7 col-xs-7">
                                     <table >
@@ -247,6 +248,7 @@
                                         <?php } ?>
                                     </table>
                                 </div>
+
                                 <div class="col-sm-5 col-xs-5">
                                     <table class="noPadding" border="none">
                                         <tr>
@@ -300,7 +302,7 @@
 
                         <?php if ($dis>0 ){ ?>
                             <th>បញ្ចុះតម្លៃ<br /><?= strtoupper(lang('discount')) ?></th>
-                        <?php }  echo $taxx; ?>
+                        <?php }  ?>
 
                         <?php if ($taxx>0) { ?>
                             <th style="width: 10%; display: none;">ពន្ធទំនិញ<br /><?= strtoupper(lang('tax')) ?></th>
@@ -315,7 +317,6 @@
                 <tbody>
 
                 <?php
-               // $this->erp->print_arrays($invs->order_discount);
                 $no = 1;
                 $erow = 1;
                 $totalRow = 0;
@@ -340,6 +341,7 @@
                         }
                     }
                     ?>
+
                     <tr class="border">
                         <td style="vertical-align: middle; text-align: center"><?php echo $no ?></td>
                         <td style="vertical-align: middle;">
@@ -394,9 +396,6 @@
                     $no++;
                     $erow++;
                     $totalRow++;
-//                    if ($totalRow % 25 == 0) {
-//                        echo '<tr class="pageBreak"></tr>';
-//                    }
 
                 }
                 ?>
@@ -616,7 +615,7 @@
 
 </body>
 <script type="text/javascript">
-    if(!<?=$invs->total_discount?$invs->total_discount:0; ?>){
+    if(!<?=$invs->total_discount?$invs->total_discount:0 ; ?>){
         $('td:nth-child(8),th:nth-child(8)').hide();
     }
     if(!<?=$invs->product_tax?$invs->product_tax:0; ?>){
