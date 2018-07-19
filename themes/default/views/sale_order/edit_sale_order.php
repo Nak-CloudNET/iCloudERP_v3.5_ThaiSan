@@ -27,6 +27,7 @@
         __setItem('slshipping', '<?= $inv->shipping ?>');
 		__setItem('paid', '<?= $inv->paid ?>');
         __setItem('sloitems', JSON.stringify(<?= $inv_items; ?>));
+
         <?php } ?>
 
 		$("#sldate").datetimepicker({

@@ -168,22 +168,30 @@
                                 </div>
 								<div  class="div_header col-md-4 col-sm-4 col-xs-4" style="font-size:10px !important; line-height: 20px !important;margin-left:-13px;margin-top:25px;">
 									<div>
-										<?php if(!empty($biller->address)) { ?>
-											<p class="address" style="margin-top:-15px !important;text-align-last:left !important;">អាសយដ្ឋាន ៖ &nbsp;<?= $biller->address; ?></p>
-										<?php } ?>
-									</div>
-									<div class="fax_phone" style="margin-left:-12px;">
-										<p style="margin-top:-10px ;">H/P:&nbsp;012 736 868/088 8736 868 or 011 515 999</p>
-									</div>
-									<div class="phone" style="margin-left:-65px;">
-										<?php if(!empty($biller->phone)) { ?>
-												<p style="margin-top:-15px ;">Tel:&nbsp;<?= $biller->phone; ?> Fax:&nbsp;063 966 399</p>
-										<?php } ?>
+                                        <?php if(!empty($biller->address)) { ?>
+                                        <table style="font-size: 13px">
+                                            <tr>
+                                                <td style="text-align:left; vertical-align: top; ">អាសយដ្ឋាន:&nbsp;&nbsp;&nbsp;</td>
+                                                <td style="text-align: left;"><?= $biller->address; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align:left; ">H/P :</td>
+                                                <td style="text-align: left;">012 736 868/088 8736 868 or 011 515 999</td>
+                                            </tr>
+                                            <?php  } if(!empty($biller->phone)) { ?>
+                                                <tr>
+                                                    <td style="text-align:left; ">Tel:</td>
+                                                    <td style="text-align: left;"><?= $biller->phone; ?> Fax:&nbsp;063 966 399</td>
+                                                </tr>
+
+                                            <?php } ?>
+                                        </table>
 									</div>
                                 </div>
                                 <div class="col-sm-3 col-xs-3 pull-right">
 									<div style="margin-top:55px;font-size:11px !important;">
 										<p>Date:&nbsp; <?= $invs->date; ?></p>
+                                        <p>Reference: <?= $invs->reference_no ?></p>
 									</div>
                                 </div>
                             </div>
@@ -191,7 +199,8 @@
 								<div  class="text-center"  style="margin-top: -20px !important;">
 									<div class="invoice" style="margin-top:20px;">
 										<center>
-											<h1 class="title"><strong>INVOICE</strong></h1>
+                                            <h1 class="title"><strong>វិក័យប័ត្រ</strong></h1>
+											<h1 class="title"​ style="margin-top: -4px"><strong>INVOICE</strong></h1>
 										</center>
 									</div>
                                 </div>
@@ -223,17 +232,17 @@
                         </th>
                     </tr>
                     <tr class="border thead print">
-                        <th style="width:50px !important;"><b>No</b></th>
-                        <th style="width:300px !important;"><b>Description</b></th>
-                        <th style="width:150px !important;"><b>Size</b></th>
-                        <th style="width:70px !important;"><b>QTY</b></th>
-                        <th style="width:70px !important;"><b>U/N</b></th>
-                        <th style="width:80px !important;"><b>U/PRICE</b></th>
-						<?php 
-							if($invs->product_discount > 0){ ?>
-								<th style="width:80px !important;"><b>Dis</b></th>
-						<?php } ?>		
-                        <th style="width:100px !important;"><b>AMOUNT</b></th>
+                        <th style="width:50px !important;"><b>ល.រ<br>No</b></th>
+                        <th style="width:300px !important;"><b>បរិយាយមុខទំនិញ<br>Description</b></th>
+                        <th style="width:150px !important;"><b>ទំហំ<br>Size</b></th>
+                        <th style="width:70px !important;"><b>ចំនួន<br>QTY</b></th>
+                        <th style="width:70px !important;"><b>ខ្នាត<br>U/N</b></th>
+                        <th style="width:80px !important;"><b>តម្លៃ<br>U/PRICE</b></th>
+                        <?php
+                        if($invs->product_discount > 0){ ?>
+                            <th style="width:80px !important;"><b>បញ្ចុះតម្លៃ<br>Dis</b></th>
+                        <?php } ?>
+                        <th style="width:100px !important;"><b>តម្លៃសរុប<br>AMOUNT</b></th>
                     </tr>
                 </thead>
                 <tbody>

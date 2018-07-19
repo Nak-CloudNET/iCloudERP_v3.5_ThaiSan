@@ -179,12 +179,6 @@
                                                     <td style="text-align:left; ">H/P :</td>
                                                     <td style="text-align: left;">012 736 868/088 8736 868 or 011 515 999</td>
                                                 </tr>
-
-
-
-
-
-
 										<?php  } if(!empty($biller->phone)) { ?>
                                             <tr>
                                                 <td style="text-align:left; ">Tel:</td>
@@ -198,6 +192,7 @@
                                 <div class="col-sm-3 col-xs-3 pull-right">
 									<div style="margin-top:55px;font-size:11px !important;">
 										<p>Date:&nbsp; <?= $invs->date; ?></p>
+                                        <p>Reference: <?= $invs->reference_no ?></p>
 									</div>
                                 </div>
                             </div>
@@ -206,7 +201,7 @@
 									<div class="invoice" style="margin-top:20px;">
 										<center>
                                             <h1 class="title"><strong>បញ្ជីសម្រង់តម្លៃ</strong></h1>
-											<h1 class="title"><strong>QUOTATION</strong></h1>
+											<h1 class="title" style="margin-top: -4px;"><strong>QUOTATION</strong></h1>
 										</center>
 									</div>
                                 </div>
