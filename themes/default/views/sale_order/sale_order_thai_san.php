@@ -27,23 +27,23 @@
     }
 
     @media print {
-		.container{
-			padding: 15px !important;
-		}
+        .container{
+            padding: 15px !important;
+        }
         .pageBreak {
             page-break-after: always;
             -webkit-page-break-after: always;
         }
-		.address {
+        .address {
             margin-left: -7px !important;
         }
-		.fax_phone {
+        .fax_phone {
             margin-left: -22px !important;
         }
-		.phone {
+        .phone {
             margin-left: -75px !important;
         }
-		.email {
+        .email {
             margin-left: -90px !important;
         }
         .customer_label {
@@ -105,10 +105,10 @@
         -mox-font-family:"Khmer OS Muol Light";
         font-size: 20px;
     }
-	.p{
-		font-family: Khmer OS Muol Light;
+    .p{
+        font-family: Khmer OS Muol Light;
         -mox-font-family: Khmer OS Muol Light;
-	}
+    }
     h4{
         margin-top: 0px;
         margin-bottom: 0px;
@@ -145,106 +145,106 @@
 <body>
 <div class="container" style="width: 821px;margin: 0 auto;">
     <div class="col-md-12 col-sm-12 col-xs-12">
-		<div class="row">
+        <div class="row">
             <table class="table">
                 <thead>
-                    <tr style="border-left:none;border-right: none;border-top:none;">
-                        <th colspan="9" style="border-left:none;border-right: none;border-top:none;border-bottom: 1px solid #000 !important;">
-                            <div class="row" style="margin-top: 0px !important;">
-                                <div class="col-sm-3 col-xs-3">
-                                    <?php if(!empty($biller->logo)) { ?>
-                                        <img class="img-responsive myhide" src="<?= base_url() ?>assets/uploads/logos/<?= $biller->logo; ?>" style="width: 140px; margin-top: -10px !important;" />
-                                    <?php } ?>
-                                </div>
-                                <div  class="col-sm-8 col-xs-8"  style="margin-left:-50px; margin-top: -30px !important;">
-									<div>
-										<center >
-											<?php if($biller->company) { ?>
-												<h2 class="header text-center"><strong><?= $biller->company ?></strong></h2>
-												<p style="font-size:12px !important"><strong>មានទទួលធ្វើ  ទ្វារបង្អួច ​ ទូ ពីអាលុយមីញូម  ពិដាន និង ទ្វាររមូរ </strong></p>
-											<?php }?>
-										</center>
-									</div>
-                                </div>
-								<div  class="div_header col-md-4 col-sm-4 col-xs-4" style="font-size:10px !important; line-height: 20px !important;margin-left:-13px;margin-top:25px;">
-									<div>
-                                        <?php if(!empty($biller->address)) { ?>
-                                        <table style="font-size: 13px">
-                                            <tr>
-                                                <td style="text-align:left; vertical-align: top; ">អាសយដ្ឋាន:&nbsp;&nbsp;&nbsp;</td>
-                                                <td style="text-align: left;"><?= $biller->address; ?></td>
-                                            </tr>
-                                            <tr>
-                                                <td style="text-align:left; ">H/P :</td>
-                                                <td style="text-align: left;">012 736 868/088 8736 868 or 011 515 999</td>
-                                            </tr>
-                                            <?php  } if(!empty($biller->phone)) { ?>
-                                                <tr>
-                                                    <td style="text-align:left; ">Tel:</td>
-                                                    <td style="text-align: left;"><?= $biller->phone; ?> Fax:&nbsp;063 966 399</td>
-                                                </tr>
-
-                                            <?php } ?>
-                                        </table>
-									</div>
-                                </div>
-                                <div class="col-sm-3 col-xs-3 pull-right">
-									<div style="margin-top:55px;font-size:11px !important;">
-
-										<p>Date:&nbsp; <?= $invs->date; ?></p>
-                                        <p>Reference: <?= $invs->reference_no ?></p>
-									</div>
+                <tr style="border-left:none;border-right: none;border-top:none;">
+                    <th colspan="9" style="border-left:none;border-right: none;border-top:none;border-bottom: 1px solid #000 !important;">
+                        <div class="row" style="margin-top: 0px !important;">
+                            <div class="col-sm-3 col-xs-3">
+                                <?php if(!empty($biller->logo)) { ?>
+                                    <img class="img-responsive myhide" src="<?= base_url() ?>assets/uploads/logos/<?= $biller->logo; ?>" style="width: 140px; margin-top: -10px !important;" />
+                                <?php } ?>
+                            </div>
+                            <div  class="col-sm-8 col-xs-8"  style="margin-left:-50px; margin-top: -30px !important;">
+                                <div>
+                                    <center >
+                                        <?php if($biller->company) { ?>
+                                            <h2 class="header text-center"><strong><?= $biller->company ?></strong></h2>
+                                            <p style="font-size:12px !important"><strong>មានទទួលធ្វើ  ទ្វារបង្អួច ​ ទូ ពីអាលុយមីញូម  ពិដាន និង ទ្វាររមូរ </strong></p>
+                                        <?php }?>
+                                    </center>
                                 </div>
                             </div>
-							<div class="row">
-								<div  class="text-center"  style="margin-top: -20px !important;">
-									<div class="invoice" style="margin-top:20px;">
-										<center>
-                                            <h1 class="title"><strong>វិក័យប័ត្រកម្មង់ទិញ</strong></h1>
-											<h1 class="title"​​​ style="margin-top: -4px;"><strong>INVOICE SALE ORDER</strong></h1>
-										</center>
-									</div>
-                                </div>
-							</div>
-							<div style="text-align:left;margin-left:-22px;">
-                                <div class="col-sm-7 col-xs-7">
-                                    <table >
-                                        <?php if(!empty($customer->name_kh || $customer->name)) { ?>
+                            <div  class="div_header col-md-4 col-sm-4 col-xs-4" style="font-size:10px !important; line-height: 20px !important;margin-left:-13px;margin-top:25px;">
+                                <div>
+
+                                    <?php if(!empty($biller->address)) { ?>
+                                    <table style="font-size: 13px">
+                                        <tr>
+                                            <td style="text-align:left; vertical-align: top; ">អាសយដ្ឋាន:&nbsp;&nbsp;&nbsp;</td>
+                                            <td style="text-align: left;"><?= $biller->address; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align:left; ">H/P :</td>
+                                            <td style="text-align: left;">012 736 868/088 8736 868 or 011 515 999</td>
+                                        </tr>
+                                        <?php  } if(!empty($biller->phone)) { ?>
                                             <tr>
-                                                <td style="width:160px;"><strong>SOLD TO CUSTOMER</strong></td>
-                                                <td style="width:10px;"> : </td>
-                                                <?php if(($customer->name_kh)) { ?>
-                                                    <td><?= $customer->name_kh ?></td>
-                                                <?php }else { ?>
-                                                    <td><?= $customer->name ?></td>
-                                                <?php } ?>
+                                                <td style="text-align:left; ">Tel:</td>
+                                                <td style="text-align: left;"><?= $biller->phone; ?> Fax:&nbsp;063 966 399</td>
                                             </tr>
-                                        <?php } ?>
-                                        <?php if(!empty($customer->address_kh || $customer->address)) { ?>
-                                            <tr>
-                                                <td><strong>Tel</strong></td>
-                                                <td> : </td>
-                                                <td><?= $customer->phone ?></td>
-                                            </tr>
+
                                         <?php } ?>
                                     </table>
                                 </div>
-							</div>
-                        </th>
-                    </tr>
-                    <tr class="border thead print">
-                        <th style="width:50px !important;"><b>ល.រ<br>No</b></th>
-                        <th style="width:300px !important;"><b>បរិយាយមុខទំនិញ<br>Description</b></th>
-                        <th style="width:150px !important;"><b>ទំហំ<br>Size</b></th>
-                        <th style="width:70px !important;"><b>ចំនួន<br>QTY</b></th>
-                        <th style="width:70px !important;"><b>ខ្នាត<br>U/N</b></th>
-                        <th style="width:80px !important;"><b>តម្លៃ<br>U/PRICE</b></th>
-                        <?php
-                        if($invs->product_discount > 0){ ?>
-                            <th style="width:80px !important;"><b>បញ្ចុះតម្លៃ<br>Dis</b></th>
-                        <?php } ?>
-                        <th style="width:100px !important;"><b>តម្លៃសរុប<br>AMOUNT</b></th>
-                    </tr>
+                            </div>
+                            <div class="col-sm-3 col-xs-3 pull-right">
+                                <div style="margin-top:55px;font-size:11px !important;">
+                                    <p>Date:&nbsp; <?= $invs->date; ?></p>
+                                    <p>Reference: <?= $invs->reference_no ?></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div  class="text-center"  style="margin-top: -20px !important;">
+                                <div class="invoice" style="margin-top:20px;">
+                                    <center>
+                                        <h1 class="title"><strong>វិក័យប័ត្រកម្មង់ទិញ</strong></h1>
+                                        <h1 class="title" style="margin-top: -4px;"><strong>QUOTATION</strong></h1>
+                                    </center>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="text-align:left;margin-left:-22px;">
+                            <div class="col-sm-7 col-xs-7">
+                                <table >
+                                    <?php if(!empty($customer->name_kh || $customer->name)) { ?>
+                                        <tr>
+                                            <td style="width:160px;"><strong>SOLD TO CUSTOMER</strong></td>
+                                            <td style="width:10px;"> : </td>
+                                            <?php if(($customer->name_kh)) { ?>
+                                                <td><?= $customer->name_kh ?></td>
+                                            <?php }else { ?>
+                                                <td><?= $customer->name ?></td>
+                                            <?php } ?>
+                                        </tr>
+                                    <?php } ?>
+                                    <?php if(!empty($customer->address_kh || $customer->address)) { ?>
+                                        <tr>
+                                            <td><strong>Tel</strong></td>
+                                            <td> : </td>
+                                            <td><?= $customer->phone ?></td>
+                                        </tr>
+                                    <?php } ?>
+                                </table>
+                            </div>
+                        </div>
+                    </th>
+                </tr>
+                <tr class="border thead print">
+                    <th style="width:50px !important;"><b>ល.រ<br>No</b></th>
+                    <th style="width:300px !important;"><b>បរិយាយមុខទំនិញ<br>Description</b></th>
+                    <th style="width:150px !important;"><b>ទំហំ<br>Size</b></th>
+                    <th style="width:70px !important;"><b>ចំនួន<br>QTY</b></th>
+                    <th style="width:70px !important;"><b>ខ្នាត<br>U/N</b></th>
+                    <th style="width:80px !important;"><b>តម្លៃ<br>U/PRICE</b></th>
+                    <?php
+                    if($invs->product_discount > 0){ ?>
+                        <th style="width:80px !important;"><b>បញ្ចុះតម្លៃ<br>Dis</b></th>
+                    <?php } ?>
+                    <th style="width:100px !important;"><b>តម្លៃសរុប<br>AMOUNT</b></th>
+                </tr>
                 </thead>
                 <tbody>
 
@@ -253,43 +253,43 @@
                 $no = 1;
                 $erow = 1;
                 $totalRow = 0;
-				$arr_product_name = array();
-				$arr_count = array();
-				$product_name = '';
-				$pt_name = array();
-				$cn = 1;
-				$newArr = array();
-				foreach ($rows as $count_row) {
-					$arr_count[$count_row->product_name]++;	
-				}
-				
+                $arr_product_name = array();
+                $arr_count = array();
+                $product_name = '';
+                $pt_name = array();
+                $cn = 1;
+                $newArr = array();
+                foreach ($rows as $count_row) {
+                    $arr_count[$count_row->product_invoice]++;
+                }
+
                 foreach ($rows as $row) {
                     $free = lang('free');
                     $product_unit = '';
-                    $total = 0;				
-                    if($row->variant){
-                        $product_unit = $row->variant;
+                    $total = 0;
+                    if($row->product_variant){
+                        $product_unit = $row->product_variant;
                     }else{
                         $product_unit = $row->uname;
                     }
                     ?>
                     <tr class="border">
-						
-						<?php
-							
-							if(in_array($row->product_name, $arr_product_name)){ 
-								$product_name = '';
-							}else{							
-								$product_name = $row->product_name;
-								$arr_product_name[] = $row->product_name;
-						?>							
-							<td style="vertical-align: top; text-align: center" rowspan="<?= $arr_count[$product_name]; ?>"><?php echo $no ?></td>
-							<td style="vertical-align: top;" rowspan="<?= $arr_count[$product_name]?>"><?= $product_name; ?></td>
-						<?php	
-							$no++;
-						} 
-						
-						?>						
+
+                        <?php
+
+                        if(in_array($row->product_invoice, $arr_product_name)){
+                            $product_name = '';
+                        }else{
+                            $product_name = $row->product_invoice;
+                            $arr_product_name[] = $row->product_invoice;
+                            ?>
+                            <td style="vertical-align: top; text-align: center" rowspan="<?= $arr_count[$product_name]; ?>"><?php echo $no ?></td>
+                            <td style="vertical-align: top;" rowspan="<?= $arr_count[$product_name]?>"><?= $product_name; ?></td>
+                            <?php
+                            $no++;
+                        }
+
+                        ?>
                         <td style="vertical-align: middle;text-align:center">
                             <?=$row->product_noted;?>
                         </td>
@@ -301,40 +301,40 @@
                         </td>
                         <td style="vertical-align: middle; text-align: right"><span style="float:left;">$</span>
                             <?php
-								if($row->real_unit_price==0){
-									echo "Free";
-								}else
-								{
-									echo $this->erp->formatMoney($row->real_unit_price);
-								}
-							?>
+                            if($row->unit_price==0){
+                                echo "Free";
+                            }else
+                            {
+                                echo $this->erp->formatMoney($row->unit_price);
+                            }
+                            ?>
                         </td>
-						<?php if($invs->product_discount > 0){ ?>
-							<td style="vertical-align: middle; text-align: right"><span style="float:left;">$</span>
-								<?php echo $this->erp->formatMoney($row->item_discount); ?>
-							</td>
-						<?php  } ?>
-						
+                        <?php if($invs->product_discount > 0){ ?>
+                            <td style="vertical-align: middle; text-align: right"><span style="float:left;">$</span>
+                                <?php echo $this->erp->formatMoney($row->item_discount); ?>
+                            </td>
+                        <?php  } ?>
+
                         <td style="vertical-align: middle; text-align: right"><span style="float:left;">$</span>
                             <?php
-                                if($row->subtotal==0){
-									echo "Free";
-								}
-                                else{
-                                    echo $this->erp->formatMoney($row->subtotal);
-                                }
+                            if($row->subtotal==0){
+                                echo "Free";
+                            }
+                            else{
+                                echo $this->erp->formatMoney($row->subtotal);
+                            }
                             ?>
                         </td>
                     </tr>
 
                     <?php
-					
+
                     $erow++;
                     $totalRow++;
-                }	
-					
+                }
+
                 ?>
-                
+
                 <?php
                 $row = 1;
                 $col =4;
@@ -364,72 +364,72 @@
                     $row += 2;
                 } */
                 ?>
-					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr class="border-foot">
-						<td colspan="<?= $col; ?>" style="border-top: 1px solid #FFF !important; border-left: 1px solid #FFF !important; border-bottom: 1px solid #FFF !important;"></td>
-						<td colspan="2" style="text-align: center; font-weight: bold;">TOTAL CASH</td>
-						<td align="right"><span style="float:left;">$</span><?=$this->erp->formatMoney($invs->total); ?></td>
-					</tr>
-					<?php if($invs->order_discount != 0) { ?>
-						<tr class="border-foot">
-							<td colspan="<?= $col; ?>" style="border-top: 1px solid #FFF !important; border-left: 1px solid #FFF !important; border-bottom: 1px solid #FFF !important;"></td>
-							<td colspan="2" style="text-align: center; font-weight: bold;">ORDER DISCOUNT</td>
-							<td align="right"><span style="float:left;">$</span><?=$this->erp->formatMoney($invs->order_discount); ?></td>
-						</tr>
-					<?php } ?>
-					
-					<?php if($invs->shipping != 0) { ?>
-						<tr class="border-foot">
-							<td colspan="<?= $col; ?>" style="border-top: 1px solid #FFF !important; border-left: 1px solid #FFF !important; border-bottom: 1px solid #FFF !important;"></td>
-							<td colspan="2" style="text-align: center; font-weight: bold;">SHIPPING</td>
-							<td align="right"><span style="float:left;">$</span><?=$this->erp->formatMoney($invs->shipping); ?></td>
-						</tr>
-					<?php } ?>
-					
-					<tr class="border-foot">
-						<td colspan="<?= $col; ?>" style="border-top: 1px solid #FFF !important; border-left: 1px solid #FFF !important; border-bottom: 1px solid #FFF !important;"></td>
-						<td colspan="2" style="text-align: center; font-weight: bold;">DEPOSIT</td>
-						<td align="right"><span style="float:left;">$</span><?=$this->erp->formatMoney($invs->paid); ?></td>
-					</tr>
-					<tr class="border-foot">
-						<td colspan="<?= $col; ?>" style="border-top: 1px solid #FFF !important; border-left: 1px solid #FFF !important; border-bottom: 1px solid #FFF !important;"></td>
-						<td colspan="2" style="text-align: center; font-weight: bold;">BALANCE</td>
-						<td align="right"><span style="float:left;">$</span><?=$this->erp->formatMoney($invs->grand_total - $invs->paid); ?></td>
-					</tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr class="border-foot">
+                    <td colspan="<?= $col; ?>" style="border-top: 1px solid #FFF !important; border-left: 1px solid #FFF !important; border-bottom: 1px solid #FFF !important;"></td>
+                    <td colspan="2" style="text-align: center; font-weight: bold;">TOTAL CASH</td>
+                    <td align="right"><span style="float:left;">$</span><?=$this->erp->formatMoney($invs->total); ?></td>
+                </tr>
+                <?php if($invs->order_discount != 0) { ?>
+                    <tr class="border-foot">
+                        <td colspan="<?= $col; ?>" style="border-top: 1px solid #FFF !important; border-left: 1px solid #FFF !important; border-bottom: 1px solid #FFF !important;"></td>
+                        <td colspan="2" style="text-align: center; font-weight: bold;">ORDER DISCOUNT</td>
+                        <td align="right"><span style="float:left;">$</span><?=$this->erp->formatMoney($invs->order_discount); ?></td>
+                    </tr>
+                <?php } ?>
+
+                <?php if($invs->shipping != 0) { ?>
+                    <tr class="border-foot">
+                        <td colspan="<?= $col; ?>" style="border-top: 1px solid #FFF !important; border-left: 1px solid #FFF !important; border-bottom: 1px solid #FFF !important;"></td>
+                        <td colspan="2" style="text-align: center; font-weight: bold;">SHIPPING</td>
+                        <td align="right"><span style="float:left;">$</span><?=$this->erp->formatMoney($invs->shipping); ?></td>
+                    </tr>
+                <?php } ?>
+
+                <tr class="border-foot">
+                    <td colspan="<?= $col; ?>" style="border-top: 1px solid #FFF !important; border-left: 1px solid #FFF !important; border-bottom: 1px solid #FFF !important;"></td>
+                    <td colspan="2" style="text-align: center; font-weight: bold;">DEPOSIT</td>
+                    <td align="right"><span style="float:left;">$</span><?=$this->erp->formatMoney($invs->paid); ?></td>
+                </tr>
+                <tr class="border-foot">
+                    <td colspan="<?= $col; ?>" style="border-top: 1px solid #FFF !important; border-left: 1px solid #FFF !important; border-bottom: 1px solid #FFF !important;"></td>
+                    <td colspan="2" style="text-align: center; font-weight: bold;">BALANCE</td>
+                    <td align="right"><span style="float:left;">$</span><?=$this->erp->formatMoney($invs->grand_total - $invs->paid); ?></td>
+                </tr>
                 </tbody>
                 <tfoot class="tfoot">
-                    <tr>
-                        <th colspan="8">
-                            <div id="footer" class="row">
-								<br/>
-                                <div class="col-sm-4 col-xs-4">
-                                    <center>
-										<p>CUSTOMER</p>
-										<br/><br/><br/><br/><br/>
-                                        <hr style="margin:0; border:1px solid #000; width: 80%">
-                                    </center>
-                                </div>
-                                <div class="col-sm-4 col-xs-4">
-                                   
-                                </div>
-                                <div class="col-sm-4 col-xs-4 pull-right">
-                                    <center>
-										<p>THAI SAN GLASS</p>
-										<br/><br/><br/><br/><br/>
-                                        <hr style="margin:0; border:1px solid #000; width: 80%">
-                                    </center>
-                                </div>
+                <tr>
+                    <th colspan="8">
+                        <div id="footer" class="row">
+                            <br/>
+                            <div class="col-sm-4 col-xs-4">
+                                <center>
+                                    <p>CUSTOMER</p>
+                                    <br/><br/><br/><br/><br/>
+                                    <hr style="margin:0; border:1px solid #000; width: 80%">
+                                </center>
                             </div>
-                        </th>
-                    </tr>
+                            <div class="col-sm-4 col-xs-4">
+
+                            </div>
+                            <div class="col-sm-4 col-xs-4 pull-right">
+                                <center>
+                                    <p>THAI SAN GLASS</p>
+                                    <br/><br/><br/><br/><br/>
+                                    <hr style="margin:0; border:1px solid #000; width: 80%">
+                                </center>
+                            </div>
+                        </div>
+                    </th>
+                </tr>
                 </tfoot>
             </table>
         </div>
