@@ -285,21 +285,21 @@
                         </th>
                     </tr>
                     <tr class="border thead print" style="white-space: nowrap;background-color: #444 !important; color: #FFF !important;">
-                        <th>ល.រ<br /><?= strtoupper(lang('no')) ?></th>
-                        <th>លេខកូដទំនិញ<br /><?= strtoupper(lang('product code')) ?></th>
-                        <th>ឈ្មោះទំនិញ<br /><?= strtoupper(lang('product name')) ?></th>
+                        <th>ល.រ<br />No</th>
+                        <th>លេខកូដទំនិញ<br />Product Code</th>
+                        <th>ឈ្មោះទំនិញ<br />Product Name</th>
 <!--                        <th>ការបញ្ជាក់<br />--><?//= strtoupper(lang('specification')) ?><!--</th>-->
-                        <th>ខ្នាត<br /><?= strtoupper(lang('unit')) ?></th>
-                        <th>ចំនួន<br /><?= strtoupper(lang('qty')) ?></th>
-                        <th>តម្លៃ<br /><?= strtoupper(lang('price')) ?></th>
+                        <th>ខ្នាត<br />Unit</th>
+                        <th>ចំនួន<br />Qty</th>
+                        <th>តម្លៃ<br />Price</th>
 
                         <?php if ($Settings->product_discount) { ?>
-                            <th>បញ្ចុះតម្លៃ<br /><?= strtoupper(lang('discount')) ?></th>
+                            <th>បញ្ចុះតម្លៃ<br />Discount</th>
                         <?php } ?>
                         <?php if ($Settings->tax1) { ?>
-                            <th style="width: 10%">ពន្ធទំនិញ<br /><?= strtoupper(lang('tax')) ?></th>
+                            <th style="width: 10%">ពន្ធទំនិញ<br />Tax</th>
                         <?php } ?>
-                        <th>តម្លៃសរុប<br /><?= strtoupper(lang('subtotal')) ?></th>
+                        <th>តម្លៃសរុប<br />Subtotal</th>
                     </tr>
                 </thead>
                 <tbody>

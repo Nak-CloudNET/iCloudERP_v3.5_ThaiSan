@@ -286,20 +286,20 @@
                 <table class="table table-bordered" style=" white-space: nowrap;width: 100%; margin-top: 10px;">
                     <tbody style="font-size: 14px;">
                     <tr class="thead" style="background-color: #444 !important; color: #FFF !important;">
-                        <th>ល.រ<br /><?= strtoupper(lang('no')) ?></th>
-                        <th>លេខកូដទំនិញ<br /><?= strtoupper(lang('Product code')) ?></th>
-                        <th>ឈ្មោះទំនិញ<br /><?= strtoupper(lang('Product Name')) ?></th>
-                        <th>ខ្នាត<br /><?= strtoupper(lang('unit')) ?></th>
-                        <th>ចំនួន<br /><?= strtoupper(lang('qty')) ?></th>
-                        <th>តម្លៃ<br /><?= strtoupper(lang('unit_price')) ?></th>
+                        <th>ល.រ<br />No</th>
+                        <th>លេខកូដទំនិញ<br />Product Code</th>
+                        <th>ឈ្មោះទំនិញ<br />Product Name</th>
+                        <th>ខ្នាត<br />Unit</th>
+                        <th>ចំនួន<br />Qty</th>
+                        <th>តម្លៃ<br />Unit Price</th>
 
                         <?php if ($Settings->product_discount) { ?>
-                            <th>បញ្ចុះតម្លៃ<br /><?= strtoupper(lang('discount')) ?></th>
+                            <th>បញ្ចុះតម្លៃ<br />Discount</th>
                         <?php } ?>
                         <?php if ($Settings->tax1) { ?>
-                            <th>ពន្ធទំនិញ<br /><?= strtoupper(lang('tax')) ?></th>
+                            <th>ពន្ធទំនិញ<br />Tax</th>
                         <?php } ?>
-                        <th>តម្លៃសរុប<br /><?= strtoupper(lang('subtotal')) ?></th>
+                        <th>តម្លៃសរុប<br />Subtotal</th>
                     </tr>
                     <?php
 //$this->erp->print_arrays($rows);
@@ -455,7 +455,7 @@
                             <td colspan="<?= $col; ?>" style="text-align: right; font-weight: bold;">សរុប​ / <?= strtoupper(lang('total')) ?>
                                 (<?= $default_currency->code; ?>)
                             </td>
-                            <td align="right">$<?=$this->erp->formatMoney($invs->total); ?></td>
+                            <td align="right"><?=$this->erp->formatMoney($invs->total); ?></td>
                         </tr>
                     <?php } ?>
 
@@ -486,7 +486,7 @@
                         <td colspan="<?= $col; ?>" style="text-align: right; font-weight: bold;">សរុបរួម / <?= strtoupper(lang('total_amount')) ?>
                             (<?= $default_currency->code; ?>)
                         </td>
-                        <td align="right">$<?= $this->erp->formatMoney($invs->grand_total); ?></td>
+                        <td align="right"><?= $this->erp->formatMoney($invs->grand_total); ?></td>
                     </tr>
                     <?php if($invs->paid != 0 || $invs->deposit != 0){ ?>
                         <?php if($invs->deposit != 0) { ?>

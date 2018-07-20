@@ -236,14 +236,14 @@
                     <th style="width:50px !important;"><b>ល.រ<br>No</b></th>
                     <th style="width:300px !important;"><b>បរិយាយមុខទំនិញ<br>Description</b></th>
                     <th style="width:150px !important;"><b>ទំហំ<br>Size</b></th>
-                    <th style="width:70px !important;"><b>ចំនួន<br>QTY</b></th>
+                    <th style="width:70px !important;"><b>ចំនួន<br>Qty</b></th>
                     <th style="width:70px !important;"><b>ខ្នាត<br>U/N</b></th>
-                    <th style="width:80px !important;"><b>តម្លៃ<br>U/PRICE</b></th>
+                    <th style="width:80px !important;"><b>តម្លៃ<br>U/Price</b></th>
                     <?php
                     if($invs->product_discount > 0){ ?>
                         <th style="width:80px !important;"><b>បញ្ចុះតម្លៃ<br>Dis</b></th>
                     <?php } ?>
-                    <th style="width:100px !important;"><b>តម្លៃសរុប<br>AMOUNT</b></th>
+                    <th style="width:100px !important;"><b>តម្លៃសរុប<br>Amount</b></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -299,7 +299,7 @@
                         <td style="vertical-align: middle; text-align: center; text-align:center">
                             <?= $product_unit; ?>
                         </td>
-                        <td style="vertical-align: middle; text-align: right"><span style="float:left;">$</span>
+                        <td style="vertical-align: middle; text-align: right"><span style="float:left;"></span>
                             <?php
                             if($row->unit_price==0){
                                 echo "Free";
@@ -310,12 +310,12 @@
                             ?>
                         </td>
                         <?php if($invs->product_discount > 0){ ?>
-                            <td style="vertical-align: middle; text-align: right"><span style="float:left;">$</span>
+                            <td style="vertical-align: middle; text-align: right"><span style="float:left;"></span>
                                 <?php echo $this->erp->formatMoney($row->item_discount); ?>
                             </td>
                         <?php  } ?>
 
-                        <td style="vertical-align: middle; text-align: right"><span style="float:left;">$</span>
+                        <td style="vertical-align: middle; text-align: right"><span style="float:left;"></span>
                             <?php
                             if($row->subtotal==0){
                                 echo "Free";
@@ -376,13 +376,13 @@
                 <tr class="border-foot">
                     <td colspan="<?= $col; ?>" style="border-top: 1px solid #FFF !important; border-left: 1px solid #FFF !important; border-bottom: 1px solid #FFF !important;"></td>
                     <td colspan="2" style="text-align: center; font-weight: bold;">TOTAL CASH</td>
-                    <td align="right"><span style="float:left;">$</span><?=$this->erp->formatMoney($invs->total); ?></td>
+                    <td align="right"><span style="float:left;"></span><?=$this->erp->formatMoney($invs->total); ?></td>
                 </tr>
                 <?php if($invs->order_discount != 0) { ?>
                     <tr class="border-foot">
                         <td colspan="<?= $col; ?>" style="border-top: 1px solid #FFF !important; border-left: 1px solid #FFF !important; border-bottom: 1px solid #FFF !important;"></td>
                         <td colspan="2" style="text-align: center; font-weight: bold;">ORDER DISCOUNT</td>
-                        <td align="right"><span style="float:left;">$</span><?=$this->erp->formatMoney($invs->order_discount); ?></td>
+                        <td align="right"><span style="float:left;"></span><?=$this->erp->formatMoney($invs->order_discount); ?></td>
                     </tr>
                 <?php } ?>
 
@@ -390,19 +390,19 @@
                     <tr class="border-foot">
                         <td colspan="<?= $col; ?>" style="border-top: 1px solid #FFF !important; border-left: 1px solid #FFF !important; border-bottom: 1px solid #FFF !important;"></td>
                         <td colspan="2" style="text-align: center; font-weight: bold;">SHIPPING</td>
-                        <td align="right"><span style="float:left;">$</span><?=$this->erp->formatMoney($invs->shipping); ?></td>
+                        <td align="right"><span style="float:left;"></span><?=$this->erp->formatMoney($invs->shipping); ?></td>
                     </tr>
                 <?php } ?>
 
                 <tr class="border-foot">
                     <td colspan="<?= $col; ?>" style="border-top: 1px solid #FFF !important; border-left: 1px solid #FFF !important; border-bottom: 1px solid #FFF !important;"></td>
                     <td colspan="2" style="text-align: center; font-weight: bold;">DEPOSIT</td>
-                    <td align="right"><span style="float:left;">$</span><?=$this->erp->formatMoney($invs->paid); ?></td>
+                    <td align="right"><span style="float:left;"></span><?=$this->erp->formatMoney($invs->paid); ?></td>
                 </tr>
                 <tr class="border-foot">
                     <td colspan="<?= $col; ?>" style="border-top: 1px solid #FFF !important; border-left: 1px solid #FFF !important; border-bottom: 1px solid #FFF !important;"></td>
                     <td colspan="2" style="text-align: center; font-weight: bold;">BALANCE</td>
-                    <td align="right"><span style="float:left;">$</span><?=$this->erp->formatMoney($invs->grand_total - $invs->paid); ?></td>
+                    <td align="right"><span style="float:left;"></span><?=$this->erp->formatMoney($invs->grand_total - $invs->paid); ?></td>
                 </tr>
                 </tbody>
                 <tfoot class="tfoot">
