@@ -6237,8 +6237,8 @@ class Sales extends MY_Controller
 				$row->wpiece 		= $item->wpiece;
 				$row->w_piece 		= $item->wpiece;
                 $row->qty 			= $item->quantity;
-                $row->product_noted	  	= $item->product_noted;
-				$row->product_invoice	  	= $item->product_invoice;
+                $row->product_details	  	= $item->product_noted;
+				$row->details	  	= $item->product_invoice;
                 $row->quantity 		= $row->wh_qty;
 				$row->digital_code 	= "";
                 $row->digital_name 	= "";
