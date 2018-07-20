@@ -1184,8 +1184,8 @@ $('#slwarehouse').change(function (e) {
 			});
 		}
 		
-		$('#pnote').val(item.row.note.replace(/(<p[^>]+?>|<p>|<\/p>)/img, ""));
-		$('#product_invoice').val(item.row.product_invoice.replace(/(<p[^>]+?>|<p>|<\/p>)/img, ""));
+		$('#pnote').val(item.row.note?item.row.note.replace(/(<p[^>]+?>|<p>|<\/p>)/img, ""):'');
+		$('#product_invoice').val(item.row.product_invoice?item.row.product_invoice.replace(/(<p[^>]+?>|<p>|<\/p>)/img, ""):'');
 		$('#poptions-div').html(opt);
 
 		$('#pgroup_prices-div').html(opt_group_price);

@@ -449,8 +449,8 @@ $(document).on('click', '.qudel', function () {
         $('#punit_price').val(formatDecimal(parseFloat(unit_price)+parseFloat(pr_tax_val)));
 		$('#poption').select2('val', item.row.option);
 		$('#pgroup_price').select2('val', item.row.price_id);
-		$('#pnote').val(item.row.product_details.replace(/(<p[^>]+?>|<p>|<\/p>)/img, ""));
-		$('#product_invoice').val(item.row.details.replace(/(<p[^>]+?>|<p>|<\/p>)/img, ""));
+		$('#pnote').val(item.row.product_details?item.row.product_details.replace(/(<p[^>]+?>|<p>|<\/p>)/img, ""):'');
+		$('#product_invoice').val(item.row.details?item.row.details.replace(/(<p[^>]+?>|<p>|<\/p>)/img, ""):'');
         $('#old_price').val(unit_price);
         $('#row_id').val(row_id);
         $('#item_id').val(item_id);

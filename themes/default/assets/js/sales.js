@@ -1194,8 +1194,8 @@ if (slwarehouse = __getItem('slwarehouse')) {
 		$('#pgroup_prices-div').html(opt_group_price);
 		$('select.select').select2({minimumResultsForSearch: 6});
 		$('#pquantity').val(qty);
-		$('#pnote').val(item.row.product_details.replace(/(<p[^>]+?>|<p>|<\/p>)/img, ""));
-		$('#product_invoice').val(item.row.details.replace(/(<p[^>]+?>|<p>|<\/p>)/img, ""));
+		$('#pnote').val(item.row.product_details?item.row.product_details.replace(/(<p[^>]+?>|<p>|<\/p>)/img, ""):'');
+		$('#product_invoice').val(item.row.details?item.row.details.replace(/(<p[^>]+?>|<p>|<\/p>)/img, ""):'');
 		$('#old_qty').val(qty);
 		$('#pprice_show').val(parseFloat(unit_price).toFixed(2));
 		$('#expdate').select2('val', item.row.expdate);
