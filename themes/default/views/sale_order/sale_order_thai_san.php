@@ -249,7 +249,7 @@
                 <tbody>
 
                 <?php
-
+               // $this->erp->print_arrays($rows);
                 $no = 1;
                 $erow = 1;
                 $totalRow = 0;

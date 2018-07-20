@@ -249,7 +249,7 @@
                 <tbody>
 
                 <?php
-
+                // $this->erp->print_arrays($rows);
                 $no = 1;
                 $erow = 1;
                 $totalRow = 0;
@@ -280,8 +280,8 @@
                         if(in_array($row->product_invoice, $arr_product_name)){
                             $product_name = '';
                         }else{
-                            $product_name = $row->product_invoice;
-                            $arr_product_name[] = $row->product_invoice;
+                            $product_name = $row->product_note;
+                            $arr_product_name[] = $row->product_note;
                             ?>
                             <td style="vertical-align: top; text-align: center" rowspan="<?= $arr_count[$product_name]; ?>"><?php echo $no ?></td>
                             <td style="vertical-align: top;" rowspan="<?= $arr_count[$product_name]?>"><?= $product_name; ?></td>
