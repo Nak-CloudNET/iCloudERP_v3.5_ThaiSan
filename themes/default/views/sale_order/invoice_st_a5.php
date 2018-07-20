@@ -136,7 +136,7 @@
 <div class="container" style="margin: 0 auto;">
     <div class="col-xs-12" style="padding: 0">
         <div class="row" style="margin-top: 20px !important;">
-            <div class="col-sm-3 col-xs-3 " style="margin-top: 0px !important;">
+            <div class="col-sm-3 col-xs-3 " style=" margin-top: 0px !important;">
                 <br>
                 <?php if(!empty($biller->logo)) { ?>
                     <img class="img-responsive myhide" src="<?= base_url() ?>assets/uploads/logos/<?= $biller->logo; ?>"id="hidedlo" style="width: 140px; margin-top: -10px;" />
@@ -155,16 +155,16 @@
                             <?php } ?>
 
                             <?php if(!empty($biller->address)) { ?>
-                                <p style="margin-top:-10px !important;font-size: 12px !important;">អាសយដ្ឋាន ៖ &nbsp;<?= $biller->address; ?></p>
+                                <p style="margin-top:-10px !important;font-size: 14px !important;">អាសយដ្ឋាន ៖ &nbsp;<?= $biller->address; ?></p>
                             <?php } ?>
 
-                            <?php if(!empty($biller->phone)) { ?>
+                           <!-- <?php if(!empty($biller->phone)) { ?>
                                 <p style="margin-top:-10px ;font-size: 12px !important;">ទូរស័ព្ទលេខ (Tel):&nbsp;<?= $biller->phone; ?></p>
                             <?php } ?>
 
                             <?php if(!empty($biller->email)) { ?>
                                 <p style="margin-top:-10px !important;font-size: 12px !important;">សារអេឡិចត្រូនិច (E-mail):&nbsp;<?= $biller->email; ?></p>
-                            <?php } ?>
+                            <?php } ?>-->
                         </div>
 
                     </center>
