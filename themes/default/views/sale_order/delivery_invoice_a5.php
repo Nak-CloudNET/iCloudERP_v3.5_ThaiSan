@@ -124,9 +124,7 @@
 			<thead>
 				<tr>
 					<th width="50px"><?= lang('item') ?></th>
-					<th><?= lang('brand') ?></th>
 					<th><?= lang('description') ?></th>
-					<th><?= lang('model') ?></th>
 					<th><?= lang('unit') ?></th>
 					<th><?= lang('qty') ?></th>
 					<th><?= lang('remark') ?></th>
@@ -140,9 +138,7 @@
 			<?php foreach($rows as $inv_item) { ?>
 				<tr>
 					<td style="border-top:none !important;border-bottom:none !important; text-align: center;"><?= $no ?></td>
-					<td style="border-top:none !important;border-bottom:none !important; text-align: center;"><?= $inv_item->brand ?></td>
 					<td style="border-top:none !important;border-bottom:none !important;"><?= $inv_item->product_name ?></td>
-					<td style="border-top:none !important;border-bottom:none !important;"></td>
 					<?php if ($inv_item->option_id >= 1) { ?>
 						<td style="border-top:none !important;border-bottom:none !important; text-align: center;"><?= $inv_item->variant ?></td>
 						<td style="border-top:none !important;border-bottom:none !important; text-align: center;"><?= $this->erp->formatQuantity($inv_item->qty); ?></td>
@@ -162,8 +158,6 @@
 						echo
 							'<tr>
 								<td height="34px" style="border-top:none !important;border-bottom:none !important;"></td>
-								<td style="border-top:none !important;border-bottom:none !important;"></td>
-								<td style="border-top:none !important;border-bottom:none !important;"></td>
 								<td style="border-top:none !important;border-bottom:none !important;"></td>
 								<td style="border-top:none !important;border-bottom:none !important;"></td>
 								<td style="border-top:none !important;border-bottom:none !important;"></td>

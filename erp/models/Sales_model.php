@@ -776,7 +776,7 @@ class Sales_model extends CI_Model
 							categories.image,
         					products.start_date,
         					products.end_date,
-							sale_items.product_noted, products.name_kh,
+							 products.name_kh,
 							products.currentcy_code
         				")
             ->join('products', 'products.id=sale_items.product_id', 'left')
@@ -785,7 +785,7 @@ class Sales_model extends CI_Model
 			->join('categories', 'categories.id = products.category_id', 'left')
             ->join('units', 'units.id = products.unit', 'left')
             ->group_by('sale_items.id')
-            ->order_by('sale_items.product_id', 'ASC');
+            ->order_by('sale_items.product_invoice', 'ASC');
         $q = $this->db->get_where('sale_items', array('sale_id' => $sale_id));
         if ($q->num_rows() > 0) {
             foreach (($q->result()) as $row) {
@@ -4943,7 +4943,7 @@ class Sales_model extends CI_Model
 	}
 	
 	public function getSaleOrder($sale_order_id){
-		$this->db->select("sale_order.*, companies.name, companies.company,
+		$this->db->select("sale_order.*, companies.name,	erp_users.username, companies.company,
 			CASE erp_sale_order.order_status
 			WHEN 'completed' THEN
 				'Approved'
@@ -4954,6 +4954,7 @@ class Sales_model extends CI_Model
 			END AS status, tax_rates.rate AS tax,tax_rates.name as tax_name");
 		$this->db->join('companies', 'sale_order.customer_id = companies.id', 'inner');
 		$this->db->join('tax_rates', 'sale_order.order_tax_id = tax_rates.id', 'left');
+        $this->db->join('erp_users', 'sale_order.saleman_by = erp_users.id', 'left');
 		$q = $this->db->get_where('sale_order', array('sale_order.id' => $sale_order_id));
 		if($q->num_rows() > 0){
 			return $q->row();
