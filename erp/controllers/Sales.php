@@ -11622,6 +11622,8 @@ class Sales extends MY_Controller
 				$group_prices = $this->sales_model->getProductPriceGroupId($row->id, $customer->price_group_id);
 				$all_group_prices = $this->sales_model->getProductPriceGroup($row->id);
 				$pending_so_qty = $this->sales_model->getPendingSOQTYByProductID($row->id);
+                $qty_ordered    = $this->products_model->getAllOrderProductsQty($row->id);
+                $row->qoh       -=  $qty_ordered[0]->qty;
 
 				if($expiry_status == 1) {
 					$expdates = $this->sales_model->getProductExpireDate($row->id, $warehouse_id);

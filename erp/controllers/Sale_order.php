@@ -2781,7 +2781,6 @@ class Sale_order extends MY_Controller
         $customer_group = $this->site->getCustomerGroupByID($customer->customer_group_id);
 		$user_setting 	= $this->site->getUserSetting($this->session->userdata('user_id'));
         $rows 			= $this->sale_order_model->getProductNames($sr, $warehouse_id, $user_setting->sales_standard, $user_setting->sales_combo, $user_setting->sales_digital, $user_setting->sales_service, $user_setting->sales_category);
-		
         if ($rows) {
             foreach ($rows as $row) {
                 $option = FALSE;
@@ -2794,6 +2793,8 @@ class Sale_order extends MY_Controller
                 $group_prices = $this->sales_model->getProductPriceGroupId($row->id, $customer->price_group_id);
                 $all_group_prices = $this->sales_model->getProductPriceGroup($row->id);
 				$pending_so_qty = $this->sales_model->getPendingSOQTYByProductID($row->id);
+                $qty_ordered    = $this->products_model->getAllOrderProductsQty($row->id);
+                $row->qoh       -=  $qty_ordered[0]->qty;
 				$psoqty = 0;
 			
 				if($pending_so_qty) {
@@ -2899,7 +2900,6 @@ class Sale_order extends MY_Controller
 				}
 				
 				$row->rate_item_cur   = (isset($curr_by_item->rate)?$curr_by_item->rate:0);
-				
                 $row->real_unit_price = $row->price;
 				$row->piece           = 0;
 				$row->wpiece		  = $row->cf1;
