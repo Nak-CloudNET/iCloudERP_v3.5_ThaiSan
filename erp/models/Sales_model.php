@@ -776,7 +776,7 @@ class Sales_model extends CI_Model
 							categories.image,
         					products.start_date,
         					products.end_date,
-							sale_items.product_noted, products.name_kh,
+							 products.name_kh,
 							products.currentcy_code
         				")
             ->join('products', 'products.id=sale_items.product_id', 'left')
@@ -785,7 +785,7 @@ class Sales_model extends CI_Model
 			->join('categories', 'categories.id = products.category_id', 'left')
             ->join('units', 'units.id = products.unit', 'left')
             ->group_by('sale_items.id')
-            ->order_by('sale_items.product_id', 'ASC');
+            ->order_by('sale_items.product_invoice', 'ASC');
         $q = $this->db->get_where('sale_items', array('sale_id' => $sale_id));
         if ($q->num_rows() > 0) {
             foreach (($q->result()) as $row) {
