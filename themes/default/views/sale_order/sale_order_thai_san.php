@@ -201,7 +201,7 @@
                                 <div class="invoice" style="margin-top:20px;">
                                     <center>
                                         <h1 class="title"><strong>វិក័យប័ត្រកម្មង់ទិញ</strong></h1>
-                                        <h1 class="title" style="margin-top: -4px;"><strong>QUOTATION</strong></h1>
+                                        <h1 class="title" style="margin-top: -4px;"><strong>SALES ORDER</strong></h1>
                                     </center>
                                 </div>
                             </div>
