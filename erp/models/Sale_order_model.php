@@ -12,7 +12,6 @@ class Sale_order_model extends CI_Model
     /*==============================Chin local updated====================================*/
     public function addSaleOrder($data, $products)
     {
-		//$this->erp->print_arrays($data, $products);
 		if(isset($data) AND !empty($data) and isset($products) AND !empty($products)){
 			$this->db->insert('sale_order',$data);
 			$sale_order_id = $this->db->insert_id();
@@ -54,6 +53,7 @@ class Sale_order_model extends CI_Model
 						'serial_no' => $product['serial_no'],
 						'real_unit_price' => $product['real_unit_price'],
 						'product_noted' => $product['product_noted'],
+                        'product_invoice' => $product['product_invoice'],
 						'expiry' => $product['expiry'],
 						'expiry_id' => $product['expiry_id'],
 						'digital_id' => $product['digital_id'],

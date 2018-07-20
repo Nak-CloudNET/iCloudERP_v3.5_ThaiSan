@@ -1195,7 +1195,7 @@ if (slwarehouse = __getItem('slwarehouse')) {
 		$('select.select').select2({minimumResultsForSearch: 6});
 		$('#pquantity').val(qty);
 		$('#pnote').val(item.row.product_noted);
-		$('#product_invoice').val(item.row.details);
+		$('#product_invoice').val(item.row.product_invoice);
 		$('#old_qty').val(qty);
 		$('#pprice_show').val(parseFloat(unit_price).toFixed(2));
 		$('#expdate').select2('val', item.row.expdate);
@@ -1372,7 +1372,7 @@ if (slwarehouse = __getItem('slwarehouse')) {
 			$("#pquantity").val(formatDecimal(total)).trigger("change");
 			$("#pnote").val(piece+" x "+wpiece);
 		}else {
-			$("#pnote").val('');
+			//$("#pnote").val('');
 		}
 	});
 	 
@@ -1491,6 +1491,7 @@ if (slwarehouse = __getItem('slwarehouse')) {
 		slitems[item_id].row.option = $('#poption').val() ? $('#poption').val() : '',
 		slitems[item_id].row.expdate = $('#expdate').val() ? $('#expdate').val() : '',
 		slitems[item_id].row.product_noted = $('#pnote').val() ? $('#pnote').val() : '',
+        slitems[item_id].row.product_invoice = $('#product_invoice').val() ? $('#product_invoice').val() : '',
 		slitems[item_id].row.serial = $('#pserial').val();
 
 		if(item.makeup_cost==1)

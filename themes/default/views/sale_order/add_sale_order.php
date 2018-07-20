@@ -1227,6 +1227,14 @@
                             <input type="text" class="form-control kb-pad" id="pnote">
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label for="product_invoice" class="col-sm-4 control-label"><?= lang('product_invoice') ?></label>
+
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control kb-pad" id="product_invoice">
+                        </div>
+                    </div>
+
                     <table class="table table-bordered table-striped">
                         <tr>
                         <?php if ($Owner || $Admin || $GP['sale_order-price']) { ?>

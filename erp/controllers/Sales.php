@@ -4451,6 +4451,7 @@ class Sales extends MY_Controller
 					$row->digital_code	  = "";
 					$row->digital_name	  = "";
 					$row->digital_id	  = 0;
+                    $row->product_invoice	  = $item->product_invoice;
 
 					if($dig){
 						$row->digital_code 	= $dig->code .' ['. $row->code .']';
@@ -4515,7 +4516,6 @@ class Sales extends MY_Controller
                     }
                     $c++;
                 }
-				
 				$this->data['sale_order_id'] =$sale_order_id;
                 $this->data['sale_order_items'] = json_encode($pr);
 				$this->data['payment_deposit'] = (isset($payment_deposit)?$payment_deposit:0);
@@ -4715,6 +4715,7 @@ class Sales extends MY_Controller
 					$row->digital_id	  = 0;
 					$row->old_qty_rec	  = 0;
 					$row->product_noted   = $item->product_noted;
+                    $row->product_invoice = $item->product_invoice;
 					if($dig){
 						$row->digital_code 	= $dig->code .' ['. $row->code .']';
 						$row->digital_name 	= $dig->name .' ['. $row->name .']';
@@ -6236,7 +6237,8 @@ class Sales extends MY_Controller
 				$row->wpiece 		= $item->wpiece;
 				$row->w_piece 		= $item->wpiece;
                 $row->qty 			= $item->quantity;
-				$row->details	  	= $item->product_invoice;
+                $row->product_noted	  	= $item->product_noted;
+				$row->product_invoice	  	= $item->product_invoice;
                 $row->quantity 		= $row->wh_qty;
 				$row->digital_code 	= "";
                 $row->digital_name 	= "";
