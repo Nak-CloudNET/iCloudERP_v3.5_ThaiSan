@@ -584,7 +584,7 @@ $(document).on('click', '.qudel', function () {
         quitems[item_id].row.option = $('#poption').val() ? $('#poption').val() : '',
 		quitems[item_id].row.promo_price = $('#pdiscount').val() ? $('#pdiscount').val() : '',
 		quitems[item_id].row.price_id = $('#pgroup_price').val() ? $('#pgroup_price').val() : '',
-		quitems[item_id].row.product_noted = $('#pnote').val() ? $('#pnote').val() : '',
+		quitems[item_id].row.product_details = $('#pnote').val() ? $('#pnote').val() : '',
 		quitems[item_id].row.details = $('#product_invoice').val() ? $('#product_invoice').val() : '',
         quitems[item_id].row.serial = $('#pserial').val();
 		

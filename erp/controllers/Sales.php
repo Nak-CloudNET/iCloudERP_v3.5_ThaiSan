@@ -4714,8 +4714,8 @@ class Sales extends MY_Controller
 					$row->digital_name	  = "";
 					$row->digital_id	  = 0;
 					$row->old_qty_rec	  = 0;
-					$row->product_noted   = $item->product_noted;
-                    $row->product_invoice = $item->product_invoice;
+					$row->product_details   = $item->product_noted;
+                    $row->details = $item->product_invoice;
 					if($dig){
 						$row->digital_code 	= $dig->code .' ['. $row->code .']';
 						$row->digital_name 	= $dig->name .' ['. $row->name .']';

@@ -1490,8 +1490,8 @@ if (slwarehouse = __getItem('slwarehouse')) {
 		slitems[item_id].row.price_id = price_id,
 		slitems[item_id].row.option = $('#poption').val() ? $('#poption').val() : '',
 		slitems[item_id].row.expdate = $('#expdate').val() ? $('#expdate').val() : '',
-		slitems[item_id].row.product_noted = $('#pnote').val() ? $('#pnote').val() : '',
-        slitems[item_id].row.product_invoice = $('#product_invoice').val() ? $('#product_invoice').val() : '',
+		slitems[item_id].row.product_details = $('#pnote').val() ? $('#pnote').val() : '',
+        slitems[item_id].row.details = $('#product_invoice').val() ? $('#product_invoice').val() : '',
 		slitems[item_id].row.serial = $('#pserial').val();
 
 		if(item.makeup_cost==1)
@@ -1510,7 +1510,7 @@ if (slwarehouse = __getItem('slwarehouse')) {
 		var product_invoice = $('#product_invoice').val() ? $('#product_invoice').val() : '';
 		var product_dt = pro_id + '_' + product_invoice;
 		
-		__setItem('storage_details', product_dt);
+		//__setItem('storage_details', product_dt);
 		
 		__setItem('slitems', JSON.stringify(slitems));
 		$('#prModal').modal('hide');
