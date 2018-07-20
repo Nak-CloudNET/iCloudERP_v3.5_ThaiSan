@@ -200,7 +200,7 @@
                             <div  class="text-center"  style="margin-top: -20px !important;">
                                 <div class="invoice" style="margin-top:20px;">
                                     <center>
-                                        <h1 class="title"><strong>វិក័យប័ត្រ</strong></h1>
+                                        <h1 class="title"><strong>វិក័យបត្រ</strong></h1>
                                         <h1 class="title" style="margin-top: -4px;"><strong>INVOICE</strong></h1>
                                     </center>
                                 </div>
@@ -249,7 +249,7 @@
                 <tbody>
 
                 <?php
-                // $this->erp->print_arrays($rows);
+
                 $no = 1;
                 $erow = 1;
                 $totalRow = 0;
@@ -280,8 +280,8 @@
                         if(in_array($row->product_invoice, $arr_product_name)){
                             $product_name = '';
                         }else{
-                            $product_name = $row->product_note;
-                            $arr_product_name[] = $row->product_note;
+                            $product_name = $row->product_invoice;
+                            $arr_product_name[] = $row->product_invoice;
                             ?>
                             <td style="vertical-align: top; text-align: center" rowspan="<?= $arr_count[$product_name]; ?>"><?php echo $no ?></td>
                             <td style="vertical-align: top;" rowspan="<?= $arr_count[$product_name]?>"><?= $product_name; ?></td>
