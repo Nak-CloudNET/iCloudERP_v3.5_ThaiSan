@@ -198,7 +198,7 @@
         </div>
         <div class="row">
             <div class="col-sm-7 col-xs-7">
-                <table style="font-size: 12px;">
+                <table style="font-size: 16px;">
                     <?php if(!empty($customer->company)) { ?>
                         <tr>
                             <td style="width: 15%;">ក្រុមហ៊ុន </td>
@@ -237,7 +237,7 @@
                     <?php } ?>
                     <?php if(!empty($customer->vat_no)) { ?>
                         <tr>
-                            <td style="width: 20% !important">លេខអត្តសញ្ញាណកម្ម អតប </td>
+                            <td style="width: 25% !important">លេខអត្តសញ្ញាណកម្ម អតប </td>
                             <td>:</td>
                             <td><?= $customer->vat_no ?></td>
                         </tr>
@@ -245,7 +245,7 @@
                 </table>
             </div>
             <div class="col-sm-5 col-xs-5">
-                <table style="font-size: 12px;">
+                <table style="font-size: 16px;">
                     <tr>
                         <td style="width: 20%;">លេខរៀង  </td>
                         <td style="width: 5%;">:</td>
@@ -287,7 +287,7 @@
         <div class="row">
             <div class="col-sm-12 col-xs-12">
                 <table class="table table-bordered" style="width: 100%; margin-top: 10px;">
-                    <tbody style="font-size: 14px;">
+                    <tbody style="font-size: 16px;">
                     <tr class="thead" style="white-space: nowrap;background-color: #444 !important; color: #FFF !important;">
                         <th>ល.រ<br />No</th>
                         <th >លេខកូដទំនិញ<br />Product Code</th>
@@ -530,22 +530,22 @@
         <div class="col-sm-4 col-xs-4">
             <center>
                 <hr style="margin:0; border:1px solid #000; width: 80%">
-                <p style="font-size: 12px; margin-top: 4px !important">ហត្ថលេខា និងឈ្មោះអ្នកលក់</p>
-                <p style="margin-top:-10px; font-size: 12px">Seller's Signature & Name</p>
+                <p style="font-size: 16px; margin-top: 4px !important">ហត្ថលេខាអ្នកលក់</p>
+                <p style="margin-top:-10px; font-size: 14px">Seller's Signature</p>
             </center>
         </div>
         <div class="col-sm-4 col-xs-4">
             <center>
                 <hr style="margin:0; border:1px solid #000; width: 80%">
-                <p style="font-size: 12px; margin-top: 4px !important">ហត្ថលេខា និងឈ្មោះអ្នកដឹក</p>
-                <p style="margin-top:-10px; font-size: 12px">Delivery's Signature & Name</p>
+                <p style="font-size: 16px; margin-top: 4px !important">ហត្ថលេខាអ្នកដឹក</p>
+                <p style="margin-top:-10px; font-size: 14px">Delivery's Signature</p>
             </center>
         </div>
         <div class="col-sm-4 col-xs-4">
             <center>
                 <hr style="margin:0; border:1px solid #000; width: 80%">
-                <p style="font-size: 12px; margin-top: 4px !important">ហត្ថលេខា និងឈ្មោះអ្នកទិញ</p>
-                <p style="margin-top:-10px; font-size: 12px">Customer's Signature & Name</p>
+                <p style="font-size: 16px; margin-top: 4px !important">ហត្ថលេខាអ្នកទិញ</p>
+                <p style="margin-top:-10px; font-size: 14px">Customer's Signature</p>
             </center>
         </div>
     </div>

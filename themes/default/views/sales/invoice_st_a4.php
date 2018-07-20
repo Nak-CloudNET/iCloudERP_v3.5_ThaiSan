@@ -575,22 +575,22 @@
                                 <div class="col-sm-4 col-xs-4">
                                     <center>
                                         <hr style="margin:0; border:1px solid #000; width: 80%">
-                                        <p style=" margin-top: 4px !important">ហត្ថលេខា និងឈ្មោះអ្នកលក់</p>
-                                        <p style="margin-top:-10px;">Seller's Signature & Name</p>
+                                        <p style=" margin-top: 4px !important">ហត្ថលេខាអ្នកលក់</p>
+                                        <p style="margin-top:-10px;">Seller's Signature</p>
                                     </center>
                                 </div>
                                 <div class="col-sm-4 col-xs-4">
                                     <center>
                                         <hr style="margin:0; border:1px solid #000; width: 80%">
-                                        <p style="margin-top: 4px !important">ហត្ថលេខា និងឈ្មោះអ្នកដឹក</p>
-                                        <p style="margin-top:-10px;">Delivery's Signature & Name</p>
+                                        <p style="margin-top: 4px !important">ហត្ថលេខាអ្នកដឹក</p>
+                                        <p style="margin-top:-10px;">Delivery's Signature</p>
                                     </center>
                                 </div>
                                 <div class="col-sm-4 col-xs-4">
                                     <center>
                                         <hr style="margin:0; border:1px solid #000; width: 80%">
-                                        <p style=" margin-top: 4px !important">ហត្ថលេខា និងឈ្មោះអ្នកទិញ</p>
-                                        <p style="margin-top:-10px; ">Customer's Signature & Name</p>
+                                        <p style=" margin-top: 4px !important">ហត្ថលេខាអ្នកទិញ</p>
+                                        <p style="margin-top:-10px; ">Customer's Signature</p>
                                     </center>
                                 </div>
                             </div>
