@@ -1462,7 +1462,7 @@ class Quotes extends MY_Controller
                 $row->real_unit_price = $item->unit_price;
                 $row->tax_rate = $item->tax_rate_id;
                 $row->option = $item->option_id;
-				$row->product_noted = $item->product_noted;
+				$row->product_details = $item->product_noted;
                 $options = $this->quotes_model->getProductOptions($row->id, $item->warehouse_id);
 				
 				if($expiry_status = 1){

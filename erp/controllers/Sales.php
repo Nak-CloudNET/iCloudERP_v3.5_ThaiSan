@@ -4451,7 +4451,7 @@ class Sales extends MY_Controller
 					$row->digital_code	  = "";
 					$row->digital_name	  = "";
 					$row->digital_id	  = 0;
-                    $row->product_invoice	  = $item->product_invoice;
+                    $row->details	  = $item->product_invoice;
 
 					if($dig){
 						$row->digital_code 	= $dig->code .' ['. $row->code .']';
@@ -4500,7 +4500,7 @@ class Sales extends MY_Controller
 					$row->piece			  = $item->piece;
 					$row->wpiece		  = $item->wpiece;
 					$row->w_piece		  = $item->wpiece;
-					$row->product_noted = $item->product_noted;
+					$row->product_details   = $item->product_noted;
                     $combo_items = FALSE;
                     if ($row->type == 'combo') {
                         $combo_items = $this->sales_model->getProductComboItems($row->id, $item->warehouse_id);

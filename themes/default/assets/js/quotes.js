@@ -449,8 +449,8 @@ $(document).on('click', '.qudel', function () {
         $('#punit_price').val(formatDecimal(parseFloat(unit_price)+parseFloat(pr_tax_val)));
 		$('#poption').select2('val', item.row.option);
 		$('#pgroup_price').select2('val', item.row.price_id);
-		$('#pnote').val(item.row.product_noted);
-		$('#product_invoice').val(item.row.details);
+		$('#pnote').val(item.row.product_details.replace(/(<p[^>]+?>|<p>|<\/p>)/img, ""));
+		$('#product_invoice').val(item.row.details.replace(/(<p[^>]+?>|<p>|<\/p>)/img, ""));
         $('#old_price').val(unit_price);
         $('#row_id').val(row_id);
         $('#item_id').val(item_id);
@@ -955,7 +955,7 @@ function loadItems() {
 			group_price_id 	= item.row.price_id,
 			all_group_price = item.all_group_price,
 			price_id 		= item.row.price_id,
-			item_note 		= item.row.product_noted,
+			item_note 		= item.row.product_details,
             product_invoice = item.row.details,
 			item_code 		= item.row.code, 
 			digital_code 	= item.row.digital_code,
