@@ -17,7 +17,7 @@
 </head>
 <style>
 	.container {
-		width:17cm;
+		width:18cm;
 		height:21 cm;
 		margin: 20px auto;
 		/*padding: 10px;*/
@@ -78,7 +78,7 @@
 				<?php } ?>
 			</div>
 			<div class="col-lg-6 col-sm-6 col-xs-6">
-				<center><h2 style="font-weight:bold !important;font-family:Time New Roman !important;margin-bottom:20px !important;">Credit Note</h2></center>
+				<center><h2 style="font-weight:bold !important;font-family:Time New Roman !important;margin-bottom:20px !important;">Return Sale</h2></center>
 			</div>
 		</div>
 		<div class="row">
@@ -135,18 +135,18 @@
 		</div>
 
         <div class="row">
-			<div class="col-lg-12 col-sm-12 col-xs-12">
+			<div class="col-lg-12 col-sm-12 col-xs-12" >
 					<table class="table table-bordered table-hover" border="1">
 				<thead>
-					<tr>
-						<th style="font-size:13px !important;" class="text-center"><?=lang('Nº')?></th>
-						<th style="font-size:13px !important;"class="text-center"><?=lang('CODE')?></th>
-						<th style="width:100% !;font-size:13px !important;"class="text-center"><?=lang('DESCRIPTION')?></th>
-						<th style="font-size:13px !important;"class="text-center"><?=lang('UNIT')?></th>
-						<th style="font-size:13px !important;"class="text-center"><?=lang('QUANTITY')?></th>
-						<th style="font-size:13px !important;"class="text-center"><?=lang('PRICE')?></th>
-						<th style="font-size:13px !important;" class="text-center"><?=lang('DISCOUNT')?></th>
-						<th style="font-size:13px !important;"class="text-center"><?=lang(' AMOUNT')?></th>
+					<tr style="white-space: nowrap">
+						<th style="font-size:13px !important;" class="text-center">ល.រ</br><?=lang('Nº')?></th>
+						<th style="font-size:13px !important;"class="text-center">លេខកូដ</br><?=lang('CODE')?></th>
+						<th style="width:100% !;font-size:13px !important;"class="text-center">បរិយាយមុខទំនិញ</br><?=lang('DESCRIPTION')?></th>
+						<th style="font-size:13px !important;"class="text-center">ខ្នាត</br><?=lang('UNIT')?></th>
+						<th style="font-size:13px !important;"class="text-center">ចំនូន</br><?=lang('QUANTITY')?></th>
+						<th style="font-size:13px !important;"class="text-center">តម្លៃ</br><?=lang('PRICE')?></th>
+						<th style="font-size:13px !important;" class="text-center">បញ្ចុះតម្លៃ</br><?=lang('DISCOUNT')?></th>
+						<th style="font-size:13px !important;"class="text-center">តម្លៃសរុប</br><?=lang(' AMOUNT')?></th>
 					</tr>
 				</thead>
 				<tbody>
