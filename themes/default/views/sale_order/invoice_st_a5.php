@@ -328,6 +328,8 @@
                                 $product_name_setting = $row->product_name . ($row->variant ? ' (' . $row->variant . ')' : '');
                             }
                         }
+                        $balance=$invs->grand_total - (($invs->paid-$invs->deposit) + $invs->deposit);
+
                         ?>
                         <tr class="border" style="font-size: 16px">
                             <td style="vertical-align: middle; text-align: center"><?php echo $no ?></td>
@@ -427,6 +429,7 @@
                     if ($invs->grand_total != $invs->total) {
                         $row++;
                     }
+
                     if ($invs->order_discount != 0) {
                         $row++;
                         $col =3;
@@ -479,8 +482,9 @@
 
                     <tr>
                         <?php if ($invs->grand_total == $invs->total) { ?>
+
                             <td rowspan="<?= $row; ?>" colspan="<?= $col2; ?>" style="border-left: 1px solid #FFF !important; border-bottom: 1px solid #FFF !important;">
-                                <?php if (!empty($invs->invoice_footer)) { ?>
+                                <?php  if (!empty($invs->invoice_footer)) { ?>
                                     <p><strong><u>Note:</u></strong></p>
                                     <p><?= $invs->invoice_footer ?></p>
                                 <?php } ?>
@@ -499,13 +503,14 @@
                         <td align="right"><?php echo $this->erp->formatMoney($invs->paid-$invs->deposit); ?></td>
                     </tr>
                     <?php } ?>
+                    <?php if($balance != 0) { ?>
                     <tr>
                         <td colspan="<?= $col; ?>" style="text-align: right; font-weight: bold;">នៅខ្វះ / <?= strtoupper(lang('balance')) ?>
                             (<?= $default_currency->code; ?>)
                         </td>
-                        <td align="right"><?= $this->erp->formatMoney($invs->grand_total - (($invs->paid-$invs->deposit) + $invs->deposit)); ?></td>
+                        <td align="right"><?= $this->erp->formatMoney($balance); ?></td>
                     </tr>
-
+                    <?php } ?>
                     <?php if($invs->paid != 0 || $invs->deposit != 0){ ?>
                         <?php if($invs->deposit != 0) { ?>
 
