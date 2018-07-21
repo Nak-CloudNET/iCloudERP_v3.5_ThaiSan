@@ -195,6 +195,12 @@
                             </div>
                         <?php } ?>
                         <div class="btn-group">
+                            <a href="<?= site_url('transfers/invoice_transfer_thai_san/' . $transfer->id) ?>" target="_blank" class="tip btn btn-primary" title="<?= lang('Transfer_A5') ?>">
+                                <i class="fa fa-print"></i>
+                                <span class="hidden-sm hidden-xs"><?= lang('Transfer_A5') ?></span>
+                            </a>
+                        </div>
+                        <!--<div class="btn-group">
                             <a href="<?= site_url('transfers/invoice/' . $transfer->id) ?>" target="_blank" class="tip btn btn-primary" title="<?= lang('invoice') ?>">
                                 <i class="fa fa-print"></i>
                                 <span class="hidden-sm hidden-xs"><?= lang('invoice') ?></span>
@@ -216,7 +222,7 @@
                                 <i class="fa fa-print"></i>
                                 <span class="hidden-sm hidden-xs"><?= lang('Uy_Sing') ?></span>
                             </a>
-                        </div>
+                        </div>-->
                         <?php if ($Owner || $Admin || $GP['transfers-email']) { ?>
                         <div class="btn-group">
                             <a href="<?= site_url('transfers/email/' . $transfer->id) ?>" data-toggle="modal" data-target="#myModal2" class="tip btn btn-primary" title="<?= lang('email') ?>">

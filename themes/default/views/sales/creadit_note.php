@@ -18,7 +18,7 @@
 <style>
 	.container {
 		width:18cm;
-		height:21 cm;
+		height:21cm;
 		margin: 20px auto;
 		/*padding: 10px;*/
 		box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
