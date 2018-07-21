@@ -413,6 +413,7 @@
                     }
                     ?>
                     <?php
+
                     $row = 1;
                     $col =3;
                     $col2 = 5;
@@ -490,6 +491,21 @@
                         </td>
                         <td align="right"><?= $this->erp->formatMoney($invs->grand_total); ?></td>
                     </tr>
+                    <?php if($invs->paid != 0) { ?>
+                    <tr>
+                        <td colspan="<?= $col; ?>" style="text-align: right; font-weight: bold;">បានបង់ / <?= strtoupper(lang('paid')) ?>
+                            (<?= $default_currency->code; ?>)
+                        </td>
+                        <td align="right"><?php echo $this->erp->formatMoney($invs->paid-$invs->deposit); ?></td>
+                    </tr>
+                    <?php } ?>
+                    <tr>
+                        <td colspan="<?= $col; ?>" style="text-align: right; font-weight: bold;">នៅខ្វះ / <?= strtoupper(lang('balance')) ?>
+                            (<?= $default_currency->code; ?>)
+                        </td>
+                        <td align="right"><?= $this->erp->formatMoney($invs->grand_total - (($invs->paid-$invs->deposit) + $invs->deposit)); ?></td>
+                    </tr>
+
                     <?php if($invs->paid != 0 || $invs->deposit != 0){ ?>
                         <?php if($invs->deposit != 0) { ?>
 
