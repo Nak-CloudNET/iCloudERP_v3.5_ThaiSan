@@ -480,7 +480,8 @@ class Pos extends MY_Controller
 				$expdate 		= isset($this->sales_model->getPurchaseItemExDateByID($expire_date_id)->expiry);
                 $real_unit_price = $this->erp->formatDecimal($_POST['real_unit_price'][$r]);
                 $unit_price 	= $this->erp->formatDecimal($_POST['unit_price'][$r]);
-                $item_quantity 	= $_POST['quantity'][$r]; 
+                $item_quantity 	= $_POST['quantity'][$r];
+                $amount_quantity= $_POST['amount_qty'][$r];
                 $item_serial 	= isset($_POST['serial'][$r]) ? $_POST['serial'][$r] : '';
                 $item_tax_rate 	= isset($_POST['product_tax'][$r]) ? $_POST['product_tax'][$r] : NULL;
                 $item_discount 	= isset($_POST['product_discount'][$r]) ? $_POST['product_discount'][$r] : NULL;
@@ -577,6 +578,7 @@ class Pos extends MY_Controller
                         'option_id' 		=> $item_option,
                         'net_unit_price' 	=> $item_net_price,
                         'unit_price' 		=> $this->erp->formatDecimal($unitPrice),
+                        'amount_quantity' 	=> $amount_quantity,
                         'quantity' 			=> $item_quantity,
                         'warehouse_id' 		=> $warehouse_id,
                         'item_tax' 			=> $pr_item_tax,
@@ -591,7 +593,7 @@ class Pos extends MY_Controller
 						'product_noted' 	=> $item_note,
 						'expiry' 			=> $expdate,
 						'expiry_id' 		=> $expire_date_id,
-						'price_id' 		=> $item_price_id
+						'price_id' 		    => $item_price_id
                     );					
                     $total += $subtotal;
 					$g_total_txt1 += $subtotal;
@@ -599,7 +601,6 @@ class Pos extends MY_Controller
                 }
 				
             }
-            
             if (empty($products)) {
                 //$this->form_validation->set_rules('product', lang("order_items"), 'required');
             } else {

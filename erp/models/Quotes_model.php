@@ -249,7 +249,7 @@ class Quotes_model extends CI_Model
                 $item['quote_id'] = $id;
                 $this->db->insert('quote_items', $item);
             }
-			
+
 			if($payment){
 				$p = $this->getPaymentByQuoteID($id);
 				if(!$p){
@@ -464,7 +464,7 @@ class Quotes_model extends CI_Model
 			->join('units', 'units.id = products.unit', 'left')
 			->join('product_variants', 'product_variants.id = quote_items.option_id', 'left')
 			->where('quote_items.quote_id', $quote_id)
-			->order_by('quote_items.product_id', 'ASC');
+			->order_by('quote_items.product_invoice', 'ASC');
         $q = $this->db->get();
         if ($q->num_rows() > 0) {
             foreach (($q->result()) as $row) {
@@ -477,9 +477,10 @@ class Quotes_model extends CI_Model
 	}
 	
 	public function getQuotesData($quote_id=null){
-		$this->db->select('erp_quotes.*, tax_rates.name as order_tax_rate')
+		$this->db->select('erp_quotes.*, tax_rates.name as order_tax_rate,erp_users.username,')
 				 ->from('erp_quotes')
 				 ->join('tax_rates', 'erp_quotes.order_tax_id = tax_rates.id', 'left')
+            ->join('erp_users', 'erp_quotes.saleman = erp_users.id', 'left')
 				 ->where('erp_quotes.id', $quote_id);
 		$q = $this->db->get();
 		if($q->num_rows()>0){
