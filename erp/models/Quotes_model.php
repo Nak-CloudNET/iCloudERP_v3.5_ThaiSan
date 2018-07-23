@@ -249,7 +249,6 @@ class Quotes_model extends CI_Model
                 $item['quote_id'] = $id;
                 $this->db->insert('quote_items', $item);
             }
-			
 			if($payment){
 				$p = $this->getPaymentByQuoteID($id);
 				if(!$p){
