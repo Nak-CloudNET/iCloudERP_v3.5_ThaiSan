@@ -435,7 +435,7 @@
                 </tr>
                 <tr class="border-foot">
                     <td colspan="<?= $col; ?>" style="border-top: 1px solid #FFF !important; border-left: 1px solid #FFF !important; border-bottom: 1px solid #FFF !important;"></td>
-                    <td colspan="2" style="text-align: center; font-weight: bold;">TOTAL CASH</td>
+                    <td colspan="2" style="white-space: nowrap; text-align: left; font-weight: bold;">សាច់ប្រាក់សរុប/TOTAL CASH</td>
                     <td align="right"><span style="float:left;"></span><?=$this->erp->formatMoney($invs->total); ?></td>
                 </tr>
                 <?php if($invs->order_discount != 0) { ?>
@@ -456,12 +456,12 @@
 
                 <tr class="border-foot">
                     <td colspan="<?= $col; ?>" style="border-top: 1px solid #FFF !important; border-left: 1px solid #FFF !important; border-bottom: 1px solid #FFF !important;"></td>
-                    <td colspan="2" style="text-align: center; font-weight: bold;">DEPOSIT</td>
+                    <td colspan="2" style="text-align: left; font-weight: bold;">ប្រាក់កក់/DEPOSIT</td>
                     <td align="right"><span style="float:left;"></span><?=$this->erp->formatMoney($invs->paid); ?></td>
                 </tr>
                 <tr class="border-foot">
                     <td colspan="<?= $col; ?>" style="border-top: 1px solid #FFF !important; border-left: 1px solid #FFF !important; border-bottom: 1px solid #FFF !important;"></td>
-                    <td colspan="2" style="text-align: center; font-weight: bold;">BALANCE</td>
+                    <td colspan="2" style="text-align: left; font-weight: bold;">ប្រាក់សល់/BALANCE</td>
                     <td align="right"><span style="float:left;"></span><?=$this->erp->formatMoney($invs->grand_total - $invs->paid); ?></td>
                 </tr>
                 </tbody>
@@ -472,6 +472,7 @@
                             <br/>
                             <div class="col-sm-4 col-xs-4">
                                 <center>
+                                    <p>អតិថិជន</p>
                                     <p>CUSTOMER</p>
                                     <br/><br/><br/><br/><br/>
                                     <hr style="margin:0; border:1px solid #000; width: 80%">
@@ -482,6 +483,7 @@
                             </div>
                             <div class="col-sm-4 col-xs-4 pull-right">
                                 <center>
+                                    <p>ថៃសាន</p>
                                     <p>THAI SAN GLASS</p>
                                     <br/><br/><br/><br/><br/>
                                     <hr style="margin:0; border:1px solid #000; width: 80%">

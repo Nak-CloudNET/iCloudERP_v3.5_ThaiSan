@@ -422,7 +422,7 @@
                     if($invs->total_discount){$col=3;$col2=4;}
                     if($invs->product_tax){$col=3;$col2=4;}
                     if($invs->total_discount>0 && $invs->product_tax>0 ){$col=4;$col2=4;}
-                    if($invs->total_discount==0 && $invs->product_tax==0 ){$col=4;$col2=2;}
+                    if($invs->total_discount==0 && $invs->product_tax==0 ){$col=3;$col2=3;}
                     if ($discount != 0) {
                         $col =3;
                     }
@@ -497,31 +497,6 @@
                         </td>
                         <td align="right"><?= $this->erp->formatMoney($invs->grand_total); ?></td>
                     </tr>
-                    <?php if($invs->paid != 0) { ?>
-                    <tr>
-                        <td colspan="<?= $col; ?>" style="text-align: right; font-weight: bold;">DEPOSIT (<?= strtoupper(lang('ប្រាក់កក់')) ?>)
-
-                        </td>
-                        <td align="right"><?php echo $this->erp->formatMoney($invs->paid-$invs->deposit); ?></td>
-                    </tr>
-                    <?php } ?>
-                    <?php if($balance != 0) { ?>
-                    <tr>
-                        <td colspan="<?= $col; ?>" style="text-align: right; font-weight: bold;">នៅខ្វះ / <?= strtoupper(lang('balance')) ?>
-                            (<?= $default_currency->code; ?>)
-                        </td>
-                        <td align="right"><?= $this->erp->formatMoney($balance); ?></td>
-                    </tr>
-                    <?php } ?>
-                    <?php if($invs->paid != 0 || $invs->deposit != 0){ ?>
-                        <?php if($invs->deposit != 0) { ?>
-
-                        <?php } ?>
-                        <?php if($invs->paid != 0) { ?>
-
-                    <?php } ?>
-
-                    <?php } ?>
 
                     </tbody>
 
@@ -546,9 +521,7 @@
         </div>
         <div class="col-sm-4 col-xs-4">
             <center>
-                <hr style="margin:0; border:1px solid #000; width: 80%">
-                <p style="font-size: 16px; margin-top: 4px !important">ហត្ថលេខាអ្នកដឹក</p>
-                <p style="margin-top:-10px; font-size: 14px">Delivery's Signature</p>
+
             </center>
         </div>
         <div class="col-sm-4 col-xs-4">
