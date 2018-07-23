@@ -278,7 +278,7 @@
                             }
                         }
                         ?>
-                        <tr>
+                        <tr> 
                             <td style="vertical-align: middle; text-align: center"><?php echo $no ?></td>
 
                             <td style="vertical-align: middle;">
@@ -374,7 +374,7 @@
         <?php
             } else {
         ?>
-                <a class="btn btn-warning no-print" href="<?= site_url('sales'); ?>" style="border-radius: 0">
+                <a class="btn btn-warning no-print" href="<?= site_url('transfers'); ?>" style="border-radius: 0">
                     <i class="fa fa-hand-o-left" aria-hidden="true"></i>&nbsp;<?= lang("back"); ?>
                 </a>
         <?php
