@@ -1186,6 +1186,7 @@ class Quotes extends MY_Controller
             $biller_details = $this->site->getCompanyByID($biller_id);
             $biller = $biller_details->company != '-' ? $biller_details->company : $biller_details->name;
             $note = $this->input->post('note');
+            $saleman = $this->input->post('saleman');
 
             $total = 0;
             $product_tax = 0;
@@ -1366,6 +1367,7 @@ class Quotes extends MY_Controller
                 'total_tax' => $total_tax,
                 'shipping' => $shipping,
                 'grand_total' => $grand_total,
+                'saleman' => $saleman,
                 'status' => 'pending',
                 'updated_by' => $this->session->userdata('user_id'),
                 'updated_at' => date('Y-m-d H:i:s'),
