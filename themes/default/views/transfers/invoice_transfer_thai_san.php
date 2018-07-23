@@ -374,7 +374,7 @@
         <?php
             } else {
         ?>
-                <a class="btn btn-warning no-print" href="<?= site_url('sales'); ?>" style="border-radius: 0">
+                <a class="btn btn-warning no-print" href="<?= site_url('transfers'); ?>" style="border-radius: 0">
                     <i class="fa fa-hand-o-left" aria-hidden="true"></i>&nbsp;<?= lang("back"); ?>
                 </a>
         <?php
