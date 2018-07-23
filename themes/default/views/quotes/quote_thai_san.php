@@ -509,7 +509,7 @@
             </table>
         </div>
         <div style="width: 821px;margin: 20px">
-            <a class="btn btn-warning no-print" href="<?= site_url('sales'); ?>" style="border-radius: 0">
+            <a class="btn btn-warning no-print" href="<?= site_url('quotes'); ?>" style="border-radius: 0">
                 <i class="fa fa-hand-o-left" aria-hidden="true"></i>&nbsp;<?= lang("back"); ?>
             </a>
         </div>
