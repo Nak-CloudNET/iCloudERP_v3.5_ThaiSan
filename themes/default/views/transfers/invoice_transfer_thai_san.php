@@ -278,7 +278,7 @@
                             }
                         }
                         ?>
-                        <tr>
+                        <tr> 
                             <td style="vertical-align: middle; text-align: center"><?php echo $no ?></td>
 
                             <td style="vertical-align: middle;">
