@@ -191,6 +191,7 @@ class Sale_order extends MY_Controller
 				
 				
                 $item_quantity = $_POST['quantity'][$r];
+                $item_amount_qty = $_POST['amount_qty'][$r];
                 $item_tax_rate = isset($_POST['product_tax'][$r]) ? $_POST['product_tax'][$r] : null;
                 $item_discount = isset($_POST['product_discount'][$r]) ? $_POST['product_discount'][$r] : null;
                 if (isset($item_code) && isset($real_unit_price) && isset($unit_price) && isset($item_quantity)) {
@@ -271,6 +272,7 @@ class Sale_order extends MY_Controller
                         'tax_rate_id' => $pr_tax,
 						'piece'	=> $item_peice,
 						'wpiece' => $item_wpeice,
+                        'amount_quantity' => $item_amount_qty,
 						'group_price_id'=>$group_price_id,
                         'tax' => $tax,
 						'product_noted' => $product_note,
@@ -2522,6 +2524,7 @@ class Sale_order extends MY_Controller
 				$row->piece	 = $item->piece;
 				$row->wpiece = $item->wpiece;
 				$row->w_piece = $item->wpiece;
+                $row->amount_quantity = $item->amount_quantity;
                 $row->id = $item->product_id;
                 $row->code = $item->product_code;
                 $row->name = $item->product_name;
@@ -2543,6 +2546,7 @@ class Sale_order extends MY_Controller
 				$options = $this->sales_model->getProductOptions($row->id, $item->warehouse_id);
 				$test = $this->sales_model->getWP2($row->id, $item->warehouse_id);
 				$row->quantity = $test->quantity;
+
 
                 $group_prices = $this->sales_model->getProductPriceGroup($item->product_id, $customer->price_group_id);
                 $all_group_prices = $this->sales_model->getProductPriceGroup($item->product_id);
