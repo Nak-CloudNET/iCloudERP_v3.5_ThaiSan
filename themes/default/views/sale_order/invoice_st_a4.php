@@ -521,8 +521,8 @@
                     <?php } ?>
                     <?php if($invs->paid != 0) { ?>
                         <tr class="border-foot">
-                            <td colspan="<?= $col; ?>" style="text-align: right; font-weight: bold;">បានបង់ / <?= strtoupper(lang('paid')) ?>
-                                (<?= $default_currency->code; ?>)
+                            <td colspan="<?= $col; ?>" style="text-align: right; font-weight: bold;">DEPOSIT (<?= strtoupper(lang('ប្រាក់កក់')) ?>)
+
                             </td>
                             <td align="right"><?php echo $this->erp->formatMoney($invs->paid-$invs->deposit); ?></td>
                         </tr>

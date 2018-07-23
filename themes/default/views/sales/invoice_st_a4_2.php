@@ -196,8 +196,8 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-7 col-xs-7">
-                <table style="font-size: 16px;">
+            <div class="col-sm-6 col-xs-6">
+                <table style="font-size: 12px;">
                     <?php if(!empty($customer->company)) { ?>
                         <tr>
                             <td style="width: 15%;">ក្រុមហ៊ុន </td>
@@ -243,8 +243,8 @@
                     <?php } ?>
                 </table>
             </div>
-            <div class="col-sm-5 col-xs-5">
-                <table style="font-size: 16px;">
+            <div class="col-sm-6 col-xs-6">
+                <table style="font-size: 12px;">
                     <tr>
                         <td style="width: 20%;">លេខរៀង  </td>
                         <td style="width: 5%;">:</td>
