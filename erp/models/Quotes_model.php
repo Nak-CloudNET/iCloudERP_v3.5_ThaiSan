@@ -249,7 +249,7 @@ class Quotes_model extends CI_Model
                 $item['quote_id'] = $id;
                 $this->db->insert('quote_items', $item);
             }
-			
+
 			if($payment){
 				$p = $this->getPaymentByQuoteID($id);
 				if(!$p){
@@ -464,7 +464,7 @@ class Quotes_model extends CI_Model
 			->join('units', 'units.id = products.unit', 'left')
 			->join('product_variants', 'product_variants.id = quote_items.option_id', 'left')
 			->where('quote_items.quote_id', $quote_id)
-			->order_by('quote_items.product_id', 'ASC');
+			->order_by('quote_items.product_invoice', 'ASC');
         $q = $this->db->get();
         if ($q->num_rows() > 0) {
             foreach (($q->result()) as $row) {

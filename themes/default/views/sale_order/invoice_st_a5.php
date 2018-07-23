@@ -448,6 +448,7 @@
                         $row += 2;
                     }elseif ($invs->paid == 0 && $invs->deposit != 0) {
                     }
+                    //$this->erp->print_arrays();
                     ?>
 
                     <?php if ($invs->grand_total != $invs->total) { ?>
