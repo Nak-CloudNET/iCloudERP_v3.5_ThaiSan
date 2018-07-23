@@ -151,20 +151,20 @@
 
                         <div style="margin-top: 15px;">
                             <?php if(!empty($biller->vat_no)) { ?>
-                                <p style="font-size: 12px !important;">លេខអត្តសញ្ញាណកម្ម អតប (VAT No):&nbsp;<?= $biller->vat_no; ?></p>
+                               <p style="font-size: 12px !important;">លេខអត្តសញ្ញាណកម្ម អតប (VAT No):&nbsp;<?= $biller->vat_no; ?></p>
                             <?php } ?>
 
                             <?php if(!empty($biller->address)) { ?>
-                                <p style="margin-top:-10px !important;font-size: 14px !important;">អាសយដ្ឋាន ៖ &nbsp;<?= $biller->address; ?></p>
+                                <p style="margin-top:-10px !important;font-size: 12px !important;">អាសយដ្ឋាន ៖ &nbsp;<?= $biller->address; ?></p>
                             <?php } ?>
 
-                           <!-- <?php if(!empty($biller->phone)) { ?>
-                                <p style="margin-top:-10px ;font-size: 12px !important;">ទូរស័ព្ទលេខ (Tel):&nbsp;<?= $biller->phone; ?></p>
+                           <?php if(!empty($biller->phone)) { ?>
+                                <p style="margin-top:-10px ;font-size: 12px !important;">Tel:&nbsp;<?= $biller->phone; ?></p>
                             <?php } ?>
 
                             <?php if(!empty($biller->email)) { ?>
-                                <p style="margin-top:-10px !important;font-size: 12px !important;">សារអេឡិចត្រូនិច (E-mail):&nbsp;<?= $biller->email; ?></p>
-                            <?php } ?>-->
+                                <p style="margin-top:-10px !important;font-size: 12px !important;">E-mail :&nbsp;<?= $biller->email; ?></p>
+                            <?php } ?>
                         </div>
 
                     </center>
@@ -195,8 +195,8 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-7 col-xs-7">
-                <table style="font-size: 16px;">
+            <div class="col-sm-6 col-xs-6">
+                <table style="font-size: 12px;">
                     <?php if(!empty($customer->company)) { ?>
 
                         <tr>
@@ -244,8 +244,8 @@
                     <?php } ?>
                 </table>
             </div>
-            <div class="col-sm-5 col-xs-5">
-                <table style="font-size: 16px;">
+            <div class="col-sm-6 col-xs-6">
+                <table style="font-size: 12px;">
                     <tr>
                         <td style="width: 20%;">លេខរៀង  </td>
                         <td style="width: 5%;">:</td>
@@ -497,8 +497,8 @@
                     </tr>
                     <?php if($invs->paid != 0) { ?>
                     <tr>
-                        <td colspan="<?= $col; ?>" style="text-align: right; font-weight: bold;">បានបង់ / <?= strtoupper(lang('paid')) ?>
-                            (<?= $default_currency->code; ?>)
+                        <td colspan="<?= $col; ?>" style="text-align: right; font-weight: bold;">DEPOSIT (<?= strtoupper(lang('ប្រាក់កក់')) ?>)
+
                         </td>
                         <td align="right"><?php echo $this->erp->formatMoney($invs->paid-$invs->deposit); ?></td>
                     </tr>
