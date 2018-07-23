@@ -1521,7 +1521,7 @@ function loadItems() {
 
 			tr_html += '<td class="text-right"><span class="price-kh">'+ p_kh_price +'</span></td>';
 
-			tr_html += '<td><input type="hidden" name="amount_qty[]" value="'+item_amount_qty+'"> <input class="form-control kb-pad text-center rquantity" name="quantity[]" type="text" value="' + formatDecimal(item_qty) + '" data-id="' + row_no + '" data-item="' + item_id + '" id="quantity_' + row_no + '" onClick="this.select();"><input type="hidden" value="' + formatDecimal(item_aqty) + '" name="inhand[]" class="inhand"/><input type="hidden" value="' + formatDecimal(orderqty) + '" name="qtyorder[]" class="qtyorder"/></td>';
+			tr_html += '<td><input type="hidden" name="amount_qty[]" value="'+item_amount_qty+'"><input type="hidden" name="piece[]" value="'+piece+'"><input type="hidden" name="wpiece[]" value="'+wpiece+'"> <input class="form-control kb-pad text-center rquantity" name="quantity[]" type="text" value="' + formatDecimal(item_qty) + '" data-id="' + row_no + '" data-item="' + item_id + '" id="quantity_' + row_no + '" onClick="this.select();"><input type="hidden" value="' + formatDecimal(item_aqty) + '" name="inhand[]" class="inhand"/><input type="hidden" value="' + formatDecimal(orderqty) + '" name="qtyorder[]" class="qtyorder"/></td>';
 
 			if (site.settings.product_discount == 1) {
                 if (admin || owner || sale_discount) {

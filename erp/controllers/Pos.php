@@ -480,6 +480,8 @@ class Pos extends MY_Controller
 				$expdate 		= isset($this->sales_model->getPurchaseItemExDateByID($expire_date_id)->expiry);
                 $real_unit_price = $this->erp->formatDecimal($_POST['real_unit_price'][$r]);
                 $unit_price 	= $this->erp->formatDecimal($_POST['unit_price'][$r]);
+                $piece          = $_POST['piece'][$r];
+                $wpiece         = $_POST['wpiece'][$r];
                 $item_quantity 	= $_POST['quantity'][$r];
                 $amount_quantity= $_POST['amount_qty'][$r];
                 $item_serial 	= isset($_POST['serial'][$r]) ? $_POST['serial'][$r] : '';
@@ -578,6 +580,8 @@ class Pos extends MY_Controller
                         'option_id' 		=> $item_option,
                         'net_unit_price' 	=> $item_net_price,
                         'unit_price' 		=> $this->erp->formatDecimal($unitPrice),
+                        'piece'             => $piece,
+                        'wpiece'            => $wpiece,
                         'amount_quantity' 	=> $amount_quantity,
                         'quantity' 			=> $item_quantity,
                         'warehouse_id' 		=> $warehouse_id,

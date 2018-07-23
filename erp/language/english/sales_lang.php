@@ -446,4 +446,5 @@ $lang['invoice_engtay']					    = "Invoic Engtay A4";
 $lang['invoice_nano_tech']					= "Invoice nano tech";
 $lang['order_discount_percent']			    = "Order Discount (%)";
 $lang['print_sale_order']			        = "Print Sale Order";
-$lang['contact'] = "Contact";
+$lang['contact']                            = "Contact";
+$lang['amount_quantity']					= "Amount Quantity";
