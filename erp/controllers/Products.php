@@ -502,7 +502,7 @@ class Products extends MY_Controller
         } elseif ($this->input->post('set_rack')) {
             $this->session->set_flashdata('error', validation_errors());
             redirect("products");
-        } 
+        }
 
         if ($this->form_validation->run() == true && $this->products_model->setRack($data)) {
             $this->session->set_flashdata('message', lang("rack_set"));

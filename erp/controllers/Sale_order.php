@@ -711,10 +711,12 @@ class Sale_order extends MY_Controller
         $this->data['updated_by'] = $inv->updated_by ? $this->site->getUser($inv->updated_by) : NULL;
         $this->data['warehouse'] = $this->site->getWarehouseByID($inv->warehouse_id);
         $this->data['invs'] = $inv;
+
         $return = $this->sales_model->getReturnBySID($id);
         $this->data['return_sale'] = $return;
         $this->data['rows'] = $this->sale_order_model->getAllInvoiceItemsById($id);
         $this->data['logo'] = true;
+
         $this->load->view($this->theme .'sale_order/invoice_st_a5',$this->data);
     }
 

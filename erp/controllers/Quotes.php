@@ -285,10 +285,24 @@ class Quotes extends MY_Controller
         $this->data['user'] = $this->site->getUser($inv->created_by);
         $this->data['saleman'] = $this->site->getUser($inv->created_by);
         $this->data['warehouse'] = $this->site->getWarehouseByID($inv->warehouse_id);
-        $this->data['invs'] = $inv;		
+        $this->data['invs'] = $inv;
         $this->data['rows'] = $this->quotes_model->getQuoteItemsData($id);
         $this->load->view($this->theme .'quotes/quote_thai_san',$this->data);
     }
+    function print_st_invoice_5($id=null)
+    {
+        $inv = $this->quotes_model->getQuotesData($id);
+        $this->data['setting'] = $this->site->get_setting();
+        $this->data['customer'] = $this->site->getCompanyByID($inv->customer_id);
+        $this->data['biller'] = $this->site->getCompanyByID($this->site->get_setting()->default_biller);
+        $this->data['user'] = $this->site->getUser($inv->created_by);
+        $this->data['saleman'] = $this->site->getUser($inv->created_by);
+        $this->data['warehouse'] = $this->site->getWarehouseByID($inv->warehouse_id);
+        $this->data['invs'] = $inv;
+        $this->data['rows'] = $this->quotes_model->getQuoteItemsData($id);
+        $this->load->view($this->theme .'quotes/invoice_st_a5',$this->data);
+    }
+
     function quote_invoice_chim_socheat($id=null)
     {
         $inv = $this->quotes_model->getQuotesData($id);

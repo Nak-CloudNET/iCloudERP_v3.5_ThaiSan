@@ -314,6 +314,13 @@
                                 <span class="hidden-sm hidden-xs"><?= lang('Print_Quote') ?></span>
                             </a>
                         </div>
+                        <div class="btn-group">
+                            <a href="<?= site_url('quotes/print_st_invoice_5/' . $inv->id) ?>" target="_blank"
+                               class="tip btn btn-primary" title="<?= lang('print_quote') ?>">
+                                <i class="fa fa-heart"></i>
+                                <span class="hidden-sm hidden-xs"><?= lang('Print_Quote A5') ?></span>
+                            </a>
+                        </div>
                         <!--<div class="btn-group">
                             <a href="<?= site_url('Quotes/invoice_quote_chea_kheng/'.$inv->id) ?>" target="_blank" class="tip btn btn-primary" title="<?= lang('invoice_quote_chea_kheng') ?>">
                                 <i class="fa fa-heart"></i>
