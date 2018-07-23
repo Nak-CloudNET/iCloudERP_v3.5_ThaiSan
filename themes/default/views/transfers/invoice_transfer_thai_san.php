@@ -40,7 +40,6 @@
         }
         .container {
             height: 20.5cm !important;
-            margin-left: -11px !important;
 
         }
         .customer_label {
@@ -160,13 +159,13 @@
                                 <p style="margin-top:-10px !important;font-size: 14px !important;">អាសយដ្ឋាន ៖ &nbsp;<?= $biller->address; ?></p>
                             <?php } ?>
 
-                           <!-- <?php if(!empty($biller->phone)) { ?>
-                                <p style="margin-top:-10px ;font-size: 12px !important;">ទូរស័ព្ទលេខ (Tel):&nbsp;<?= $biller->phone; ?></p>
+                            <?php if(!empty($biller->phone)) { ?>
+                                <p style="margin-top:-10px ;font-size: 12px !important;">Tel:&nbsp;<?= $biller->phone; ?></p>
                             <?php } ?>
 
                             <?php if(!empty($biller->email)) { ?>
-                                <p style="margin-top:-10px !important;font-size: 12px !important;">សារអេឡិចត្រូនិច (E-mail):&nbsp;<?= $biller->email; ?></p>
-                            <?php } ?>-->
+                                <p style="margin-top:-10px !important;font-size: 12px !important;">E-mail :&nbsp;<?= $biller->email; ?></p>
+                            <?php } ?>
                         </div>
 
                     </center>
@@ -205,6 +204,12 @@
                             <td><span style="font-size:14px;"><strong><?= $from_warehouse->name ."&nbsp;&nbsp;(&nbsp".$from_warehouse->code." )"; ?></strong></span></td>
 
                         </tr>
+                        <tr>
+                            <td><?= lang("Reference");?>
+                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                            <td><span style="font-size:14px;"><strong><?= $inv->transfer_no; ?></strong></span></td>
+
+                        </tr>
                 </table>
             </div>
             <?php //$this->erp->print_arrays();?>
@@ -217,12 +222,7 @@
                             <td><span style="font-size:14px;"><strong><?= $to_warehouse->name ."&nbsp;&nbsp;(&nbsp".$to_warehouse->code." )"; ?></strong></span></td>
 
                         </tr>
-                        <tr>
-                            <td><?= lang("Reference");?>
-                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;</td>
-                            <td><span style="font-size:14px;"><strong><?= $inv->transfer_no; ?></strong></span></td>
 
-                        </tr>
                         <tr>
                             <td><?= lang("Date");?>
                             <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;</td>
@@ -304,8 +304,8 @@
                     }
                     ?>
                     <?php
-                    if($erow<8){
-                        $k=8 - $erow;
+                    if($erow<9){
+                        $k=9 - $erow;
                         for($j=1;$j<=$k;$j++) {
                             echo  '<tr>
                                         <td height="34px" style="text-align: center; vertical-align: middle">'.$no.'</td>
@@ -337,7 +337,7 @@
                 <p style="margin-left: 10px;margin-top:10px;"><?php echo strip_tags($invs->note); ?></p>
             </div>
         <?php } ?>
-        <br><br><br><br>
+        <br><br><br><br><br>
     </div>	<!--div col sm 6 -->
 
     <div id="footer" class="row">
