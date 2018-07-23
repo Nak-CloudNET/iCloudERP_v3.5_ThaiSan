@@ -338,7 +338,7 @@
                 foreach ($rows as $count_row) {
                     $arr_count[$count_row->product_invoice]++;
                 }
-//$this->erp->print_arrays($count_row);
+//$this->erp->print_arrays($rows);
                 foreach ($rows as $row) {
                     $free = lang('free');
                     $product_unit = '';
