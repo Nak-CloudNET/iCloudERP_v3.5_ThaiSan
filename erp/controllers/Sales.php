@@ -3915,6 +3915,7 @@ class Sales extends MY_Controller
 				$expire_date_id = isset($_POST['expdate'][$r]) && $_POST['expdate'][$r] != 'false' ? $_POST['expdate'][$r] : null;
 				$expdate = isset($this->sales_model->getPurchaseItemExDateByID($expire_date_id)->expiry);
 				$item_quantity 	= (isset($_POST['received'][$r])? $_POST['received'][$r]:$_POST['quantity'][$r]);
+                $amount_qty 	= $_POST['amount_qty'][$r];
 				$real_item_quantity = $item_quantity;
 				
                 $real_unit_price = $this->erp->formatDecimal($_POST['real_unit_price'][$r]);
@@ -4025,6 +4026,7 @@ class Sales extends MY_Controller
                         'option_id' 		=> $item_option,
                         'net_unit_price' 	=> $item_net_price,
                         'unit_price' 		=> $this->erp->formatDecimal($unitPrice),
+                        'amount_quantity' 	=> $amount_qty,
 						'quantity' 			=> $item_quantity,
 						'quantity_balance' 	=> $quantity_balance,
                         'warehouse_id' 		=> $warehouse_id,
@@ -6237,6 +6239,7 @@ class Sales extends MY_Controller
 				$row->wpiece 		= $item->wpiece;
 				$row->w_piece 		= $item->wpiece;
                 $row->qty 			= $item->quantity;
+                $row->amount_qty 	= $item->amount_quantity;
                 $row->product_details	  	= $item->product_noted;
 				$row->details	  	= $item->product_invoice;
                 $row->quantity 		= $row->wh_qty;

@@ -691,6 +691,7 @@ $(document).ready(function () {
 		positems[item_id].row.piece = piece;
 		positems[item_id].row.wpiece = wpiece;
 		positems[item_id].row.qty = parseFloat($('#pquantity').val()),
+        positems[item_id].row.amount_qty = parseFloat($('#amount_quantity').val()),
 		positems[item_id].row.real_unit_price = price,
 		positems[item_id].row.exp_qty = parseFloat($('#exp_qty').val()),
 		positems[item_id].row.tax_rate = new_pr_tax,
@@ -967,15 +968,15 @@ $(document).ready(function () {
 		$('#mprice').val('');
 		return false;
 	});
+    $(document).on('change','#piece,#wpiece,#amount_quantity',function(){
+        var piece  = $('#piece').val()-0;
+        var wpiece = $("#wpiece").val()-0;
+        var amount_qty=$("#amount_quantity").val()-0;
+        var total  = (piece*wpiece*(amount_qty));
+        $("#pquantity").val(formatDecimal(total)).trigger("change");
+        $("#pnote").val(piece+" x "+wpiece);
 
-	$(document).on('change','#piece,#wpiece',function(){
-		var piece  = $('#piece').val()-0;
-		var wpiece = $("#wpiece").val()-0;
-		var total  = (piece*wpiece);
-		$("#pquantity").val(formatDecimal(total)).trigger("change");
-		$("#pnote").val(piece+" x "+wpiece);
-
-	});
+    });
 
 	$(document).on('change', '#mprice, #mtax, #mdiscount', function () {
 	    var unit_price = parseFloat($('#mprice').val());
@@ -1239,6 +1240,7 @@ function loadItems() {
 			item_pro_price 		= item.row.promo_price,
 			combo_items 		= item.combo_items,
 			item_price 			= item.row.price,
+			item_amount_qty 	= item.row.amount_qty,
 			item_qty 			= item.row.qty,
 			item_aqty 			= item.row.qoh - 0,
 			//item_aqty 			= item.row.qoh-item.row.quantity,
@@ -1519,7 +1521,7 @@ function loadItems() {
 
 			tr_html += '<td class="text-right"><span class="price-kh">'+ p_kh_price +'</span></td>';
 
-			tr_html += '<td><input class="form-control kb-pad text-center rquantity" name="quantity[]" type="text" value="' + formatDecimal(item_qty) + '" data-id="' + row_no + '" data-item="' + item_id + '" id="quantity_' + row_no + '" onClick="this.select();"><input type="hidden" value="' + formatDecimal(item_aqty) + '" name="inhand[]" class="inhand"/><input type="hidden" value="' + formatDecimal(orderqty) + '" name="qtyorder[]" class="qtyorder"/></td>';
+			tr_html += '<td><input type="hidden" name="amount_qty[]" value="'+item_amount_qty+'"> <input class="form-control kb-pad text-center rquantity" name="quantity[]" type="text" value="' + formatDecimal(item_qty) + '" data-id="' + row_no + '" data-item="' + item_id + '" id="quantity_' + row_no + '" onClick="this.select();"><input type="hidden" value="' + formatDecimal(item_aqty) + '" name="inhand[]" class="inhand"/><input type="hidden" value="' + formatDecimal(orderqty) + '" name="qtyorder[]" class="qtyorder"/></td>';
 
 			if (site.settings.product_discount == 1) {
                 if (admin || owner || sale_discount) {
