@@ -370,6 +370,7 @@ $lang['sale_man']										= "Sale man";
 $lang['change_amount']									= "Change Amount";
 $lang['add_customer_save']								= "Add Customer (Save)";
 $lang['suspend_table_was_cleared']						= "Suspend Table Was Cleared";
+$lang['amount_quantity']						        = "Amount Quantity";
 
 
 // Please help tidy the code :-)
