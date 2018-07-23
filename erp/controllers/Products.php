@@ -408,7 +408,7 @@ class Products extends MY_Controller
                 cost as cost, 
                 price as price, 
               IF(erp_products.type = 'service', 
-                         
+                        CONCAT(COALESCE(erp_products.quantity, 0), '=', 
                         erp_products.id),
                         CONCAT(COALESCE(SUM(wp.quantity), 0), '=', 
                         erp_products.id)
