@@ -261,7 +261,7 @@
                         $free = lang('free');
                         $product_unit = '';
                         $total = 0;
-
+                        //$this->erp->print_arrays($row);
                         if($row->variant){
                             $product_unit = $row->variant;
                         }else{
@@ -323,7 +323,7 @@
                         <td colspan="3" style="text-align: right; font-weight: bold;">សរុបរួម / <?= strtoupper(lang('total_amount')) ?>
                             (<?= $default_currency->code; ?>)
                         </td>
-                        <td align="right"><?= $this->erp->formatMoney($invs->grand_total); ?></td>
+                        <td align="right"><?= $this->erp->formatQuantity($row->TQty); ?></td>
                     </tr>
 
 
