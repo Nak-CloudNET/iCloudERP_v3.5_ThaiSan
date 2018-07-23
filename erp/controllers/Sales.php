@@ -10215,8 +10215,8 @@ class Sales extends MY_Controller
 				$biller_id = $this->site->get_setting()->default_biller;
 				$this->data['reference'] = $this->site->getReference('pp',$biller_id);
 			}else{
-				$biller_id = $this->session->userdata('biller_id');
-				$this->data['reference'] = $this->site->getReference('pp',$biller_id);
+				$biller_id = json_decode($this->session->userdata('biller_id'));
+				$this->data['reference'] = $this->site->getReference('pp',$biller_id[0]);
 			}
 			$this->data['setting'] = $setting;
             $this->data['modal_js'] = $this->site->modal_js();
