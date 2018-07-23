@@ -165,13 +165,13 @@
                                                         <p style="margin-top:-10px !important;">អាសយដ្ឋាន ៖ &nbsp;<?= $biller->address; ?></p>
                                                     <?php } ?>
 
-                                                    <!--<?php if(!empty($biller->phone)) { ?>
-                                                        <p style="margin-top:-10px ;">ទូរស័ព្ទលេខ (Tel):&nbsp;<?= $biller->phone; ?></p>
+                                                    <?php if(!empty($biller->phone)) { ?>
+                                                        <p style="margin-top:-10px ;">Tel:&nbsp;<?= $biller->phone; ?></p>
                                                     <?php } ?>
 
                                                     <?php if(!empty($biller->email)) { ?>
-                                                        <p style="margin-top:-10px !important;">សារអេឡិចត្រូនិច (E-mail):&nbsp;<?= $biller->email; ?></p>
-                                                    <?php } ?>-->
+                                                        <p style="margin-top:-10px !important;">E-mail:&nbsp;<?= $biller->email; ?></p>
+                                                    <?php } ?>
                                                 </div>
 
                                             </center>
@@ -441,7 +441,7 @@
                 }
                 ?>
                 <?php
-                $row = 3;
+                $row = 1;
                 $col =4;
                 $col2 = 4;
                 if($invs->total_discount){$col=4;$col2=3;}
