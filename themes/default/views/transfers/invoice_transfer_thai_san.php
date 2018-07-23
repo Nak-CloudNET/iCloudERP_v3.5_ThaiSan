@@ -265,7 +265,7 @@
                         if($row->variant){
                             $product_unit = $row->variant;
                         }else{
-                            $product_unit = $row->uname;
+                            $product_unit = $row->name;
                         }
                         $product_name_setting;
                         if($setting->show_code == 0) {
@@ -278,7 +278,7 @@
                             }
                         }
                         ?>
-                        <tr> 
+                        <tr>
                             <td style="vertical-align: middle; text-align: center"><?php echo $no ?></td>
 
                             <td style="vertical-align: middle;">
@@ -344,22 +344,18 @@
         <div class="col-sm-4 col-xs-4">
             <center>
                 <hr style="margin:0; border:1px solid #000; width: 80%">
-                <p style="font-size: 16px; margin-top: 4px !important">ហត្ថលេខាអ្នកលក់</p>
-                <p style="margin-top:-10px; font-size: 14px">Seller's Signature</p>
-            </center>
-        </div>
-        <div class="col-sm-4 col-xs-4">
-            <center>
-                <hr style="margin:0; border:1px solid #000; width: 80%">
                 <p style="font-size: 16px; margin-top: 4px !important">ហត្ថលេខាអ្នកដឹក</p>
-                <p style="margin-top:-10px; font-size: 14px">Delivery's Signature</p>
+                <p style="margin-top:-10px; font-size: 14px">Deliver's Signature</p>
             </center>
+        </div>
+        <div class="col-sm-4 col-xs-4">
+
         </div>
         <div class="col-sm-4 col-xs-4">
             <center>
                 <hr style="margin:0; border:1px solid #000; width: 80%">
-                <p style="font-size: 16px; margin-top: 4px !important">ហត្ថលេខាអ្នកទិញ</p>
-                <p style="margin-top:-10px; font-size: 14px">Customer's Signature</p>
+                <p style="font-size: 16px; margin-top: 4px !important">ហត្ថលេខាអ្នកទទួល</p>
+                <p style="margin-top:-10px; font-size: 14px">Receiver's Signature</p>
             </center>
         </div>
     </div>
