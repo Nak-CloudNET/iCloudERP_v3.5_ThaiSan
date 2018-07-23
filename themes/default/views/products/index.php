@@ -169,7 +169,7 @@ echo form_open('products/product_actions'.($warehouse_id ? '/'.$warehouse_id : '
                     </a>
                 </li>
             </ul>
-        </div>
+        </div> 
         <div class="box-icon">
             <ul class="btn-tasks">
                 <?php if ($Owner || $Admin || $GP['products-add'] || $GP['products-print_barcodes'] || $GP['products-sync_quantity'] || $GP['products-export'] || $GP['products-import'] || $GP['products-import_quantity'] || $GP['products-import_price_cost']) { ?>
