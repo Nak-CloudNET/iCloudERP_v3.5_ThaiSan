@@ -10563,7 +10563,7 @@ class Sales extends MY_Controller
 			$this->session->set_flashdata('message', lang("payment_added"));
 			if($customer_balance == "customer_balance"){
 				$payment_ref = str_replace('/', '_', $reference_no);
-				redirect('sales/view_payment_cus/'.$biller_id.'/'.$payment_ref.'/'.$idd);
+				redirect('sales/view_payment_cus/'.json_decode($biller_id)[0].'/'.$payment_ref.'/'.$idd);
 			}elseif($receivable == "receivable"){
 				redirect('account/list_ac_recevable');
 			}else{
@@ -10701,8 +10701,8 @@ class Sales extends MY_Controller
 				$biller_id 					= $this->site->get_setting()->default_biller;
 				$this->data['reference'] 	= $this->site->getReference('pp',$biller_id);
 			}else{
-				$biller_id 					= $this->session->userdata('biller_id');
-				$this->data['reference'] 	= $this->site->getReference('pp',$biller_id);
+				$biller_id 					= json_decode($this->session->userdata('biller_id'));
+				$this->data['reference'] 	= $this->site->getReference('pp',$biller_id[0]);
 
             }
 
