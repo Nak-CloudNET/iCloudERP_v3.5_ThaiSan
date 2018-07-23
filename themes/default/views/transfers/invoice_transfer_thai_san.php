@@ -207,6 +207,7 @@
                         </tr>
                 </table>
             </div>
+            <?php //$this->erp->print_arrays();?>
             <div class="col-sm-6 col-xs-6">
                 <table style="font-size: 16px;">
 
@@ -214,6 +215,18 @@
                             <td><?= lang("To");?>
                             <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;</td>
                             <td><span style="font-size:14px;"><strong><?= $to_warehouse->name ."&nbsp;&nbsp;(&nbsp".$to_warehouse->code." )"; ?></strong></span></td>
+
+                        </tr>
+                        <tr>
+                            <td><?= lang("Reference");?>
+                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                            <td><span style="font-size:14px;"><strong><?= $inv->transfer_no; ?></strong></span></td>
+
+                        </tr>
+                        <tr>
+                            <td><?= lang("Date");?>
+                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+                            <td><span style="font-size:14px;"><strong><?= $this->erp->hrld($inv->date); ?></strong></span></td>
 
                         </tr>
                 </table>
@@ -248,7 +261,7 @@
                         $free = lang('free');
                         $product_unit = '';
                         $total = 0;
-
+                        //$this->erp->print_arrays($row);
                         if($row->variant){
                             $product_unit = $row->variant;
                         }else{
@@ -310,7 +323,7 @@
                         <td colspan="3" style="text-align: right; font-weight: bold;">សរុបរួម / <?= strtoupper(lang('total_amount')) ?>
                             (<?= $default_currency->code; ?>)
                         </td>
-                        <td align="right"><?= $this->erp->formatMoney($invs->grand_total); ?></td>
+                        <td align="right"><?= $this->erp->formatQuantity($row->TQty); ?></td>
                     </tr>
 
 

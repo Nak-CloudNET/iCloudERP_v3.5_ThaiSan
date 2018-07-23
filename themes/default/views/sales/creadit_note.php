@@ -138,7 +138,7 @@
 			<div class="col-lg-12 col-sm-12 col-xs-12" >
 					<table class="table table-bordered table-hover" border="1">
 				<thead>
-					<tr style="white-space: nowrap">
+					<tr>
 						<th style="font-size:13px !important;" class="text-center">ល.រ</br><?=lang('Nº')?></th>
 						<th style="font-size:13px !important;"class="text-center">លេខកូដ</br><?=lang('CODE')?></th>
 						<th style="width:100% !;font-size:13px !important;"class="text-center">បរិយាយមុខទំនិញ</br><?=lang('DESCRIPTION')?></th>
