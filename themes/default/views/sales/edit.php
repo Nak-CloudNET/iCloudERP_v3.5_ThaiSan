@@ -764,6 +764,13 @@
                             <input type="text" class="form-control" id="wpiece">
                         </div>
                     </div>
+                    <div class="form-group ">
+                        <label for="amount_quantity" class="col-sm-4 control-label"><?= lang('amount_quantity') ?></label>
+
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control kb-pad amount_quantity" id="amount_quantity">
+                        </div>
+                    </div>
                     <div class="form-group">
                         <label for="pquantity" class="col-sm-4 control-label"><?= lang('quantity') ?></label>
 

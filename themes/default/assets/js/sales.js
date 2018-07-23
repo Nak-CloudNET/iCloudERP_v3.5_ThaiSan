@@ -1194,6 +1194,7 @@ if (slwarehouse = __getItem('slwarehouse')) {
 		$('#pgroup_prices-div').html(opt_group_price);
 		$('select.select').select2({minimumResultsForSearch: 6});
 		$('#pquantity').val(qty);
+		$('#amount_quantity').val(item.row.amount_qty);
 		$('#pnote').val(item.row.product_details?item.row.product_details.replace(/(<p[^>]+?>|<p>|<\/p>)/img, ""):'');
 		$('#product_invoice').val(item.row.details?item.row.details.replace(/(<p[^>]+?>|<p>|<\/p>)/img, ""):'');
 		$('#old_qty').val(qty);
@@ -1364,11 +1365,12 @@ if (slwarehouse = __getItem('slwarehouse')) {
 	});
 	 
 	 
-	$(document).on('change','#piece,#wpiece',function(){
+	$(document).on('change','#piece,#wpiece,#amount_quantity',function(){
 		var piece  = $('#piece').val()-0;
 		var wpiece = $("#wpiece").val()-0;
+        var amount_qty=$("#amount_quantity").val()-0;
 		if(Number(piece) && Number(wpiece)) {
-			var total  = (piece*wpiece);
+			var total  = (piece*wpiece*(amount_qty));
 			$("#pquantity").val(formatDecimal(total)).trigger("change");
 			$("#pnote").val(piece+" x "+wpiece);
 		}else {
@@ -1481,6 +1483,7 @@ if (slwarehouse = __getItem('slwarehouse')) {
 		slitems[item_id].row.wpiece = wpiece;
 		slitems[item_id].row.rate_item_cur = opt_cur,
 		slitems[item_id].row.qty = parseFloat($('#pquantity').val()),
+		slitems[item_id].row.amount_qty = parseFloat($('#amount_quantity').val()),
 		slitems[item_id].row.real_unit_price = price,
 		slitems[item_id].row.request_quantity = request_quantity,
 		slitems[item_id].row.cur_stock_qty = cur_stock_qty,
@@ -1947,6 +1950,7 @@ function loadItems() {
 				psoqty				= item.row.psoqty,
 				item_qty_unit 		= item.row.qty_unit,
 				item_aqty 			= item.row.quantity,
+                amount_qty 			= item.row.amount_qty,
 				item_tax_method 	= item.row.tax_method,
 				item_ds 			= item.row.discount,
 				item_discount 		= 0,
@@ -1973,7 +1977,7 @@ function loadItems() {
 				w_piece 			= item.row.w_piece,
 				product_invoice 	= item.row.details,
 				oqty				= item.row.oqty,
-                delivery_id = item.row.delivery_id ? item.row.delivery_id : 0,
+                delivery_id 		= item.row.delivery_id ? item.row.delivery_id : 0,
 				digital_id 			= item.row.digital_id?item.row.digital_id:0;
 				var unit_price 		= parseFloat(item.row.real_unit_price);
 				var real_unit_price = parseFloat(item.row.real_unit_price);
@@ -2335,7 +2339,7 @@ function loadItems() {
 
 			tr_html += '<input class="default_price" name="default_price[]" type="hidden" value="' + default_price + '">';
 
-            tr_html += '<td><input class="form-control text-center rquantity" ' + (delivery_id ? 'readonly' : "") + ' name="quantity[]" type="text" value="' + formatDecimal(item_qty) + '" data-id="' + row_no + '" data-item="' + item_id + '" id="quantity_' + row_no + '" onClick="this.select();"></td>';
+            tr_html += '<td><input type="hidden" name="amount_qty[]" value="'+amount_qty+'"><input class="form-control text-center rquantity" ' + (delivery_id ? 'readonly' : "") + ' name="quantity[]" type="text" value="' + formatDecimal(item_qty) + '" data-id="' + row_no + '" data-item="' + item_id + '" id="quantity_' + row_no + '" onClick="this.select();"></td>';
 			
 			tr_html += '<td class="text-right">' +
 				'<input type="hidden" name="qty_sale[]" class="qty_sale" id="qty_sale_' + row_no + '" value="' + item_qty + '" />' +

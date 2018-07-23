@@ -2064,6 +2064,13 @@ if ($q->num_rows() > 0) {
                         </div>
                     </div>
                     <div class="form-group col-sm-12">
+                        <label for="amount_quantity" class="col-sm-4 control-label"><?= lang('amount_quantity') ?></label>
+
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control kb-pad amount_quantity" id="amount_quantity" value="1">
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-12">
                         <label for="pquantity" class="col-sm-4 control-label"><?= lang('quantity') ?></label>
 
                         <div class="col-sm-8">
