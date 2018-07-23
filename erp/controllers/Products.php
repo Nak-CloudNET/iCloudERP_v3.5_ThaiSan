@@ -329,6 +329,14 @@ class Products extends MY_Controller
 
     function getProducts($warehouse_id = NULL)
     {
+        if (!$this->Owner && !$this->Admin) {
+            $gp = $this->site->checkPermissions();
+            $this->permission = $gp[0];
+            $this->permission[] = $gp[0];
+        } else {
+            $this->permission[] = NULL;
+        }
+
         $this->erp->checkPermissions('index',null,'products');
         if ($this->input->get('product')) {
             $product = $this->input->get('product');
@@ -340,7 +348,7 @@ class Products extends MY_Controller
         } else {
             $category = NULL;
         }
-		if ($this->input->get('product_type')) {
+        if ($this->input->get('product_type')) {
             $product_type = $this->input->get('product_type');
         } else {
             $product_type = NULL;
@@ -361,7 +369,7 @@ class Products extends MY_Controller
             . lang('r_u_sure') . "</p><a class='btn btn-danger' id='a__$1' href='" . site_url('products/delete/$1') . "'>"
             . lang('i_m_sure') . "</a> <button class='btn po-close'>" . lang('no') . "</button>\"  rel='popover'><i class=\"fa fa-trash-o\"></i> "
             . lang('delete_product') . "</a>";
-		$edit_link = anchor('products/edit/$1', '<i class="fa fa-edit"></i> ' . lang('edit_product'), 'class="sledit"');
+        $edit_link = anchor('products/edit/$1', '<i class="fa fa-edit"></i> ' . lang('edit_product'), 'class="sledit"');
 
         $single_barcode = anchor_popup('products/single_barcode/$1/' . ($warehouse_id ? $warehouse_id : ''), '<i class="fa fa-print"></i> ' . lang('print_barcode'), $this->popup_attributes);
 
@@ -369,121 +377,119 @@ class Products extends MY_Controller
         $action = '<div class="text-center"><div class="btn-group text-left">'
             . '<button type="button" class="btn btn-default btn-xs btn-primary dropdown-toggle" data-toggle="dropdown">'
             . lang('actions') . ' <span class="caret"></span></button>
-		<ul class="dropdown-menu pull-right" role="menu">
-			<li>' . $detail_link . '</li>'
-			.(($this->Owner || $this->Admin || $this->GP['products-add']) ? '<li><a href="' . site_url('products/add/$1') . '"><i class="fa fa-plus-square"></i> ' . lang('duplicate_product') . '</a></li>' : '');
+        <ul class="dropdown-menu pull-right" role="menu">
+            <li>' . $detail_link . '</li>'
+            .(($this->Owner || $this->Admin || $this->GP['products-add']) ? '<li><a href="' . site_url('products/add/$1') . '"><i class="fa fa-plus-square"></i> ' . lang('duplicate_product') . '</a></li>' : '');
 
         $action .= '<li><a href="' . site_url() . 'assets/uploads/$2" data-type="image" data-toggle="lightbox"><i class="fa fa-file-photo-o"></i> '
             . lang('view_image') . '</a></li>'
-			.(($this->Owner || $this->Admin || $this->GP['products-print_barcodes']) ? '<li>' . $single_barcode . '</li>' : '') .''
-			 .(($this->Owner || $this->Admin || $this->GP['products-print_barcodes']) ? '<li>' . $single_label . '</li>' : '')
-			.(($this->Owner || $this->Admin) ? '<li>'.$edit_link.'</li>' : ($this->GP['products-edit'] ? '<li>'.$edit_link.'</li>' : '')).
-			(($this->Owner || $this->Admin) ? '<li>'.$delete_link.'</li>' : ($this->GP['products-delete'] ? '<li>'.$delete_link.'</li>' : '')).
+            .(($this->Owner || $this->Admin || $this->GP['products-print_barcodes']) ? '<li>' . $single_barcode . '</li>' : '') .''
+            .(($this->Owner || $this->Admin || $this->GP['products-print_barcodes']) ? '<li>' . $single_label . '</li>' : '')
+            .(($this->Owner || $this->Admin) ? '<li>'.$edit_link.'</li>' : ($this->GP['products-edit'] ? '<li>'.$edit_link.'</li>' : '')).
+            (($this->Owner || $this->Admin) ? '<li>'.$delete_link.'</li>' : ($this->GP['products-delete'] ? '<li>'.$delete_link.'</li>' : '')).
 
-			'</ul>
-		</div></div>';
+            '</ul>
+        </div></div>';
 
         if($warehouse_id) {
             $warehouse_id = explode('-', $warehouse_id);
         }
 
         $this->load->library('datatables');
-            if ($this->session->userdata('warehouse_id')) {
-                $this->datatables
+        if ($this->session->userdata('warehouse_id')) {
+            $this->datatables
                 ->select($this->db->dbprefix('products') . ".id as productid, " .
-                $this->db->dbprefix('products') . ".image as image, " .
-                $this->db->dbprefix('products') . ".code as code, " .
-                $this->db->dbprefix('products') . ".name as name, " .
-                $this->db->dbprefix('products') . ".name_kh as kname, " .
-                $this->db->dbprefix('categories') . ".name as cname,
-				subcategories.name as sub_name, 
-				cost as cost, 
-				price as price, 
-				IF(erp_products.type = 'service', 
-						CONCAT(COALESCE(erp_products.quantity, 0), '=', 
-						erp_products.id),
-						CONCAT(COALESCE(SUM(wp.quantity), 0), '=', 
-						erp_products.id)
-					) as quantity, " .
-                $this->db->dbprefix("units").".name as unit, 
-				alert_quantity", FALSE)
+                    $this->db->dbprefix('products') . ".image as image, " .
+                    $this->db->dbprefix('products') . ".code as code, " .
+                    $this->db->dbprefix('products') . ".name as name, " .
+                    $this->db->dbprefix('products') . ".name_kh as kname, " .
+                    $this->db->dbprefix('categories') . ".name as cname,
+                subcategories.name as sub_name, 
+                cost as cost, 
+                price as price, 
+              IF(erp_products.type = 'service', 
+                         
+                        erp_products.id),
+                        CONCAT(COALESCE(SUM(wp.quantity), 0), '=', 
+                        erp_products.id)
+                    ) as quantity, " .
+                    $this->db->dbprefix("units").".name as unit, 
+                alert_quantity", FALSE)
                 ->from('products');
 
-                if ($this->Settings->display_all_products) {
-                    $this->datatables->join("( SELECT * from {$this->db->dbprefix('warehouses_products')} WHERE warehouse_id = {$warehouse_id}) wp", 'products.id=wp.product_id', 'left');
-                } else {
-					if($warehouse_id){
-						$this->datatables->join('warehouses_products wp', 'products.id = wp.product_id', 'left')
-						->where_in('wp.warehouse_id', $warehouse_id)
-						->where("wp.rack LIKE '%##" . $this->session->userdata('user_id') . "##%'");
-					}else{
-						$this->datatables->join('warehouses_products wp', 'products.id = wp.product_id', 'left')
-						->where("wp.rack LIKE '%##" . $this->session->userdata('user_id') . "##%'");
-					}
+            if ($this->Settings->display_all_products) {
+                $this->datatables->join("( SELECT * from {$this->db->dbprefix('warehouses_products')} WHERE warehouse_id = {$warehouse_id}) wp", 'products.id=wp.product_id', 'left');
+            } else {
+                if($warehouse_id){
+                    $this->datatables->join('warehouses_products wp', 'products.id = wp.product_id', 'left')
+                        ->where_in('wp.warehouse_id', $warehouse_id)
+                        ->where("wp.rack LIKE '%##" . $this->session->userdata('user_id') . "##%'");
+                }else{
+                    $this->datatables->join('warehouses_products wp', 'products.id = wp.product_id', 'left')
+                        ->where("wp.rack LIKE '%##" . $this->session->userdata('user_id') . "##%'");
                 }
+            }
 
-                $this->datatables->join('categories', 'products.category_id=categories.id', 'left')
+            $this->datatables->join('categories', 'products.category_id=categories.id', 'left')
                 ->join('units', 'products.unit=units.id', 'left')
                 ->join('subcategories', 'subcategories.id=products.subcategory_id', 'left')
                 ->group_by("products.id");
 
-            } else {
-                $this->datatables
+        } else {
+            $this->datatables
                 ->select(
-					$this->db->dbprefix('products') . ".id as productid, " .
-					$this->db->dbprefix('products') . ".image as image, " .
-					$this->db->dbprefix('products') . ".code as code, " .
-					$this->db->dbprefix('products') . ".name as name, " .
-					$this->db->dbprefix('products') . ".name_kh as kname, " .
-					$this->db->dbprefix('categories') . ".name as cname, subcategories.name as sub_name, 
-					cost as cost,
-					price as price,
-					IF(erp_products.type = 'service', 
-						CONCAT(COALESCE(erp_products.quantity, 0), '=', 
-						erp_products.id),
-						CONCAT(COALESCE(SUM(wp.quantity), 0), '=', 
-						erp_products.id)
-					) as quantity, " .
-					$this->db->dbprefix('units').".name as unit, 
-					alert_quantity", FALSE
-					)
+                    $this->db->dbprefix('products') . ".id as productid, " .
+                    $this->db->dbprefix('products') . ".image as image, " .
+                    $this->db->dbprefix('products') . ".code as code, " .
+                    $this->db->dbprefix('products') . ".name as name, " .
+                    $this->db->dbprefix('products') . ".name_kh as kname, " .
+                    $this->db->dbprefix('categories') . ".name as cname, subcategories.name as sub_name, 
+                    cost as cost,
+                    price as price,
+                    IF(erp_products.type = 'service', 
+                        CONCAT(COALESCE(erp_products.quantity, 0), '=', 
+                        erp_products.id),
+                        CONCAT(COALESCE(SUM(wp.quantity), 0), '=', 
+                        erp_products.id)
+                    ) as quantity, " .
+                    $this->db->dbprefix('units').".name as unit, 
+                    alert_quantity", FALSE
+                )
                 ->from('products')
-				->join('warehouses_products wp', 'products.id = wp.product_id', 'left')
+                ->join('warehouses_products wp', 'products.id = wp.product_id', 'left')
                 ->join('categories', 'products.category_id=categories.id', 'left')
-				->join('subcategories', 'subcategories.id=products.subcategory_id', 'left')
-				->join('units', 'products.unit=units.id', 'left');
+                ->join('subcategories', 'subcategories.id=products.subcategory_id', 'left')
+                ->join('units', 'products.unit=units.id', 'left');
 
-				if($warehouse_id){
-					$this->datatables->where_in('wp.warehouse_id', $warehouse_id);
-                    $this->datatables->where('wp.quantity <>', NULL);
-                }
-                $this->datatables->group_by("products.id");
-
+            if($warehouse_id){
+                $this->datatables->where_in('wp.warehouse_id', $warehouse_id);
+                $this->datatables->where('wp.quantity <>', NULL);
             }
+            $this->datatables->group_by("products.id");
+        }
 
         if (!$this->Owner && !$this->Admin) {
-            if (!$this->session->userdata('show_cost')) {
+            if (!$gp[0]['products-cost']) {
                 $this->datatables->unset_column("cost");
             }
-            if (!$this->session->userdata('show_price')) {
+            if (!$gp[0]['products-price']) {
                 $this->datatables->unset_column("price");
             }
         }
-		if ($product) {
+        if ($product) {
             $this->datatables->where($this->db->dbprefix('products') . ".id", $product);
         }
         if ($category) {
             $this->datatables->where($this->db->dbprefix('products') . ".category_id", $category);
         }
-		if ($product_type) {
+        if ($product_type) {
             $this->datatables->where($this->db->dbprefix('products') . ".inactived", $product_type);
         }else{
-			$this->datatables->where($this->db->dbprefix('products') . ".inactived !=", '1');
-		}
+            $this->datatables->where($this->db->dbprefix('products') . ".inactived !=", '1');
+        }
         $this->datatables->add_column("Actions", $action, "productid, image, code, name");
         echo $this->datatables->generate();
     }
-
     function set_rack($product_id = NULL, $warehouse_id = NULL)
     {
         $this->form_validation->set_rules('rack', lang("rack_location"), 'trim|required');
@@ -532,7 +538,6 @@ class Products extends MY_Controller
         $rendererOptions 	= array('imageType' => 'png', 'horizontalPosition' => 'center', 'verticalPosition' => 'middle');
         $imageResource 		= Zend_Barcode::render($bcs, 'image', $barcodeOptions, $rendererOptions);
         return $imageResource;
-
     }
 
     function single_barcode($product_id = NULL, $warehouse_id = NULL)

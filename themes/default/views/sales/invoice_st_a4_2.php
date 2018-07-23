@@ -160,14 +160,13 @@
                                 <p style="margin-top:-10px !important;font-size: 14px !important;">អាសយដ្ឋាន ៖ &nbsp;<?= $biller->address; ?></p>
                             <?php } ?>
 
-                           <!-- <?php if(!empty($biller->phone)) { ?>
-                                <p style="margin-top:-10px ;font-size: 12px !important;">ទូរស័ព្ទលេខ (Tel):&nbsp;<?= $biller->phone; ?></p>
+                            <?php if(!empty($biller->phone)) { ?>
+                                <p style="margin-top:-10px ;font-size: 12px !important;">Tel:&nbsp;<?= $biller->phone; ?></p>
                             <?php } ?>
 
                             <?php if(!empty($biller->email)) { ?>
-                                <p style="margin-top:-10px !important;font-size: 12px !important;">សារអេឡិចត្រូនិច (E-mail):&nbsp;<?= $biller->email; ?></p>
-                            <?php } ?>-->
-                        </div>
+                                <p style="margin-top:-10px !important;font-size: 12px !important;">E-mail:&nbsp;<?= $biller->email; ?></p>
+                            <?php } ?>
 
                     </center>
                 </div>
@@ -330,6 +329,7 @@
                                 $product_name_setting = $row->product_name . ($row->variant ? ' (' . $row->variant . ')' : '');
                             }
                         }
+                        $balance=$invs->grand_total - (($invs->paid-$invs->deposit) + $invs->deposit);
                         ?>
                         <tr>
                             <td style="vertical-align: middle; text-align: center"><?php echo $no ?></td>
@@ -405,7 +405,7 @@
                     }
                     ?>
                     <?php
-                    $row = 3;
+                    $row = 1;
                     $col =4;
                     $col2 = 4;
                     if($invs->total_discount){$col=4;$col2=3;}
@@ -476,8 +476,9 @@
 
                     <tr>
                         <?php if ($invs->grand_total == $invs->total) { ?>
+
                             <td rowspan="<?= $row; ?>" colspan="<?= $col2; ?>" style="border-left: 1px solid #FFF !important; border-bottom: 1px solid #FFF !important;">
-                                <?php if (!empty($invs->invoice_footer)) { ?>
+                                <?php  if (!empty($invs->invoice_footer)) { ?>
                                     <p><strong><u>Note:</u></strong></p>
                                     <p><?= $invs->invoice_footer ?></p>
                                 <?php } ?>
@@ -505,12 +506,14 @@
                                 <td align="right"><?php echo $this->erp->formatMoney($invs->paid-$invs->deposit); ?></td>
                             </tr>
                         <?php } ?>
-                        <tr>
-                            <td colspan="<?= $col; ?>" style="text-align: right; font-weight: bold;">នៅខ្វះ / <?= strtoupper(lang('balance')) ?>
-                                (<?= $default_currency->code; ?>)
-                            </td>
-                            <td align="right"><?= $this->erp->formatMoney($invs->grand_total - (($invs->paid-$invs->deposit) + $invs->deposit)); ?></td>
-                        </tr>
+                        <?php if($balance != 0) { ?>
+                            <tr>
+                                <td colspan="<?= $col; ?>" style="text-align: right; font-weight: bold;">នៅខ្វះ / <?= strtoupper(lang('balance')) ?>
+                                    (<?= $default_currency->code; ?>)
+                                </td>
+                                <td align="right"><?= $this->erp->formatMoney($balance); ?></td>
+                            </tr>
+                        <?php } ?>
                     <?php } ?>
 
                     </tbody>
