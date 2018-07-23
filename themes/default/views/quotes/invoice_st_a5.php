@@ -422,7 +422,7 @@
                     if($invs->total_discount){$col=3;$col2=4;}
                     if($invs->product_tax){$col=3;$col2=4;}
                     if($invs->total_discount>0 && $invs->product_tax>0 ){$col=4;$col2=4;}
-                    if($invs->total_discount==0 && $invs->product_tax==0 ){$col=4;$col2=2;}
+                    if($invs->total_discount==0 && $invs->product_tax==0 ){$col=3;$col2=3;}
                     if ($discount != 0) {
                         $col =3;
                     }
