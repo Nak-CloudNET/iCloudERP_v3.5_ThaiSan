@@ -195,7 +195,7 @@
                                 <div class="invoice" style="margin-top:20px;">
                                     <center>
                                         <h4 class="title">បញ្ជីសម្រង់តម្លៃ</h4>
-                                        <h4 class="title" style="margin-top: 3px;">QUATATION</h4>
+                                        <h4 class="title" style="margin-top: 3px;">QUOTATION</h4>
                                     </center>
 
                                 </div>
