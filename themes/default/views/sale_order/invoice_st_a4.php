@@ -32,7 +32,10 @@
             page-break-after: always;
             -webkit-page-break-after: always;
         }
-
+        .container {
+            width: 100%;
+            margin: 20px !important;
+        }
         .customer_label {
             padding-left: 0 !important;
         }
@@ -60,9 +63,7 @@
         .invoice_label {
             padding-left: 0 !important;
         }
-        #footer {
-            bottom: 10px !important;
-        }
+
         #note{
             max-width: 95% !important;
             margin: 0 auto !important;
@@ -544,8 +545,8 @@
                                 <div style="border-radius: 5px 5px 5px 5px;border:1px solid black;height: auto;" id="note" class="col-md-12 col-xs-12">
                                     <p style="margin-left: 10px;margin-top:10px;"><?php echo strip_tags(htmlspecialchars_decode($invs->note)); ?></p>
                                 </div>
-                                <br><br><br><br>
-                            <?php } ?>
+
+                            <?php } ?><br><br><br><br>
                             <div class="clear-both">
                                 <div style="width:100%;height:80px"></div>
                             </div>

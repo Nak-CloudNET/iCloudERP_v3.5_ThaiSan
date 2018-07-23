@@ -144,94 +144,169 @@
 </script>
 <body>
 <div class="container" style="width: 821px;margin: 0 auto;">
-    <div class="col-md-12 col-sm-12 col-xs-12">
-		<div class="row">
+    <div class="col-xs-12">
+        <?php
+
+        $cols = 6;
+        if ($discount != 0) {
+            $cols = 7;
+        }
+        ?>
+
+        <div class="row">
             <table class="table">
                 <thead>
-                    <tr style="border-left:none;border-right: none;border-top:none;">
-                        <th colspan="9" style="border-left:none;border-right: none;border-top:none;border-bottom: 1px solid #000 !important;">
-                            <div class="row" style="margin-top: 0px !important;">
-                                <div class="col-sm-3 col-xs-3">
-                                    <?php if(!empty($biller->logo)) { ?>
-                                        <img class="img-responsive myhide" src="<?= base_url() ?>assets/uploads/logos/<?= $biller->logo; ?>" style="width: 140px; margin-top: -10px !important;" />
-                                    <?php } ?>
-                                </div>
-                                <div  class="col-sm-8 col-xs-8"  style="margin-left:-50px; margin-top: -30px !important;">
-									<div>
-										<center >
-											<?php if($biller->company) { ?>
-												<h2 class="header text-center"><strong><?= $biller->company ?></strong></h2>
-												<p style="font-size:12px !important"><strong>មានទទួលធ្វើ  ទ្វារបង្អួច ​ ទូ ពីអាលុយមីញូម  ពិដាន និង ទ្វាររមូរ </strong></p>
-											<?php }?>
-										</center>
-									</div>
-                                </div>
-								<div  class="div_header col-md-4 col-sm-4 col-xs-4" style="font-size:10px !important; line-height: 20px !important;margin-left:-13px;margin-top:25px;">
-									<div>
+                <tr class="thead" style="border-left:none;border-right: none;border-top:none;">
+                    <th colspan="9" style="border-left:none;border-right: none;border-top:none;border-bottom: 1px solid #000 !important;">
+                        <div class="row" style="margin-top: 0px !important;">
+                            <div class="col-sm-3 col-xs-3 " style="margin-top: 0px !important;">
+                                <br>
+                                <?php if(!empty($biller->logo)) { ?>
+                                    <img class="img-responsive myhide" src="<?= base_url() ?>assets/uploads/logos/<?= $biller->logo; ?>"id="hidedlo" style="width: 140px; margin-left: 25px;margin-top: -10px;" />
+                                <?php } ?>
+                            </div>
+                            <div  class="col-sm-7 col-xs-7 company_addr "  style="margin-top: -20px !important;">
+                                <div class="myhide">
+                                    <center >
+                                        <?php if($biller->company) { ?>
+                                            <h3 class="header"><?= $biller->company ?></h3>
+                                        <?php } ?>
 
-										<?php if(!empty($biller->address)) { ?>
-                                            <table style="font-size: 13px">
-                                                <tr>
-                                                    <td style="text-align:left; vertical-align: top; ">អាសយដ្ឋាន:&nbsp;&nbsp;&nbsp;</td>
-                                                    <td style="text-align: left;"><?= $biller->address; ?></td>
-                                                </tr>
-                                                <tr>
-                                                    <td style="text-align:left; ">H/P :</td>
-                                                    <td style="text-align: left;">012 736 868/088 8736 868 or 011 515 999</td>
-                                                </tr>
-										<?php  } if(!empty($biller->phone)) { ?>
-                                            <tr>
-                                                <td style="text-align:left; ">Tel:</td>
-                                                <td style="text-align: left;"><?= $biller->phone; ?> Fax:&nbsp;063 966 399</td>
-                                            </tr>
+                                        <div style="margin-top: 15px;">
+                                            <?php if(!empty($biller->vat_no)) { ?>
+                                                <p>លេខអត្តសញ្ញាណកម្ម អតប (VAT No):&nbsp;<?= $biller->vat_no; ?></p>
+                                            <?php } ?>
 
-										<?php } ?>
-                                            </table>
-									</div>
+                                            <?php if(!empty($biller->address)) { ?>
+                                                <p style="margin-top:-10px !important;">អាសយដ្ឋាន ៖ &nbsp;<?= $biller->address; ?></p>
+                                            <?php } ?>
+
+                                            <?php if(!empty($biller->phone)) { ?>
+                                                <p style="margin-top:-10px ;">Tel:&nbsp;<?= $biller->phone; ?></p>
+                                            <?php } ?>
+
+                                            <?php if(!empty($biller->email)) { ?>
+                                                <p style="margin-top:-10px !important;">E-mail:&nbsp;<?= $biller->email; ?></p>
+                                            <?php } ?>
+                                        </div>
+
+                                    </center>
                                 </div>
-                                <div class="col-sm-3 col-xs-3 pull-right">
-									<div style="margin-top:55px;font-size:11px !important;">
-										<p>Date:&nbsp; <?= $invs->date; ?></p>
-                                        <p>Reference: <?= $invs->reference_no ?></p>
-									</div>
+                                <div class="invoice" style="margin-top:20px;">
+                                    <center>
+                                        <h4 class="title">បញ្ជីសម្រង់តម្លៃ</h4>
+                                        <h4 class="title" style="margin-top: 3px;">QUOTATION</h4>
+                                    </center>
+
                                 </div>
                             </div>
-							<div class="row">
-								<div  class="text-center"  style="margin-top: -20px !important;">
-									<div class="invoice" style="margin-top:20px;">
-										<center>
-                                            <h1 class="title"><strong>បញ្ជីសម្រង់តម្លៃ</strong></h1>
-											<h1 class="title" style="margin-top: -4px;"><strong>QUOTATION</strong></h1>
-										</center>
-									</div>
+                            <div class="col-sm-2 col-xs-2 pull-right">
+                                <div class="row">
+                                    <button type="button" class="btn btn-xs btn-default no-print pull-right" style="margin-right:15px;" onclick="window.print();">
+                                        <i class="fa fa-print"></i> <?= lang('print'); ?>
+                                    </button>
                                 </div>
-							</div>
-							<div style="text-align:left;margin-left:-22px;">
-                                <div class="col-sm-7 col-xs-7">
-                                    <table >
-                                        <?php if(!empty($customer->name_kh || $customer->name)) { ?>
-                                            <tr>
-                                                <td style="width:160px;"><strong>SOLD TO CUSTOMER</strong></td>
-                                                <td style="width:10px;"> : </td>
-                                                <?php if(($customer->name_kh)) { ?>
-                                                    <td><?= $customer->name_kh ?></td>
-                                                <?php }else { ?>
-                                                    <td><?= $customer->name ?></td>
-                                                <?php } ?>
-                                            </tr>
-                                        <?php } ?>
-                                        <?php if(!empty($customer->address_kh || $customer->address)) { ?>
-                                            <tr>
-                                                <td><strong>Tel</strong></td>
-                                                <td> : </td>
-                                                <td><?= $customer->phone ?></td>
-                                            </tr>
-                                        <?php } ?>
-                                    </table>
+                                <div class="row">
+                                    <button type="button" class="btn btn-xs btn-default no-print pull-right " id="hide" style="margin-right:15px;" onclick="">
+                                        <i class="fa"></i> <?= lang('Hide/Show_header'); ?>
+                                    </button>
                                 </div>
-							</div>
-                        </th>
-                    </tr>
+
+                            </div>
+                        </div>
+
+                        <div class="row" style="text-align: left;">
+                            <div class="col-sm-7 col-xs-7">
+                                <table >
+                                    <?php
+
+                                    if(!empty($customer->company)) { ?>
+                                        <tr>
+                                            <td style="width: 40%;">ក្រុមហ៊ុន​​​​​​ / Company</td>
+                                            <td style="width: 5%;">:</td>
+                                            <td style="width: 30%;"><?= $customer->company ?></td>
+                                        </tr>
+                                    <?php } ?>
+                                    <?php if(!empty($customer->name_kh || $customer->name)) { ?>
+                                        <tr>
+                                            <td>អតិថិជន / Customer </td>
+                                            <td>:</td>
+                                            <?php if(($customer->name_kh)) { ?>
+                                                <td><?= $customer->name_kh ?></td>
+                                            <?php }else { ?>
+                                                <td><?= $customer->name ?></td>
+                                            <?php } ?>
+                                        </tr>
+                                    <?php } ?>
+                                    <?php if(!empty($customer->address_kh || $customer->address)) { ?>
+                                        <tr>
+                                            <td>អាសយដ្ឋាន / Address </td>
+                                            <td>:</td>
+                                            <?php if(!empty($customer->address_kh)) { ?>
+                                                <td><?= $customer->address_kh?></td>
+                                            <?php }else { ?>
+                                                <td><?= $customer->address ?></td>
+                                            <?php } ?>
+                                        </tr>
+                                    <?php } ?>
+                                    <?php if(!empty($customer->address_kh || $customer->address)) { ?>
+                                        <tr>
+                                            <td>ទូរស័ព្ទលេខ (Tel)</td>
+                                            <td>:</td>
+                                            <td><?= $customer->phone ?></td>
+                                        </tr>
+                                    <?php } ?>
+                                    <?php if(!empty($customer->vat_no)) { ?>
+                                        <tr>
+                                            <td style="width: 20% !important">លេខអត្តសញ្ញាណកម្ម អតប </td>
+                                            <td>:</td>
+                                            <td><?= $customer->vat_no ?></td>
+                                        </tr>
+                                    <?php } ?>
+                                </table>
+                            </div>
+
+                            <div class="col-sm-5 col-xs-5">
+                                <table class="noPadding" border="none">
+                                    <tr>
+                                        <td style="width: 45%;">លេខរៀង / N<sup>o</sup></sup></td>
+                                        <td style="width: 5%;">:</td>
+                                        <td style="width: 50%;"><?= $invs->reference_no ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>កាលបរិច្ឆេទ / Date</td>
+                                        <td>:</td>
+                                        <td><?= $this->erp->hrld($invs->date); ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>អ្នកលក់ / Sale Man</td>
+                                        <td>:</td>
+                                        <td><?= $invs->username; ?></td>
+                                    </tr>
+
+                                    <?php if ($invs->payment_term) { ?>
+                                        <tr>
+                                            <td>រយៈពេលបង់ប្រាក់ </td>
+                                            <td>:</td>
+                                            <td><?= $invs->payment_term ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 30% !important">កាលបរិច្ឆេទនៃការបង់ប្រាក់ </td>
+                                            <td>:</td>
+                                            <td><?= $this->erp->hrsd($invs->due_date) ?></td>
+                                        </tr>
+                                    <?php }
+                                    $dis=0;
+                                    $taxx=0;
+                                    foreach ($rows as $row2) {
+                                        $dis+=$row2->item_discount;
+                                        $taxx+=$row2->item_tax;
+                                    }?>
+                                </table>
+                            </div>
+                        </div>
+                    </th>
+                </tr>
                     <tr class="border thead print">
                         <th style="width:50px !important;"><b>ល.រ<br>No</b></th>
                         <th style="width:300px !important;"><b>បរិយាយមុខទំនិញ<br>Description</b></th>
@@ -434,7 +509,7 @@
             </table>
         </div>
         <div style="width: 821px;margin: 20px">
-            <a class="btn btn-warning no-print" href="<?= site_url('sales'); ?>" style="border-radius: 0">
+            <a class="btn btn-warning no-print" href="<?= site_url('quotes'); ?>" style="border-radius: 0">
                 <i class="fa fa-hand-o-left" aria-hidden="true"></i>&nbsp;<?= lang("back"); ?>
             </a>
         </div>
