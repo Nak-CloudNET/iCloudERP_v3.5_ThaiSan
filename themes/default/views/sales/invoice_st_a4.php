@@ -176,13 +176,7 @@
 
                                             </center>
                                         </div>
-                                        <div class="invoice" style="margin-top:20px;">
-                                            <center>
-                                                <h4 class="title">វិក្កយបត្រ</h4>
-                                                <h4 class="title" style="margin-top: 3px;">Invoice</h4>
-                                            </center>
 
-                                        </div>
                                 </div>
                                 <div class="col-sm-2 col-xs-2 pull-right">
                                     <div class="row">
@@ -199,8 +193,18 @@
                                 </div>
                             </div>
 
+                            <div class="row">
+                                <div class="col-sm-12 col-xs-12" style="margin-top:20px;">
+                                    <center>
+                                        <h4 class="title">វិក្កយបត្រ</h4>
+                                        <h4 class="title" style="margin-top: 3px;">Invoice</h4>
+                                    </center>
+
+                                </div>
+                            </div>
+
                             <div class="row" style="text-align: left;">
-                                <div class="col-sm-7 col-xs-7">
+                                <div class="col-sm-6 col-xs-6">
                                     <table >
                                         <?php
 
@@ -250,7 +254,7 @@
                                     </table>
                                 </div>
 
-                                <div class="col-sm-5 col-xs-5">
+                                <div class="col-sm-6 col-xs-6" style="padding-left: 60px !important;">
                                     <table class="noPadding" border="none">
                                         <tr>
                                             <td style="width: 45%;">លេខរៀង / N<sup>o</sup></sup></td>
@@ -567,10 +571,11 @@
                                     <p style="margin-left: 10px;margin-top:10px;"><?php echo strip_tags($invs->note); ?></p>
                                 </div>
                                 <br><br><br><br>
-                            <?php } ?>
+                            <?php }else{ ?>
                             <div class="clear-both">
-                                <div style="width:100%;height:80px"></div>
+                                <div style="width:100%;height:110px"></div>
                             </div>
+                            <?php } ?>
                             <div id="footer" class="row" >
                                 <div class="col-sm-4 col-xs-4">
                                     <center>
