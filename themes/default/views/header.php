@@ -1054,6 +1054,7 @@
 		                                                <span class="text"> <?= lang('add_purchase_request'); ?></span>
 		                                            </a>
 		                                        </li>
+
                                             </ul>
                                         </li>
                                       
@@ -1099,6 +1100,12 @@
 		                                            </a>
 		                                        </li>
                                             </ul>
+                                        </li>
+                                         <li id="purchases_supplier_balance">
+                                            <a class="submenu" href="<?= site_url('purchases/supplier_balance'); ?>">
+                                                <i class="fa fa-money"></i>
+                                                <span class="text"> <?= lang('supplier_balance_list'); ?></span>
+                                            </a>
                                         </li>
                                       
                                     </ul>
@@ -1211,6 +1218,7 @@
 		                                        </li>
 											</ul>
 										</li>
+
 										
                                         
 										<li id="sales_deliveries">
@@ -1265,7 +1273,12 @@
 		                                        </li>
                                             </ul>
                                         </li>
-                                       
+                                        <li id="sales_customer_balance">
+                                            <a class="submenu" href="<?= site_url('sales/customer_balance'); ?>">
+                                                <i class="fa fa-money"></i>
+                                                <span class="text"> <?= lang('customer_balance_list'); ?></span>
+                                            </a>
+                                        </li>
 										
 										
                                     </ul>
@@ -2115,7 +2128,7 @@
 			                                                        <span class="text"> <?= lang('customer_balance_list'); ?></span>
 			                                                    </a>
 			                                                </li>
-			                                            <?php }		?>
+			                                            <?php }	?>
 			                                            <?php
 			                                            if ($GP['sales-opening_ar']) { ?>
 			                                                <li id="sales_customer_opening_balance">
@@ -2399,6 +2412,14 @@
 			                                                    </a>
 			                                                </li>
 			                                            <?php } ?>
+			                                            <?php if ($GP['purchases_supplier_balance']) { ?>
+			                                            <li id="purchases_supplier_balance">
+				                                            <a class="submenu" href="<?= site_url('purchases/supplier_balance'); ?>">
+				                                                <i class="fa fa-money"></i>
+				                                                <span class="text"> <?= lang('supplier_balance_list'); ?></span>
+				                                            </a>
+				                                        </li>
+				                                        <?php } ?>
                                                     </ul>
                                                 </li>
                                             <?php } ?>
@@ -2449,6 +2470,14 @@
 			                                                </li>
 			                                            <?php } ?>
                                                     </ul>
+                                                </li>
+                                            <?php } ?>
+                                           <?php if ($GP['purchases-supplier_balance']) { ?>
+                                                <li id="purchases_supplier_balance">
+                                                    <a class="submenu" href="<?= site_url('purchases/supplier_balance'); ?>">
+                                                        <i class="fa fa-money"></i>
+                                                        <span class="text"> <?= lang('supplier_balance_list'); ?></span>
+                                                    </a>
                                                 </li>
                                             <?php } ?>
 
@@ -2680,6 +2709,14 @@
                                             </li>
                                             
                                         <?php } ?>
+                                       <?php if ($GP['customers_balance']) { ?>
+                                            <li id="sales_customer_balance">
+                                                <a class="submenu" href="<?= site_url('sales/customer_balance'); ?>">
+                                                    <i class="fa fa-money"></i>
+                                                    <span class="text"> <?= lang('customer_balance_list'); ?></span>
+                                                </a>
+                                            </li>
+                                        <?php }	?>
 									</ul>
 								</li>
 							<?php } ?>
