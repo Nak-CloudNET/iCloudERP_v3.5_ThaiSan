@@ -222,7 +222,7 @@ if ($modal) {
             $sub_total=0;
             if(is_array($rows)){
                 foreach ($rows as $row) {
-                    $this->erp->print_arrays($row);
+                    //$this->erp->print_arrays($row);
                     $free = lang('free');
                     if (isset($tax_summary[$row->tax_code])) {
                         $tax_summary[$row->tax_code]['items'] += $row->quantity;

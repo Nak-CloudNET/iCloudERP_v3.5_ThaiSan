@@ -332,7 +332,7 @@
                     if($row->variant){
                         $product_unit = $row->variant;
                     }else{
-                        $product_unit = $row->uname;
+                        $product_unit = $row->name;
                     }
                     $product_name_setting;
                     if($setting->show_code == 0) {
