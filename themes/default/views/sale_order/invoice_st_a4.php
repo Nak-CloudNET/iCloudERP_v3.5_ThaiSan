@@ -253,10 +253,10 @@
                         <?php } ?>
                     </table>
                 </div>
-                <div class="col-sm-6 col-xs-6" style="padding-left: 70px !important;">
+                <div class="col-sm-6 col-xs-6" style="padding-left: 70px !important; " >
                     <table class="noPadding" border="none">
                         <tr>
-                            <td style="width: 45%;">លេខរៀង / N<sup>o</sup></sup></td>
+                            <td style="width: 45%; ">លេខរៀង / N<sup>o</sup></sup></td>
                             <td style="width: 5%;">:</td>
                             <td style="width: 50%;"><?= $invs->reference_no ?></td>
                         </tr>
@@ -285,22 +285,22 @@
                 <div class="col-sm-12 col-xs-12">
                     <table class="table table-bordered" style=" white-space: nowrap;width: 100%; margin-top: 10px;">
                         <tbody style="font-size: 14px;">
-                            <tr class="border thead print" style="white-space: nowrap;background-color: #444 !important; color: #FFF !important;">
-                                <th>ល.រ<br />No</th>
-                                <th>លេខកូដទំនិញ<br />Product Code</th>
-                                <th>ឈ្មោះទំនិញ<br />Product Name</th>
+                            <tr class="border thead print" style="text-align: center; white-space: nowrap;background-color: #444 !important; color: #FFF !important;">
+                                <th  style="text-align: center;">ល.រ<br />No</th>
+                                <th style="text-align: center;">លេខកូដទំនិញ<br />Product Code</th>
+                                <th style="text-align: center;">ឈ្មោះទំនិញ<br />Product Name</th>
             <!--                        <th>ការបញ្ជាក់<br />--><?//= strtoupper(lang('specification')) ?><!--</th>-->
-                                <th>ខ្នាត<br />Unit</th>
-                                <th>ចំនួន<br />Qty</th>
-                                <th>តម្លៃ<br />Price</th>
+                                <th style="text-align: center;">ខ្នាត<br />Unit</th>
+                                <th style="text-align: center;">ចំនួន<br />Qty</th>
+                                <th style="text-align: center;">តម្លៃ<br />Price</th>
 
                                 <?php if ($Settings->product_discount) { ?>
-                                    <th>បញ្ចុះតម្លៃ<br />Discount</th>
+                                    <th style="text-align: center;">បញ្ចុះតម្លៃ<br />Discount</th>
                                 <?php } ?>
                                 <?php if ($Settings->tax1) { ?>
-                                    <th style="width: 10%">ពន្ធទំនិញ<br />Tax</th>
+                                    <th style="text-align: center;width: 10%">ពន្ធទំនិញ<br />Tax</th>
                                 <?php } ?>
-                                <th>តម្លៃសរុប<br />Subtotal</th>
+                                <th style="text-align: center;">តម្លៃសរុប<br />Subtotal</th>
                             </tr>
 
                 <?php
