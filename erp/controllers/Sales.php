@@ -768,7 +768,6 @@ class Sales extends MY_Controller
 		}
 		
 		$this->datatables->group_by('sales.id');
-		
         $this->datatables->add_column("Actions", $action, "sales.id");
         echo $this->datatables->generate();
     }
@@ -8478,7 +8477,6 @@ class Sales extends MY_Controller
 		}
 
         $this->datatables->add_column("Actions", $action, "id");
-
         echo $this->datatables->generate();
     }
 
@@ -8639,7 +8637,6 @@ class Sales extends MY_Controller
 		}
 
         $this->datatables->add_column("Actions", $action, "id");
-
         echo $this->datatables->generate();
     }
 
@@ -14646,15 +14643,15 @@ class Sales extends MY_Controller
             $warehouse_id = $user->warehouse_id;
         }
         
-        $add_payment_link = anchor('pos/index/$1', '<i class="fa fa-money"></i> ' . lang('add_payment'), '');      
+        $add_payment_link = anchor('pos/index/$1', '<i class="fa fa-money"></i> ' . lang('add_payment'), '');    
+        $add_sale_order = anchor('sales/add/$1', '<i class="fa fa-money"></i> ' . lang('add_sale'));  
         $action = '<div class="text-center"><div class="btn-group text-left">'
             . '<button type="button" class="btn btn-default btn-xs btn-primary dropdown-toggle" data-toggle="dropdown">'
             . lang('actions') . ' <span class="caret"></span></button>
             <ul class="dropdown-menu pull-right" role="menu">            
-                <li>' . $add_payment_link . '</li>
+                <li>' . $add_sale_order . '</li>
             </ul>
         </div></div>';
-
         $this->load->library('datatables');
 
             $this->datatables
@@ -14681,6 +14678,7 @@ class Sales extends MY_Controller
         }
 
         $this->datatables->add_column("Actions", $action, "id");
+         $this->datatables->unset_column('delivery_status');
         echo $this->datatables->generate();  
     }
 
