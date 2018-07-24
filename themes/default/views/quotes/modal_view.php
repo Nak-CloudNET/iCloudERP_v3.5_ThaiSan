@@ -315,6 +315,13 @@
                             </a>
                         </div>
                         <div class="btn-group">
+                            <a href="<?= site_url('quotes/print_st_invoice_4/' . $inv->id) ?>" target="_blank"
+                               class="tip btn btn-primary" title="<?= lang('print_quote') ?>">
+                                <i class="fa fa-heart"></i>
+                                <span class="hidden-sm hidden-xs"><?= lang('Print_Quote A4') ?></span>
+                            </a>
+                        </div>
+                        <div class="btn-group">
                             <a href="<?= site_url('quotes/print_st_invoice_5/' . $inv->id) ?>" target="_blank"
                                class="tip btn btn-primary" title="<?= lang('print_quote') ?>">
                                 <i class="fa fa-heart"></i>
