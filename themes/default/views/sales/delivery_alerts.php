@@ -53,7 +53,7 @@
             "aoColumns": [{
                 "bSortable": false,
                 "mRender": checkbox
-            }, {"mRender": fld}, null, null, null, null, {"mRender": formatQuantity},{"mRender": formatQuantity},{"mRender": formatQuantity}],
+            }, {"mRender": fld}, null, null, null, null, {"mRender": formatQuantity},{"mRender": formatQuantity},{"mRender": formatQuantity},{"bSortable": false}],
             "fnFooterCallback": function (nRow, aaData, iStart, iEnd, aiDisplay) {
                 var total_quantity = 0;
                 var total_quantity_received=0;
@@ -357,6 +357,7 @@
                             <th><?php echo $this->lang->line("quantity"); ?></th>
                             <th><?php echo $this->lang->line("quantity_received"); ?></th>
                             <th><?php echo $this->lang->line("balance"); ?></th>
+                            <th><?php echo $this->lang->line("action"); ?></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -377,6 +378,7 @@
                                 <th></th>
                                 <th></th>
                                 <th></th>
+                                  <th></th>
                             </tr>
                         </tfoot>
                     </table>

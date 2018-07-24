@@ -768,7 +768,6 @@ class Sales extends MY_Controller
 		}
 		
 		$this->datatables->group_by('sales.id');
-		
         $this->datatables->add_column("Actions", $action, "sales.id");
         echo $this->datatables->generate();
     }
@@ -4502,6 +4501,7 @@ class Sales extends MY_Controller
 					$row->piece			  = $item->piece;
 					$row->wpiece		  = $item->wpiece;
 					$row->w_piece		  = $item->wpiece;
+                    $row->amount_qty      = $item->amount_quantity;
 					$row->product_details   = $item->product_noted;
                     $combo_items = FALSE;
                     if ($row->type == 'combo') {
@@ -8478,7 +8478,6 @@ class Sales extends MY_Controller
 		}
 
         $this->datatables->add_column("Actions", $action, "id");
-
         echo $this->datatables->generate();
     }
 
@@ -8639,7 +8638,6 @@ class Sales extends MY_Controller
 		}
 
         $this->datatables->add_column("Actions", $action, "id");
-
         echo $this->datatables->generate();
     }
 
@@ -14646,15 +14644,15 @@ class Sales extends MY_Controller
             $warehouse_id = $user->warehouse_id;
         }
         
-        $add_payment_link = anchor('pos/index/$1', '<i class="fa fa-money"></i> ' . lang('add_payment'), '');      
+        $add_payment_link = anchor('pos/index/$1', '<i class="fa fa-money"></i> ' . lang('add_payment'), '');    
+        $add_sale_order = anchor('sales/add/$1', '<i class="fa fa-money"></i> ' . lang('add_sale'));  
         $action = '<div class="text-center"><div class="btn-group text-left">'
             . '<button type="button" class="btn btn-default btn-xs btn-primary dropdown-toggle" data-toggle="dropdown">'
             . lang('actions') . ' <span class="caret"></span></button>
             <ul class="dropdown-menu pull-right" role="menu">            
-                <li>' . $add_payment_link . '</li>
+                <li>' . $add_sale_order . '</li>
             </ul>
         </div></div>';
-
         $this->load->library('datatables');
 
             $this->datatables
@@ -14681,6 +14679,7 @@ class Sales extends MY_Controller
         }
 
         $this->datatables->add_column("Actions", $action, "id");
+         $this->datatables->unset_column('delivery_status');
         echo $this->datatables->generate();  
     }
 
@@ -17728,7 +17727,7 @@ class Sales extends MY_Controller
         $this->load->view($this->theme .'sales/invoice_st_a4',$this->data);
     }
 
-    function print_st_invoice_2($_type = null, $id=null)
+    function print_st_invoice_2($id=null)
     {
         $this->erp->checkPermissions('add', true, 'sales');
 
