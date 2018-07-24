@@ -28,7 +28,11 @@
 		$v .= "&end_date=" . $this->input->post('end_date');
 	}
 ?>
-
+<style type="text/css">
+    .order_invoice_link {
+        cursor: pointer;
+    }
+</style>
 <script>
     $(document).ready(function () {
         var oTable = $('#Sale_Order').dataTable({
@@ -47,7 +51,7 @@
             'fnRowCallback': function (nRow, aData, iDisplayIndex) {
                 var oSettings = oTable.fnSettings();
                 nRow.id = aData[0];
-                // nRow.className = "delivery_alert";
+                 nRow.className = "order_invoice_link";
                 return nRow;
             },
             "aoColumns": [{

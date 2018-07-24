@@ -1357,11 +1357,12 @@ $(document).ready(function() {
     });
 	
 	
-	$('body').on('click', '.order_invoice_link td:not(:first-child, :nth-child(13), :last-child)', function() {
+
+    $('body').on('click', '.order_invoice_link td:not(:first-child, :nth-child(13), :last-child)', function() {
         $('#myModal').modal({remote: site.base_url + 'sale_order/modal_order_view/' + $(this).parent('.order_invoice_link').attr('id')});
         $('#myModal').modal('show');
     });
-	
+
 
     // AR AGING
     $('body').on('click', '.invoice_link_ar td:not(:first-child :last-child)', function() {
