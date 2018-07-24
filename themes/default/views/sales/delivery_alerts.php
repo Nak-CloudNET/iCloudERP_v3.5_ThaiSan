@@ -54,6 +54,9 @@
                 "bSortable": false,
                 "mRender": checkbox
             }, {"mRender": fld}, null, null, null, null, {"mRender": formatQuantity},{"mRender": formatQuantity},{"mRender": formatQuantity},{"bSortable": false}],
+            "aoColumnDefs": [
+                { "bSearchable": false, "aTargets": [6,7,8] },
+            ],
             "fnFooterCallback": function (nRow, aaData, iStart, iEnd, aiDisplay) {
                 var total_quantity = 0;
                 var total_quantity_received=0;
