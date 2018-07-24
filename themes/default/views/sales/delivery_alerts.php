@@ -350,7 +350,7 @@
                             </th>
                             
                             <th><?php echo $this->lang->line("date"); ?></th>
-                            <th><?php echo $this->lang->line("Sale Order Reference No."); ?></th>
+                            <th><?php echo $this->lang->line("sale_reference_no"); ?></th>
                             <th><?php echo $this->lang->line("project"); ?></th>
                             <th><?php echo $this->lang->line("customer"); ?></th>
                             <th><?php echo $this->lang->line("saleman"); ?></th>

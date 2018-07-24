@@ -17726,7 +17726,7 @@ class Sales extends MY_Controller
         $this->load->view($this->theme .'sales/invoice_st_a4',$this->data);
     }
 
-    function print_st_invoice_2($_type = null, $id=null)
+    function print_st_invoice_2($id=null)
     {
         $this->erp->checkPermissions('add', true, 'sales');
 

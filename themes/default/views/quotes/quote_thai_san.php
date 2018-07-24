@@ -92,7 +92,7 @@
         -moz-font-family: "Khmer OS System";
     }
     .header{
-        font-family:"Khmer OS Muol Light";
+        font-family:"Khmer OS Muol Light" !important;
         -moz-font-family: "Khmer OS System";
         font-size: 18px;
     }
@@ -101,7 +101,7 @@
         padding:5px;
     }
     .title{
-        font-family:"Khmer OS Muol Light";
+        font-family:"Khmer OS Muol Light" !important;
         -mox-font-family:"Khmer OS Muol Light";
         font-size: 20px;
     }

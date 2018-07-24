@@ -17,7 +17,7 @@
         width: 19.3cm;
     }
     .title{
-        font-family:"Khmer OS Muol Light";
+        font-family:"Khmer OS Muol Light" !important;
         -mox-font-family:"Khmer OS Muol Light";
         font-size: 15px;
     }
@@ -116,7 +116,7 @@
         border-radius: 0 !important;
     }
     .header{
-        font-family:"Khmer OS Muol Light";
+        font-family:"Khmer OS Muol Light" !important;
         -moz-font-family: "Khmer OS System";
         font-size: 18px;
     }
@@ -197,7 +197,8 @@
         <div class="row">
             <div class="col-sm-6 col-xs-6">
                 <table style="font-size: 14px;">
-                    <?php if(!empty($customer->company)) { ?>
+                    <?php
+                    if(!empty($customer->company)) { ?>
 
                         <tr>
                             <td style="width: 15%;">ក្រុមហ៊ុន </td>
@@ -309,12 +310,14 @@
                     $erow = 1;
                     $totalRow = 0;
                     foreach ($rows as $row) {
+                       // $this->erp->print_arrays($rows);
                         $free = lang('free');
                         $product_unit = '';
                         $total = 0;
 
-                        if($row->variant){
-                            $product_unit = $row->variant;
+                        if($row->product_variant){
+                            $product_unit = $row->product_variant;
+
                         }else{
                             $product_unit = $row->uname;
                         }
@@ -348,9 +351,9 @@
                             </td>
                             <td style="vertical-align: middle; text-align: right">
                                 <?php
-                                if($row->real_unit_price==0){echo "Free";}
+                                if($row->unit_price==0){echo "Free";}
                                 else{
-                                    echo $this->erp->formatMoney($row->real_unit_price);
+                                    echo $this->erp->formatMoney($row->unit_price);
                                 }
                                 ?>
                             </td>
@@ -451,7 +454,7 @@
 
                     ?>
 
-                    <?php //$this->erp->print_arrays($biller);
+                    <?php //$this->erp->print_arrays($invs);
                     if ($invs->grand_total != $invs->total) { ?>
                         <tr>
                             <td rowspan = "<?= $row; ?>" colspan="<?= $col2; ?>" style="border-left: 1px solid #FFF !important; border-bottom: 1px solid #FFF !important;">
