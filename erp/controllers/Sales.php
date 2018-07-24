@@ -4501,6 +4501,7 @@ class Sales extends MY_Controller
 					$row->piece			  = $item->piece;
 					$row->wpiece		  = $item->wpiece;
 					$row->w_piece		  = $item->wpiece;
+                    $row->amount_qty      = $item->amount_quantity;
 					$row->product_details   = $item->product_noted;
                     $combo_items = FALSE;
                     if ($row->type == 'combo') {
