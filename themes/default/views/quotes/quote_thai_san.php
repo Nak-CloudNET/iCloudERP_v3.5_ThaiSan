@@ -469,16 +469,7 @@
 						</tr>
 					<?php } ?>
 					
-					<tr class="border-foot">
-						<td colspan="<?= $col; ?>" style="border-top: 1px solid #FFF !important; border-left: 1px solid #FFF !important; border-bottom: 1px solid #FFF !important;"></td>
-						<td colspan="2" style="text-align: left; font-weight: bold;">ប្រាក់កក់/DEPOSIT</td>
-						<td align="right"><span style="float:left;">$</span><?=$this->erp->formatMoney($invs->paid); ?></td>
-					</tr>
-					<tr class="border-foot">
-						<td colspan="<?= $col; ?>" style="border-top: 1px solid #FFF !important; border-left: 1px solid #FFF !important; border-bottom: 1px solid #FFF !important;"></td>
-						<td colspan="2" style="text-align: left; font-weight: bold;">ប្រាក់សល់/BALANCE</td>
-						<td align="right"><span style="float:left;">$</span><?=$this->erp->formatMoney($invs->grand_total - $invs->paid); ?></td>
-					</tr>
+
                 </tbody>
                 <tfoot class="tfoot">
                     <tr>

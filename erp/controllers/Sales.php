@@ -14684,7 +14684,7 @@ class Sales extends MY_Controller
             $this->datatables->where('sale_order.customer_id', $customer);
         }
         if ($start_date || $end_date) {
-            $this->datatables->where($this->db->dbprefix('sale_order').'.start_date >= "' . $start_date . '" AND ' . $this->db->dbprefix('sale_order').'.end_date < "' . $end_date . '"');
+            $this->datatables->where($this->db->dbprefix('sale_order').'.date >= "' . $start_date . '" AND ' . $this->db->dbprefix('sale_order').'.date < "' . $end_date . '"');
         }
 
         $this->datatables->add_column("Actions", $action, "id");
