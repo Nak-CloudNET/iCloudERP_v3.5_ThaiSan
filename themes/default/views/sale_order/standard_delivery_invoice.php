@@ -150,6 +150,7 @@
                 <th colspan="9" style="border-left:none;border-right: none;border-top:none;border-bottom: 1px solid #000 !important;">
                     <div class="row" style="margin-top: 0px !important;">
                         <div class="col-sm-3 col-xs-3 " style="margin-top: 0px !important;">
+                            <br>
                             <?php if(!empty($biller->logo)) { ?>
                                 <img class="img-responsive myhide" src="<?= base_url() ?>assets/uploads/logos/<?= $biller->logo; ?>"id="hidedlo" style="width: 140px; margin-left: 25px;margin-top: -10px;" />
                             <?php } ?>
@@ -159,9 +160,7 @@
                                 <center >
                                     <?php if($biller->company) { ?>
                                         <h3 class="header"><?= $biller->company ?></h3>
-                                    <?php }?>
-                                    <?php //$this->erp->print_arrays($biller->company);   ?>
-
+                                    <?php } ?>
 
                                     <div style="margin-top: 15px;">
                                         <?php if(!empty($biller->vat_no)) { ?>
@@ -173,23 +172,17 @@
                                         <?php } ?>
 
                                         <?php if(!empty($biller->phone)) { ?>
-                                            <p style="margin-top:-10px ;">ទូរស័ព្ទលេខ (Tel):&nbsp;<?= $biller->phone; ?></p>
+                                            <p style="margin-top:-10px ;">Tel:&nbsp;<?= $biller->phone; ?></p>
                                         <?php } ?>
 
                                         <?php if(!empty($biller->email)) { ?>
-                                            <p style="margin-top:-10px !important;">សារអេឡិចត្រូនិច (E-mail):&nbsp;<?= $biller->email; ?></p>
+                                            <p style="margin-top:-10px !important;">E-mail:&nbsp;<?= $biller->email; ?></p>
                                         <?php } ?>
                                     </div>
 
                                 </center>
                             </div>
-                            <div class="invoice" style="margin-top:20px;">
-                                <center>
-                                    <h4 class="title">វិក្កយបត្រដឹកជញ្ជូន</h4>
-                                    <h4 class="title" style="margin-top: 3px;">Delivery Order</h4>
-                                </center>
 
-                            </div>
                         </div>
                         <div class="col-sm-2 col-xs-2 pull-right">
                             <div class="row">
@@ -205,62 +198,109 @@
 
                         </div>
                     </div>
+
+                    <div class="row">
+                        <div class="col-sm-12 col-xs-12" style="margin-top:20px;">
+                            <center>
+                                <h4 class="title">វិក្កយបត្រដឹកជញ្ជូន</h4>
+                                <h4 class="title" style="margin-top: 3px;">Delivery Order</h4>
+                            </center>
+
+                        </div>
+                    </div>
+
                     <div class="row" style="text-align: left;">
-                        <div class="col-sm-7 col-xs-7">
+                        <div class="col-sm-6 col-xs-6">
                             <table >
                                 <?php
 
-                                if(!empty( $customer->name)) { ?>
+                                if(!empty($customer->company)) { ?>
                                     <tr>
-                                        <td style="width: 40%;"><?= lang('to') ?></td>
+                                        <td style="width: 40%;">ក្រុមហ៊ុន​​​​​​ / Company</td>
                                         <td style="width: 5%;">:</td>
-                                        <td style="width: 30%;"><?=  $customer->name ?></td>
+                                        <td style="width: 30%;"><?= $customer->company ?></td>
                                     </tr>
                                 <?php } ?>
-                                <?php if(!empty($customer->address)) { ?>
+                                <?php if(!empty($customer->name_kh || $customer->name)) { ?>
                                     <tr>
-                                        <td><?= lang('address') ?> </td>
+                                        <td>អតិថិជន / Customer </td>
                                         <td>:</td>
-                                        <td><?= $customer->address ?></td>
-
+                                        <?php if(($customer->name_kh)) { ?>
+                                            <td><?= $customer->name_kh ?></td>
+                                        <?php }else { ?>
+                                            <td><?= $customer->name ?></td>
+                                        <?php } ?>
                                     </tr>
                                 <?php } ?>
-                                <?php if(!empty($inv->saleman )) { ?>
+                                <?php if(!empty($customer->address_kh || $customer->address)) { ?>
                                     <tr>
-                                        <td><?= lang('attn') ?> </td>
+                                        <td>អាសយដ្ឋាន / Address </td>
                                         <td>:</td>
-                                        <td><?= $inv->saleman ;?></td>
-
-
+                                        <?php if(!empty($customer->address_kh)) { ?>
+                                            <td><?= $customer->address_kh?></td>
+                                        <?php }else { ?>
+                                            <td><?= $customer->address ?></td>
+                                        <?php } ?>
                                     </tr>
                                 <?php } ?>
-                                <?php if(!empty($customer->phone)) { ?>
+                                <?php if(!empty($customer->address_kh || $customer->address)) { ?>
                                     <tr>
-                                        <td><?= lang('tel_no') ?></td>
+                                        <td>ទូរស័ព្ទលេខ (Tel)</td>
                                         <td>:</td>
                                         <td><?= $customer->phone ?></td>
                                     </tr>
                                 <?php } ?>
+                                <?php if(!empty($customer->vat_no)) { ?>
+                                    <tr>
+                                        <td style="width: 20% !important">លេខអត្តសញ្ញាណកម្ម អតប </td>
+                                        <td>:</td>
+                                        <td><?= $customer->vat_no ?></td>
+                                    </tr>
+                                <?php } ?>
                             </table>
                         </div>
-                        <div class="col-sm-5 col-xs-5">
+                        <?php //$this->erp->print_arrays($inv);?>
+                        <div class="col-sm-6 col-xs-6" style="padding-left: 60px !important;">
                             <table class="noPadding" border="none">
-                               <!-- <tr>
-                                    <td style="width: 45%;"><?= lang('do_no') ?></td>
+                                <tr>
+                                    <td style="width: 45%;">លេខដឹក / DO Reference No</sup></td>
                                     <td style="width: 5%;">:</td>
                                     <td style="width: 50%;"><?= $inv->do_reference_no ?></td>
-                                </tr>-->
-                                <tr>
-                                    <td><?= lang('refer_no') ?></td>
-                                    <td>:</td>
-                                    <td><?= $inv->reference_no ?></td>
                                 </tr>
                                 <tr>
-                                    <td><?= lang('date') ?> </td>
+                                    <td style="width: 45%;">លេខវិក្កយបត្រ / Sale Reference No</sup></td>
+                                    <td style="width: 5%;">:</td>
+                                    <td style="width: 50%;"><?= $inv->sale_reference_no ?></td>
+                                </tr>
+                                <tr>
+                                    <td>កាលបរិច្ឆេទ / Date</td>
                                     <td>:</td>
-                                    <td><?= $this->erp->hrsd($inv->date) ?></td>
+                                    <td><?= $this->erp->hrld($inv->date); ?></td>
+                                </tr>
+                                <tr>
+                                    <td>អ្នកលក់ / Sale Man</td>
+                                    <td>:</td>
+                                    <td><?= $inv->saleman; ?></td>
                                 </tr>
 
+                                <?php if ($inv->payment_term) { ?>
+                                    <tr>
+                                        <td>រយៈពេលបង់ប្រាក់ </td>
+                                        <td>:</td>
+                                        <td><?= $inv->payment_term ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 30% !important">កាលបរិច្ឆេទនៃការបង់ប្រាក់ </td>
+                                        <td>:</td>
+                                        <td><?= $this->erp->hrsd($inv->due_date) ?></td>
+                                    </tr>
+                                <?php }
+                                $dis=0;
+                                $taxx=0;
+                                foreach ($rows as $row2) {
+                                    $dis+=$row2->item_discount;
+                                    $taxx+=$row2->item_tax;
+                                }?>
                             </table>
                         </div>
                     </div>
@@ -271,8 +311,6 @@
                 <th>លេខកូដ<br /><?= strtoupper(lang('code')) ?></th>
                 <th>បរិយាយមុខទំនិញ<br /><?= strtoupper(lang('description')) ?></th>
                 <th>​ឯកតា<br /><?= strtoupper(lang('unit')) ?></th>
-                <th>ចំនួន<br /><?= strtoupper(lang('piece')) ?></th>
-                <th>ប្រវែង / ទម្ងន់<br /><?= strtoupper(lang('w/piece')) ?></th>
                 <th>បរិមាណ<br /><?= strtoupper(lang('quantity')) ?></th>
             </thead>
             <tbody>
@@ -283,6 +321,7 @@
             $erow = 1;
             $totalRow = 0;
             foreach ($rows as $inv_item) {
+                //$this->erp->print_arrays($inv_item);
                 $no = 1;
                 $row = 1;
                 ?>
@@ -297,14 +336,9 @@
                         <?php if ($inv_item->option_id >= 1) { ?>
                     <td style="text-align: center"><?= $inv_item->variant ?></td>
                     <?php } else { ?>
-                        <td style="text-align: center"><?= $inv_item->product_type ?></td>
+                        <td style="text-align: center"><?= $inv_item->uname ?></td>
                     <?php } ?>
-                    <td style="vertical-align: middle; text-align: center">
-                        <?=$inv_item->piece?>
-                    </td>
-                    <td style="vertical-align: middle; text-align: right">
-                        <?=$inv_item->wpiece?>
-                    </td>
+
                     <td style="vertical-align: middle; text-align: center">
                         <?=$this->erp->formatQuantity($inv_item->quantity)?>
                     </td>
@@ -333,14 +367,10 @@
                                     <td></td>
                                     <td></td>
                                     <td></td>
-                                    <td></td>
-                                    <td></td>
                                 </tr>';
                     }else {
                         echo  '<tr class="border">
                                     <td height="34px" style="text-align: center; vertical-align: middle">'.$no.'</td>
-                                    <td></td>
-                                    <td></td>
                                     <td></td>
                                     <td></td>
                                     <td></td>
@@ -372,35 +402,35 @@
                         <div class="col-sm-3 col-xs-3">
 
 
-                                <p style=" margin-top: 4px !important"><?= lang('prepared_by') ?></p>
-                                <p><strong><?= lang('name') ?>:</strong> .......................</p>
+                                <p style=" margin-top: 4px !important">អ្នករៀបចំ / <?= lang('prepared_by') ?></p></br>
+                                <p><strong>ឈ្មោះ / <?= lang('name') ?> : </br></br></strong> .......................</p>
                                 <br />
-                                <p><?= lang('date') ?>: .........................</p>
+                                <p>ថ្ងៃ ខែ ឆ្នាំ / <?= lang('date') ?> : </br></br>.........................</p>
 
                         </div>
                         <div class="col-sm-3 col-xs-3">
 
 
-                                <p style="margin-top: 4px !important"><?= lang('approved_by') ?></p>
-                                <p><strong><?= lang('name') ?>:</strong> .......................</p>
+                                <p style="margin-top: 4px !important">អ្នកអនុម័ត / <?= lang('approved_by') ?></p></br>
+                                <p><strong>ឈ្មោះ / <?= lang('name') ?> :</br></br></strong> .......................</p>
                                 <br />
-                                <p><?= lang('date') ?>: .........................</p>
+                                <p>ថ្ងៃ ខែ ឆ្នាំ / <?= lang('date') ?> : </br></br>.........................</p>
 
                         </div>
                         <div class="col-sm-3 col-xs-3">
 
 
-                                <p style=" margin-top: 4px !important"><?= lang('deliveried_by') ?></p>
-                                <p><strong><?= lang('name') ?>:</strong> .......................</p>
+                                <p style=" margin-top: 4px !important">អ្នកដឹក / <?= lang('deliveried_by') ?></p></br>
+                                <p><strong>ឈ្មោះ / <?= lang('name') ?> :</br></br></strong> .......................</p>
                                 <br />
-                                <p><?= lang('date') ?>: .........................</p>
+                                <p>ថ្ងៃ ខែ ឆ្នាំ / <?= lang('date') ?> : </br></br>.........................</p>
 
                         </div>
                         <div class="col-sm-3 col-xs-3">
-                                <p style=" margin-top: 4px !important"><?= lang('received_by') ?></p>
-                                <p><strong><?= lang('name') ?>:</strong> .......................</p>
+                                <p style=" margin-top: 4px !important">អ្នកទទួល / <?= lang('received_by') ?></p></br>
+                                <p><strong>ឈ្មោះ / <?= lang('name') ?> :</br></br></strong> .......................</p>
                                 <br />
-                                <p><?= lang('date') ?>: .........................</p>
+                                <p>ថ្ងៃ ខែ ឆ្នាំ / <?= lang('date') ?> : </br></br>.........................</p>
 
                         </div>
                     </div>
