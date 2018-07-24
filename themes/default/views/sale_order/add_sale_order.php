@@ -1160,6 +1160,13 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <label for="amount_quantity" class="col-sm-4 control-label"><?= lang('amount_quantity') ?></label>
+
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="amount_quantity" value="1">
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label for="pquantity" class="col-sm-4 control-label"><?= lang('quantity') ?></label>
 
                         <div class="col-sm-8">

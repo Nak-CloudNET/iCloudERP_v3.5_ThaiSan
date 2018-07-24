@@ -47,6 +47,7 @@ class Sale_order_model extends CI_Model
 						'tax' => $product['tax'],
 						'piece' => $product['piece'],
 						'wpiece' => $product['wpiece'],
+						'amount_quantity' => $product['amount_quantity'],
 						'discount' => $product['discount'],
 						'item_discount' => $product['item_discount'],
 						'subtotal' => $product['subtotal'],

@@ -191,6 +191,7 @@ class Sale_order extends MY_Controller
 				
 				
                 $item_quantity = $_POST['quantity'][$r];
+                $item_amount_qty = $_POST['amount_qty'][$r];
                 $item_tax_rate = isset($_POST['product_tax'][$r]) ? $_POST['product_tax'][$r] : null;
                 $item_discount = isset($_POST['product_discount'][$r]) ? $_POST['product_discount'][$r] : null;
                 if (isset($item_code) && isset($real_unit_price) && isset($unit_price) && isset($item_quantity)) {
@@ -271,6 +272,7 @@ class Sale_order extends MY_Controller
                         'tax_rate_id' => $pr_tax,
 						'piece'	=> $item_peice,
 						'wpiece' => $item_wpeice,
+                        'amount_quantity' => $item_amount_qty,
 						'group_price_id'=>$group_price_id,
                         'tax' => $tax,
 						'product_noted' => $product_note,
@@ -2240,6 +2242,7 @@ class Sale_order extends MY_Controller
                 $unit_price = $this->erp->formatDecimal($_POST['unit_price'][$r]);
 				$net_price = $this->erp->formatDecimal($_POST['net_price'][$r]);
                 $item_quantity = $_POST['quantity'][$r];
+                $item_amount_qty = $_POST['amount_qty'][$r];
                 $item_qty_received = $_POST['quantity_received'][$r];
 				$item_unit_quantity = $_POST['quantity'][$r];
                 $item_serial = isset($_POST['serial'][$r]) ? $_POST['serial'][$r] : '';
@@ -2318,6 +2321,7 @@ class Sale_order extends MY_Controller
                         'net_unit_price' => $item_net_price,
                         'unit_price' => $unit_price,
                         'quantity' => $item_quantity,
+                        'amount_quantity' => $item_amount_qty,
                         'quantity_received' => (($item_qty_received == NaN) ? 0 : $item_qty_received),
                         'warehouse_id' => $warehouse_id,
                         'item_tax' => $pr_item_tax,
@@ -2338,7 +2342,6 @@ class Sale_order extends MY_Controller
 					$rec_qty += (($item_qty_received == NaN) ? 0 : $item_qty_received);
                 }
             }
-			
             if (empty($products)) {
                 $this->form_validation->set_rules('product', lang("order_items"), 'required');
             } else {
@@ -2524,6 +2527,7 @@ class Sale_order extends MY_Controller
 				$row->piece	 = $item->piece;
 				$row->wpiece = $item->wpiece;
 				$row->w_piece = $item->wpiece;
+                $row->amount_qty = $item->amount_quantity;
                 $row->id = $item->product_id;
                 $row->code = $item->product_code;
                 $row->name = $item->product_name;
@@ -2545,6 +2549,7 @@ class Sale_order extends MY_Controller
 				$options = $this->sales_model->getProductOptions($row->id, $item->warehouse_id);
 				$test = $this->sales_model->getWP2($row->id, $item->warehouse_id);
 				$row->quantity = $test->quantity;
+
 
                 $group_prices = $this->sales_model->getProductPriceGroup($item->product_id, $customer->price_group_id);
                 $all_group_prices = $this->sales_model->getProductPriceGroup($item->product_id);
