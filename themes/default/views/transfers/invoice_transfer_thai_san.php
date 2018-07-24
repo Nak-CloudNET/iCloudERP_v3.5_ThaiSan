@@ -245,6 +245,7 @@
                     <tbody style="font-size: 12px !important;">
                     <tr class="thead" style="white-space: nowrap;background-color: #444 !important; color: #FFF !important;">
                         <th>ល.រ<br />No</th>
+                        <th>លេខកូដទំនិញ<br />Product Code</th>
                         <th>ឈ្មោះទំនិញ<br />Product Name</th>
                         <th>ខ្នាត<br />Unit</th>
                         <th>ចំនួន<br />Qty</th>
@@ -280,6 +281,9 @@
                             <td style="vertical-align: middle; text-align: center"><?php echo $no ?></td>
 
                             <td style="vertical-align: middle;">
+                                <?=$row->product_code;?>
+                            </td>
+                            <td style="vertical-align: middle;">
                                 <?=$row->product_name;?>
                             </td>
                             <td style="vertical-align: middle; text-align: center">
@@ -310,6 +314,7 @@
                                         <td></td>
                                         <td></td>
                                         <td></td>
+                                        <td></td>
                                     </tr>';
 
                             $no++;
@@ -318,7 +323,7 @@
                     ?>
 
                     <tr>
-                        <td colspan="3" style="text-align: right; font-weight: bold;">សរុបរួម / <?= strtoupper(lang('total_amount')) ?>
+                        <td colspan="4" style="text-align: right; font-weight: bold;">សរុបរួម / <?= strtoupper(lang('total_amount')) ?>
                             (<?= $default_currency->code; ?>)
                         </td>
                         <td align="right"><?= $this->erp->formatQuantity($row->TQty); ?></td>
@@ -342,13 +347,19 @@
         <div class="col-sm-4 col-xs-4">
             <center>
                 <hr style="margin:0; border:1px solid #000; width: 80%">
+                <p style="font-size: 16px; margin-top: 4px !important">ហត្ថលេខាអ្នកកាន់ឃ្លាំង</p>
+                <p style="margin-top:-10px; font-size: 14px">Stock Controller Signature</p>
+            </center>
+        </div>
+
+        <div class="col-sm-4 col-xs-4">
+            <center>
+                <hr style="margin:0; border:1px solid #000; width: 80%">
                 <p style="font-size: 16px; margin-top: 4px !important">ហត្ថលេខាអ្នកដឹក</p>
                 <p style="margin-top:-10px; font-size: 14px">Deliver's Signature</p>
             </center>
         </div>
-        <div class="col-sm-4 col-xs-4">
 
-        </div>
         <div class="col-sm-4 col-xs-4">
             <center>
                 <hr style="margin:0; border:1px solid #000; width: 80%">
