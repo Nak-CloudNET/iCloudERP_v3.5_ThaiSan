@@ -38,10 +38,7 @@
         .pageBreak {
             page-break-after: always;
         }
-        .container {
-            height: 20.5cm !important;
 
-        }
         .customer_label {
             padding-left: 0 !important;
         }
@@ -87,7 +84,7 @@
     .company_addr h3:nth-child(2) {
         margin-top:-2px !important;
     //padding-left: 130px !important;
-        font-size: 26px !important;
+        //font-size: 26px !important;
         font-weight: bold;
     }
 
@@ -118,7 +115,7 @@
     .header{
         font-family:"Khmer OS Muol Light";
         -moz-font-family: "Khmer OS System";
-        font-size: 18px;
+        font-size: 12px;
     }
 
 </style>
@@ -156,7 +153,7 @@
                             <?php } ?>
 
                             <?php if(!empty($biller->address)) { ?>
-                                <p style="margin-top:-10px !important;font-size: 14px !important;">អាសយដ្ឋាន ៖ &nbsp;<?= $biller->address; ?></p>
+                                <p style="margin-top:-10px !important;font-size: 12px !important;">អាសយដ្ឋាន ៖ &nbsp;<?= $biller->address; ?></p>
                             <?php } ?>
 
                             <?php if(!empty($biller->phone)) { ?>
@@ -190,43 +187,44 @@
         <div class="row">
             <div class="col-sm-12 col-xs-12">
                 <center>
-                    <h4 style="font-weight: bold;">Invoice Transfer</h4>
+                    <h4 style="font-size: 14px !important; font-weight: bold;font-family: 'Khmer OS Muol Light' !important;">វិក្កយបត្រផ្ទេរទំនិញ</h4>
+                    <h4 style="font-size: 14px !important; font-weight: bold;">Invoice Transfer</h4>
                 </center>
             </div>
         </div><br>
         <div class="row">
-            <div class="col-sm-6 col-xs-6">
-                <table style="font-size: 16px;">
+            <div class="col-sm-7 col-xs-7">
+                <table style="font-size: 12px;">
 
                         <tr>
                             <td><?= lang("from");?>
                             <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;</td>
-                            <td><span style="font-size:14px;"><strong><?= $from_warehouse->name ."&nbsp;&nbsp;(&nbsp".$from_warehouse->code." )"; ?></strong></span></td>
+                            <td><span style="font-size:12px;"><?= $from_warehouse->name; ?></span></td>
 
                         </tr>
                         <tr>
                             <td><?= lang("Reference");?>
                             <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;</td>
-                            <td><span style="font-size:14px;"><strong><?= $inv->transfer_no; ?></strong></span></td>
+                            <td><span style="font-size:12px;"><?= $inv->transfer_no; ?></span></td>
 
                         </tr>
                 </table>
             </div>
             <?php //$this->erp->print_arrays();?>
-            <div class="col-sm-6 col-xs-6">
-                <table style="font-size: 16px;">
+            <div class="col-sm-5 col-xs-5">
+                <table style="font-size: 12px;">
 
                         <tr>
                             <td><?= lang("To");?>
                             <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;</td>
-                            <td><span style="font-size:14px;"><strong><?= $to_warehouse->name ."&nbsp;&nbsp;(&nbsp".$to_warehouse->code." )"; ?></strong></span></td>
+                            <td><span style="font-size:12px;"><?= $to_warehouse->name; ?></span></td>
 
                         </tr>
 
                         <tr>
                             <td><?= lang("Date");?>
                             <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;</td>
-                            <td><span style="font-size:14px;"><strong><?= $this->erp->hrld($inv->date); ?></strong></span></td>
+                            <td><span style="font-size:12px;"><?= $this->erp->hrld($inv->date); ?></span></td>
 
                         </tr>
                 </table>
@@ -244,7 +242,7 @@
         <div class="row">
             <div class="col-sm-12 col-xs-12">
                 <table class="table table-bordered" style="width: 100%; margin-top: 10px;">
-                    <tbody style="font-size: 16px;">
+                    <tbody style="font-size: 12px !important;">
                     <tr class="thead" style="white-space: nowrap;background-color: #444 !important; color: #FFF !important;">
                         <th>ល.រ<br />No</th>
                         <th>ឈ្មោះទំនិញ<br />Product Name</th>
@@ -304,8 +302,8 @@
                     }
                     ?>
                     <?php
-                    if($erow<9){
-                        $k=9 - $erow;
+                    if($erow<8){
+                        $k=8 - $erow;
                         for($j=1;$j<=$k;$j++) {
                             echo  '<tr>
                                         <td height="34px" style="text-align: center; vertical-align: middle">'.$no.'</td>
