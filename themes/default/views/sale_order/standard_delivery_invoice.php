@@ -322,7 +322,7 @@
             $totalRow = 0;
             foreach ($rows as $inv_item) {
                 //$this->erp->print_arrays($inv_item);
-                $no = 1;
+
                 $row = 1;
                 ?>
                 <tr class="border">
@@ -356,8 +356,8 @@
             }
             ?>
             <?php
-            if($erow<16){
-                $k=16 - $erow;
+            if($erow<14){
+                $k=14 - $erow;
                 for($j=1;$j<=$k;$j++) {
                     if($discount != 0) {
                         echo  '<tr class="border">
@@ -402,35 +402,35 @@
                         <div class="col-sm-3 col-xs-3">
 
 
-                                <p style=" margin-top: 4px !important">អ្នករៀបចំ / <?= lang('prepared_by') ?></p></br>
-                                <p><strong>ឈ្មោះ / <?= lang('name') ?> : </br></br></strong> .......................</p>
+                                <p style=" margin-top: 4px !important">អ្នករៀបចំ/<?= lang('prepared_by') ?></p></br>
+                                <p><strong>ឈ្មោះ/<?= lang('name') ?> : </br></br></strong> .......................</p>
                                 <br />
-                                <p>ថ្ងៃ ខែ ឆ្នាំ / <?= lang('date') ?> : </br></br>.........................</p>
+                                <p>ថ្ងៃ ខែ ឆ្នាំ/<?= lang('date') ?> : </br></br>.........................</p>
 
                         </div>
                         <div class="col-sm-3 col-xs-3">
 
 
-                                <p style="margin-top: 4px !important">អ្នកអនុម័ត / <?= lang('approved_by') ?></p></br>
-                                <p><strong>ឈ្មោះ / <?= lang('name') ?> :</br></br></strong> .......................</p>
+                                <p style="margin-top: 4px !important">អ្នកអនុម័ត/<?= lang('approved_by') ?></p></br>
+                                <p><strong>ឈ្មោះ/<?= lang('name') ?> :</br></br></strong> .......................</p>
                                 <br />
-                                <p>ថ្ងៃ ខែ ឆ្នាំ / <?= lang('date') ?> : </br></br>.........................</p>
+                                <p>ថ្ងៃ ខែ ឆ្នាំ/<?= lang('date') ?> : </br></br>.........................</p>
 
                         </div>
                         <div class="col-sm-3 col-xs-3">
 
 
-                                <p style=" margin-top: 4px !important">អ្នកដឹក / <?= lang('deliveried_by') ?></p></br>
-                                <p><strong>ឈ្មោះ / <?= lang('name') ?> :</br></br></strong> .......................</p>
+                                <p style=" margin-top: 4px !important">អ្នកដឹក/<?= lang('deliveried_by') ?></p></br>
+                                <p><strong>ឈ្មោះ/<?= lang('name') ?> :</br></br></strong> .......................</p>
                                 <br />
-                                <p>ថ្ងៃ ខែ ឆ្នាំ / <?= lang('date') ?> : </br></br>.........................</p>
+                                <p>ថ្ងៃ ខែ ឆ្នាំ/<?= lang('date') ?> : </br></br>.........................</p>
 
                         </div>
                         <div class="col-sm-3 col-xs-3">
-                                <p style=" margin-top: 4px !important">អ្នកទទួល / <?= lang('received_by') ?></p></br>
-                                <p><strong>ឈ្មោះ / <?= lang('name') ?> :</br></br></strong> .......................</p>
+                                <p style=" margin-top: 4px !important">អ្នកទទួល/<?= lang('received_by') ?></p></br>
+                                <p><strong>ឈ្មោះ/<?= lang('name') ?> :</br></br></strong> .......................</p>
                                 <br />
-                                <p>ថ្ងៃ ខែ ឆ្នាំ / <?= lang('date') ?> : </br></br>.........................</p>
+                                <p>ថ្ងៃ ខែ ឆ្នាំ/<?= lang('date') ?> : </br></br>.........................</p>
 
                         </div>
                     </div>

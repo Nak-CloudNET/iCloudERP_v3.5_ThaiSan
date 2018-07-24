@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Invoice&nbsp;<?= $invs->reference_no ?></title>
+    <link href="<?php echo $assets ?>styles/theme.css" rel="stylesheet">
+    <link href="<?php echo $assets ?>styles/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo $assets ?>styles/custome.css" rel="stylesheet">
+</head>
 <?php
 	function row_status($x){
 		if($x == 'completed' || $x == 'paid' || $x == 'sent' || $x == 'received') {
@@ -13,6 +22,8 @@
 		}
 	}
 ?>
+
+<body>
 <div class="modal-dialog modal-lg" style="width:1000px;">
     <div class="modal-content">
         <div class="modal-header">
@@ -24,9 +35,9 @@
             </button>
             <h4 class="modal-title" id="myModalLabel"><?= lang('month_profit').' ('.$date.')'; ?></h4>
         </div>
-        <div class="modal-body">
-            <div class="table-responsive">
-				<table id="POData" cellpadding="0" cellspacing="0" border="0" class="table table-condensed table-bordered table-hover table-striped">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12">
+				<table id="POData" cellpadding="0" cellspacing="0" border="0"  class="table table-condensed table-bordered table-hover table-striped">
                     <thead>
                         <tr class="active">
                             <th><?php echo $this->lang->line("date"); ?></th>
@@ -95,15 +106,18 @@
         </div>
     </div>
 </div>
+</body>
 <script>
-	$(function(){
-		$("#POData").dataTable({
-			"iDisplayLength": 20,
-		});
-	})
+    $(function(){
+        $("#POData").dataTable({
+            "iDisplayLength": 20,
+        });
+    })
 </script>
 <style type="text/css">
-	table { 
-		white-space: nowrap;
-	}
+    table {
+        white-space: nowrap;
+    }
 </style>
+</html>
+
