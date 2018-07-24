@@ -203,6 +203,7 @@ if ($modal) {
             <tr style="border:1px dotted black !important;">
                 <th style="width: 5%;"><?= lang("no"); ?></th>
                 <th style="text-align: left;"><?= lang("Description"); ?></th>
+                <th style="text-align:center;width: 100px;"><?= lang("A.Qty"); ?></th>
                 <th style="text-align:center;width: 100px;"><?= lang("qty"); ?></th>
                 <th style="text-align:center;"><?= lang("Price"); ?></th>
                 <?php if ($inv->Product_discount != 0 || $total_disc != '') {
@@ -213,6 +214,7 @@ if ($modal) {
             </thead>
             <tbody style="border-bottom:2px solid black;">
             <?php
+
             $r = 1;
             $m_us = 0;
             $total_quantity = 0;
@@ -220,6 +222,7 @@ if ($modal) {
             $sub_total=0;
             if(is_array($rows)){
                 foreach ($rows as $row) {
+                    $this->erp->print_arrays($row);
                     $free = lang('free');
                     if (isset($tax_summary[$row->tax_code])) {
                         $tax_summary[$row->tax_code]['items'] += $row->quantity;
@@ -235,10 +238,12 @@ if ($modal) {
                     }
                     $totals+=$row->subtotal;
 
+
                     echo '<tr ' . ($row->product_type === 'combo' ? '' : 'class="item"') . '>';
                     echo '	<td style="text-align:center;width: 5%;">' . $r . '</td>';
                     echo '	<td class="text-left">' . product_name($row->product_name) . ($row->product_noted ? ' <br/>(' . $row->product_noted . ')' : '') . '</td>';
 
+                    echo '	<td class="text-center">' . $this->erp->formatQuantity($row->product_name) . '7657</td>';
                     echo '	<td class="text-center">' . $this->erp->formatQuantity($row->quantity) . '</td>';
 
                     echo '	<td class="text-center"  style="text-align:center; width:100px !important">' . (($row->unit_price)==0? $free:$this->erp->formatMoney($row->unit_price)) . '</td>';
@@ -811,6 +816,7 @@ if ($modal) {
     ?>
                 receipt += "\n" + "<?= lang('tax_summary'); ?>" + "\n";
                 receipt += "<?= taxLine(lang('name'),lang('code'),lang('qty'),lang('tax_excl'),lang('tax_amt')); ?>" + "\n";
+
                 receipt += "<?php foreach ($tax_summary as $summary): ?>";
                 receipt += "<?= taxLine($summary['name'],$summary['code'],$this->erp->formatQuantity($summary['items']),$this->erp->formatMoney($summary['amt']),$this->erp->formatMoney($summary['tax'])); ?>" + "\n";
                 receipt += "<?php endforeach; ?>";

@@ -299,6 +299,7 @@ class Quotes extends MY_Controller
         $this->data['saleman'] = $this->site->getUser($inv->created_by);
         $this->data['warehouse'] = $this->site->getWarehouseByID($inv->warehouse_id);
         $this->data['invs'] = $inv;
+
         $this->data['rows'] = $this->quotes_model->getQuoteItemsData($id);
         $this->load->view($this->theme .'quotes/invoice_st_a5',$this->data);
     }
