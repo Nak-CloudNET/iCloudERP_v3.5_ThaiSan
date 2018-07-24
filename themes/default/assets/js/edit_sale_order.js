@@ -1191,6 +1191,7 @@ $('#slwarehouse').change(function (e) {
 		$('#pgroup_prices-div').html(opt_group_price);
 		$('select.select').select2({minimumResultsForSearch: 6});
 		$('#pquantity').val(qty);
+		$('#amount_quantity').val(item.row.amount_qty);
 		$('#old_qty').val(qty);
 		$('#pprice').val(unit_price);
 		$('#punit_price').val(formatDecimal(parseFloat(unit_price)+parseFloat(pr_tax_val)));
