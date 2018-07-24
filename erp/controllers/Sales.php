@@ -11419,9 +11419,14 @@ class Sales extends MY_Controller
                 $row->discount 			= '0';
                 $row->serial 			= '';
                 $options 				= $this->sales_model->getProductOptions($row->id, $warehouse_id);
-                $orderqty = $this->sales_model->getQtyOrder($row->product_id);
-                $qty_ordered    = $this->products_model->getAllOrderProductsQty($row->id);
-                $row->qoh       -=  $qty_ordered[0]->qty;
+                $orderqty               = $this->sales_model->getQtyOrder($row->product_id);
+                $qty_ordereds           = $this->products_model->getAllOrderProductsQty($row->id);
+                $qty_order              = 0;
+                foreach ($qty_ordereds  as $qty_ordered) 
+                {
+                    $qty_order          +=$qty_ordered->qty;
+                }
+                $row->qoh               -=  $qty_order;
 				if($orderqty){
 					$orderqty 			= $orderqty->quantity;
 				}else{
@@ -11626,8 +11631,12 @@ class Sales extends MY_Controller
 				$group_prices = $this->sales_model->getProductPriceGroupId($row->id, $customer->price_group_id);
 				$all_group_prices = $this->sales_model->getProductPriceGroup($row->id);
 				$pending_so_qty = $this->sales_model->getPendingSOQTYByProductID($row->id);
-                $qty_ordered    = $this->products_model->getAllOrderProductsQty($row->id);
-                $row->qoh       -=  $qty_ordered[0]->qty;
+                $qty_ordereds    = $this->products_model->getAllOrderProductsQty($row->id);
+                $qty_order       = 0;
+                foreach ($qty_ordereds  as $qty_ordered) {
+                    $qty_order +=$qty_ordered->qty;
+                }
+                $row->qoh       -=  $qty_order;
 
 				if($expiry_status == 1) {
 					$expdates = $this->sales_model->getProductExpireDate($row->id, $warehouse_id);
