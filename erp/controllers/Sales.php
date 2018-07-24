@@ -768,7 +768,6 @@ class Sales extends MY_Controller
 		}
 		
 		$this->datatables->group_by('sales.id');
-		
         $this->datatables->add_column("Actions", $action, "sales.id");
         echo $this->datatables->generate();
     }
@@ -4502,6 +4501,7 @@ class Sales extends MY_Controller
 					$row->piece			  = $item->piece;
 					$row->wpiece		  = $item->wpiece;
 					$row->w_piece		  = $item->wpiece;
+                    $row->amount_qty      = $item->amount_quantity;
 					$row->product_details   = $item->product_noted;
                     $combo_items = FALSE;
                     if ($row->type == 'combo') {
@@ -8478,7 +8478,6 @@ class Sales extends MY_Controller
 		}
 
         $this->datatables->add_column("Actions", $action, "id");
-
         echo $this->datatables->generate();
     }
 
@@ -8639,7 +8638,6 @@ class Sales extends MY_Controller
 		}
 
         $this->datatables->add_column("Actions", $action, "id");
-
         echo $this->datatables->generate();
     }
 
@@ -11421,9 +11419,14 @@ class Sales extends MY_Controller
                 $row->discount 			= '0';
                 $row->serial 			= '';
                 $options 				= $this->sales_model->getProductOptions($row->id, $warehouse_id);
-                $orderqty = $this->sales_model->getQtyOrder($row->product_id);
-                $qty_ordered    = $this->products_model->getAllOrderProductsQty($row->id);
-                $row->qoh       -=  $qty_ordered[0]->qty;
+                $orderqty               = $this->sales_model->getQtyOrder($row->product_id);
+                $qty_ordereds           = $this->products_model->getAllOrderProductsQty($row->id);
+                $qty_order              = 0;
+                foreach ($qty_ordereds  as $qty_ordered) 
+                {
+                    $qty_order          +=$qty_ordered->qty;
+                }
+                $row->qoh               -=  $qty_order;
 				if($orderqty){
 					$orderqty 			= $orderqty->quantity;
 				}else{
@@ -11628,8 +11631,12 @@ class Sales extends MY_Controller
 				$group_prices = $this->sales_model->getProductPriceGroupId($row->id, $customer->price_group_id);
 				$all_group_prices = $this->sales_model->getProductPriceGroup($row->id);
 				$pending_so_qty = $this->sales_model->getPendingSOQTYByProductID($row->id);
-                $qty_ordered    = $this->products_model->getAllOrderProductsQty($row->id);
-                $row->qoh       -=  $qty_ordered[0]->qty;
+                $qty_ordereds    = $this->products_model->getAllOrderProductsQty($row->id);
+                $qty_order       = 0;
+                foreach ($qty_ordereds  as $qty_ordered) {
+                    $qty_order +=$qty_ordered->qty;
+                }
+                $row->qoh       -=  $qty_order;
 
 				if($expiry_status == 1) {
 					$expdates = $this->sales_model->getProductExpireDate($row->id, $warehouse_id);
@@ -14646,15 +14653,15 @@ class Sales extends MY_Controller
             $warehouse_id = $user->warehouse_id;
         }
         
-        $add_payment_link = anchor('pos/index/$1', '<i class="fa fa-money"></i> ' . lang('add_payment'), '');      
+        $add_payment_link = anchor('pos/index/$1', '<i class="fa fa-money"></i> ' . lang('add_payment'), '');    
+        $add_sale_order = anchor('sales/add/$1', '<i class="fa fa-money"></i> ' . lang('add_sale'));  
         $action = '<div class="text-center"><div class="btn-group text-left">'
             . '<button type="button" class="btn btn-default btn-xs btn-primary dropdown-toggle" data-toggle="dropdown">'
             . lang('actions') . ' <span class="caret"></span></button>
             <ul class="dropdown-menu pull-right" role="menu">            
-                <li>' . $add_payment_link . '</li>
+                <li>' . $add_sale_order . '</li>
             </ul>
         </div></div>';
-
         $this->load->library('datatables');
 
             $this->datatables
@@ -14681,6 +14688,7 @@ class Sales extends MY_Controller
         }
 
         $this->datatables->add_column("Actions", $action, "id");
+         $this->datatables->unset_column('delivery_status');
         echo $this->datatables->generate();  
     }
 

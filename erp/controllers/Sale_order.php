@@ -2800,8 +2800,12 @@ class Sale_order extends MY_Controller
                 $group_prices = $this->sales_model->getProductPriceGroupId($row->id, $customer->price_group_id);
                 $all_group_prices = $this->sales_model->getProductPriceGroup($row->id);
 				$pending_so_qty = $this->sales_model->getPendingSOQTYByProductID($row->id);
-                $qty_ordered    = $this->products_model->getAllOrderProductsQty($row->id);
-                $row->qoh       -=  $qty_ordered[0]->qty;
+                $qty_ordereds    = $this->products_model->getAllOrderProductsQty($row->id);
+                $qty_order       = 0;
+                foreach ($qty_ordereds  as $qty_ordered) {
+                    $qty_order +=$qty_ordered->qty;
+                }
+                $row->qoh       -=  $qty_order;
 				$psoqty = 0;
 			
 				if($pending_so_qty) {
