@@ -52,6 +52,7 @@ $lang['delivery_deleted']                   	= "បានលុបការដ�
 $lang['deliveries_deleted']                 	= "បានលុបការដឹកជញ្ជូនបានដោយជោគជ័យ";
 $lang['email_delivery']                     	= "ដឹកជញ្ជូនអ៊ីម៉ែល";
 $lang['delivery_details']                   	= "សេចក្ដីលម្អិតការដឹកជញ្ជូន";
+$lang["list_delivery_alerts"]				= "បញ្ជីដឹកជញ្ជូន";
 $lang['delivery_order']                     		= "ដឹកជញ្ជូនលក់";
 $lang['product_details']                    	= "ផលិតផលលំអិត";
 $lang['prepared_by']                        	= "រៀបចំដោយ";
