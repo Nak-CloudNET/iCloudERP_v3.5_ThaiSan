@@ -11420,7 +11420,7 @@ class Sales extends MY_Controller
                 $row->serial 			= '';
                 $options 				= $this->sales_model->getProductOptions($row->id, $warehouse_id);
                 $orderqty               = $this->sales_model->getQtyOrder($row->product_id);
-                $qty_ordereds           = $this->products_model->getAllOrderProductsQty($row->id);
+                $qty_ordereds           = $this->products_model->getAllOrderProductsQty($row->id,$warehouse_id);
                 $qty_order              = 0;
                 foreach ($qty_ordereds  as $qty_ordered) 
                 {
@@ -11631,7 +11631,7 @@ class Sales extends MY_Controller
 				$group_prices = $this->sales_model->getProductPriceGroupId($row->id, $customer->price_group_id);
 				$all_group_prices = $this->sales_model->getProductPriceGroup($row->id);
 				$pending_so_qty = $this->sales_model->getPendingSOQTYByProductID($row->id);
-                $qty_ordereds    = $this->products_model->getAllOrderProductsQty($row->id);
+                $qty_ordereds    = $this->products_model->getAllOrderProductsQty($row->id,$warehouse_id);
                 $qty_order       = 0;
                 foreach ($qty_ordereds  as $qty_ordered) {
                     $qty_order +=$qty_ordered->qty;
@@ -14684,7 +14684,7 @@ class Sales extends MY_Controller
             $this->datatables->where('sale_order.customer_id', $customer);
         }
         if ($start_date || $end_date) {
-            $this->datatables->where($this->db->dbprefix('sale_order').'.start_date >= "' . $start_date . '" AND ' . $this->db->dbprefix('sale_order').'.end_date < "' . $end_date . '"');
+            $this->datatables->where($this->db->dbprefix('sale_order').'.date >= "' . $start_date . '" AND ' . $this->db->dbprefix('sale_order').'.date < "' . $end_date . '"');
         }
 
         $this->datatables->add_column("Actions", $action, "id");

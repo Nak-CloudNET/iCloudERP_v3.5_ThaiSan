@@ -3003,7 +3003,7 @@ class Products_model extends CI_Model
         return FALSE;
     }
 
-    public function getAllOrderProductsQty($product_id)
+    public function getAllOrderProductsQty($product_id,$warehouse_id=NULL)
     {
         $this->db->select("warehouses.id as id, sale_order.reference_no, warehouses.name, erp_sale_order_items.piece as piece,((erp_sale_order_items.quantity * COALESCE(erp_product_variants.qty_unit, 1)) - (erp_sale_order_items.quantity_received * COALESCE(erp_product_variants.qty_unit, 1))) as qty, sale_order.sale_status")
             ->from('sale_order_items')
@@ -3014,6 +3014,10 @@ class Products_model extends CI_Model
             ->where('sale_order.order_status =', 'completed')
 			->where('((erp_sale_order_items.quantity * COALESCE(erp_product_variants.qty_unit, 1)) - (erp_sale_order_items.quantity_received * COALESCE(erp_product_variants.qty_unit, 1))) > 0')
             ->where("(erp_sale_order.sale_status ='order' OR (erp_sale_order.delivery_status <> 'completed' AND erp_sale_order.sale_status <>'sale'))", NULL, FALSE);
+            if($warehouse_id)
+            {
+                $this->db->where('sale_order_items.warehouse_id',$warehouse_id);
+            }
         
         $q = $this->db->get();
         if ($q->num_rows() > 0) {
