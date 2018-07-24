@@ -184,8 +184,8 @@
                         </div>
                         <div class="invoice" style="margin-top:20px;">
                         <center>
-                            <h4 class="title">វិក្កយបត្របញ្ជាទិញ</h4>
-                            <h4 class="title" style="margin-top: 3px;">Sale Orders Invoice</h4>
+                            <h4 class="title">បញ្ជីសម្រង់តម្លៃ</h4>
+                            <h4 class="title" style="margin-top: 3px;">QUOTATION</h4>
                         </center>
 
                     </div>
@@ -289,7 +289,7 @@
                             <tr class="border thead print" style="white-space: nowrap;background-color: #444 !important; color: #FFF !important;">
                                 <th>ល.រ<br />No</th>
                                 <th>លេខកូដទំនិញ<br />Product Code</th>
-                                <th>ឈ្មោះទំនិញ<br />Product Name</th>
+                                <th style="text-align: center">ឈ្មោះទំនិញ<br />Product Name</th>
             <!--                        <th>ការបញ្ជាក់<br />--><?//= strtoupper(lang('specification')) ?><!--</th>-->
                                 <th>ខ្នាត<br />Unit</th>
                                 <th>ចំនួន<br />Qty</th>
@@ -581,7 +581,7 @@
 
 
         <div style="width: 821px;margin: 20px">
-            <a class="btn btn-warning no-print" href="<?= site_url('sale_order/list_sale_order'); ?>" style="border-radius: 0">
+            <a class="btn btn-warning no-print" href="<?= site_url('quotes'); ?>" style="border-radius: 0">
                 <i class="fa fa-hand-o-left" aria-hidden="true"></i>&nbsp;<?= lang("back"); ?>
             </a>
         </div>
