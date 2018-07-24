@@ -69,7 +69,7 @@
                 nCells[8].innerHTML = formatQuantity(parseFloat(total_balance));
             }
         }).fnSetFilteringDelay().dtFilter([
-            
+
             {column_number: 1, filter_default_label: "[<?=lang('date');?>]", filter_type: "text", data: []},
             {column_number: 2, filter_default_label: "[<?=lang('sale_reference_no');?>]", filter_type: "text", data: []},
             {column_number: 3, filter_default_label: "[<?=lang('project');?>]", filter_type: "text", data: []},
@@ -348,7 +348,7 @@
                             <th style="min-width:30px; width: 30px; text-align: center;">
                                 <input class="checkbox checkft" type="checkbox" name="check"/>
                             </th>
-                            
+
                             <th><?php echo $this->lang->line("date"); ?></th>
                             <th><?php echo $this->lang->line("sale_reference_no"); ?></th>
                             <th><?php echo $this->lang->line("project"); ?></th>
@@ -362,7 +362,7 @@
                         </thead>
                         <tbody>
                         <tr>
-                            <td colspan="8" class="dataTables_empty"><?php echo $this->lang->line("loading_data"); ?></td>
+                            <td colspan="9" class="dataTables_empty"><?php echo $this->lang->line("loading_data"); ?></td>
                         </tr>
                         </tbody>
                         <tfoot class="dtFilter">
