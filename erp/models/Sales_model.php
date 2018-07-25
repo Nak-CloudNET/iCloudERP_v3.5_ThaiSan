@@ -3947,13 +3947,31 @@ class Sales_model extends CI_Model
 	}
 
 
-    public function getSaleByRef($ref)
+    public function getSaleByRef($ref,$limit = 10)
 	{
-		$q = $this->db->get_where('sales', array('reference_no' => $ref), 1);
-        if ($q->num_rows() > 0) {
-            return $q->row();
+		$this->db->select('sale_order.id as id, sale_order.reference_no as text');
+		$this->db->like('reference_no',$ref);
+		$q = $this->db->get('sale_order',$limit);
+          if ($q->num_rows() > 0) {
+            foreach (($q->result()) as $row) {
+                $data[] = $row;
+            }
+
+            return $data;
         }
-        return FALSE;
+	}
+	public function getSaleByRefNo($ref)
+	{
+		$this->db->select('sale_order.id as id, sale_order.reference_no as text');
+		$this->db->like('reference_no',$ref);
+		$q = $this->db->get('sale_order',$limit);
+          if ($q->num_rows() > 0) {
+            foreach (($q->result()) as $row) {
+                $data[] = $row;
+            }
+
+            return $data;
+        }
 	}
 	
 	/*public function getLoanView($id)

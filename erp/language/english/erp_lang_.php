@@ -978,3 +978,4 @@ $lang['paid_by'] 							= "Paid By";
 $lang['standard_invoice'] 					= "Standard Invoice";
 $lang['list_payable'] 						= "List Payable";
 $lang['transfers_summary_report'] = "Transfers Summary Report";
+

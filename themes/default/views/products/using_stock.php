@@ -205,11 +205,16 @@
                                 </div>
                             </div>
 						</div>
-						
-						<div class="form-group">
+						<!-- <div class="form-group">
 							<?= lang('customer', 'customer'); ?>
 							<?php
 								echo form_input('customer', '', 'id="customer" data-placeholder="' . lang("select") . ' ' . lang("customer") . '" class="form-control input-tip" style="min-width:100%;"');
+							?>
+						</div> -->
+						<div class="form-group">
+							<?= lang('sale_invoice', 'sale_invoice'); ?>
+							<?php
+								echo form_input('sale_invoice', '', 'id="sale_invoice" data-placeholder="' . lang("select") . ' ' . lang("sale_invoice") . '" class="form-control input-tip" style="min-width:100%;"');
 							?>
 						</div>
 					</div>
