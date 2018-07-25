@@ -2542,7 +2542,7 @@ class Purchases extends MY_Controller
 						$ods = explode("%", $order_discount_id);
 						$order_discount = (($total * (Float) ($ods[0])) / 100);
 					} else {
-						$order_discount = (($total*$this->erp->formatPurDecimal($order_discount_id))/100);
+						$order_discount = $order_discount_id;
 					}
 				} else {
 					$order_discount_id = null;
