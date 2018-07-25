@@ -35,6 +35,7 @@ $('#poshipping').focus(function () {
     $('#tship').text(formatPurDecimal(shipping));
 	loadItems();
 });
+
 if (poshipping = __getItem('poshipping')) {
     shipping = parseFloat(poshipping);
     $('#poshipping').val(shipping);
@@ -1329,7 +1330,7 @@ function loadItems() {
                     order_discount = parseFloat(((total) * parseFloat(ds)) / 100);
                 }
             } else {
-                order_discount = parseFloat(((total) * parseFloat(ds)) / 100);
+                order_discount = parseFloat(ds);
             }
         }
 
