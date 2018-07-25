@@ -149,7 +149,7 @@
                                         <img class="img-responsive myhide" src="<?= base_url() ?>assets/uploads/logos/<?= $biller->logo; ?>"id="hidedlo" style="width: 140px; margin-left: 25px;margin-top: -10px;" />
                                     <?php } ?>
                                 </div>
-                                <div  class="col-sm-7 col-xs-7 company_addr "  style="margin-top: -20px !important;">
+                                <div  class="col-sm-7 col-xs-7 company_addr "  style="margin-top: -20px !important; font-size: 12px">
                                         <div class="myhide">
                                             <center >
                                                 <?php if($biller->company) { ?>
@@ -204,21 +204,21 @@
                             </div>
 
                             <div class="row" style="text-align: left;">
-                                <div class="col-sm-6 col-xs-6">
+                                <div class="col-sm-6 col-xs-6" style="font-size: 12px ">
                                     <table >
                                         <?php
 
                                         if(!empty($customer->company)) { ?>
                                             <tr>
-                                                <td style="width: 40%;">ក្រុមហ៊ុន​​​​​​ / Company</td>
-                                                <td style="width: 5%;">:</td>
-                                                <td style="width: 30%;"><?= $customer->company ?></td>
+                                                <td style="width: 40%; font-weight: bold">ក្រុមហ៊ុន​​​​​​ / Company</td>
+                                                <td style="width: 5%; font-weight: bold">:</td>
+                                                <td style="width: 50%;"><?= $customer->company ?></td>
                                             </tr>
                                         <?php } ?>
                                         <?php if(!empty($customer->name_kh || $customer->name)) { ?>
                                             <tr>
-                                                <td>អតិថិជន / Customer </td>
-                                                <td>:</td>
+                                                <td style="font-weight: bold">អតិថិជន / Customer </td>
+                                                <td style="font-weight: bold">:</td>
                                                 <?php if(($customer->name_kh)) { ?>
                                                     <td><?= $customer->name_kh ?></td>
                                                 <?php }else { ?>
@@ -228,8 +228,8 @@
                                         <?php } ?>
                                         <?php if(!empty($customer->address_kh || $customer->address)) { ?>
                                             <tr>
-                                                <td>អាសយដ្ឋាន / Address </td>
-                                                <td>:</td>
+                                                <td style="font-weight: bold">អាសយដ្ឋាន / Address </td>
+                                                <td style="font-weight: bold">:</td>
                                                 <?php if(!empty($customer->address_kh)) { ?>
                                                     <td><?= $customer->address_kh?></td>
                                                 <?php }else { ?>
@@ -239,48 +239,48 @@
                                         <?php } ?>
                                         <?php if(!empty($customer->address_kh || $customer->address)) { ?>
                                             <tr>
-                                                <td>ទូរស័ព្ទលេខ (Tel)</td>
-                                                <td>:</td>
+                                                <td style="font-weight: bold">ទូរស័ព្ទលេខ (Tel)</td>
+                                                <td style="font-weight: bold">:</td>
                                                 <td><?= $customer->phone ?></td>
                                             </tr>
                                         <?php } ?>
                                         <?php if(!empty($customer->vat_no)) { ?>
                                             <tr>
-                                                <td style="width: 20% !important">លេខអត្តសញ្ញាណកម្ម អតប </td>
-                                                <td>:</td>
+                                                <td style="width: 20% !important; font-weight: bold">លេខអត្តសញ្ញាណកម្ម អតប </td>
+                                                <td style="font-weight: bold">:</td>
                                                 <td><?= $customer->vat_no ?></td>
                                             </tr>
                                         <?php } ?>
                                     </table>
                                 </div>
 
-                                <div class="col-sm-6 col-xs-6" style="padding-left: 60px !important;">
+                                <div class="col-sm-6 col-xs-6" style="padding-left: 120px !important; font-size: 12px">
                                     <table class="noPadding" border="none">
                                         <tr>
-                                            <td style="width: 45%;">លេខរៀង / N<sup>o</sup></sup></td>
-                                            <td style="width: 5%;">:</td>
+                                            <td style="width: 50%; font-weight: bold">លេខរៀង / N<sup>o</sup></sup></td>
+                                            <td style="width: 5%; font-weight: bold">:</td>
                                             <td style="width: 50%;"><?= $invs->reference_no ?></td>
                                         </tr>
                                         <tr>
-                                            <td>កាលបរិច្ឆេទ / Date</td>
-                                            <td>:</td>
+                                            <td style="font-weight: bold">កាលបរិច្ឆេទ / Date</td>
+                                            <td style="font-weight: bold">:</td>
                                             <td><?= $this->erp->hrld($invs->date); ?></td>
                                         </tr>
                                         <tr>
-                                            <td>អ្នកលក់ / Sale Man</td>
-                                            <td>:</td>
+                                            <td style="font-weight: bold">អ្នកលក់ / Sale Man</td>
+                                            <td style="font-weight: bold">:</td>
                                             <td><?= $invs->saleman; ?></td>
                                         </tr>
 
                                         <?php if ($invs->payment_term) { ?>
                                             <tr>
-                                                <td>រយៈពេលបង់ប្រាក់ </td>
-                                                <td>:</td>
+                                                <td style="font-weight: bold">រយៈពេលបង់ប្រាក់ </td>
+                                                <td style="font-weight: bold">:</td>
                                                 <td><?= $invs->payment_term ?></td>
                                             </tr>
                                             <tr>
-                                                <td style="width: 30% !important">កាលបរិច្ឆេទនៃការបង់ប្រាក់ </td>
-                                                <td>:</td>
+                                                <td style="width: 30% !important; font-weight: bold">កាលបរិច្ឆេទនៃការបង់ប្រាក់ </td>
+                                                <td style="font-weight: bold">:</td>
                                                 <td><?= $this->erp->hrsd($invs->due_date) ?></td>
                                             </tr>
                                         <?php }
@@ -297,8 +297,8 @@
                     </tr>
 
                     <tr class="border thead print" style="white-space: nowrap;background-color: #444 !important; color: #FFF !important;">
-                        <th>ល.រ<br />No</th>
-                        <th>លេខកូដទំនិញ<br />Product Code</th>
+                        <th style="width: 50px">ល.រ<br />No</th>
+                        <th style="width: 100px">លេខកូដទំនិញ<br />Product Code</th>
                         <th>ឈ្មោះទំនិញ<br />Product Name</th>
 <!--                        <th>ការបញ្ជាក់<br />--><?//= strtoupper(lang('specification')) ?><!--</th>-->
                         <th>ខ្នាត<br />Unit</th>
@@ -325,14 +325,15 @@
                 $erow = 1;
                 $totalRow = 0;
                 foreach ($rows as $row) {
+                    //$this->erp->print_arrays($rows);
                     $free = lang('free');
                     $product_unit = '';
                     $total = 0;
 
                     if($row->variant){
-                        $product_unit = $row->variant;
+                        $product_unit = $row->unit;
                     }else{
-                        $product_unit = $row->name;
+                        $product_unit = $row->uname;
                     }
                     $product_name_setting;
                     if($setting->show_code == 0) {
@@ -405,8 +406,8 @@
                 ?>
                 <?php
 
-                if($erow<16){
-                    $k=16 - $erow;
+                if($erow<12){
+                    $k=12 - $erow;
                     for($j=1;$j<=$k;$j++) {
                         if($dis != 0 ) {
 
@@ -483,9 +484,9 @@
                 if ($invs->grand_total != $invs->total) { ?>
                     <tr class="border-foot">
                         <td rowspan = "<?= $row; ?>" colspan="<?= $col2; ?>" style="border-left: 1px solid #FFF !important; border-bottom: 1px solid #FFF !important;">
-                            <?php if (!empty($invs->invoice_footer)) { ?>
+                            <?php if (!empty($invss->invoice_footer)) { ?>
                                 <p ><strong><u>Note:</u></strong></p>
-                                <p style="margin-top:-5px !important; line-height: 2"><?= $invs->invoice_footer ?></p>
+                                <p style="margin-top:-5px !important; line-height: 2"><?= $invss->invoice_footer ?></p>
                             <?php } ?>
                         </td>
                         <td colspan="<?= $col; ?>" style="text-align: right; font-weight: bold;">សរុប​ / <?= strtoupper(lang('total')) ?>
@@ -519,9 +520,9 @@
                 <tr class="border-foot">
                     <?php if ($invs->grand_total == $invs->total) { ?>
                         <td rowspan="<?= $row; ?>" colspan="<?= $col2; ?>" style="border-left: 1px solid #FFF !important; border-bottom: 1px solid #FFF !important;">
-                            <?php if (!empty($invs->invoice_footer)) { ?>
+                            <?php if (!empty($invss->invoice_footer)) { ?>
                                 <p><strong><u>Note:</u></strong></p>
-                                <p><?= $invs->invoice_footer ?></p>
+                                <p><?= $invss->invoice_footer ?></p>
                             <?php } ?>
                         </td>
                     <?php } ?>
@@ -563,52 +564,42 @@
                 <?php } ?>
 
                 </tbody>
-                <tfoot class="tfoot">
-                    <tr>
-                        <th colspan="9">
-                            <?php if(trim(htmlspecialchars_decode($invs->note))){ ?>
-                                <div style="border-radius: 5px 5px 5px 5px;border:1px solid black;height: auto;" id="note" class="col-md-12 col-xs-12">
-                                    <p style="margin-left: 10px;margin-top:10px;"><?php echo strip_tags($invs->note); ?></p>
-                                </div>
-                                <br><br><br><br>
-                            <?php }else{ ?>
-                            <div class="clear-both">
-                                <div style="width:100%;height:110px"></div>
-                            </div>
-                            <?php } ?>
-                            <div id="footer" class="row" >
-                                <div class="col-sm-4 col-xs-4">
-                                    <center>
-                                        <hr style="margin:0; border:1px solid #000; width: 80%">
-                                        <p style=" margin-top: 4px !important">ហត្ថលេខាអ្នកលក់</p>
-                                        <p style="margin-top:-10px;">Seller's Signature</p>
-                                    </center>
-                                </div>
-                                <div class="col-sm-4 col-xs-4">
-                                    <center>
-                                        <hr style="margin:0; border:1px solid #000; width: 80%">
-                                        <p style="margin-top: 4px !important">ហត្ថលេខាអ្នកដឹក</p>
-                                        <p style="margin-top:-10px;">Delivery's Signature</p>
-                                    </center>
-                                </div>
-                                <div class="col-sm-4 col-xs-4">
-                                    <center>
-                                        <hr style="margin:0; border:1px solid #000; width: 80%">
-                                        <p style=" margin-top: 4px !important">ហត្ថលេខាអ្នកទិញ</p>
-                                        <p style="margin-top:-10px; ">Customer's Signature</p>
-                                    </center>
-                                </div>
-                            </div>
-                        </th>
-                    </tr>
-                </tfoot>
-
             </table>
         </div>
+        <?php if($invs->invoice_footer){ ?>
+            <div style="height: auto; font-size: 12px" id="note" class="col-md-12 col-xs-12;" >
+                <p ><strong><u>Note:</u></strong></p>
+                <p style="margin-left: 10px;margin-top:10px;"><?php echo($invs->invoice_footer); ?></p>
+            </div>
+
+        <?php } ?>
 
 
+        <div id="footer" class="row"" >
+        <div class="col-sm-4 col-xs-4">
+            <br><br><br>
+            <center>
+                <hr style="margin:0; border:1px solid #000; width: 80%">
+                <p style=" margin-top: 4px !important">ហត្ថលេខាអ្នកលក់</p>
+                <p style="margin-top:-10px;">Seller's Signature</p>
+            </center>
+        </div>
+        <div class="col-sm-4 col-xs-4">
+            <br><br><br>
+            <center>
 
-
+            </center>
+        </div>
+        <div class="col-sm-4 col-xs-4">
+            <br><br><br>
+            <center>
+                <hr style="margin:0; border:1px solid #000; width: 80%">
+                <p style=" margin-top: 4px !important">ហត្ថលេខាអ្នកទិញ</p>
+                <p style="margin-top:-10px; ">Customer's Signature</p>
+            </center>
+        </div>
+    </div>
+</div>
         <div style="width: 821px;margin: 20px">
             <a class="btn btn-warning no-print" href="<?= site_url('sales'); ?>" style="border-radius: 0">
                 <i class="fa fa-hand-o-left" aria-hidden="true"></i>&nbsp;<?= lang("back"); ?>
@@ -617,6 +608,7 @@
     </div>
 
 </body>
+
 <script type="text/javascript">
     if(!<?=$invs->total_discount?$invs->total_discount:0 ; ?>){
         $('td:nth-child(8),th:nth-child(8)').hide();
