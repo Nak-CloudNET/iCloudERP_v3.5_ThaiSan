@@ -51,11 +51,7 @@
             break:inside: auto;
             clear:both;
         }
-        tfoot {
-            display: table-footer-group;
-            -webkit-display: table-footer-group;
-            page-break-after: always;
-        }
+
         .invoice_label {
             padding-left: 0 !important;
         }
@@ -390,7 +386,7 @@
 
 
             </tbody>
-            <tfoot>
+            <tfoot class="tfoot">
             <tr>
                 <th colspan="9">
                     <?php if(trim(htmlspecialchars_decode($inv->note))){ ?>
@@ -402,7 +398,7 @@
                     <div class="clear-both">
                         <div style="width:100%;height: 10px !important;"></div>
                     </div>
-                    <div class="row" >
+                    <div id="footer" class="row" >
                         <div class="col-sm-3 col-xs-3">
 
 
