@@ -1210,7 +1210,9 @@ class Sale_order extends MY_Controller
 				->join('deliveries', 'deliveries.sale_id = sale_order.id', 'left')
 				->join('quotes', 'quotes.id = sale_order.quote_id', 'left')
                 ->join('erp_deposits', 'erp_deposits.so_id = erp_sale_order.id', 'left')
-				->where('sale_order.order_status','pending')
+                ->where('sale_order.sale_status','order')
+				->where('sale_order.delivery_date !=','0000-00-00')
+                ->where('sale_order.delivery_date !=','')
                 ->where('sale_order.biller_id', $biller_id)
 				->group_by('sale_order.id');
 
@@ -1246,7 +1248,9 @@ class Sale_order extends MY_Controller
 				->join('deliveries', 'deliveries.sale_id = sale_order.id', 'left')
 				->join('quotes', 'quotes.id = sale_order.quote_id', 'left')
                 ->join('erp_deposits', 'erp_deposits.so_id = erp_sale_order.id', 'left')
-				->where('sale_order.order_status','pending')
+                ->where('sale_order.sale_status','order')
+				->where('sale_order.delivery_date !=','0000-00-00')
+                ->where('sale_order.delivery_date !=','')
 				->group_by('sale_order.id');
 
 			if(isset($_REQUEST['d'])){

@@ -298,7 +298,9 @@ class Site extends CI_Model
 	public function get_sale_order_order_alerts()
 	{
 		$this->db->select('COUNT(*) AS count');
-		$this->db->where('sale_order.order_status','pending');
+		$this->db->where('sale_order.sale_status','order');
+		$this->db->where('sale_order.delivery_date !=','0000-00-00');
+		$this->db->where('sale_order.delivery_date !=','');
 		$q = $this->db->get('sale_order');
 		if($q->num_rows() > 0 ){
 			$q = $q->row();
