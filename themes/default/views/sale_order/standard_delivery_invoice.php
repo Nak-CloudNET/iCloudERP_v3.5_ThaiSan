@@ -246,13 +246,13 @@
                                         <td><?= $customer->phone ?></td>
                                     </tr>
                                 <?php } ?>
-                                <?php if(!empty($customer->vat_no)) { ?>
+                                <!--<?php if(!empty($customer->vat_no)) { ?>
                                     <tr>
                                         <td class="bold"  style="width: 20% !important">លេខអត្តសញ្ញាណកម្ម <br>អតប </td>
                                         <td class="bold" >:</td>
                                         <td><?= $customer->vat_no ?></td>
                                     </tr>
-                                <?php } ?>
+                                <?php } ?>-->
                                 <tr>
                                     <td class="bold" >កាលបរិច្ឆេទ / Date</td>
                                     <td class="bold" >:</td>
@@ -264,12 +264,12 @@
                         <div class="col-sm-6 col-xs-6" style="white-space: nowrap;margin-left:-10px !important;">
                             <table>
                                 <tr>
-                                    <td class="bold"  style="width: 45% !important;">លេខដឹក / DO Reference No</sup></td>
+                                    <td class="bold"  style="width: 45% !important;">លេខដឹក / DO Reference</sup></td>
                                     <td class="bold"  style="width: 5% !important;"> : </td>
                                     <td style="width: 40% !important;"><?= $inv->do_reference_no ?></td>
                                 </tr>
                                 <tr>
-                                    <td  class="bold">លេខវិក្កយបត្រ / Sale Reference <br>No</sup></td>
+                                    <td  class="bold">លេខវិក្កយបត្រ / Sale Reference</td>
                                     <td  class="bold">:</td>
                                     <td><?= $inv->sale_reference_no ?></td>
                                 </tr>
