@@ -39,7 +39,7 @@
             page-break-after: always;
         }
         .container {
-            height: 20.5cm !important;
+
             margin-left: -20px !important;
 
         }
@@ -200,9 +200,9 @@
                     <?php if(!empty($customer->company)) { ?>
 
                         <tr>
-                            <td style="width: 50%; font-weight: bold">ក្រុមហ៊ុន </td>
+                            <td style="width: 25%; font-weight: bold">ក្រុមហ៊ុន </td>
                             <td style="width: 5%;font-weight: bold">:</td>
-                            <td style="width: 20%;"><?= $customer->company ?></td>
+                            <td style="width: 40%;"><?= $customer->company ?></td>
                         </tr>
                     <?php } ?>
 
@@ -235,16 +235,10 @@
                             <td><?= $customer->phone ?></td>
                         </tr>
                     <?php } ?>
-                    <?php if(!empty($customer->vat_no)) { ?>
-                        <tr>
-                            <td style="width: 25% !important; font-weight: bold">លេខអត្តសញ្ញាណកម្ម អតប </td>
-                            <td style="font-weight: bold">:</td>
-                            <td><?= $customer->vat_no ?></td>
-                        </tr>
-                    <?php } ?>
+
                 </table>
             </div>
-            <div class="col-sm-6 col-xs-6" style="padding-left: 70px !important;">
+            <div class="col-sm-6 col-xs-6" style="padding-left: 60px !important;">
                 <table style="font-size: 12px;">
                     <tr>
                         <td style="width: 30%; font-weight: bold">លេខរៀង  </td>
@@ -531,7 +525,7 @@
             </div>
         </div>
         <?php if($invs->invoice_footer){ ?>
-            <div style="font-size: 14px !important;margin-top: 10px;height: auto;" id="note" class="col-md-12 col-xs-12">
+            <div style="font-size: 12px !important;margin-top: 10px;height: auto;" id="note" class="col-md-12 col-xs-12">
                 <p ><strong><u>Note:</u></strong></p>
                 <p style="margin-left: 10px;margin-top:10px;"><?php echo strip_tags($invs->invoice_footer); ?></p>
             </div>
@@ -544,7 +538,7 @@
             <br>
             <center>
                 <hr style="margin:0; border:1px solid #000; width: 80%">
-                <p style="font-size: 16px; margin-top: 4px !important">ហត្ថលេខាអ្នកលក់</p>
+                <p style="font-size: 14px; margin-top: 4px !important">ហត្ថលេខាអ្នកលក់</p>
                 <p style="margin-top:-10px; font-size: 14px">Seller's Signature</p>
             </center>
         </div>
@@ -557,8 +551,8 @@
             <br>
             <center>
                 <hr style="margin:0; border:1px solid #000; width: 80%">
-                <p style="font-size: 16px; margin-top: 4px !important">ហត្ថលេខាអ្នកទិញ</p>
-                <p style="margin-top:-10px; font-size: 14px">Customer's Signature</p>
+                <p style="font-size: 14px; margin-top: 4px !important">ហត្ថលេខាអ្នកទិញ</p>
+                <p style="margin-top:-5px; font-size: 14px">Customer's Signature</p>
             </center>
         </div>
     </div>

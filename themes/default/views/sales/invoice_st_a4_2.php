@@ -152,9 +152,7 @@
                         <?php } ?>
 
                         <div style="margin-top: 15px;">
-                            <?php if(!empty($biller->vat_no)) { ?>
-                                <p style="font-size: 12px !important;">លេខអត្តសញ្ញាណកម្ម អតប (VAT No):&nbsp;<?= $biller->vat_no; ?></p>
-                            <?php } ?>
+
 
                             <?php if(!empty($biller->address)) { ?>
                                 <p style="margin-top:-10px !important;font-size: 12px !important;">អាសយដ្ឋាន ៖ &nbsp;<?= $biller->address; ?></p>
@@ -200,9 +198,9 @@
                 <table style="font-size: 12px;">
                     <?php if(!empty($customer->company)) { ?>
                         <tr>
-                            <td style="width: 60%; font-weight: bold">ក្រុមហ៊ុន </td>
+                            <td style="width: 30%; font-weight: bold">ក្រុមហ៊ុន </td>
                             <td style="width: 5%;font-weight: bold">:</td>
-                            <td style="width: 30%;"><?= $customer->company ?></td>
+                            <td style="width: 50%;"><?= $customer->company ?></td>
                         </tr>
                     <?php } ?>
                     <?php if(!empty($customer->name_kh || $customer->name)) { ?>
