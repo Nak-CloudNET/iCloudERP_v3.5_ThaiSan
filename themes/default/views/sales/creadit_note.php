@@ -43,6 +43,9 @@
 		thead th,b {
 			font-size: 12px !important;
 		}
+        .container {
+            height: 100% !important;
+        }
 		tr td{
 			font-size: 13px !important;
 		}
@@ -78,6 +81,12 @@
 	.table thead > tr > th, .table tbody > tr > th, .table tfoot > tr > th, .table thead > tr > td, .table tbody > tr > td, .table tfoot > tr > td {
 		border: 1px solid #000 !important;
 	}
+    .bold{
+        font-weight: bold !important;
+    }
+    body{
+        font-size: 12px !important;
+    }
     @media print {
         .no-print {
             display:none !important;
@@ -137,7 +146,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-12 col-xs-12" style="margin-top:10px;">
+            <div class="col-sm-12 col-xs-12">
                 <center>
                     <h4 class="title" style="font-family: 'Khmer OS Muol Light'; ​margin-top: 3px;">វិក្កយបត្របង្វិលទំនិញ</h4>
                     <h4 class="title" style="margin-top: 3px;">Return Sale</h4>
@@ -153,15 +162,15 @@
 
                     if(!empty($customer->company)) { ?>
                         <tr>
-                            <td style="width: 40%;">ក្រុមហ៊ុន​​​​​​ / Company</td>
-                            <td style="width: 5%;">:</td>
+                            <td style="width: 45%;" class="bold">ក្រុមហ៊ុន​​​​​​ / Company</td>
+                            <td style="width: 5%;" class="bold">:</td>
                             <td style="width: 30%;"><?= $customer->company ?></td>
                         </tr>
                     <?php } ?>
                     <?php if(!empty($customer->name_kh || $customer->name)) { ?>
                         <tr>
-                            <td>អតិថិជន / Customer </td>
-                            <td>:</td>
+                            <td class="bold">អតិថិជន / Customer </td>
+                            <td class="bold">:</td>
                             <?php if(($customer->name_kh)) { ?>
                                 <td><?= $customer->name_kh ?></td>
                             <?php }else { ?>
@@ -171,8 +180,8 @@
                     <?php } ?>
                     <?php if(!empty($customer->address_kh || $customer->address)) { ?>
                         <tr>
-                            <td>អាសយដ្ឋាន / Address </td>
-                            <td>:</td>
+                            <td class="bold">អាសយដ្ឋាន / Address </td>
+                            <td class="bold">:</td>
                             <?php if(!empty($customer->address_kh)) { ?>
                                 <td><?= $customer->address_kh?></td>
                             <?php }else { ?>
@@ -182,15 +191,15 @@
                     <?php } ?>
                     <?php if(!empty($customer->address_kh || $customer->address)) { ?>
                         <tr>
-                            <td>ទូរស័ព្ទលេខ (Tel)</td>
-                            <td>:</td>
+                            <td class="bold">ទូរស័ព្ទលេខ (Tel)</td>
+                            <td class="bold">:</td>
                             <td><?= $customer->phone ?></td>
                         </tr>
                     <?php } ?>
                     <?php if(!empty($customer->vat_no)) { ?>
                         <tr>
-                            <td style="width: 20% !important">លេខអត្តសញ្ញាណកម្ម អតប </td>
-                            <td>:</td>
+                            <td class="bold" style="width: 20% !important">លេខអត្តសញ្ញាណកម្ម អតប </td>
+                            <td class="bold">:</td>
                             <td><?= $customer->vat_no ?></td>
                         </tr>
                     <?php } ?>
@@ -200,30 +209,30 @@
             <div class="col-sm-6 col-xs-6" style="padding-left: 60px !important;">
                 <table class="noPadding" border="none">
                     <tr>
-                        <td style="width: 45%;">លេខរៀង / N<sup>o</sup></sup></td>
-                        <td style="width: 5%;">:</td>
+                        <td class="bold" style="width: 45%;">លេខរៀង / N<sup>o</sup></sup></td>
+                        <td class="bold" style="width: 5%;">:</td>
                         <td style="width: 50%;"><?= $inv->reference_no ?></td>
                     </tr>
                     <tr>
-                        <td>កាលបរិច្ឆេទ / Date</td>
-                        <td>:</td>
+                        <td class="bold">កាលបរិច្ឆេទ / Date</td>
+                        <td class="bold">:</td>
                         <td><?= $this->erp->hrld($inv->date); ?></td>
                     </tr>
                     <tr>
-                        <td>អ្នកលក់ / Sale Man</td>
-                        <td>:</td>
+                        <td class="bold">អ្នកលក់ / Sale Man</td>
+                        <td class="bold">:</td>
                         <td><?= $inv->saleman; ?></td>
                     </tr>
 
                     <?php if ($inv->payment_term) { ?>
                         <tr>
-                            <td>រយៈពេលបង់ប្រាក់ </td>
-                            <td>:</td>
+                            <td class="bold">រយៈពេលបង់ប្រាក់ </td>
+                            <td class="bold">:</td>
                             <td><?= $inv->payment_term ?></td>
                         </tr>
                         <tr>
-                            <td style="width: 30% !important">កាលបរិច្ឆេទនៃការបង់ប្រាក់ </td>
-                            <td>:</td>
+                            <td class="bold" style="width: 30% !important">កាលបរិច្ឆេទនៃការបង់ប្រាក់ </td>
+                            <td class="bold">:</td>
                             <td><?= $this->erp->hrsd($inv->due_date) ?></td>
                         </tr>
                     <?php }
@@ -389,8 +398,8 @@
 						
 					?>
 					<?php
-						if($erow<10){
-							$k=10 - $erow;
+						if($erow<9){
+							$k=9 - $erow;
 							for($j=1;$j<=$k;$j++){
                                 if($dis != 0 ) {
 
@@ -558,9 +567,9 @@
                         <div class="row" >
                             <div class="col-sm-4 col-xs-4">
                                 <center>
+                                    <p>អតិថិជន</p>
                                     <p>Customer</p></br></br></br>
                                     <hr style="margin:0; border:1px solid #000; width: 80%">
-
                                 </center>
                             </div>
                             <div class="col-sm-4 col-xs-4">
@@ -568,18 +577,18 @@
                             </div>
                             <div class="col-sm-4 col-xs-4">
                                 <center>
+                                    <p>អ្នកកាន់ឃ្លាំង</p>
                                     <p>Stock Controller</p></br></br></br>
                                     <hr style="margin:0; border:1px solid #000; width: 80%">
-
                                 </center>
                             </div>
                         </div>
                 </div>
             </div>
-    <div class="row"></br></br>
+    <div class="row">
         <div class="col-lg-4 col-sm-4 col-xs-4" >
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <a class="btn btn-warning no-print" href="<?= site_url('sales/return_sales'); ?>" style="margin-left: -20px; border-radius: 0">
+            </br></br>
+            <a class="btn btn-warning no-print" href="<?= site_url('sales/return_sales'); ?>" style="border-radius: 0">
                 <i class="fa fa-hand-o-left" aria-hidden="true"></i>&nbsp;Back        </a>
             <br><br>
 
