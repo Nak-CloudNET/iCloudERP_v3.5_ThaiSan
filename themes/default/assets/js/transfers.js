@@ -207,6 +207,7 @@ $(document).ready(function () {
         //console.log(poitems[item_id].row.name + ' is being removed.');
         delete toitems[item_id];
         __setItem('toitems', JSON.stringify(toitems));
+        loadItems();
         row.remove();
 
     });
@@ -481,7 +482,6 @@ function loadItems() {
         $("#toTable tbody").empty();
         $('#add_transfer, #edit_transfer').attr('disabled', false);
         toitems = JSON.parse(__getItem('toitems'));
-
         $.each(toitems, function () {
             var item 			= this;
             var item_id 		= site.settings.item_addition == 1 ? item.item_id : item.id;
