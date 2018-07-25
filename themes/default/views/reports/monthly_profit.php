@@ -13,7 +13,7 @@
 		}
 	}
 ?>
-<div class="modal-dialog modal-lg" style="width:1000px;">
+<div class="modal-dialog modal-lg" style="width:70%;">
     <div class="modal-content">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
@@ -26,7 +26,7 @@
         </div>
         <div class="modal-body">
             <div class="table-responsive">
-				<table id="POData" cellpadding="0" cellspacing="0" border="0" class="table table-condensed table-bordered table-hover table-striped">
+				<table id="POData" cellpadding="0" cellspacing="0" border="0" class=" table table-bordered table-hover table-striped">
                     <thead>
                         <tr class="active">
                             <th><?php echo $this->lang->line("date"); ?></th>
@@ -103,7 +103,7 @@
 	})
 </script>
 <style type="text/css">
-	table { 
+	table {
 		white-space: nowrap;
 	}
 </style>

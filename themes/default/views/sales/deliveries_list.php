@@ -36,7 +36,8 @@
             'fnRowCallback': function (nRow, aData, iDisplayIndex) {
                 var oSettings = oTable.fnSettings();
                 nRow.id = aData[0];
-                nRow.className = "delivery_list_link";
+               // nRow.className = "delivery_list_link";
+                onRow.className = "order_invoice_link";
                 return nRow;
             },
             "aoColumns": [{
@@ -148,7 +149,7 @@
 
                 <p class="introtext"><?= lang('list_results'); ?></p>
 
-                <table id="DOData" class="table table-bordered table-hover table-striped table-condensed">
+                <table id="DOData" class="table table-bordered table-hover table-striped table-condensed ">
                     <thead>
                     <tr>
                         <th style="min-width:30px; width: 30px; text-align: center;">
