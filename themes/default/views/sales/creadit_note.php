@@ -29,7 +29,7 @@
 	.table thead > tr > th, .table tbody > tr > th, .table tfoot > tr > th {
 			background-color: #444 !important;
 			color: #FFF !important;
-		}
+    }
 	.table thead > tr > th, .table tbody > tr > th, .table tfoot > tr > th, .table thead > tr > td, .table tbody > tr > td, .table tfoot > tr > td {
 		border: 1px solid #000 !important;
 	}
@@ -68,6 +68,12 @@
         margin-bottom: 0px;
         border: none;
     }
+    .header{
+        font-family:"Khmer OS Muol Light";
+        -moz-font-family: "Khmer OS System";
+        font-size: 18px;
+    }
+
     .noPadding tr td{
         padding: 0px;
         margin-top: 0px;
