@@ -200,7 +200,7 @@
                 <table style="font-size: 12px;">
                     <?php if(!empty($customer->company)) { ?>
                         <tr>
-                            <td style="width: 15%; font-weight: bold">ក្រុមហ៊ុន </td>
+                            <td style="width: 60%; font-weight: bold">ក្រុមហ៊ុន </td>
                             <td style="width: 5%;font-weight: bold">:</td>
                             <td style="width: 30%;"><?= $customer->company ?></td>
                         </tr>
@@ -243,12 +243,12 @@
                     <?php } ?>
                 </table>
             </div>
-            <div class="col-sm-6 col-xs-6" style="padding-left: 150px !important;">
+            <div class="col-sm-6 col-xs-6" style="padding-left: 70px !important;">
                 <table style="font-size: 12px;">
                     <tr>
                         <td style="width: 40%;font-weight: bold">លេខរៀង  </td>
-                        <td style="width: 10%;font-weight: bold">:</td>
-                        <td style="width: 70%;"><?= $invs->reference_no ?></td>
+                        <td style="width: 5%;font-weight: bold">:</td>
+                        <td style="width: 50%;"><?= $invs->reference_no ?></td>
                     </tr>
                     <tr>
                         <td style="font-weight: bold">កាលបរិច្ឆេទ </td>
@@ -372,8 +372,8 @@
                     }
                     ?>
                     <?php
-                    if($erow<8){
-                        $k=8 - $erow;
+                    if($erow<7){
+                        $k=7 - $erow;
                         for($j=1;$j<=$k;$j++) {
                             if($discount != 0) {
                                 echo  '<tr>
@@ -528,12 +528,12 @@
                 <p style="margin-left: 10px;margin-top:10px;"><?php echo strip_tags($invs->invoice_footer); ?></p>
             </div>
         <?php } ?>
-        <br><br><br><br>
+
     </div>	<!--div col sm 6 -->
 
     <div id="footer" class="row">
         <div class="col-sm-4 col-xs-4">
-            <br><br><br>
+            <br>
             <center>
                 <hr style="margin:0; border:1px solid #000; width: 80%">
                 <p style="font-size: 16px; margin-top: 4px !important">ហត្ថលេខាអ្នកលក់</p>
@@ -546,7 +546,7 @@
             </center>
         </div>
         <div class="col-sm-4 col-xs-4">
-            <br><br><br>
+            <br>
             <center>
                 <hr style="margin:0; border:1px solid #000; width: 80%">
                 <p style="font-size: 16px; margin-top: 4px !important">ហត្ថលេខាអ្នកទិញ</p>

@@ -40,7 +40,7 @@
         }
         .container {
             height: 20.5cm !important;
-            margin-left: -11px !important;
+            margin-left: -20px !important;
 
         }
         .customer_label {
@@ -134,10 +134,10 @@
 
 <body>
 <div class="container" style="margin: 0 auto;">
-    <div class="col-xs-12" style="padding: 0">
+    <div class="col-xs-12" >
         <div class="row" style="margin-top: 20px !important;">
             <div class="col-sm-3 col-xs-3 " style=" margin-top: 0px !important;">
-                <br>
+
                 <?php if(!empty($biller->logo)) { ?>
                     <img class="img-responsive myhide" src="<?= base_url() ?>assets/uploads/logos/<?= $biller->logo; ?>"id="hidedlo" style="width: 140px; margin-top: -10px;" />
                 <?php } ?>
@@ -200,9 +200,9 @@
                     <?php if(!empty($customer->company)) { ?>
 
                         <tr>
-                            <td style="width: 15%; font-weight: bold">ក្រុមហ៊ុន </td>
+                            <td style="width: 50%; font-weight: bold">ក្រុមហ៊ុន </td>
                             <td style="width: 5%;font-weight: bold">:</td>
-                            <td style="width: 30%;"><?= $customer->company ?></td>
+                            <td style="width: 20%;"><?= $customer->company ?></td>
                         </tr>
                     <?php } ?>
 
@@ -244,7 +244,7 @@
                     <?php } ?>
                 </table>
             </div>
-            <div class="col-sm-6 col-xs-6" style="padding-left: 160px !important;">
+            <div class="col-sm-6 col-xs-6" style="padding-left: 70px !important;">
                 <table style="font-size: 12px;">
                     <tr>
                         <td style="width: 30%; font-weight: bold">លេខរៀង  </td>
@@ -382,8 +382,8 @@
                     }
                     ?>
                     <?php
-                    if($erow<12){
-                        $k=12 - $erow;
+                    if($erow<9){
+                        $k=9 - $erow;
                         for($j=1;$j<=$k;$j++) {
                             if($discount != 0) {
                                 echo  '<tr>
@@ -536,12 +536,12 @@
                 <p style="margin-left: 10px;margin-top:10px;"><?php echo strip_tags($invs->invoice_footer); ?></p>
             </div>
         <?php } ?>
-        <br> <br> <br> <br>
+
     </div>	<!--div col sm 6 -->
 
     <div id="footer" class="row">
         <div class="col-sm-4 col-xs-4">
-            <br><br><br>
+            <br>
             <center>
                 <hr style="margin:0; border:1px solid #000; width: 80%">
                 <p style="font-size: 16px; margin-top: 4px !important">ហត្ថលេខាអ្នកលក់</p>
@@ -554,7 +554,7 @@
             </center>
         </div>
         <div class="col-sm-4 col-xs-4">
-            <br><br><br>
+            <br>
             <center>
                 <hr style="margin:0; border:1px solid #000; width: 80%">
                 <p style="font-size: 16px; margin-top: 4px !important">ហត្ថលេខាអ្នកទិញ</p>

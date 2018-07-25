@@ -149,7 +149,6 @@
         ?>
             <div class="row" style="margin-top: 20px !important;">
                 <div class="col-sm-3 col-xs-3 " style="margin-top: 0px !important;">
-                    <br>
                     <?php if(!empty($biller->logo)) { ?>
                         <img class="img-responsive myhide" src="<?= base_url() ?>assets/uploads/logos/<?= $biller->logo; ?>"id="hidedlo" style="width: 140px; margin-top: -10px;" />
                     <?php } ?>
@@ -202,7 +201,9 @@
                     </div>
 
                 </div>
-            </div><br>
+            </div>
+
+
             <div class="row" style="text-align: left;">
                 <div class="col-sm-6 col-xs-6" style="font-size: 12px; ">
                     <table >
@@ -210,9 +211,9 @@
 
                         if(!empty($customer->company)) { ?>
                             <tr>
-                                <td style="width: 40%;font-weight: bold">ក្រុមហ៊ុន​​​​​​ / Company</td>
+                                <td style="width: 50%;font-weight: bold">ក្រុមហ៊ុន​​​​​​ / Company</td>
                                 <td style="width: 5%;font-weight: bold">:</td>
-                                <td style="width: 45%;"><?= $customer->company ?></td>
+                                <td style="width: 40%;"><?= $customer->company ?></td>
                             </tr>
                         <?php } ?>
                         <?php if(!empty($customer->name_kh || $customer->name)) { ?>
@@ -253,12 +254,12 @@
                         <?php } ?>
                     </table>
                 </div>
-                <div class="col-sm-6 col-xs-6" style="font-size: 12px; padding-left: 120px !important; " >
+                <div class="col-sm-6 col-xs-6" style="font-size: 12px; padding-left: 70px !important; " >
                     <table class="noPadding" border="none">
                         <tr>
-                            <td style="width: 50%; font-weight: bold">លេខរៀង / N<sup>o</sup></sup></td>
+                            <td style="width: 40%; font-weight: bold">លេខរៀង / N<sup>o</sup></sup></td>
                             <td style="width: 5%;font-weight: bold">:</td>
-                            <td style="width: 50%;"><?= $invs->reference_no ?></td>
+                            <td style="width: 40%;"><?= $invs->reference_no ?></td>
                         </tr>
                         <tr>
                             <td style="font-weight: bold">កាលបរិច្ឆេទ / Date</td>
@@ -382,7 +383,7 @@
                 ?>
                 <?php
                 if($erow<12){
-                    $k=12 - $erow;
+                    $k=12- $erow;
                     for($j=1;$j<=$k;$j++) {
                         if($discount != 0) {
                             echo  '<tr class="border">
@@ -550,7 +551,7 @@
 
             <div id="footer" class="row"" >
                 <div class="col-sm-4 col-xs-4">
-                    <br><br><br>
+                    <br>
                     <center>
                         <hr style="margin:0; border:1px solid #000; width: 80%">
                         <p style=" margin-top: 4px !important">ហត្ថលេខាអ្នកលក់</p>
@@ -558,13 +559,13 @@
                     </center>
                 </div>
                 <div class="col-sm-4 col-xs-4">
-                    <br><br><br>
+                    <br>
                     <center>
 
                     </center>
                 </div>
                 <div class="col-sm-4 col-xs-4">
-                    <br><br><br>
+                    <br>
                     <center>
                         <hr style="margin:0; border:1px solid #000; width: 80%">
                         <p style=" margin-top: 4px !important">ហត្ថលេខាអ្នកទិញ</p>
