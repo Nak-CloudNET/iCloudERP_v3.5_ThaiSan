@@ -55,10 +55,7 @@
         .invoice_label {
             padding-left: 0 !important;
         }
-        #footer {
-            bottom: 10px !important;
-            margin-left: -10px !important;
-        }
+
         #note{
             max-width: 95% !important;
             margin: 0 auto !important;
@@ -209,7 +206,7 @@
                     </div>
 
                     <div class="row" style="text-align: left;margin-left:-20px !important;">
-                        <div class="col-sm-7 col-xs-7">
+                        <div class="col-sm-6 col-xs-6"style="white-space: nowrap">
                             <table >
                                 <?php
 
@@ -251,7 +248,7 @@
                                 <?php } ?>
                                 <?php if(!empty($customer->vat_no)) { ?>
                                     <tr>
-                                        <td class="bold"  style="width: 20% !important">លេខអត្តសញ្ញាណកម្ម អតប </td>
+                                        <td class="bold"  style="width: 20% !important">លេខអត្តសញ្ញាណកម្ម <br>អតប </td>
                                         <td class="bold" >:</td>
                                         <td><?= $customer->vat_no ?></td>
                                     </tr>
@@ -264,17 +261,17 @@
                             </table>
                         </div>
                         <?php //$this->erp->print_arrays($inv);?>
-                        <div class="col-sm-5 col-xs-5">
+                        <div class="col-sm-6 col-xs-6" style="white-space: nowrap;margin-left:-10px !important;">
                             <table>
                                 <tr>
-                                    <td class="bold"  style="width: 50% !important;">លេខដឹក / DO Reference No</sup></td>
-                                    <td class="bold"  style="width: 5% !important;">:</td>
-                                    <td><?= $inv->do_reference_no ?></td>
+                                    <td class="bold"  style="width: 45% !important;">លេខដឹក / DO Reference No</sup></td>
+                                    <td class="bold"  style="width: 5% !important;"> : </td>
+                                    <td style="width: 40% !important;"><?= $inv->do_reference_no ?></td>
                                 </tr>
                                 <tr>
-                                    <td  class="bold">លេខវិក្កយបត្រ / Sale Reference No</sup></td>
+                                    <td  class="bold">លេខវិក្កយបត្រ / Sale Reference <br>No</sup></td>
                                     <td  class="bold">:</td>
-                                    <td style="white-space: nowrap"><?= $inv->sale_reference_no ?></td>
+                                    <td><?= $inv->sale_reference_no ?></td>
                                 </tr>
 
                                 <tr>
@@ -385,8 +382,7 @@
 
 
 
-            </tbody>
-            <tfoot class="tfoot">
+
             <tr>
                 <th colspan="9">
                     <?php if(trim(htmlspecialchars_decode($inv->note))){ ?>
@@ -398,7 +394,7 @@
                     <div class="clear-both">
                         <div style="width:100%;height: 10px !important;"></div>
                     </div>
-                    <div id="footer" class="row" >
+                    <div class="row" >
                         <div class="col-sm-3 col-xs-3">
 
 
@@ -434,8 +430,7 @@
                     </div>
                 </th>
             </tr>
-            </tfoot>
-
+            </tbody>
         </table>
     </div>
 
