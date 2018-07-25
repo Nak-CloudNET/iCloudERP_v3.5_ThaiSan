@@ -325,14 +325,15 @@
                 $erow = 1;
                 $totalRow = 0;
                 foreach ($rows as $row) {
+                    //$this->erp->print_arrays($rows);
                     $free = lang('free');
                     $product_unit = '';
                     $total = 0;
 
                     if($row->variant){
-                        $product_unit = $row->variant;
+                        $product_unit = $row->unit;
                     }else{
-                        $product_unit = $row->name;
+                        $product_unit = $row->uname;
                     }
                     $product_name_setting;
                     if($setting->show_code == 0) {
