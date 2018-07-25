@@ -257,7 +257,8 @@ $lang['quantity_updated']			                = "Quantity Updated";
 $lang['item_no_cost']                               = "Item no cost cannot do adjustment.";
 $lang['adjustment_by']                              = "Adjusted by";
 $lang['opening_stock']                              = "Opening Stock";
-$lang['maman_barcode'] = "MAMAN Barcode";
+$lang['maman_barcode'] 								= "MAMAN Barcode";
+$lang['sale_invoice'] 								= "Sale Order Ref";
 
 
 
