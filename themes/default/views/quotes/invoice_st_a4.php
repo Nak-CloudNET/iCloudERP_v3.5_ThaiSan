@@ -554,7 +554,7 @@
 
             <div id="footer" class="row" >
                 <div class="col-sm-4 col-xs-4">
-                    <br><br><br>
+                    <br><br>
                     <center>
                         <hr style="margin:0; border:1px solid #000; width: 80%">
                         <p style=" margin-top: 4px !important">ហត្ថលេខាអ្នកលក់</p>
@@ -567,7 +567,7 @@
                     </center>
                 </div>
                 <div class="col-sm-4 col-xs-4">
-                    <br><br><br>
+                    <br><br>
                     <center>
                         <hr style="margin:0; border:1px solid #000; width: 80%">
                         <p style=" margin-top: 4px !important">ហត្ថលេខាអ្នកទិញ</p>

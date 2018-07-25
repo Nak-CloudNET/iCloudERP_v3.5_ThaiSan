@@ -152,9 +152,7 @@
                         <?php } ?>
 
                         <div style="margin-top: 15px;">
-                            <?php if(!empty($biller->vat_no)) { ?>
-                                <p style="font-size: 12px !important;">លេខអត្តសញ្ញាណកម្ម អតប (VAT No):&nbsp;<?= $biller->vat_no; ?></p>
-                            <?php } ?>
+
 
                             <?php if(!empty($biller->address)) { ?>
                                 <p style="margin-top:-10px !important;font-size: 12px !important;">អាសយដ្ឋាន ៖ &nbsp;<?= $biller->address; ?></p>
@@ -200,9 +198,9 @@
                 <table style="font-size: 12px;">
                     <?php if(!empty($customer->company)) { ?>
                         <tr>
-                            <td style="width: 15%; font-weight: bold">ក្រុមហ៊ុន </td>
+                            <td style="width: 30%; font-weight: bold">ក្រុមហ៊ុន </td>
                             <td style="width: 5%;font-weight: bold">:</td>
-                            <td style="width: 30%;"><?= $customer->company ?></td>
+                            <td style="width: 50%;"><?= $customer->company ?></td>
                         </tr>
                     <?php } ?>
                     <?php if(!empty($customer->name_kh || $customer->name)) { ?>
@@ -234,21 +232,15 @@
                             <td><?= $customer->phone ?></td>
                         </tr>
                     <?php } ?>
-                    <?php if(!empty($customer->vat_no)) { ?>
-                        <tr>
-                            <td style="width: 25% !important; font-weight: bold">លេខអត្តសញ្ញាណកម្ម អតប </td>
-                            <td style="font-weight: bold">:</td>
-                            <td><?= $customer->vat_no ?></td>
-                        </tr>
-                    <?php } ?>
+
                 </table>
             </div>
-            <div class="col-sm-6 col-xs-6" style="padding-left: 150px !important;">
+            <div class="col-sm-6 col-xs-6" style="padding-left: 70px !important;">
                 <table style="font-size: 12px;">
                     <tr>
                         <td style="width: 40%;font-weight: bold">លេខរៀង  </td>
-                        <td style="width: 10%;font-weight: bold">:</td>
-                        <td style="width: 70%;"><?= $invs->reference_no ?></td>
+                        <td style="width: 5%;font-weight: bold">:</td>
+                        <td style="width: 50%;"><?= $invs->reference_no ?></td>
                     </tr>
                     <tr>
                         <td style="font-weight: bold">កាលបរិច្ឆេទ </td>
@@ -528,12 +520,12 @@
                 <p style="margin-left: 10px;margin-top:10px;"><?php echo strip_tags($invs->invoice_footer); ?></p>
             </div>
         <?php } ?>
-        <br><br><br><br>
+
     </div>	<!--div col sm 6 -->
 
     <div id="footer" class="row">
         <div class="col-sm-4 col-xs-4">
-            <br><br><br>
+            <br>
             <center>
                 <hr style="margin:0; border:1px solid #000; width: 80%">
                 <p style="font-size: 16px; margin-top: 4px !important">ហត្ថលេខាអ្នកលក់</p>
@@ -546,7 +538,7 @@
             </center>
         </div>
         <div class="col-sm-4 col-xs-4">
-            <br><br><br>
+            <br>
             <center>
                 <hr style="margin:0; border:1px solid #000; width: 80%">
                 <p style="font-size: 16px; margin-top: 4px !important">ហត្ថលេខាអ្នកទិញ</p>
