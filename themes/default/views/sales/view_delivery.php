@@ -135,13 +135,13 @@
                         <span class="hidden-sm hidden-xs"><?= lang('delivery_note') ?></span>
                     </a>
                 </div>
-                <div class="btn-group">
+                <!--<div class="btn-group">
                     <a href="<?= site_url('sale_order/delivery_invoice_a5/' . $delivery->id) ?>" target="_blank" class="tip btn btn-primary" title="<?= lang('invoice_a5') ?>">
                         <i class="fa fa-print"></i>
                         <span class="hidden-sm hidden-xs"><?= lang('invoice_a5') ?></span>
                     </a>
                 </div>
-                <!--
+
                 <div class="btn-group">
                     <a href="<?= site_url('sale_order/delivery_note/' . $delivery->id) ?>" target="_blank" class="tip btn btn-primary" title="<?= lang('invoice') ?>">
                         <i class="fa fa-print"></i>
