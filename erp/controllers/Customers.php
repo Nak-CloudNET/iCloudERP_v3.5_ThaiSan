@@ -903,35 +903,19 @@ class Customers extends MY_Controller
 			$this->data['billers'] = $this->site->getAllCompanies('biller');
             $this->data['modal_js'] = $this->site->modal_js();
 
-            if ($this->Owner || $this->Admin || !$this->session->userdata('biller_id')){
-                if($this->Settings->system_management == 'biller') {
-                    if($so_id > 0) {
-                        $sale_order = $this->site->getSaleOrderByID($so_id);
-                        $biller_id = $sale_order->biller_id;
-                        $this->data['biller_id'] = $biller_id;
-                        $this->data['reference'] = $this->site->getReference('sp',$biller_id);
-                    }else {
-                        $biller_id = $this->site->get_setting()->default_biller;
-                        $this->data['biller_id'] = $biller_id;
-                        $this->data['reference'] = $this->site->getReference('sp',$biller_id);
-                    }
+            if($this->Settings->system_management == 'biller') {
+                if ($this->Owner || $this->Admin || !$this->session->userdata('biller_id')) {
+                    $biller_id = $this->site->get_setting()->default_biller;
+                    $this->data['biller_id'] = $biller_id;
+                    $this->data['reference'] = $this->site->getReference('sp',$biller_id);
+                } else {
+                    $biller_id = json_decode($this->session->userdata('biller_id'));
+                    $this->data['biller_id'] = $biller_id;
+                    $this->data['reference'] = $this->site->getReference('sp',$biller_id[0]);
                 }
-
-            }else{
-                if($this->Settings->system_management == 'biller') {
-                    if($so_id > 0) {
-                        $sale_order = $this->site->getSaleOrderByID($so_id);
-                        $biller_id = $sale_order->biller_id;
-                        $this->data['biller_id'] = $biller_id;
-                        $this->data['reference'] = $this->site->getReference('sp',$biller_id);
-                    }else {
-                        $biller_ids = $this->session->userdata('biller_id');
-                        $arr = json_decode($biller_ids);
-                        $biller_id = $arr[0];
-                        $this->data['biller_id'] = $biller_id;
-                        $this->data['reference'] = $this->site->getReference('sp',$biller_id);
-                    }
-                }
+            } else {
+                $this->data['biller_id'] = $sale->biller_id;
+                $this->data['reference'] = $this->site->getReference('sp',$sale->biller_id);
             }
 
 			$this->data['sale_order'] = $this->site->getSaleOrderByID($so_id);
