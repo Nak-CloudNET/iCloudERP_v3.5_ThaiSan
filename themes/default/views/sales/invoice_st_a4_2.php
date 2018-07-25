@@ -234,13 +234,7 @@
                             <td><?= $customer->phone ?></td>
                         </tr>
                     <?php } ?>
-                    <?php if(!empty($customer->vat_no)) { ?>
-                        <tr>
-                            <td style="width: 25% !important; font-weight: bold">លេខអត្តសញ្ញាណកម្ម អតប </td>
-                            <td style="font-weight: bold">:</td>
-                            <td><?= $customer->vat_no ?></td>
-                        </tr>
-                    <?php } ?>
+
                 </table>
             </div>
             <div class="col-sm-6 col-xs-6" style="padding-left: 70px !important;">
@@ -372,8 +366,8 @@
                     }
                     ?>
                     <?php
-                    if($erow<7){
-                        $k=7 - $erow;
+                    if($erow<8){
+                        $k=8 - $erow;
                         for($j=1;$j<=$k;$j++) {
                             if($discount != 0) {
                                 echo  '<tr>

@@ -382,8 +382,8 @@
                     }
                     ?>
                     <?php
-                    if($erow<9){
-                        $k=9 - $erow;
+                    if($erow<8){
+                        $k=8 - $erow;
                         for($j=1;$j<=$k;$j++) {
                             if($discount != 0) {
                                 echo  '<tr>
