@@ -39,8 +39,8 @@
             page-break-after: always;
         }
         .container {
-            height: 20.5cm !important;
-            margin-left: -11px !important;
+
+            margin-left: -20px !important;
 
         }
         .customer_label {
@@ -134,10 +134,10 @@
 
 <body>
 <div class="container" style="margin: 0 auto;">
-    <div class="col-xs-12" style="padding: 0">
+    <div class="col-xs-12" >
         <div class="row" style="margin-top: 20px !important;">
             <div class="col-sm-3 col-xs-3 " style=" margin-top: 0px !important;">
-                <br>
+
                 <?php if(!empty($biller->logo)) { ?>
                     <img class="img-responsive myhide" src="<?= base_url() ?>assets/uploads/logos/<?= $biller->logo; ?>"id="hidedlo" style="width: 140px; margin-top: -10px;" />
                 <?php } ?>
@@ -200,9 +200,9 @@
                     <?php if(!empty($customer->company)) { ?>
 
                         <tr>
-                            <td style="width: 15%; font-weight: bold">ក្រុមហ៊ុន </td>
+                            <td style="width: 25%; font-weight: bold">ក្រុមហ៊ុន </td>
                             <td style="width: 5%;font-weight: bold">:</td>
-                            <td style="width: 30%;"><?= $customer->company ?></td>
+                            <td style="width: 40%;"><?= $customer->company ?></td>
                         </tr>
                     <?php } ?>
 
@@ -235,16 +235,10 @@
                             <td><?= $customer->phone ?></td>
                         </tr>
                     <?php } ?>
-                    <?php if(!empty($customer->vat_no)) { ?>
-                        <tr>
-                            <td style="width: 25% !important; font-weight: bold">លេខអត្តសញ្ញាណកម្ម អតប </td>
-                            <td style="font-weight: bold">:</td>
-                            <td><?= $customer->vat_no ?></td>
-                        </tr>
-                    <?php } ?>
+
                 </table>
             </div>
-            <div class="col-sm-6 col-xs-6" style="padding-left: 160px !important;">
+            <div class="col-sm-6 col-xs-6" style="padding-left: 60px !important;">
                 <table style="font-size: 12px;">
                     <tr>
                         <td style="width: 30%; font-weight: bold">លេខរៀង  </td>
@@ -382,8 +376,8 @@
                     }
                     ?>
                     <?php
-                    if($erow<12){
-                        $k=12 - $erow;
+                    if($erow<8){
+                        $k=8 - $erow;
                         for($j=1;$j<=$k;$j++) {
                             if($discount != 0) {
                                 echo  '<tr>
@@ -531,20 +525,20 @@
             </div>
         </div>
         <?php if($invs->invoice_footer){ ?>
-            <div style="font-size: 14px !important;margin-top: 10px;height: auto;" id="note" class="col-md-12 col-xs-12">
+            <div style="font-size: 12px !important;margin-top: 10px;height: auto;" id="note" class="col-md-12 col-xs-12">
                 <p ><strong><u>Note:</u></strong></p>
                 <p style="margin-left: 10px;margin-top:10px;"><?php echo strip_tags($invs->invoice_footer); ?></p>
             </div>
         <?php } ?>
-        <br> <br> <br> <br>
+
     </div>	<!--div col sm 6 -->
 
     <div id="footer" class="row">
         <div class="col-sm-4 col-xs-4">
-            <br><br><br>
+            <br>
             <center>
                 <hr style="margin:0; border:1px solid #000; width: 80%">
-                <p style="font-size: 16px; margin-top: 4px !important">ហត្ថលេខាអ្នកលក់</p>
+                <p style="font-size: 14px; margin-top: 4px !important">ហត្ថលេខាអ្នកលក់</p>
                 <p style="margin-top:-10px; font-size: 14px">Seller's Signature</p>
             </center>
         </div>
@@ -554,11 +548,11 @@
             </center>
         </div>
         <div class="col-sm-4 col-xs-4">
-            <br><br><br>
+            <br>
             <center>
                 <hr style="margin:0; border:1px solid #000; width: 80%">
-                <p style="font-size: 16px; margin-top: 4px !important">ហត្ថលេខាអ្នកទិញ</p>
-                <p style="margin-top:-10px; font-size: 14px">Customer's Signature</p>
+                <p style="font-size: 14px; margin-top: 4px !important">ហត្ថលេខាអ្នកទិញ</p>
+                <p style="margin-top:-5px; font-size: 14px">Customer's Signature</p>
             </center>
         </div>
     </div>

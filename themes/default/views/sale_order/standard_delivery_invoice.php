@@ -13,10 +13,9 @@
 <style>
     .container {
         width: 100%;
-        margin: 20px auto;
+        margin: 10px auto;
         padding: 10px;
-        font-size: 14px;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+        font-size: 12px;
         position:relative;
     }
     .title-header tr{
@@ -52,16 +51,13 @@
             break:inside: auto;
             clear:both;
         }
-        tfoot {
-            display: table-footer-group;
-            -webkit-display: table-footer-group;
-            page-break-after: always;
-        }
+
         .invoice_label {
             padding-left: 0 !important;
         }
         #footer {
             bottom: 10px !important;
+            margin-left: -10px !important;
         }
         #note{
             max-width: 95% !important;
@@ -138,8 +134,8 @@
     });
 </script>
 <body>
-<div class="container" style="width: 821px;margin: 0 auto;">
-    <div class="col-xs-12"
+<div class="container" style="width: 40%;margin: 0 auto;">
+    <div class="col-xs-12">
     <?php
     $cols = 6;
     if ($discount != 0) {
@@ -155,7 +151,7 @@
                         <div class="col-sm-3 col-xs-3 " style="margin-top: 0px !important;">
                             <br>
                             <?php if(!empty($biller->logo)) { ?>
-                                <img class="img-responsive myhide" src="<?= base_url() ?>assets/uploads/logos/<?= $biller->logo; ?>"id="hidedlo" style="width: 140px; margin-left: 25px;margin-top: -10px;" />
+                                <img class="img-responsive myhide" src="<?= base_url() ?>assets/uploads/logos/<?= $biller->logo; ?>"id="hidedlo" style="width: 140px;margin-top: -10px;margin-left: -10px !important;" />
                             <?php } ?>
                         </div>
                         <div  class="col-sm-7 col-xs-7 company_addr "  style="margin-top: -20px !important;">
@@ -203,7 +199,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-sm-12 col-xs-12" style="margin-top:20px;">
+                        <div class="col-sm-12 col-xs-12">
                             <center>
                                 <h4 class="title">វិក្កយបត្រដឹកជញ្ជូន</h4>
                                 <h4 class="title" style="margin-top: 3px;">Delivery Order</h4>
@@ -212,16 +208,16 @@
                         </div>
                     </div>
 
-                    <div class="row" style="text-align: left;">
-                        <div class="col-sm-6 col-xs-6">
+                    <div class="row" style="text-align: left;margin-left:-20px !important;">
+                        <div class="col-sm-7 col-xs-7">
                             <table >
                                 <?php
 
                                 if(!empty($customer->company)) { ?>
                                     <tr>
-                                        <td class="bold" style="width: 40%;">ក្រុមហ៊ុន​​​​​​ / Company</td>
-                                        <td class="bold"  style="width: 5%;">:</td>
-                                        <td style="width: 30%;"><?= $customer->company ?></td>
+                                        <td class="bold" style="width: 45% !important;">ក្រុមហ៊ុន​​​​​​ / Company</td>
+                                        <td class="bold"  style="width: 5% !important;">:</td>
+                                        <td style="width: 40% !important;"><?= $customer->company ?></td>
                                     </tr>
                                 <?php } ?>
                                 <?php if(!empty($customer->name_kh || $customer->name)) { ?>
@@ -268,17 +264,17 @@
                             </table>
                         </div>
                         <?php //$this->erp->print_arrays($inv);?>
-                        <div class="col-sm-6 col-xs-6" style="padding-left: 60px !important;">
-                            <table class="noPadding" border="none">
+                        <div class="col-sm-5 col-xs-5">
+                            <table>
                                 <tr>
-                                    <td class="bold"  style="width: 45%;">លេខដឹក / DO Reference No</sup></td>
-                                    <td class="bold"  style="width: 5%;">:</td>
-                                    <td style="width: 50%;"><?= $inv->do_reference_no ?></td>
+                                    <td class="bold"  style="width: 50% !important;">លេខដឹក / DO Reference No</sup></td>
+                                    <td class="bold"  style="width: 5% !important;">:</td>
+                                    <td><?= $inv->do_reference_no ?></td>
                                 </tr>
                                 <tr>
-                                    <td  class="bold" style="width: 45%;">លេខវិក្កយបត្រ / Sale Reference No</sup></td>
-                                    <td  class="bold" style="width: 5%;">:</td>
-                                    <td style="width: 50%;"><?= $inv->sale_reference_no ?></td>
+                                    <td  class="bold">លេខវិក្កយបត្រ / Sale Reference No</sup></td>
+                                    <td  class="bold">:</td>
+                                    <td style="white-space: nowrap"><?= $inv->sale_reference_no ?></td>
                                 </tr>
 
                                 <tr>
@@ -360,8 +356,8 @@
             }
             ?>
             <?php
-            if($erow<14){
-                $k=14 - $erow;
+            if($erow<9){
+                $k=9 - $erow;
                 for($j=1;$j<=$k;$j++) {
                     if($discount != 0) {
                         echo  '<tr class="border">
@@ -400,40 +396,38 @@
                         <br><br><br><br>
                     <?php } ?>
                     <div class="clear-both">
-                        <div style="width:100%;height:80px"></div>
+                        <div style="width:100%;height: 10px !important;"></div>
                     </div>
                     <div id="footer" class="row" >
                         <div class="col-sm-3 col-xs-3">
 
 
-                                <p style=" margin-top: 4px !important">អ្នករៀបចំ/<?= lang('prepared_by') ?></p></br>
+                                <p style=" margin-top: 4px !important">អ្នករៀបចំ/<?= lang('prepared_by') ?></p>
                                 <p><strong>ឈ្មោះ/<?= lang('name') ?> : </br></br></strong> .......................</p>
-                                <br />
+
                                 <p>ថ្ងៃ ខែ ឆ្នាំ/<?= lang('date') ?> : </br></br>.........................</p>
 
                         </div>
                         <div class="col-sm-3 col-xs-3">
 
 
-                                <p style="margin-top: 4px !important">អ្នកអនុម័ត/<?= lang('approved_by') ?></p></br>
+                                <p style="margin-top: 4px !important">អ្នកអនុម័ត/<?= lang('approved_by') ?></p>
                                 <p><strong>ឈ្មោះ/<?= lang('name') ?> :</br></br></strong> .......................</p>
-                                <br />
+
                                 <p>ថ្ងៃ ខែ ឆ្នាំ/<?= lang('date') ?> : </br></br>.........................</p>
 
                         </div>
                         <div class="col-sm-3 col-xs-3">
-
-
-                                <p style=" margin-top: 4px !important">អ្នកដឹក/<?= lang('deliveried_by') ?></p></br>
+                                <p style=" margin-top: 4px !important">អ្នកដឹក/<?= lang('deliveried_by') ?></p>
                                 <p><strong>ឈ្មោះ/<?= lang('name') ?> :</br></br></strong> .......................</p>
-                                <br />
+
                                 <p>ថ្ងៃ ខែ ឆ្នាំ/<?= lang('date') ?> : </br></br>.........................</p>
 
                         </div>
                         <div class="col-sm-3 col-xs-3">
-                                <p style=" margin-top: 4px !important">អ្នកទទួល/<?= lang('received_by') ?></p></br>
+                                <p style=" margin-top: 4px !important">អ្នកទទួល/<?= lang('received_by') ?></p>
                                 <p><strong>ឈ្មោះ/<?= lang('name') ?> :</br></br></strong> .......................</p>
-                                <br />
+
                                 <p>ថ្ងៃ ខែ ឆ្នាំ/<?= lang('date') ?> : </br></br>.........................</p>
 
                         </div>
@@ -448,7 +442,7 @@
 
 
 
-    <div style="width: 821px;margin: 20px">
+    <div style="width: 40%;margin: 20px">
         <a class="btn btn-warning no-print" href="<?= site_url('sales'); ?>" style="border-radius: 0">
             <i class="fa fa-hand-o-left" aria-hidden="true"></i>&nbsp;<?= lang("back"); ?>
         </a>
