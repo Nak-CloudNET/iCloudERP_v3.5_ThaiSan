@@ -3947,18 +3947,15 @@ class Sales_model extends CI_Model
 	}
 
 
-    public function getSaleByRef($ref,$limit = 10)
+    public function getSaleByRef($id,$limit = 10)
 	{
-		$this->db->select('sale_order.id as id, sale_order.reference_no as text');
-		$this->db->like('reference_no',$ref);
+		$this->db->select('erp_sale_order.id as id, erp_sale_order.reference_no as text');
+		$this->db->like('id',$id);
 		$q = $this->db->get('sale_order',$limit);
-          if ($q->num_rows() > 0) {
-            foreach (($q->result()) as $row) {
-                $data[] = $row;
-            }
-
-            return $data;
+        if ($q->num_rows() > 0) {
+            return $q->row();
         }
+        return FALSE;
 	}
 	public function getSaleByRefNo($ref)
 	{

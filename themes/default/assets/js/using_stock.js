@@ -5,9 +5,12 @@ $(document).ready(function (e) {
         __setItem('customer', $(this).val());
         //$('#slcustomer_id').val($(this).val());
     });
+    $sale_invoice.change(function (e) {
+        __setItem('sale_order_id', $(this).val());
+        //$('#slcustomer_id').val($(this).val());
+    });
 	
     if (customer = __getItem('customer')) {
-		
         $customer.val(customer).select2({
             minimumInputLength: 1,
             data: [],
@@ -42,15 +45,15 @@ $(document).ready(function (e) {
         });
 		
     } 
-    if (1) {
-		
-        $sale_invoice.val(customer).select2({
+    if (sale_order_id = __getItem('sale_order_id')) {
+        $sale_invoice.val(sale_order_id).select2({
             minimumInputLength: 1,
             data: [],
             initSelection: function (element, callback) {
+            
                 $.ajax({
                     type: "get", async: false,
-                    url: site.base_url+"sales/getSaleByRefNo/" + $(element).val(),
+                    url: site.base_url+"sales/getSaleByRef/" + $(element).val(),
                     dataType: "json",
                     success: function (data) {
                         callback(data[0]);
@@ -58,7 +61,7 @@ $(document).ready(function (e) {
                 });
             },
             ajax: {
-                url: site.base_url + "sales/getSaleByRef",
+                url: site.base_url + "sales/getSaleByRefNo",
                 dataType: 'json',
                 quietMillis: 15,
                 data: function (term, page) {
@@ -375,7 +378,9 @@ function loadItems() {
 		item_reason      		= '';
 		item_qty_use     		= 0;
 		item_qty_by_unit     	= '';
-        $.each(usitems, function () {
+		if(usitems!=null)
+		{
+			 $.each(usitems, function () {
             var item 			= this;
             var item_id 		= site.settings.item_addition == 1 ? item.item_id : item.id;
             usitems[item_id] 	= item;
@@ -463,6 +468,8 @@ function loadItems() {
             newTr.appendTo("#UsData");
 	
         });
+		}
+       
     }
 }
 
@@ -494,7 +501,6 @@ function add_using_stock_item(item) {
     }
 
 	var item_id = site.settings.item_addition == 1 ? item.item_id : item.id;
-console.log(usitems);
     if (usitems[item_id]) {
         usitems[item_id].row.qty = parseFloat(usitems[item_id].row.qty) + 1;
         usitems[item_id].row.qty_use = parseFloat(usitems[item_id].row.qty_use) + 1;

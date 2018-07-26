@@ -730,7 +730,6 @@ class Purchases_request extends MY_Controller
             } else {
                 $order_discount_id = null;
             }
-            $this->erp->print_arrays($order_discount);
             
 			$total_discount = $this->erp->formatPurDecimal($order_discount + $product_discount);
 			

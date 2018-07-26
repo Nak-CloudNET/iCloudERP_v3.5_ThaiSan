@@ -2075,7 +2075,7 @@ class Products_model extends CI_Model
 
     public function getUsingStockProject($id)
 	{
-        $this->db->select('erp_companies.company, erp_companies.logo, erp_companies.address, erp_companies.phone, erp_companies.email');
+        $this->db->select('erp_companies.company, erp_companies.logo, erp_companies.address, erp_companies.phone, erp_companies.email,erp_companies.sale_order_id');
         $this->db->from('erp_enter_using_stock');
         $this->db->join('erp_companies','erp_enter_using_stock.shop = erp_companies.id','left');
         $this->db->where('erp_enter_using_stock.id', $id);
