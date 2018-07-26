@@ -99,6 +99,14 @@
         }
     }
 </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#hide").click(function(){
+            $(".myhide").toggle();
+        });
+    });
+</script>
 <body>
     <div class="container">
         <div class="row" style="margin-top: 0px !important;">
@@ -573,13 +581,17 @@
                         <div class="row" >
                             <div class="col-sm-4 col-xs-4">
                                 <center>
-                                    <p>អតិថិជន</p>
-                                    <p>Customer</p></br></br></br>
+                                    <p>អ្នកលក់</p>
+                                    <p>Seller</p></br></br></br>
                                     <hr style="margin:0; border:1px solid #000; width: 80%">
                                 </center>
                             </div>
                             <div class="col-sm-4 col-xs-4">
-
+                                <center>
+                                    <p>អតិថិជន</p>
+                                    <p>Customer</p></br></br></br>
+                                    <hr style="margin:0; border:1px solid #000; width: 80%">
+                                </center>
                             </div>
                             <div class="col-sm-4 col-xs-4">
                                 <center>
