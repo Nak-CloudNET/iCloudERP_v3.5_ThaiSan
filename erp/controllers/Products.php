@@ -6928,6 +6928,7 @@ class Products extends MY_Controller
 			$return_ref 	= $this->input->post('return_reference_no');
 			$employee_id 	= $this->input->post('employee_id');
 			$customer_id 	= $this->input->post('customer');
+            $sale_order_id  = $this->input->post('sale_invoice');
 			$plan 			= $this->input->post('plan');
 			$address 		= $this->input->post('address');
 			$warehouse_id 	= $this->input->post('from_location');
@@ -6981,13 +6982,13 @@ class Products extends MY_Controller
 
 				$total_item_cost+= $total_cost;
 			}
-
+/*
 			if (empty($item_data)) {
                 $this->session->set_flashdata('error', $this->lang->line("no_data_select") );
 				redirect($_SERVER["HTTP_REFERER"]);
             } else {
                 krsort($item_data);
-            }
+            }*/
 
 			$data = array(
 			    'id'                    => $id,
@@ -6998,6 +6999,7 @@ class Products extends MY_Controller
     			'authorize_id' 			=> $authorize,
     			'employee_id' 			=> $employee_id,
     			'customer_id' 			=> $customer_id,
+                'sale_order_id'         => $sale_order_id,
     			'shop' 					=> $shop,
     			'account' 				=> $account,
     			'note' 					=> $note,
