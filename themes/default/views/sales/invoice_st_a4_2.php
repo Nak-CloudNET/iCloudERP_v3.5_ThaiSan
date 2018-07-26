@@ -33,7 +33,6 @@
         }
     }
 
-
     @media print {
         .pageBreak {
             page-break-after: always;
