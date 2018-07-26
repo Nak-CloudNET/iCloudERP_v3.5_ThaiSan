@@ -1,4 +1,5 @@
 $(document).ready(function (e) {
+
 	var $customer = $('#customer');
 	var $sale_invoice=$('#sale_invoice');
 	$customer.change(function (e) {
@@ -9,7 +10,6 @@ $(document).ready(function (e) {
         __setItem('sale_order_id', $(this).val());
         //$('#slcustomer_id').val($(this).val());
     });
-	
     if (customer = __getItem('customer')) {
         $customer.val(customer).select2({
             minimumInputLength: 1,
@@ -45,7 +45,8 @@ $(document).ready(function (e) {
         });
 		
     } 
-    if (sale_order_id = __getItem('sale_order_id')) {
+    if (true) {
+    	sale_order_id = __getItem('sale_order_id');
         $sale_invoice.val(sale_order_id).select2({
             minimumInputLength: 1,
             data: [],

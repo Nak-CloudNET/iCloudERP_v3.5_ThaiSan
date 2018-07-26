@@ -16,6 +16,7 @@
 
 		<?php if ($this->input->post('customer')) { ?>
         $('#customer').val(<?= $this->input->post('customer') ?>).select2({
+
             minimumInputLength: 1,
             data: [],
             initSelection: function (element, callback) {
@@ -50,7 +51,6 @@
 
         $('#customer').val(<?= $this->input->post('customer') ?>);
         <?php } ?>
-		
 		$("#add_item").autocomplete({
             source: function (request, response) {
 				$.ajax({
@@ -152,6 +152,9 @@
 			if (__getItem('cusotmer')) {
 				__removeItem('cusotmer');
 			}
+			if (__getItem('sale_order_id')) {
+				__removeItem('sale_order_id');
+			}
 			<?php $this->session->set_userdata('remove_usitem', '0');?>
 		}
 		
@@ -205,12 +208,12 @@
                                 </div>
                             </div>
 						</div>
-						<!-- <div class="form-group">
+					<!-- 	<div class="form-group">
 							<?= lang('customer', 'customer'); ?>
 							<?php
 								echo form_input('customer', '', 'id="customer" data-placeholder="' . lang("select") . ' ' . lang("customer") . '" class="form-control input-tip" style="min-width:100%;"');
 							?>
-						</div> -->
+						</div>  -->
 						<div class="form-group">
 							<?= lang('sale_invoice', 'sale_invoice'); ?>
 							<?php
