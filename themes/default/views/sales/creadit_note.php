@@ -270,7 +270,7 @@
 						<th style="font-size:13px !important;"class="text-center">លេខកូដ</br><?=lang('CODE')?></th>
 						<th style="width:100% !;font-size:13px !important;"class="text-center">បរិយាយមុខទំនិញ</br><?=lang('DESCRIPTION')?></th>
 						<th style="font-size:13px !important;"class="text-center">ខ្នាត</br><?=lang('UNIT')?></th>
-						<th style="font-size:13px !important;"class="text-center">ចំនូន</br><?=lang('QUANTITY')?></th>
+						<th style="font-size:13px !important;"class="text-center">ចំនូន</br><?=lang('QTY')?></th>
 						<th style="font-size:13px !important;"class="text-center">តម្លៃ</br><?=lang('PRICE')?></th>
                         <?php if ($dis>0 ){ ?>
                             <th>បញ្ចុះតម្លៃ<br />Discount</th>
@@ -334,7 +334,7 @@
 					<tr>
 						<td style=" text-align:center; vertical-align:middle;"><?=$i;?></td>
 						<td style="text-align:left; vertical-align:middle;"><?= $row->product_code ?></td>
-						<td style="text-align:left; vertical-align:middle;width:200px;">
+						<td style="text-align:left; vertical-align:middle;width:200px;white-space: nowrap">
 								<?= $product_name_setting ?>
 								<?= $row->details ? '<br>' . $row->details : ''; ?>
 								<?= $row->serial_no ? '<br>' . $row->serial_no : ''; ?>
