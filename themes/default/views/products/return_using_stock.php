@@ -183,6 +183,7 @@
 		__setItem('from_location', '<?= isset($where); ?>');
 		__setItem('authorize_id', '<?= $using_stock->authorize_id; ?>');
 		__setItem('employee_id', '<?= $using_stock->employee_id; ?>');
+		__setItem('sale_order_id', '<?= $using_stock->sale_order_id; ?>');
 		__setItem('shop', '<?= $using_stock->shop; ?>');
 		__setItem('account', '<?= $using_stock->account; ?>');
 		__setItem('plan', '<?= $using_stock->plan_id; ?>');
@@ -275,11 +276,18 @@
                             <?php echo form_input('address', $using_stock->address_id, 'class="form-control" id="address"  placeholder="' . lang("select_plan_to_load") . '"');
                             ?>
                         </div>
-						
+					<!--
 						<div class="form-group">
 							<?= lang('customer', 'customer'); ?>
 							<?php
 								echo form_input('customer', '', 'id="customer" data-placeholder="' . lang("select") . ' ' . lang("customer") . '" class="form-control input-tip" style="min-width:100%;"');
+							?>
+						</div>
+					-->
+						<div class="form-group">
+							<?= lang('sale_invoice', 'sale_invoice'); ?>
+							<?php
+								echo form_input('sale_invoice', '', 'id="sale_invoice" data-placeholder="' . lang("select") . ' ' . lang("sale_invoice") . '" class="form-control input-tip" style="min-width:100%;"');
 							?>
 						</div>
 						

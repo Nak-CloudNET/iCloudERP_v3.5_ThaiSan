@@ -172,6 +172,7 @@
 		__setItem('authorize_id', '<?= $using_stock->authorize_id; ?>');
 		__setItem('employee_id', '<?= $using_stock->employee_id; ?>');
 		__setItem('customer', '<?= $using_stock->customer_id; ?>');
+		__setItem('sale_order_id', '<?= $using_stock->sale_order_id; ?>');
 		__setItem('shop', '<?= $using_stock->shop; ?>');
 		__setItem('account', '<?= $using_stock->account; ?>');
 		__setItem('plan', '<?= $using_stock->plan_id; ?>');
@@ -204,10 +205,16 @@
 							<?= form_input('reference_no', $refer, 'class="form-control tip"  required  id="reference_no" style="pointer-events:none;"'); ?>
 								
 						</div>
-						<div class="form-group">
+				 	<!-- 	<div class="form-group">
 							<?= lang('customer', 'customer'); ?>
 							<?php
 								echo form_input('customer', '', 'id="customer" data-placeholder="' . lang("select") . ' ' . lang("customer") . '" class="form-control input-tip" style="min-width:100%;"');
+							?>
+						</div>  --> 
+						<div class="form-group">
+							<?= lang('sale_invoice', 'sale_invoice'); ?>
+							<?php
+								echo form_input('sale_invoice', '', 'id="sale_invoice" data-placeholder="' . lang("select") . ' ' . lang("sale_invoice") . '" class="form-control input-tip" style="min-width:100%;"');
 							?>
 						</div>
 					</div>
@@ -324,7 +331,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="fprom-group">
-							<input type="hidden"  name="total_item_cost" required id="total_item_cost" class=" form-control total_item_cost" value="">
+							<input type="hidden"  name="total_item_cost"  id="total_item_cost" class=" form-control total_item_cost" value="">
 							<input type="hidden" value="" name="store_del_pro_id" id="store_del_pro_id"/>
 							
 							<?php echo form_submit('submit_report', $this->lang->line("submit"), 'class="btn btn-primary" style="display:none;" id="btn_submit"'); ?>

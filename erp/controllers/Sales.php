@@ -19435,13 +19435,10 @@ function invoice_concrete_angkor($id=null)
         $this->data['rows'] = $this->sales_model->getSaleItemsBySaleId($inv->id);
         $this->load->view($this->theme .'sales/invoice_jessica_shop',$this->data);
     }
-    function getSaleByRef($ref = NULL)
+    function getSaleByRef($sale_order_id = NULL)
     {
-        if ($this->input->get('term')) {
-            $ref = $this->input->get('term', TRUE);
-        }
-        $rows['results'] = $this->sales_model->getSaleByRefNo($ref);
-        echo json_encode($rows);
+       $row = $this->sales_model->getSaleByRef($sale_order_id);
+        echo json_encode(array(array('id' => $row->id, 'text' => ($row->text))));
     }
      function getSaleByRefNo($ref = NULL)
     {
