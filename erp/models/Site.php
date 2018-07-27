@@ -229,16 +229,16 @@ class Site extends CI_Model
 
 	public function get_delivery_alerts()
 	{
-		$this->db->select('COUNT(*) AS count');
-		$this->db->where('DATE_SUB(delivery_date , INTERVAL (SELECT alert_day FROM erp_settings) DAY) < CURDATE()');
-		$this->db->where('sale_order.order_status', 'completed');
-		$this->db->where('sale_order.sale_status <>', 'sale');
-		$q = $this->db->get('sale_order');
-		if($q->num_rows() > 0 ){
-			$q = $q->row();
-			return $q->count;
-		}
-		return false;
+        $this->db->select('COUNT(*) AS count');
+        $this->db->where('sale_order.sale_status','order');
+        $this->db->where('sale_order.delivery_date !=','0000-00-00');
+        $this->db->where('sale_order.delivery_date !=','');
+        $q = $this->db->get('sale_order');
+        if($q->num_rows() > 0 ){
+            $q = $q->row();
+            return $q->count;
+        }
+        return false;
 	}
 	public function get_quote_alerts()
 	{
