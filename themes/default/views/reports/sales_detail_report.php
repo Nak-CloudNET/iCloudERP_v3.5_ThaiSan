@@ -544,7 +544,8 @@
 
 										foreach($usings_stock->result() as $using_stocks){
 											$s_total += $using_stocks->total_cost;
-
+                                            $s_gross_margin = ($total_gross_margin - $sale->order_discount + $sale->shipping) + (-1)* $s_total;
+                                            $s_sub_total = "(".$this->erp->formatMoney(abs($s_total)).")";
 
 											$html .="<tr>
 														<td></td>
@@ -563,21 +564,21 @@
 														<td></td>
 													 </tr>";
 										}
-											$total_overh += $e_total;
+											$total_us += $s_total;
 
 											$html .="<tr>
-														<td class='right' colspan='11'>".lang("Total")." : </td>
+														<td class='right' colspan='11'>".lang("Sub_Total")." : </td>
 														<td class='text-right'>{$this->erp->formatMoney($s_total)}</td>
 														<td></td>
-														<td class='text-right'></td>
+														<td class='text-right'>{$s_sub_total}</td>
 													</tr>";
 
-											/*$html .="<tr>
+											$html .="<tr>
 														<td class='right' colspan='11'>".lang("total_gross_margin")." : </td>
 														<td></td>
 														<td class='text-right'></td>
-														<td class='text-right'></td>
-													</tr>";*/
+														<td class='text-right'>{$this->erp->formatMoney($s_gross_margin)}</td>
+													</tr>";
 								    }
 									
 									}else{									
@@ -821,6 +822,19 @@
 								<th></th>
                                 <?php if ($Owner || $Admin || $GP['products-cost']) { ?>
                                     <th class="right" style="color:#0586ff"><?= "(".$this->erp->formatMoney($total_overh).")"; ?></th>
+                                <?php } ?>
+							</tr>
+
+                            <tr>
+                                <th colspan="<?= $fcol2; ?>" class="right info-foot"
+                                    style="color:#0586ff"><?= lang("Total_Using_stock"); ?> :
+                                </th>
+                                <?php if ($Owner || $Admin || $GP['products-cost']) { ?>
+                                    <th class="right" style="color:#0586ff"><?= "(".$this->erp->formatMoney($total_us).")"; ?></th>
+                                <?php } ?>
+								<th></th>
+                                <?php if ($Owner || $Admin || $GP['products-cost']) { ?>
+                                    <th class="right" style="color:#0586ff"><?= "(".$this->erp->formatMoney($total_us).")"; ?></th>
                                 <?php } ?>
 							</tr>
 							
