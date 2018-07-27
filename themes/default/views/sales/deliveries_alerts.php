@@ -60,7 +60,7 @@ if(isset($date)){
                 var data = __getItem('DataTables_' + window.location.pathname);
                 return JSON.parse(data);
             },
-            'sAjaxSource': '<?=site_url('sale_order/getSaleOrderAlerts' . ($warehouse_id ? '/' . $warehouse_id : '')).'/?v=1'.$v?>',
+            'sAjaxSource': '<?=site_url('sales/getDeliveryAlerts' . ($warehouse_id ? '/' . $warehouse_id : '')).'/?v=1'.$v?>',
             "bAutoWidth": false ,
             'fnServerData': function (sSource, aoData, fnCallback) {
                 aoData.push({
@@ -140,7 +140,7 @@ if(isset($date)){
             "aoColumns": [{
                 "bSortable": false,
                 "mRender": checkbox
-            }, {"mRender": fld}, null, null, null, null, null, {"mRender":  issue_status }, {"mRender": currencyFormat}, {"mRender": currencyFormat}, {"mRender": currencyFormat}, {"mRender": so_status}/* , {"bSortable": false} */],
+            }, {"mRender": fld}, null, null, null, null, null, {"mRender":  issue_status }, {"mRender": currencyFormat}, {"mRender": currencyFormat}, {"mRender": currencyFormat}, {"mRender": so_status} , {"bSortable": false} ],
             "fnFooterCallback": function (nRow, aaData, iStart, iEnd, aiDisplay) {
                 var gtotal = 0, paid = 0, balance = 0;
                 for (var i = 0; i < aaData.length; i++) {
@@ -388,7 +388,7 @@ echo form_open('sale_order/sale_order_actions'.($warehouse_id ? '/'.$warehouse_i
     <div class="box-header">
 
         <!-- <h2 class="blue">
-			<i class="fa-fw fa fa-heart"></i><?=lang('sale_order_list') . ' (' . ($warehouse_id ? $warehouse->name : lang('all_warehouses')) . ')';?>
+			<i class="fa-fw fa fa-heart"></i><?=lang('delivery_list') . ' (' . ($warehouse_id ? $warehouse->name : lang('all_warehouses')) . ')';?>
         </h2> -->
         <?php if ($warehouse_id) { ?>
             <h2 class="blue">
@@ -663,7 +663,7 @@ echo form_open('sale_order/sale_order_actions'.($warehouse_id ? '/'.$warehouse_i
                             <th><?php echo $this->lang->line("deposit"); ?></th>
                             <th><?php echo $this->lang->line("balance"); ?></th>
                             <th><?php echo $this->lang->line("status"); ?></th>
-                            <!-- <th style="width:80px; text-align:center;"><?php echo $this->lang->line("actions"); ?></th>-->
+                            <th style="width:80px; text-align:center;"><?php echo $this->lang->line("actions"); ?></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -688,7 +688,7 @@ echo form_open('sale_order/sale_order_actions'.($warehouse_id ? '/'.$warehouse_i
                             <th></th>
                             <th></th>
                             <th></th>
-                            <!--<th style="width:80px; text-align:center;"><?php echo $this->lang->line("actions"); ?></th>-->
+                            <th style="width:80px; text-align:center;"><?php echo $this->lang->line("actions"); ?></th>
                         </tr>
                         </tfoot>
                     </table>
