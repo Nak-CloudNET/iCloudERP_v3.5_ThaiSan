@@ -68,13 +68,18 @@
             margin-left:0px;
             margin-right:0px;
         }
+        .border {
+            font-size: 17px !important;
+        }
         table {border-collapse: collapse;}
         tr {
             page-break-inside: avoid;
             -webkit-page-break-inside: avoid;
         }
     }
-
+    .border{
+        font-size: 14px;
+    }
     body{
         font-size: 12px !important;
         font-family: "Khmer OS System";
@@ -160,19 +165,19 @@
 
                                     <div style="margin-top: 15px;">
                                         <?php if(!empty($biller->vat_no)) { ?>
-                                            <p>លេខអត្តសញ្ញាណកម្ម អតប (VAT No):&nbsp;<?= $biller->vat_no; ?></p>
+                                            <p style="font-size: 12px !important;white-space: nowrap;">លេខអត្តសញ្ញាណកម្ម អតប (VAT No):&nbsp;<?= $biller->vat_no; ?></p>
                                         <?php } ?>
 
                                         <?php if(!empty($biller->address)) { ?>
-                                            <p style="margin-top:-10px !important;">អាសយដ្ឋាន ៖ &nbsp;<?= $biller->address; ?></p>
+                                            <p style="margin-top:-10px !important;white-space: nowrap;font-size: 12px !important;">អាសយដ្ឋាន ៖ &nbsp;<?= $biller->address; ?></p>
                                         <?php } ?>
 
                                         <?php if(!empty($biller->phone)) { ?>
-                                            <p style="margin-top:-10px ;">Tel:&nbsp;<?= $biller->phone; ?></p>
+                                            <p style="margin-top:-10px ;white-space: nowrap;font-size: 12px !important;">Tel:&nbsp;<?= $biller->phone; ?></p>
                                         <?php } ?>
 
                                         <?php if(!empty($biller->email)) { ?>
-                                            <p style="margin-top:-10px !important;">E-mail:&nbsp;<?= $biller->email; ?></p>
+                                            <p style="margin-top:-10px !important;white-space: nowrap;font-size: 12px !important;">E-mail :&nbsp;<?= $biller->email; ?></p>
                                         <?php } ?>
                                     </div>
 
@@ -198,8 +203,8 @@
                     <div class="row">
                         <div class="col-sm-12 col-xs-12">
                             <center>
-                                <h4 class="title">វិក្កយបត្រដឹកជញ្ជូន</h4>
-                                <h4 class="title" style="margin-top: 3px;">Delivery Order</h4>
+                                <h4 style="font-size: 14px !important; font-weight: bold;font-family: 'Khmer OS Muol Light' !important;">វិក្កយបត្រដឹកជញ្ជូន</h4>
+                                <h4 style="font-size: 14px !important; font-weight: bold;">Invoice Transfer</h4>
                             </center>
 
                         </div>
@@ -275,7 +280,7 @@
                                 </tr>
 
                                 <tr>
-                                    <td class="bold" >អ្នកលក់ / Sale Man</td>
+                                    <td class="bold" >អ្នកលក់ / Saleman</td>
                                     <td class="bold" >:</td>
                                     <td><?= $inv->saleman; ?></td>
                                 </tr>
@@ -306,7 +311,7 @@
             <tr class="border thead print" style="background-color: #444 !important; color: #FFF !important;">
                 <th>ល.រ<br /><?= strtoupper(lang('no')) ?></th>
                 <th>លេខកូដ<br /><?= strtoupper(lang('code')) ?></th>
-                <th>បរិយាយមុខទំនិញ<br /><?= strtoupper(lang('description')) ?></th>
+                <th>បរិយាយ<br /><?= strtoupper(lang('description')) ?></th>
                 <th>​ឯកតា<br /><?= strtoupper(lang('unit')) ?></th>
                 <th>បរិមាណ<br /><?= strtoupper(lang('quantity')) ?></th>
             </thead>
@@ -395,7 +400,7 @@
                         <div style="width:100%;height: 10px !important;"></div>
                     </div>
                     <div class="row" >
-                        <div class="col-sm-3 col-xs-3">
+                        <div class="col-sm-4 col-xs-4">
 
 
                                 <p style=" margin-top: 4px !important">អ្នករៀបចំ/<?= lang('prepared_by') ?></p>
@@ -404,23 +409,15 @@
                                 <p>ថ្ងៃ ខែ ឆ្នាំ/<?= lang('date') ?> : </br></br>.........................</p>
 
                         </div>
-                        <div class="col-sm-3 col-xs-3">
 
-
-                                <p style="margin-top: 4px !important">អ្នកអនុម័ត/<?= lang('approved_by') ?></p>
-                                <p><strong>ឈ្មោះ/<?= lang('name') ?> :</br></br></strong> .......................</p>
-
-                                <p>ថ្ងៃ ខែ ឆ្នាំ/<?= lang('date') ?> : </br></br>.........................</p>
-
-                        </div>
-                        <div class="col-sm-3 col-xs-3">
+                        <div class="col-sm-4 col-xs-4">
                                 <p style=" margin-top: 4px !important">អ្នកដឹក/<?= lang('deliveried_by') ?></p>
                                 <p><strong>ឈ្មោះ/<?= lang('name') ?> :</br></br></strong> .......................</p>
 
                                 <p>ថ្ងៃ ខែ ឆ្នាំ/<?= lang('date') ?> : </br></br>.........................</p>
 
                         </div>
-                        <div class="col-sm-3 col-xs-3">
+                        <div class="col-sm-4 col-xs-4">
                                 <p style=" margin-top: 4px !important">អ្នកទទួល/<?= lang('received_by') ?></p>
                                 <p><strong>ឈ្មោះ/<?= lang('name') ?> :</br></br></strong> .......................</p>
 

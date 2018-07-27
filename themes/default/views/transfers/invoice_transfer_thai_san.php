@@ -55,7 +55,9 @@
             background-color: #444 !important;
             color: #FFF !important;
         }
-
+        .border {
+            font-size: 17px !important;
+        }
 
         .row .col-xs-7 table tr td, .col-sm-5 table tr td{
             font-size: 12px !important;
@@ -67,7 +69,9 @@
             margin-left: 26px !important;
         }
     }
-
+    .border{
+        font-size: 14px;
+    }
     .thead th {
         text-align: center !important;
     }
@@ -149,19 +153,19 @@
 
                         <div style="margin-top: 15px;">
                             <?php if(!empty($biller->vat_no)) { ?>
-                                <p style="font-size: 12px !important;">លេខអត្តសញ្ញាណកម្ម អតប (VAT No):&nbsp;<?= $biller->vat_no; ?></p>
+                                <p style="font-size: 12px !important;white-space: nowrap;">លេខអត្តសញ្ញាណកម្ម អតប (VAT No):&nbsp;<?= $biller->vat_no; ?></p>
                             <?php } ?>
 
                             <?php if(!empty($biller->address)) { ?>
-                                <p style="margin-top:-10px !important;font-size: 12px !important;">អាសយដ្ឋាន ៖ &nbsp;<?= $biller->address; ?></p>
+                                <p style="margin-top:-10px !important;white-space: nowrap;font-size: 12px !important;">អាសយដ្ឋាន ៖ &nbsp;<?= $biller->address; ?></p>
                             <?php } ?>
 
                             <?php if(!empty($biller->phone)) { ?>
-                                <p style="margin-top:-10px ;font-size: 12px !important;">Tel:&nbsp;<?= $biller->phone; ?></p>
+                                <p style="margin-top:-10px ;white-space: nowrap;font-size: 12px !important;">Tel:&nbsp;<?= $biller->phone; ?></p>
                             <?php } ?>
 
                             <?php if(!empty($biller->email)) { ?>
-                                <p style="margin-top:-10px !important;font-size: 12px !important;">E-mail :&nbsp;<?= $biller->email; ?></p>
+                                <p style="margin-top:-10px !important;white-space: nowrap;font-size: 12px !important;">E-mail :&nbsp;<?= $biller->email; ?></p>
                             <?php } ?>
                         </div>
 
@@ -245,8 +249,8 @@
                     <tbody style="font-size: 12px !important;">
                     <tr class="thead" style="white-space: nowrap;background-color: #444 !important; color: #FFF !important;">
                         <th>ល.រ<br />No</th>
-                        <th>លេខកូដទំនិញ<br />Product Code</th>
-                        <th>ឈ្មោះទំនិញ<br />Product Name</th>
+                        <th>កូដ<br />Code</th>
+                        <th>បរិយាយ<br />Description</th>
                         <th>ខ្នាត<br />Unit</th>
                         <th>ចំនួន<br />Qty</th>
 
@@ -277,7 +281,7 @@
                             }
                         }
                         ?>
-                        <tr>
+                        <tr class="border">
                             <td style="vertical-align: middle; text-align: center"><?php echo $no ?></td>
 
                             <td style="vertical-align: middle;">

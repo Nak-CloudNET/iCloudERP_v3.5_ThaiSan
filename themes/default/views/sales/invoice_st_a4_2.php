@@ -70,7 +70,9 @@
             margin-left: 26px !important;
         }
     }
-
+    .border{
+        font-size: 14px;
+    }
     .thead th {
         text-align: center !important;
     }
@@ -151,19 +153,22 @@
                         <?php } ?>
 
                         <div style="margin-top: 15px;">
-
+                            <?php if(!empty($biller->vat_no)) { ?>
+                                <p style="font-size: 12px !important;white-space: nowrap;">លេខអត្តសញ្ញាណកម្ម អតប (VAT No):&nbsp;<?= $biller->vat_no; ?></p>
+                            <?php } ?>
 
                             <?php if(!empty($biller->address)) { ?>
-                                <p style="margin-top:-10px !important;font-size: 12px !important;">អាសយដ្ឋាន ៖ &nbsp;<?= $biller->address; ?></p>
+                                <p style="margin-top:-10px !important;white-space: nowrap;font-size: 12px !important;">អាសយដ្ឋាន ៖ &nbsp;<?= $biller->address; ?></p>
                             <?php } ?>
 
                             <?php if(!empty($biller->phone)) { ?>
-                                <p style="margin-top:-10px ;font-size: 12px !important;">Tel:&nbsp;<?= $biller->phone; ?></p>
+                                <p style="margin-top:-10px ;white-space: nowrap;font-size: 12px !important;">Tel:&nbsp;<?= $biller->phone; ?></p>
                             <?php } ?>
 
                             <?php if(!empty($biller->email)) { ?>
-                                <p style="margin-top:-10px !important;font-size: 12px !important;">E-mail:&nbsp;<?= $biller->email; ?></p>
+                                <p style="margin-top:-10px !important;white-space: nowrap;font-size: 12px !important;">E-mail :&nbsp;<?= $biller->email; ?></p>
                             <?php } ?>
+                        </div>
 
                     </center>
                 </div>
@@ -187,67 +192,69 @@
         <div class="row">
             <div class="invoice_label" style="margin-top: -10px !important">
                 <center>
-                    <h4 class="title">វិក្កយបត្រ</h4>
-                    <h4  class="title" style="margin-top:-10px !important;">INVOICE</h4>
+                    <h4 style="font-size: 14px !important; font-weight: bold;font-family: 'Khmer OS Muol Light' !important;">វិក្កយបត្រ</h4>
+                    <h4 style="font-size: 14px !important; font-weight: bold;">Invoice Transfer</h4>
                 </center>
             </div>
         </div>
         <div class="row">
             <div class="col-sm-6 col-xs-6">
-                <table style="font-size: 12px;">
+                <table>
                     <?php if(!empty($customer->company)) { ?>
+
                         <tr>
-                            <td style="width: 30%; font-weight: bold">ក្រុមហ៊ុន </td>
+                            <td style="width: 45%;white-space: nowrap !important;  font-weight: bold">ក្រុមហ៊ុន / Company</td>
                             <td style="width: 5%;font-weight: bold">:</td>
-                            <td style="width: 50%;"><?= $customer->company ?></td>
+                            <td style="width: 40%;white-space: nowrap !important; "><?= $customer->company ?></td>
                         </tr>
                     <?php } ?>
+
                     <?php if(!empty($customer->name_kh || $customer->name)) { ?>
                         <tr>
-                            <td style="font-weight: bold">អតិថិជន </td>
-                            <td style="font-weight: bold">:</td>
+                            <td style="width: 45%;white-space: nowrap !important; font-weight: bold">អតិថិជន / Customer</td>
+                            <td style="width: 5%;font-weight: bold">:</td>
                             <?php if(!empty($customer->name_kh)) { ?>
-                                <td><?= $customer->name_kh ?></td>
+                                <td style="width: 40%;"><?= $customer->name_kh ?></td>
                             <?php }else { ?>
-                                <td><?= $customer->name ?></td>
+                                <td style="width: 40%;"><?= $customer->name ?></td>
                             <?php } ?>
                         </tr>
                     <?php } ?>
                     <?php if(!empty($customer->address_kh || $customer->address)) { ?>
                         <tr>
-                            <td style="font-weight: bold">អាសយដ្ឋាន </td>
-                            <td style="font-weight: bold">:</td>
+                            <td style="width: 45%;white-space: nowrap !important; font-weight: bold">អាសយដ្ឋាន / Address</td>
+                            <td style="width: 5%;font-weight: bold">:</td>
                             <?php if(!empty($customer->address_kh)) { ?>
-                                <td><?= $customer->address_kh?></td>
+                                <td style="width: 40%;"><?= $customer->address_kh?></td>
                             <?php }else { ?>
-                                <td><?= $customer->address ?></td>
+                                <td style="width: 40%;"><?= $customer->address ?></td>
                             <?php } ?>
                         </tr>
                     <?php } ?>
                     <?php if(!empty($customer->address_kh || $customer->address)) { ?>
                         <tr>
-                            <td style="font-weight: bold">ទូរស័ព្ទលេខ </td>
-                            <td style="font-weight: bold">:</td>
-                            <td><?= $customer->phone ?></td>
+                            <td style="width: 45%;font-weight: bold">ទូរស័ព្ទលេខ / (Tel)</td>
+                            <td style="width: 5%;font-weight: bold">:</td>
+                            <td style="width: 40%;"><?= $customer->phone ?></td>
                         </tr>
                     <?php } ?>
 
                 </table>
             </div>
-            <div class="col-sm-6 col-xs-6" style="padding-left: 70px !important;">
-                <table style="font-size: 12px;">
+            <div class="col-sm-6 col-xs-6" style="padding-left: 60px !important;">
+                <table>
                     <tr>
-                        <td style="width: 40%;font-weight: bold">លេខរៀង  </td>
-                        <td style="width: 5%;font-weight: bold">:</td>
-                        <td style="width: 50%;"><?= $invs->reference_no ?></td>
+                        <td style="width: 45%; font-weight: bold;white-space: nowrap !important;">លេខវិក្កយបត្រ / Reference</td>
+                        <td style="width: 5%; font-weight: bold">:</td>
+                        <td style="width:50%;white-space: nowrap !important; "><?= $invs->reference_no ?></td>
                     </tr>
                     <tr>
-                        <td style="font-weight: bold">កាលបរិច្ឆេទ </td>
+                        <td style="font-weight: bold">កាលបរិច្ឆេទ / Date</td>
                         <td style="font-weight: bold">:</td>
-                        <td><?= $this->erp->hrld($invs->date); ?></td>
+                        <td style="white-space: nowrap !important;"><?= $this->erp->hrld($invs->date); ?></td>
                     </tr>
                     <tr>
-                        <td style="font-weight: bold">អ្នកលក់ </td>
+                        <td style="font-weight: bold">អ្នកលក់ / Saleman</td>
                         <td style="font-weight: bold">:</td>
                         <td><?= $invs->saleman; ?></td>
                     </tr>
@@ -259,7 +266,7 @@
                         </tr>
                         <tr>
                             <td style="width: 30% !important; font-weight: bold">កាលបរិច្ឆេទនៃការបង់ប្រាក់ </td>
-                            <td style="font-weight: bold">:</td>
+                            <td>:</td>
                             <td><?= $this->erp->hrsd($invs->due_date) ?></td>
                         </tr>
                     <?php } ?>
@@ -280,12 +287,11 @@
                     <tbody style="font-size: 16px;">
                     <tr class="thead" style="white-space: nowrap;background-color: #444 !important; color: #FFF !important;">
                         <th style="width: 50px">ល.រ<br />No</th>
-                        <th style="width: 100px" >លេខកូដទំនិញ<br />Product Code</th>
-                        <th>ឈ្មោះទំនិញ<br />Product Name</th>
-                        <!--                        <th>ការបញ្ជាក់<br />--><?//= strtoupper(lang('specification')) ?><!--</th>-->
+                        <th style="width: 50px">កូដ<br />Code</th>
+                        <th>បរិយាយ<br />Description</th>
                         <th>ខ្នាត<br />Unit</th>
                         <th>ចំនួន<br />Qty</th>
-                        <th>តម្លៃ<br />Price</th>
+                        <th style="width: 50px">តម្លៃ<br />Unit Price</th>
 
                         <?php if ($Settings->product_discount) { ?>
                             <th>បញ្ចុះតម្លៃ<br />Discount</th>
@@ -328,7 +334,7 @@
                             <td style="vertical-align: middle;">
                                 <?=$row->product_code;?>
                             </td>
-                            <td style="vertical-align: middle;">
+                            <td style="vertical-align: middle;white-space: nowrap">
                                 <?=$row->product_name;?>
                             </td>
                             <td style="vertical-align: middle; text-align: center">
@@ -516,15 +522,15 @@
         <?php if($invs->invoice_footer){ ?>
             <div style="font-size: 12px !important;margin-top: 10px;height: auto;" id="note" class="col-md-12 col-xs-12">
                 <p ><strong><u>Note:</u></strong></p>
-                <p style="margin-left: 10px;margin-top:10px;"><?php echo strip_tags($invs->invoice_footer); ?></p>
+                <p style="margin-left: 10px;margin-top:10px;"><?php echo $invs->invoice_footer; ?></p>
             </div>
         <?php } ?>
 
     </div>	<!--div col sm 6 -->
 
     <div id="footer" class="row">
-        <div class="col-sm-4 col-xs-4">
-            <br>
+        <div class="col-sm-4 col-xs-4" style="padding-top: 60px;">
+
             <center>
                 <hr style="margin:0; border:1px solid #000; width: 80%">
                 <p style="font-size: 16px; margin-top: 4px !important">ហត្ថលេខាអ្នកលក់</p>
@@ -536,8 +542,8 @@
 
             </center>
         </div>
-        <div class="col-sm-4 col-xs-4">
-            <br>
+        <div class="col-sm-4 col-xs-4" style="padding-top: 60px;">
+
             <center>
                 <hr style="margin:0; border:1px solid #000; width: 80%">
                 <p style="font-size: 16px; margin-top: 4px !important">ហត្ថលេខាអ្នកទិញ</p>
