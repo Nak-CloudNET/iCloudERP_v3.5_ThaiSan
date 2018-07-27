@@ -47,7 +47,7 @@
             height: 100% !important;
         }
 		tr td{
-			font-size: 13px !important;
+            font-size: 13px !important;
 		}
 		#footer {
 			bottom:70px !important;
@@ -61,6 +61,7 @@
             padding-left: 30px !important;
 
         }
+
 	}
     .noPadding tr{
         padding: 0px 0px;
