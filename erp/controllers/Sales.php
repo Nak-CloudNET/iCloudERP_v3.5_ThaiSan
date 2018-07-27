@@ -8632,7 +8632,9 @@ class Sales extends MY_Controller
 			$this->datatables->where('date >=', $date)
 				->where('delivery_status =', 'pending');
 		}
-
+        $this->db->where('sale_order.sale_status','order');
+        $this->db->where('sale_order.delivery_date !=','0000-00-00');
+        $this->db->where('sale_order.delivery_date !=','');
         if($start && $end){
 			$this->datatables->where('date BETWEEN "' . $start . '" AND "' . $end . '"');
 		}
@@ -14610,18 +14612,252 @@ class Sales extends MY_Controller
 	}
 
     function delivery_alerts($warehouse_id = NULL)
-	{    
+	{
         $this->load->model('reports_model');
         $this->data['warehouse_id'] = $warehouse_id;
         $this->data['users'] = $this->reports_model->getStaff();
         $this->data['warehouses'] = $this->site->getAllWarehouses();
         $this->data['billers'] = $this->site->getAllCompanies('biller');
         $this->data['error'] = validation_errors() ? validation_errors() : $this->session->flashdata('error');
-        $bc = array(array('link' => base_url(), 'page' => lang('home')), array('link' => site_url('sales'), 'page' => lang('sales')), array('link' => '#', 'page' => lang('list_delivery_alerts')));
-        $meta = array('page_title' => lang('list_delivery_alerts'), 'bc' => $bc);
-        $this->page_construct('sales/delivery_alerts', $meta, $this->data);
+        $bc = array(array('link' => base_url(), 'page' => lang('home')), array('link' => site_url('sale_order'), 'page' => lang('sale_order')), array('link' => '#', 'page' => lang('list_sale_order_alerts')));
+        $meta = array('page_title' => lang('list_sale_order_alerts'), 'bc' => $bc);
+        $this->page_construct('sale_order/list_sale_order_alerts', $meta, $this->data);
     }
+    function getSaleOrderAlerts($warehouse_id = NULL)
+    {
+        $warehouse_ids = explode('-', $warehouse_id);
 
+        if ($this->input->get('user')) {
+            $user_query = $this->input->get('user');
+        } else {
+            $user_query = NULL;
+        }
+        if ($this->input->get('reference_no')) {
+            $reference_no = $this->input->get('reference_no');
+        } else {
+            $reference_no = NULL;
+        }
+        if ($this->input->get('customer')) {
+            $customer = $this->input->get('customer');
+        } else {
+            $customer = NULL;
+        }
+        if ($this->input->get('saleman')) {
+            $saleman = $this->input->get('saleman');
+        } else {
+            $saleman = NULL;
+        }
+        if ($this->input->get('product_id')) {
+            $product_id = $this->input->get('product_id');
+        } else {
+            $product_id = NULL;
+        }
+        if ($this->input->get('biller')) {
+            $biller = $this->input->get('biller');
+        } else {
+            $biller = NULL;
+        }
+        if ($this->input->get('warehouse')) {
+            $warehouse = $this->input->get('warehouse');
+        } else {
+            $warehouse = NULL;
+        }
+        if ($this->input->get('start_date')) {
+            $start_date = $this->input->get('start_date');
+        } else {
+            $start_date = NULL;
+        }
+        if ($this->input->get('end_date')) {
+            $end_date = $this->input->get('end_date');
+        } else {
+            $end_date = NULL;
+        }
+
+        if ($start_date) {
+            $start_date = $this->erp->fld($start_date);
+            $end_date = $this->erp->fld($end_date);
+        }
+        /*
+        if ((! $this->Owner || ! $this->Admin) && ! $warehouse_id) {
+            $user = $this->site->getUser();
+            $warehouse_id = $user->warehouse_id;
+        }*/
+
+        $detail_link = anchor('sale_order/view/$1', '<i class="fa fa-file-text-o"></i> ' . lang('sale_order_details'));
+        // $view_document = anchor('sale_order/view_document/$1', '<i class="fa fa-chain"></i> ' . lang('view_document'), 'data-toggle="modal" data-target="#myModal"');
+        $payments_link = anchor('sales/payments/$1', '<i class="fa fa-money"></i> ' . lang('view_payments'), 'data-toggle="modal" data-target="#myModal"');
+        $add_deposit = anchor('customers/add_deposit/$2/$1', '<i class="fa fa-money"></i> ' . lang('add_deposit'),'data-toggle="modal" data-target="#myModal"');
+        $view_deposit = anchor('customers/deposits/$2/$1', '<i class="fa fa-money"></i> ' . lang('view_deposit'),'data-toggle="modal" data-target="#myModal"');
+        $add_sale_order = anchor('sales/add/$1', '<i class="fa fa-money"></i> ' . lang('add_sale'));
+        $add_purchase_order = anchor('purchases/add_purchase_order/0/$1', '<i class="fa fa-money"></i> ' . lang('add_purchase_order'));
+        $add_purchase = anchor('purchases/add/0/0/$1', '<i class="fa fa-money"></i> ' . lang('add_purchase'));
+        $add_payment_link = anchor('sales/add_payment/$1', '<i class="fa fa-money"></i> ' . lang('add_payment'), 'data-toggle="modal" data-target="#myModal"');
+        $add_delivery_link = anchor('sales/add_delivery/$1', '<i class="fa fa-truck"></i> ' . lang('add_delivery'), 'data-toggle="modal" data-target="#myModal"');
+        $email_link = anchor('sales/email/$1', '<i class="fa fa-envelope"></i> ' . lang('email_sale'), 'data-toggle="modal" data-target="#myModal"');
+        $edit_link = anchor('sale_order/edit_sale_order/$1', '<i class="fa fa-edit"></i> ' . lang('edit_sale_order'), 'class="sledit"');
+        $pdf_link = anchor('sale_order/pdf/$1', '<i class="fa fa-file-pdf-o"></i> ' . lang('download_pdf'));
+        $return_link = anchor('sales/return_sale/$1', '<i class="fa fa-angle-double-left"></i> ' . lang('return_sale'));
+        $authorization = anchor('sale_order/getAuthorization/$1', '<i class="fa fa-check"></i> ' . lang('approved'), '');
+        // $assign_to  = anchor('sale_order/assign_to_user/$1', '<i class="fa fa-check"></i> ' . lang('assign_to_user'),'data-toggle="modal" data-target="#myModal"');
+        $unapproved = anchor('sale_order/getunapproved/$1', '<i class="fa fa-angle-double-left"></i> ' . lang('unapproved'), '');
+        $rejected = anchor('sale_order/getrejected/$1', '<i class="fa fa-times"></i> ' . lang('rejected'), '');
+        $delete_link = "<a href='#' class='po' title='<b>" . lang("delete_sale") . "</b>' data-content=\"<p>"
+            . lang('r_u_sure') . "</p><a class='btn btn-danger po-delete' href='" . site_url('sale_order/deleteSaleOrder/$1') . "'>"
+            . lang('i_m_sure') . "</a> <button class='btn po-close'>" . lang('no') . "</button>\"  rel='popover'><i class=\"fa fa-trash-o\"></i> "
+            . lang('delete_sale') . "</a>";
+        $action = '<div class="text-center"><div class="btn-group text-left">'
+            . '<button type="button" class="btn btn-default btn-xs btn-primary dropdown-toggle" data-toggle="dropdown">'
+            . lang('actions') . ' <span class="caret"></span></button>
+        <ul class="dropdown-menu pull-right" role="menu">
+            <li>' . $detail_link . '</li>'
+            . /*(($this->Owner || $this->Admin) ? '<li class="assign">'.$assign_to.'</li>':"") . */
+            (($this->Owner || $this->Admin) ? '<li class="approved">'.$authorization.'</li>' : ($this->GP['sale_order-authorize'] ? '<li class="approved">'.$authorization.'</li>' : '')).
+            (($this->Owner || $this->Admin) ? '<li class="unapproved">'.$unapproved.'</li>' : ($this->GP['sale_order-authorize'] ? '<li class="unapproved">'.$unapproved.'</li>' : '')).
+            (($this->Owner || $this->Admin) ? '<li class="rejected">'.$rejected.'</li>' : ($this->GP['sale_order-authorize'] ? '<li class="rejected">'.$rejected.'</li>' : '')).
+            (($this->Owner || $this->Admin) ? '<li class="adeposit">'.$add_deposit.'</li>' : ($this->GP['sale_order-deposit'] ? '<li class="adeposit">'.$add_deposit.'</li>' : '')).
+            (($this->Owner || $this->Admin) ? '<li class="vdeposit">'.$view_deposit.'</li>' : ($this->GP['sale_order-deposit'] ? '<li class="vdeposit">'.$view_deposit.'</li>' : '')).
+            (($this->Owner || $this->Admin) ? '<li class="add">'.$add_sale_order.'</li>' : ($this->GP['sale_order-add'] ? '<li class="add">'.$add_sale_order.'</li>' : '')).
+            (($this->Owner || $this->Admin) ? '<li class="add">'.$add_purchase_order.'</li>' : ($this->GP['sale_order-add'] ? '<li class="add">'.$add_purchase_order.'</li>' : '')).
+            (($this->Owner || $this->Admin) ? '<li class="add">'.$add_purchase.'</li>' : ($this->GP['sale_order-add'] ? '<li class="add">'.$add_purchase.'</li>' : '')).
+            (($this->Owner || $this->Admin) ? '<li class="edit">'.$edit_link.'</li>' : ($this->GP['sale_order-edit'] ? '<li class="edit">'.$edit_link.'</li>' : '')).
+            (($this->Owner || $this->Admin) ? '<li>'.$pdf_link.'</li>' : ($this->GP['sale_order-export'] ? '<li>'.$pdf_link.'</li>' : '')).
+            /*(($this->Owner || $this->Admin) ? '<li class="delete">'.$delete_link.'</li>' : ($this->GP['sale_order-delete'] ? '<li class="delete">'.$delete_link.'</li>' : '')).*/
+
+            '</ul>
+		</div></div>';
+        //$action = '<div class="text-center">' . $detail_link . ' ' . $edit_link . ' ' . $email_link . ' ' . $delete_link . '</div>';
+        // $permission = $this->site->getPermission();
+
+        // echo $permission->product_edit;die();
+        $biller_id = $this->session->userdata('biller_id');
+        $this->load->library('datatables');
+
+        if (isset($warehouse_id)) {
+            $this->datatables
+                //->select("sale_order.id, sale_order.customer_id, sale_order.date,quotes.reference_no as qref, sale_order.reference_no, sale_order.biller, companies.name as customer, users.username as saleman, sale_order.sale_status, sale_order.grand_total, sale_order.order_status")
+                ->select("
+                            sale_order.id,
+                            sale_order.customer_id,
+                            sale_order.date,
+                            quotes.reference_no as qref,
+                            sale_order.reference_no,
+                            sale_order.biller,
+                            IF(erp_companies.company = '', erp_companies.`name`, erp_companies.company) AS customer,
+                            users.username as saleman,
+                            sale_order.sale_status,
+                            sale_order.grand_total,
+                            COALESCE(SUM(erp_deposits.amount), 0) as deposit,
+                            erp_sale_order.grand_total-COALESCE(SUM(erp_deposits.amount), 0) as balance,
+                            sale_order.order_status
+                        ")
+                ->from('sale_order')
+                ->join('companies', 'companies.id = sale_order.customer_id', 'left')
+                ->join('users', 'users.id = sale_order.saleman_by', 'left')
+                ->join('users bill', 'bill.id = sale_order.created_by', 'left')
+                ->join('companies as delivery', 'delivery.id = sale_order.delivery_by', 'left')
+                ->join('deliveries', 'deliveries.sale_id = sale_order.id', 'left')
+                ->join('quotes', 'quotes.id = sale_order.quote_id', 'left')
+                ->join('erp_deposits', 'erp_deposits.so_id = erp_sale_order.id', 'left')
+                ->where('sale_order.sale_status','order')
+                ->where('sale_order.delivery_date !=','0000-00-00')
+                ->where('sale_order.delivery_date !=','')
+                ->where('sale_order.biller_id', $biller_id)
+                ->group_by('sale_order.id');
+
+            if (count($warehouse_ids) > 1) {
+                $this->datatables->where_in('sale_order.warehouse_id', $warehouse_ids);
+            } else {
+                $this->datatables->where('sale_order.warehouse_id', $warehouse_id);
+            }
+
+        } else {
+
+            $this->datatables
+                //->select("sale_order.id, sale_order.date, sale_order.reference_no, quotes.reference_no as qref, sale_order.biller, companies.name AS customer, users.username AS saleman,delivery.name as delivery_man,erp_sale_order.grand_total, sale_order.paid,(erp_sale_order.grand_total-erp_sale_order.paid) as balance, sale_order.sale_status")
+                ->select("
+                            sale_order.id,
+                            sale_order.customer_id,
+                            sale_order.date,
+                            quotes.reference_no as qref,
+                            sale_order.reference_no,
+                            sale_order.biller,
+                            IF(erp_companies.company = '', erp_companies.`name`, erp_companies.company) AS customer,
+                            users.username as saleman,
+                            sale_order.sale_status,
+                            sale_order.grand_total,
+                            COALESCE(SUM(erp_deposits.amount), 0) as deposit,
+                            erp_sale_order.grand_total-COALESCE(SUM(erp_deposits.amount), 0) as balance,
+                            sale_order.order_status
+                        ")
+                ->from('sale_order')
+                ->join('companies', 'companies.id = sale_order.customer_id', 'left')
+                ->join('users', 'users.id = sale_order.saleman_by', 'left')
+                ->join('companies as delivery', 'delivery.id = sale_order.delivery_by', 'left')
+                ->join('deliveries', 'deliveries.sale_id = sale_order.id', 'left')
+                ->join('quotes', 'quotes.id = sale_order.quote_id', 'left')
+                ->join('erp_deposits', 'erp_deposits.so_id = erp_sale_order.id', 'left')
+                ->where('sale_order.sale_status','order')
+                ->where('sale_order.delivery_date !=','0000-00-00')
+                ->where('sale_order.delivery_date !=','')
+                ->group_by('sale_order.id');
+
+            if(isset($_REQUEST['d'])){
+                $date = $_GET['d'];
+                $date1 = str_replace("/", "-", $date);
+                $date =  date('Y-m-d', strtotime($date1));
+
+                $this->datatables
+                    ->where("date >=", $date)
+                    ->where('DATE_SUB(date, INTERVAL 1 DAY) <= CURDATE()')
+                    ->where('sales.payment_term <>', 0);
+            }
+
+        }
+        if ($product_id) {
+            $this->datatables->join('sale_order_items', 'sale_order_items.sale_order_id = sale_order.id', 'left');
+            $this->datatables->where('sale_order_items.product_id', $product_id);
+        }
+
+        $this->datatables->where('sale_order.pos !=', 1);
+
+
+        if (!$this->Customer && !$this->Supplier && !$this->Owner && !$this->Admin && !$this->session->userdata('view_right')) {
+            $this->datatables->where('sale_order.created_by', $this->session->userdata('user_id'));
+        } elseif ($this->Customer) {
+            $this->datatables->where('customer_id', $this->session->userdata('user_id'));
+        }
+
+        if ($user_query) {
+            $this->datatables->where('sale_order.created_by', $user_query);
+        }
+
+        if ($reference_no) {
+            $this->datatables->where('sale_order.reference_no', $reference_no);
+        }
+        if ($biller) {
+            $this->datatables->where('sale_order.biller_id', $biller);
+        }
+        if ($customer) {
+            $this->datatables->where('sale_order.customer_id', $customer);
+        }
+
+        if($saleman){
+            $this->datatables->where('sale_order.saleman_by', $saleman);
+        }
+
+        if ($warehouse) {
+            $this->datatables->where('sale_order.warehouse_id', $warehouse);
+        }
+
+        if ($start_date) {
+            $this->datatables->where($this->db->dbprefix('sale_order').'.date BETWEEN "' . $start_date . ' 00:00:00" and "' . $end_date . ' 23:59:00"');
+        }
+
+        // $this->datatables->add_column("Actions", $action, "sale_order.id");
+        $this->datatables->add_column("Actions", $action, "sale_order.id, sale_order.customer_id");
+        $this->datatables->unset_column('sale_order.customer_id');
+        echo $this->datatables->generate();
+    }
     function getDeliveryAlerts($warehouse_id = NULL)
 	{
         
