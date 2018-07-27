@@ -295,6 +295,7 @@
 								//$this->erp->print_arrays( $sale);
 								$table_return_items = "erp_return_items"; 
 								$table_sale_items 	= "erp_sale_items";
+								$table_expense 	= "erp_expenses";
 								
 								$sql = "SELECT
 										 erp_sale_items.id,
@@ -329,7 +330,7 @@
 											LEFT JOIN `erp_units` ON `erp_units`.`id` = `erp_products`.`unit`
                                             LEFT JOIN `erp_product_variants` ON `erp_sale_items`.`option_id` = `erp_product_variants`.`id`
 											WHERE erp_sale_items.return_id={$sale->id} GROUP BY id")->result();
-							
+
 								
 							?>
 
@@ -391,7 +392,21 @@
 																		erp_gl_trans
 																	INNER JOIN erp_sales ON erp_sales.id = erp_gl_trans.sale_id																	
 																	WHERE erp_sales.id = {$sale->id}
-																	AND sectionid = 50
+																	GROUP BY reference_no
+																	");
+									$usings_stock = $this->db->query("SELECT
+																	erp_enter_using_stock.id,
+																	erp_enter_using_stock.date,
+																	erp_enter_using_stock.reference_no,
+																	erp_enter_using_stock_items.qty_use,
+	                                                                erp_enter_using_stock_items.cost,
+																	erp_enter_using_stock.total_cost
+																	FROM
+																		erp_enter_using_stock
+																	INNER JOIN erp_sale_order ON erp_sale_order.id = erp_enter_using_stock.sale_order_id
+																	INNER JOIN erp_enter_using_stock_items ON erp_enter_using_stock_items.reference_no = erp_enter_using_stock.reference_no	
+																	INNER JOIN erp_sales ON erp_sales.so_id = erp_sale_order.id																	
+																	WHERE erp_sales.id = {$sale->id}
 																	GROUP BY reference_no
 																	");
 
@@ -493,7 +508,7 @@
 														<td></td>
 														<td>{$this->erp->hrld($sales_by_gl->tran_date)}</td>
 														<td>{$sales_by_gl->reference_no}</td>
-														<td colspan='7'>{$sales_by_gl->description}</td>
+														<td colspan='8'>{$sales_by_gl->description}</td>
 														<td class='text-right'>{$e_amount}</td>
 														<td></td>
 														<td></td>
@@ -502,19 +517,69 @@
 											$total_overh += $e_total;
 											
 											$html .="<tr>
-														<td class='right' colspan='10'>".lang("subtotal")." : </td>
+														<td class='right' colspan='11'>".lang("subtotal")." : </td>
 														<td class='text-right'>{$this->erp->formatMoney($e_total)}</td>
 														<td></td>
 														<td class='text-right'>{$e_sub_total}</td>
 													</tr>";
 													
 											$html .="<tr>
-														<td class='right' colspan='10'>".lang("total_gross_margin")." : </td>
+														<td class='right' colspan='11'>".lang("total_gross_margin")." : </td>
 														<td></td>
 														<td class='text-right'></td>
 														<td class='text-right'>{$this->erp->formatMoney($d_gross_margin)}</td>
 													</tr>";
-								}
+								    }
+
+									if($usings_stock->num_rows() > 0){
+											$e_total = 0;
+											$i_gross_margin = "";
+
+										$html .="<tr style='font-weight:bold;'>
+													<td></td>
+													<td colspan='11'>".lang("USINGSTOCK")."</td>
+													<td class='text-right'></td>
+													<td></td>
+												 </tr>";
+
+										foreach($usings_stock->result() as $using_stocks){
+											$s_total += $using_stocks->total_cost;
+                                            $s_gross_margin = ($total_gross_margin - $sale->order_discount + $sale->shipping) + (-1)* $s_total;
+                                            $s_sub_total = "(".$this->erp->formatMoney(abs($s_total)).")";
+
+											$html .="<tr>
+														<td></td>
+														<td>{$this->erp->hrld($using_stocks->date)}</td>
+														<td>{$using_stocks->reference_no}</td>
+														<td></td>
+														<td></td>
+														<td>{$using_stocks->cost}</td>
+														<td></td>
+														<td></td>
+														<td></td>
+														<td class='text-right'>{$this->erp->formatQuantity($using_stocks->qty_use)}</td>
+														<td></td>
+														<td class='text-right'>{$this->erp->formatMoney($using_stocks->total_cost)}</td>
+														<td></td>
+														<td></td>
+													 </tr>";
+										}
+											$total_us += $s_total;
+
+											$html .="<tr>
+														<td class='right' colspan='11'>".lang("Sub_Total")." : </td>
+														<td class='text-right'>{$this->erp->formatMoney($s_total)}</td>
+														<td></td>
+														<td class='text-right'>{$s_sub_total}</td>
+													</tr>";
+
+											$html .="<tr>
+														<td class='right' colspan='11'>".lang("total_gross_margin")." : </td>
+														<td></td>
+														<td class='text-right'></td>
+														<td class='text-right'>{$this->erp->formatMoney($s_gross_margin)}</td>
+													</tr>";
+								    }
 									
 									}else{									
 										foreach($sales_detail_returned as $sale_detail_returned){										
@@ -757,6 +822,19 @@
 								<th></th>
                                 <?php if ($Owner || $Admin || $GP['products-cost']) { ?>
                                     <th class="right" style="color:#0586ff"><?= "(".$this->erp->formatMoney($total_overh).")"; ?></th>
+                                <?php } ?>
+							</tr>
+
+                            <tr>
+                                <th colspan="<?= $fcol2; ?>" class="right info-foot"
+                                    style="color:#0586ff"><?= lang("Total_Using_stock"); ?> :
+                                </th>
+                                <?php if ($Owner || $Admin || $GP['products-cost']) { ?>
+                                    <th class="right" style="color:#0586ff"><?= "(".$this->erp->formatMoney($total_us).")"; ?></th>
+                                <?php } ?>
+								<th></th>
+                                <?php if ($Owner || $Admin || $GP['products-cost']) { ?>
+                                    <th class="right" style="color:#0586ff"><?= "(".$this->erp->formatMoney($total_us).")"; ?></th>
                                 <?php } ?>
 							</tr>
 							
