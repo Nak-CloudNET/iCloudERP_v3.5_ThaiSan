@@ -39,8 +39,7 @@
             page-break-after: always;
         }
         .container {
-            margin-left: -20px !important;
-
+            margin-left: -10px !important;
         }
         .customer_label {
             padding-left: 0 !important;
@@ -139,7 +138,7 @@
 
 <body>
 <div class="container" style="margin: 0 auto;">
-    <div class="col-xs-12" >
+    <div class="col-xs-12"  style="padding: 0">
         <div class="row" style="margin-top: 20px !important;">
             <div class="col-sm-3 col-xs-3 " style=" margin-top: 0px !important;">
 
@@ -256,7 +255,7 @@
                         <td style="white-space: nowrap !important;"><?= $this->erp->hrld($invs->date); ?></td>
                     </tr>
                     <tr>
-                        <td style="font-weight: bold">អ្នកលក់ / Saleman</td>
+                        <td style="font-weight: bold">អ្នកលក់ / Salesman</td>
                         <td style="font-weight: bold">:</td>
                         <td><?= $invs->username; ?></td>
                     </tr>
@@ -381,8 +380,8 @@
                     }
                     ?>
                     <?php
-                    if($erow<8){
-                        $k=8 - $erow;
+                    if($erow<7){
+                        $k=7 - $erow;
                         for($j=1;$j<=$k;$j++) {
                             if($discount != 0) {
                                 echo  '<tr>

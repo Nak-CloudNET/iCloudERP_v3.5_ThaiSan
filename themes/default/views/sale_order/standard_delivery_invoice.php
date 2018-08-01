@@ -12,7 +12,7 @@
 </head>
 <style>
     .container {
-        width: 100%;
+        width: 19.3cm;
         margin: 10px auto;
         padding: 10px;
         font-size: 12px;
@@ -31,7 +31,9 @@
             page-break-after: always;
             -webkit-page-break-after: always;
         }
-
+        .container {
+            padding: 15px !important;
+        }
         .customer_label {
             padding-left: 0 !important;
         }
@@ -69,14 +71,21 @@
             margin-right:0px;
         }
         .border {
-            font-size: 17px !important;
+            font-size: 14px !important;
         }
         table {border-collapse: collapse;}
         tr {
             page-break-inside: avoid;
             -webkit-page-break-inside: avoid;
         }
+        .col-sm-5 {
+            margin-left:-10px !important;
+        }
+        .col-sm-4 .pad{
+            padding-left: 10px !important;
+        }
     }
+
     .border{
         font-size: 14px;
     }
@@ -136,8 +145,8 @@
     });
 </script>
 <body>
-<div class="container" style="width: 40%;margin: 0 auto;">
-    <div class="col-xs-12">
+<div class="container" style="margin: 0 auto;">
+    <div class="col-xs-12" style="padding: 0">
     <?php
     $cols = 6;
     if ($discount != 0) {
@@ -201,17 +210,17 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-sm-12 col-xs-12">
+                        <div class="col-sm-12 col-xs-12" >
                             <center>
-                                <h4 style="font-size: 14px !important; font-weight: bold;font-family: 'Khmer OS Muol Light' !important;">វិក្កយបត្រដឹកជញ្ជូន</h4>
-                                <h4 style="font-size: 14px !important; font-weight: bold;">Invoice Transfer</h4>
+                                <h4 style="font-size: 14px !important;line-height: 25px; font-weight: bold;font-family: 'Khmer OS Muol Light' !important;">វិក្កយបត្រដឹកជញ្ជូន</h4>
+                                <h4 style="font-size: 14px !important; font-weight: bold;">Invoice Delivery</h4>
                             </center>
 
                         </div>
                     </div>
-
-                    <div class="row" style="text-align: left;margin-left:-20px !important;">
-                        <div class="col-sm-6 col-xs-6"style="white-space: nowrap">
+                    <br>
+                    <div class="row" style="text-align: left;margin-left: -20px !important;">
+                        <div class="col-sm-7 col-xs-7"style="white-space: nowrap">
                             <table >
                                 <?php
 
@@ -266,21 +275,21 @@
                             </table>
                         </div>
                         <?php //$this->erp->print_arrays($inv);?>
-                        <div class="col-sm-6 col-xs-6" style="white-space: nowrap;margin-left:-10px !important;">
+                        <div class="col-sm-5 col-xs-5" style="white-space: nowrap;">
                             <table>
                                 <tr>
-                                    <td class="bold"  style="width: 45% !important;">លេខដឹក / DO Reference</sup></td>
+                                    <td class="bold"  style="width: 45% !important;">លេខដឹក / DO Ref</sup></td>
                                     <td class="bold"  style="width: 5% !important;"> : </td>
                                     <td style="width: 40% !important;"><?= $inv->do_reference_no ?></td>
                                 </tr>
                                 <tr>
-                                    <td  class="bold">លេខវិក្កយបត្រ / Sale Reference</td>
+                                    <td  class="bold">លេខវិក្កយបត្រ / Sale Ref</td>
                                     <td  class="bold">:</td>
                                     <td><?= $inv->sale_reference_no ?></td>
                                 </tr>
 
                                 <tr>
-                                    <td class="bold" >អ្នកលក់ / Saleman</td>
+                                    <td class="bold" >អ្នកលក់ / Salesman</td>
                                     <td class="bold" >:</td>
                                     <td><?= $inv->saleman; ?></td>
                                 </tr>
@@ -313,7 +322,7 @@
                 <th>លេខកូដ<br /><?= strtoupper(lang('code')) ?></th>
                 <th>បរិយាយ<br /><?= strtoupper(lang('description')) ?></th>
                 <th>​ឯកតា<br /><?= strtoupper(lang('unit')) ?></th>
-                <th>បរិមាណ<br /><?= strtoupper(lang('quantity')) ?></th>
+                <th style="width: 10%;">បរិមាណ<br /><?= strtoupper(lang('QTY')) ?></th>
             </thead>
             <tbody>
 
@@ -332,7 +341,7 @@
                     <td style="vertical-align: middle;">
                         <?=$inv_item->product_code;?>
                     </td>
-                    <td style="vertical-align: middle;">
+                    <td style="white-space: nowrap; vertical-align: middle;">
                         <?php echo $inv_item->product_name;?>
                     </td>
                         <?php if ($inv_item->option_id >= 1) { ?>
@@ -399,8 +408,8 @@
                     <div class="clear-both">
                         <div style="width:100%;height: 10px !important;"></div>
                     </div>
-                    <div class="row" >
-                        <div class="col-sm-4 col-xs-4">
+                    <div class="row" style="margin-left: 30px;  ">
+                        <div class="col-sm-4 col-xs-4" style="padding-left: 10px;">
 
 
                                 <p style=" margin-top: 4px !important">អ្នករៀបចំ/<?= lang('prepared_by') ?></p>
@@ -410,18 +419,18 @@
 
                         </div>
 
-                        <div class="col-sm-4 col-xs-4">
+                        <div class="col-sm-4 col-xs-4" style="padding-left: 20px;">
                                 <p style=" margin-top: 4px !important">អ្នកដឹក/<?= lang('deliveried_by') ?></p>
                                 <p><strong>ឈ្មោះ/<?= lang('name') ?> :</br></br></strong> .......................</p>
 
                                 <p>ថ្ងៃ ខែ ឆ្នាំ/<?= lang('date') ?> : </br></br>.........................</p>
 
                         </div>
-                        <div class="col-sm-4 col-xs-4">
-                                <p style=" margin-top: 4px !important">អ្នកទទួល/<?= lang('received_by') ?></p>
-                                <p><strong>ឈ្មោះ/<?= lang('name') ?> :</br></br></strong> .......................</p>
+                        <div class="col-sm-4 col-xs-4 ">
+                                <p class="pad" style=" margin-top: 4px !important">អ្នកទទួល/<?= lang('received_by') ?></p>
+                                <p class="pad"><strong>ឈ្មោះ/<?= lang('name') ?> :</br></br></strong> .......................</p>
 
-                                <p>ថ្ងៃ ខែ ឆ្នាំ/<?= lang('date') ?> : </br></br>.........................</p>
+                                <p class="pad">ថ្ងៃ ខែ ឆ្នាំ/<?= lang('date') ?> : </br></br>.........................</p>
 
                         </div>
                     </div>

@@ -193,7 +193,7 @@
             <div class="invoice_label" style="margin-top: -10px !important">
                 <center>
                     <h4 style="font-size: 14px !important; font-weight: bold;font-family: 'Khmer OS Muol Light' !important;">វិក្កយបត្រ</h4>
-                    <h4 style="font-size: 14px !important; font-weight: bold;">Invoice Transfer</h4>
+                    <h4 style="font-size: 14px !important; font-weight: bold;">Invoice</h4>
                 </center>
             </div>
         </div>
@@ -254,7 +254,7 @@
                         <td style="white-space: nowrap !important;"><?= $this->erp->hrld($invs->date); ?></td>
                     </tr>
                     <tr>
-                        <td style="font-weight: bold">អ្នកលក់ / Saleman</td>
+                        <td style="font-weight: bold">អ្នកលក់ / Salesman</td>
                         <td style="font-weight: bold">:</td>
                         <td><?= $invs->saleman; ?></td>
                     </tr>
@@ -369,8 +369,8 @@
                     }
                     ?>
                     <?php
-                    if($erow<8){
-                        $k=8 - $erow;
+                    if($erow<6){
+                        $k=6 - $erow;
                         for($j=1;$j<=$k;$j++) {
                             if($discount != 0) {
                                 echo  '<tr>

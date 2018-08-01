@@ -69,6 +69,9 @@
         div .fonts p{
              font-size: 12px !important;
          }
+        .col-sm-5 {
+            margin-left:-60px !important;
+        }
     }
 
     div .fonts p{
@@ -200,7 +203,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-6 col-xs-6">
+            <div class="col-sm-7 col-xs-7">
                 <table>
                     <?php if(!empty($customer->company)) { ?>
 
@@ -243,7 +246,7 @@
 
                 </table>
             </div>
-            <div class="col-sm-6 col-xs-6" style="padding-left: 60px !important;">
+            <div class="col-sm-5 col-xs-5">
                 <table>
                     <tr>
                         <td style="width: 45%; font-weight: bold;white-space: nowrap !important;">លេខវិក្កយបត្រ / Reference</td>
@@ -256,7 +259,7 @@
                         <td style="white-space: nowrap !important;"><?= $this->erp->hrld($invs->date); ?></td>
                     </tr>
                     <tr>
-                        <td style="font-weight: bold">អ្នកលក់ / Saleman</td>
+                        <td style="font-weight: bold">អ្នកលក់ / Salesman</td>
                         <td style="font-weight: bold">:</td>
                         <td><?= $invs->username; ?></td>
                     </tr>

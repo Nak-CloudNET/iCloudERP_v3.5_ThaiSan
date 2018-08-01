@@ -43,14 +43,12 @@
 		thead th,b {
 			font-size: 12px !important;
 		}
-        .container {
-            height: 100% !important;
-        }
+
 		tr td{
             font-size: 13px !important;
 		}
 		#footer {
-			bottom:70px !important;
+
 			position: absolute !important;
 			width:100% !important;
 		}
@@ -124,7 +122,7 @@
                             <h3 class="header"><?= $biller->company ?></h3>
                         <?php } ?>
 
-                        <div style="margin-top: 15px;">
+                        <div style="white-space: nowrap; margin-top: 15px;">
                             <?php if(!empty($biller->vat_no)) { ?>
                                 <p>លេខអត្តសញ្ញាណកម្ម អតប (VAT No):&nbsp;<?= $biller->vat_no; ?></p>
                             <?php } ?>
@@ -221,34 +219,34 @@
                 </table>
             </div>
 
-            <div class="col-sm-6 col-xs-6" style="padding-left: 60px !important;">
+            <div class="col-sm-6 col-xs-6">
                 <table class="noPadding" border="none">
                     <tr>
-                        <td class="bold" style="width: 45%;">លេខរៀង / N<sup>o</sup></sup></td>
+                        <td class="bold" style="white-space: nowrap;width: 45%;">លេខរៀង / N<sup>o</sup></sup></td>
                         <td class="bold" style="width: 5%;">:</td>
-                        <td style="width: 50%;"><?= $inv->reference_no ?></td>
+                        <td style="white-space: nowrap;width: 50%;"><?= $inv->reference_no ?></td>
                     </tr>
                     <tr>
-                        <td class="bold">កាលបរិច្ឆេទ / Date</td>
+                        <td class="bold" style="white-space: nowrap;">កាលបរិច្ឆេទ / Date</td>
                         <td class="bold">:</td>
-                        <td><?= $this->erp->hrld($inv->date); ?></td>
+                        <td style="white-space: nowrap;"><?= $this->erp->hrld($inv->date); ?></td>
                     </tr>
                     <tr>
-                        <td class="bold">អ្នកលក់ / Sale Man</td>
+                        <td class="bold" style="white-space: nowrap;">អ្នកលក់ / Salesman</td>
                         <td class="bold">:</td>
-                        <td><?= $inv->saleman; ?></td>
+                        <td style="white-space: nowrap;"><?= $inv->saleman; ?></td>
                     </tr>
 
                     <?php if ($inv->payment_term) { ?>
                         <tr>
-                            <td class="bold">រយៈពេលបង់ប្រាក់ </td>
+                            <td class="bold" style="white-space: nowrap;">រយៈពេលបង់ប្រាក់ </td>
                             <td class="bold">:</td>
-                            <td><?= $inv->payment_term ?></td>
+                            <td style="white-space: nowrap;"><?= $inv->payment_term ?></td>
                         </tr>
                         <tr>
-                            <td class="bold" style="width: 30% !important">កាលបរិច្ឆេទនៃការបង់ប្រាក់ </td>
+                            <td class="bold" style="white-space: nowrap; width: 30% !important">កាលបរិច្ឆេទនៃការបង់ប្រាក់ </td>
                             <td class="bold">:</td>
-                            <td><?= $this->erp->hrsd($inv->due_date) ?></td>
+                            <td style="white-space: nowrap;"><?= $this->erp->hrsd($inv->due_date) ?></td>
                         </tr>
                     <?php }
                     $dis=0;
@@ -413,8 +411,8 @@
 						
 					?>
 					<?php
-						if($erow<9){
-							$k=9 - $erow;
+						if($erow<7){
+							$k=7 - $erow;
 							for($j=1;$j<=$k;$j++){
                                 if($dis != 0 ) {
 
@@ -576,7 +574,7 @@
                             <br><br><br><br>
                         <?php }else{ ?>
                             <div class="clear-both">
-                                <div style="width:100%;height:50px"></div>
+                                <div style="width:100%;height:50px;"></div>
                             </div>
                         <?php } ?>
                         <div class="row" >
