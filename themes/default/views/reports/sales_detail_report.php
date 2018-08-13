@@ -744,7 +744,7 @@
 								 
 							}else{ ?>
 								<tr>
-									<td colspan="10" class="dataTables_empty"><?= lang('loading_data_from_server') ?></td>
+									<td colspan="14" class="dataTables_empty"><?= lang('loading_data_from_server') ?></td>
 								</tr>
 						<?php } ?>
                         </tbody>
