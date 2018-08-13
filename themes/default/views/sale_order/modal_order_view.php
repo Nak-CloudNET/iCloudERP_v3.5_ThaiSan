@@ -350,13 +350,13 @@
             <?php if (!$Supplier || !$Customer) { ?>
                 <div class="buttons">
                     <div class="btn-group btn-group-justified">
-						<!--<div class="btn-group">
+						<div class="btn-group">
                             <a href="<?= site_url('sale_order/sale_order_thai_san/' . $inv->id) ?>" target="_blank" class="tip btn btn-primary" title="<?= lang('sale order') ?>">
                                 <i class="fa fa-print"></i>
                                 <span class="hidden-sm hidden-xs"><?= lang('print_sale_order') ?></span>
                             </a>
-                        </div>-->
-                        <div class="btn-group">
+                        </div>
+                        <!--<div class="btn-group">
                             <a href="<?= site_url('sale_order/tax_invoice1/' . $inv->id) ?>" target="_blank" class="tip btn btn-primary" title="<?= lang('sale order') ?>">
                                 <i class="fa fa-print"></i>
                                 <span class="hidden-sm hidden-xs"><?= lang('standard_invoice A4') ?></span>
@@ -368,7 +368,7 @@
                                 <span class="hidden-sm hidden-xs"><?= lang('standard_invoice A5') ?></span>
                             </a>
                         </div>
-						<!--<div class="btn-group">
+						<div class="btn-group">
                             <a href="<?= site_url('sale_order/tax_invoice1/' . $inv->id) ?>" target="_blank" class="tip btn btn-primary" title="<?= lang('sale order') ?>">
                                 <i class="fa fa-print"></i>
                                 <span class="hidden-sm hidden-xs"><?= lang('standard_invoice') ?></span>
