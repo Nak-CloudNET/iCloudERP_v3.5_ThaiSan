@@ -17938,14 +17938,15 @@ class Sales extends MY_Controller
     /**
      * @param null $id
      */
-    function print_st_invoice_2($id = null)
+    function print_st_invoice_2($_type, $id = null)
     {
+
         $this->erp->checkPermissions('add', true, 'sales');
 
         if ($this->input->get('id')) {
             $id = $this->input->get('id');
         }
-        $id = 5;
+        
         $this->load->model('pos_model');
         $this->data['setting'] = $this->site->get_setting();
         $this->data['pos'] = $this->pos_model->getSetting();
@@ -17979,6 +17980,7 @@ class Sales extends MY_Controller
         $this->data['return_items'] = $return ? $this->sales_model->getAllReturnItems($return->id) : NULL;
         $this->data['title'] = "2";
         $this->data['sid'] = $id;
+
         $this->data['type'] = $_type;
         $this->load->view($this->theme .'sales/invoice_st_a4_2',$this->data);
     }

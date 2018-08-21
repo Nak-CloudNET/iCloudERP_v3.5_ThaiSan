@@ -1298,6 +1298,7 @@ class Sales_model extends CI_Model
 	}
 	public function getInvoiceByID($id=null,$wh=null)
     {
+
 		$this->db
 			 ->select("sales.*, companies.name,companies.company,companies.logo,companies.cf4,companies.phone, companies.email,
 			  quotes.reference_no as quote_no, users.username as saleman,

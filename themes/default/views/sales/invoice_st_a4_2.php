@@ -144,7 +144,7 @@
             </div>
             <div  class="col-sm-7 col-xs-7 company_addr "  style="margin-top: -20px !important;margin-left:-20px !important;">
                 <div class="myhide">
-                    <center >
+                    <div style="text-align: center;">
                         <?php if($biller->company) { ?>
                             <h3 class="header"><?= $biller->company ?></h3>
                         <?php } ?>
@@ -167,7 +167,7 @@
                             <?php } ?>
                         </div>
 
-                    </center>
+                    </div>
                 </div>
 
             </div>
@@ -188,10 +188,10 @@
 
         <div class="row">
             <div class="invoice_label" style="margin-top: -10px !important">
-                <center>
+                <div style="text-align: center;">
                     <h4 style="font-size: 14px !important; font-weight: bold;font-family: 'Khmer OS Muol Light' !important;">វិក្កយបត្រ</h4>
                     <h4 style="font-size: 14px !important; font-weight: bold;">Invoice</h4>
-                </center>
+                </div>
             </div>
         </div>
         <div class="row">
@@ -300,23 +300,17 @@
                     </tr>
                     <?php
 
-                    $arr_product_name = array();
-                    $arr_count = array();
-                    $product_name = '';
-                    $pt_name = array();
-                    $cn = 1;
-                    $newArr = array();
-                    foreach ($rows as $count_row) {
-                        $arr_count[$count_row->product_invoice]++;
-                    }
+                    $no = 1;
+                    $erow = 1;
+                    $totalRow = 0;
                     foreach ($rows as $row) {
                         //$this->erp->print_arrays($row);
                         $free = lang('free');
                         $product_unit = '';
                         $total = 0;
 
-                        if($row->product_variant){
-                            $product_unit = $row->product_variant;;
+                        if($row->variant){
+                            $product_unit = $row->variant;
                         }else{
                             $product_unit = $row->uname;
                         }
@@ -357,6 +351,7 @@
                                 <td style="vertical-align: middle; text-align: center">
                                     <?=$this->erp->formatMoney($row->item_tax);?></td>
                             <?php } ?>
+
                             <td style="vertical-align: middle; text-align: right"><?= $this->erp->formatMoney($row->subtotal);?>
                             </td>
                         </tr>
@@ -491,6 +486,8 @@
                         <td align="right"><?= $this->erp->formatMoney($invs->grand_total); ?></td>
                     </tr>
                     <?php if($invs->paid != 0 || $invs->deposit != 0){ ?>
+
+
                         <?php if($invs->deposit != 0) { ?>
                             <tr>
                                 <td colspan="<?= $col; ?>" style="text-align: right; font-weight: bold;">បានកក់ / <?= strtoupper(lang('deposit')) ?>
@@ -534,24 +531,24 @@
     <div id="footer" class="row">
         <div class="col-sm-4 col-xs-4" style="padding-top: 60px;">
 
-            <center>
+            <div style="text-align: center;">
                 <hr style="margin:0; border:1px solid #000; width: 80%">
                 <p style="font-size: 16px; margin-top: 4px !important">ហត្ថលេខាអ្នកលក់</p>
                 <p style="margin-top:-10px; font-size: 14px">Seller's Signature</p>
-            </center>
+            </div>
         </div>
         <div class="col-sm-4 col-xs-4">
-            <center>
+            <div style="text-align: center;">
 
-            </center>
+            </div>
         </div>
         <div class="col-sm-4 col-xs-4" style="padding-top: 60px;">
 
-            <center>
+            <div style="text-align: center;">
                 <hr style="margin:0; border:1px solid #000; width: 80%">
                 <p style="font-size: 16px; margin-top: 4px !important">ហត្ថលេខាអ្នកទិញ</p>
                 <p style="margin-top:-10px; font-size: 14px">Customer's Signature</p>
-            </center>
+            </div>
         </div>
     </div>
 
