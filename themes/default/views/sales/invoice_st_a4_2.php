@@ -213,8 +213,8 @@
                         <h4 style="color: red !important; font-size: 15px !important;line-height:25px; font-weight: bold;
                         font-family:'Khmer OS Muol Light';
                         -moz-font-family: 'Khmer OS System';
-                        font-size: 18px;">វិក្កយបត្របញ្ជាទិញ</h4>
-                        <h4 style="color:red !important;dfont-size: 14px !important;margin-top: 3px;font-weight:bold;">Sale Orders</h4>
+                        font-size: 18px;">វិក្កយបត្រ</h4>
+                        <h4 style="color:red !important;dfont-size: 14px !important;margin-top: 3px;font-weight:bold;">Invoice</h4>
                     </center>
 
                 </div>
@@ -333,7 +333,7 @@
                         <th>បរិយាយ<br /><span>Description</span></th>
                         <th>ខ្នាត<br /><span>Unit</span></th>
                         <th>ចំនួន(សន្លឹក)<br /><span>Qty</span></th>
-                        <th>ចំនួន<br /><span>m2</span></th>
+                        <th>ចំនួន<br /><span>m <sup>2</sup></span></th>
                         <th style="width: 50px">តម្លៃ<br /><span>Unit Price</span></th>
 
                         <?php if ($dis>0) { ?>
