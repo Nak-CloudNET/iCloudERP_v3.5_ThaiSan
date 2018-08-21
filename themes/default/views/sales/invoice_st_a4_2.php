@@ -54,10 +54,7 @@
             font-size: 12px !important;
         }
 
-        .table thead > tr > th, .table tbody > tr > th, .table tfoot > tr > th {
-            background-color: #444 !important;
-            color: #FFF !important;
-        }
+
 
 
         .row .col-xs-7 table tr td, .col-sm-5 table tr td{
@@ -285,7 +282,7 @@
             <div class="col-sm-12 col-xs-12">
                 <table class="table table-bordered" style="width: 100%; margin-top: 10px;">
                     <tbody style="font-size: 16px;">
-                    <tr class="thead" style="white-space: nowrap;background-color: #444 !important; color: #FFF !important;">
+                    <tr class="thead" style="white-space: nowrap;">
                         <th style="width: 50px">ល.រ<br />No</th>
                         <th style="width: 50px">កូដ<br />Code</th>
                         <th>បរិយាយ<br />Description</th>
@@ -293,27 +290,33 @@
                         <th>ចំនួន<br />Qty</th>
                         <th style="width: 50px">តម្លៃ<br />Unit Price</th>
 
-                        <?php if ($Settings->product_discount) { ?>
+                        <?php if ($Settings->product_discount>0) { ?>
                             <th>បញ្ចុះតម្លៃ<br />Discount</th>
                         <?php } ?>
-                        <?php if ($Settings->tax1) { ?>
+                        <?php if ($Settings->tax1>0) { ?>
                             <th>ពន្ធទំនិញ<br />Tax</th>
                         <?php } ?>
                         <th>តម្លៃសរុប<br />Subtotal</th>
                     </tr>
                     <?php
 
-                    $no = 1;
-                    $erow = 1;
-                    $totalRow = 0;
+                    $arr_product_name = array();
+                    $arr_count = array();
+                    $product_name = '';
+                    $pt_name = array();
+                    $cn = 1;
+                    $newArr = array();
+                    foreach ($rows as $count_row) {
+                        $arr_count[$count_row->product_invoice]++;
+                    }
                     foreach ($rows as $row) {
                         //$this->erp->print_arrays($row);
                         $free = lang('free');
                         $product_unit = '';
                         $total = 0;
 
-                        if($row->variant){
-                            $product_unit = $row->unit;
+                        if($row->product_variant){
+                            $product_unit = $row->product_variant;;
                         }else{
                             $product_unit = $row->uname;
                         }

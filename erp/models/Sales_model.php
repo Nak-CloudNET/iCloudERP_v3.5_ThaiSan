@@ -749,7 +749,7 @@ class Sales_model extends CI_Model
 			->join('categories', 'categories.id = products.category_id', 'left')
             ->join('units', 'units.id = products.unit', 'left')
             ->group_by('sale_items.id');
-        $q = $this->db->get_where('sale_items', array('sale_id' => $sale_id));
+            $q = $this->db->get_where('sale_items', array('sale_id'));
         if ($q->num_rows() > 0) {
             foreach (($q->result()) as $row) {
                 $data[] = $row;
@@ -1315,12 +1315,15 @@ class Sales_model extends CI_Model
 			 ->join('sale_order', 'sale_order.id = sales.so_id', 'left')
 			 ->join('users', 'sales.saleman_by = users.id', 'left')
 			 ->join('tax_rates', 'sales.order_tax_id = tax_rates.id', 'left')
-			 ->join('payment_term', 'sales.payment_term = payment_term.id', 'left');
+			 ->join('payment_term', 'sales.payment_term = payment_term.id', 'left')
+             ->where('sales.id', $id);
+
 
 			 if($wh){
-			 	$this->db->where_in('erp_sales.warehouse_id',$wh);
+			 	$this->db->where_in('erp_sales.warehouse_id',$wh
+                );
 			 }
-        $q = $this->db->get_where('sales', array('sales.id' => $id),1);
+        $q = $this->db->get('sales',$id);
         if ($q->num_rows() > 0) {
             return $q->row();
         }
@@ -1505,7 +1508,7 @@ class Sales_model extends CI_Model
         }
         return FALSE;
     }
-	
+
 	public function getSOInvoiceByID($id)
     {
 		$this->db
