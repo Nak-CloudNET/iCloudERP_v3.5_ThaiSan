@@ -44,6 +44,10 @@
         .header{
             color: red !important;
         }
+        .size{
+            font-size: 20px !important;
+            color: red !important;
+        }
         .invoice{
             color: red !important;
         }
@@ -182,7 +186,7 @@
                 <div class="myhide">
                     <center >
                         <?php if($biller->company_kh) { ?>
-                            <h3 class="header" style="color: red"><?= $biller->company_kh ?></h3>
+                            <h3 class="header size" style="color: red; font-size: 25px !important;"><?= $biller->company_kh ?></h3>
                         <?php } ?>
                         <?php if($biller->company) { ?>
                             <h3 class="header" style="color: red"><?= $biller->company ?></h3>
