@@ -4423,11 +4423,24 @@ class Site extends CI_Model
 	{
 		
 		if($customer){
-			$this->db->select("id as id, reference_no as text");
-			$q = $this->db->get_where("sales", array('customer_id' => $customer));
+			$q=$this->db->query("
+				select* from 
+				(select customer_id,id as id, 
+				reference_no as text 
+				from erp_sales
+				union all
+				select customer_id, id as id ,reference_no as text 
+				from erp_sale_order) cus where customer_id={$customer}
+				");
 		}else{
-			$this->db->select("id as id, reference_no as text");
-			$q = $this->db->get("sales");
+			$q=$this->db->query("
+				select* from 
+				(select id as id, 
+				reference_no as text 
+				from erp_sales
+				union all
+				select id as id ,reference_no as text 
+				from erp_sale_order) cus");
 		}
 		
 		return $q->result();
