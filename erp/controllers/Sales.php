@@ -19649,12 +19649,25 @@ function invoice_concrete_angkor($id=null)
        $row = $this->sales_model->getSaleByRef($sale_order_id);
         echo json_encode(array(array('id' => $row->id, 'text' => ($row->text))));
     }
-     function getSaleByRefNo($ref = NULL)
+    function getSaleOrderByRef($sale_order_id = NULL)
+    {
+       $row = $this->sales_model->getSaleOrderByRef($sale_order_id);
+        echo json_encode(array(array('id' => $row->id, 'text' => ($row->text))));
+    }
+    function getSaleByRefNo($ref = NULL)
     {
         if ($this->input->get('term')) {
             $ref = $this->input->get('term', TRUE);
         }
         $rows['results'] = $this->sales_model->getSaleByRefNo($ref);
+        echo json_encode($rows);
+    }
+    function getSaleOrderByRefNo($ref = NULL)
+    {
+        if ($this->input->get('term')) {
+            $ref = $this->input->get('term', TRUE);
+        }
+        $rows['results'] = $this->sales_model->getSaleOrderByRefNo($ref);
         echo json_encode($rows);
     }
 }
