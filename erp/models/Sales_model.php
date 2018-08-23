@@ -3959,9 +3959,28 @@ class Sales_model extends CI_Model
     }
     public function getSaleByRefNo($ref)
     {
-        $this->db->select('sale_order.id as id, sale_order.reference_no as text');
-        $this->db->like('reference_no',$ref);
-        $q = $this->db->get('sale_order',$limit);
+       if($ref){
+            $q=$this->db->query("
+                select* from 
+                (select id as id, 
+                reference_no as text 
+                from erp_sales
+                union all
+                select id as id ,reference_no as text 
+                from erp_sale_order) cus where text like '%{$ref}%'
+                ");
+        }else{
+            $q=$this->db->query("
+                select* from 
+                (select id as id, 
+                reference_no as text 
+                from erp_sales
+                union all
+                select id as id ,reference_no as text 
+                from erp_sale_order) cus");
+        }
+        //$this->db->like('reference_no',$ref);
+        //$q = $this->db->get('sale_order',$limit);
         if ($q->num_rows() > 0) {
             foreach (($q->result()) as $row) {
                 $data[] = $row;
