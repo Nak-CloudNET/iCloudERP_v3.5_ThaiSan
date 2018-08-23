@@ -2969,6 +2969,19 @@ class Account extends MY_Controller
 	public function getCustomerInvoices($customer = null)
 	{
 		if ($rows = $this->site->getCustomerInvoices($customer)) {
+			$none=array('id'=>'','text'=>'None');
+			array_unshift($rows, $none);
+			$data = json_encode($rows);
+		} else {
+			$data = false;
+		}
+		echo $data;
+	}
+	public function getCustomerSaleOrderInvoices($customer = null)
+	{
+		if ($rows = $this->site->getCustomerSaleOrderInvoices($customer)) {
+			$none=array('id'=>'','text'=>'None');
+			array_unshift($rows, $none);
 			$data = json_encode($rows);
 		} else {
 			$data = false;

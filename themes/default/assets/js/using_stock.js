@@ -2,11 +2,16 @@ $(document).ready(function (e) {
 
 	var $customer = $('#customer');
 	var $sale_invoice=$('#sale_invoice');
+	var $sale_order_invoice=$('#sale_order_invoice');
 	$customer.change(function (e) {
         __setItem('customer', $(this).val());
         //$('#slcustomer_id').val($(this).val());
     });
     $sale_invoice.change(function (e) {
+        __setItem('sale_id', $(this).val());
+        //$('#slcustomer_id').val($(this).val());
+    });
+    $sale_order_invoice.change(function (e) {
         __setItem('sale_order_id', $(this).val());
         //$('#slcustomer_id').val($(this).val());
     });
@@ -45,9 +50,46 @@ $(document).ready(function (e) {
         });
 		
     } 
-    if (true) {
+   	if (true) {
     	sale_order_id = __getItem('sale_order_id');
-        $sale_invoice.val(sale_order_id).select2({
+        $sale_order_invoice.val(sale_order_id).select2({
+            minimumInputLength: 1,
+            data: [],
+            initSelection: function (element, callback) {
+            
+                $.ajax({
+                    type: "get", async: false,
+                    url: site.base_url+"sales/getSaleOrderByRef/" + $(element).val(),
+                    dataType: "json",
+                    success: function (data) {
+                        callback(data[0]);
+                    }
+                });
+            },
+            ajax: {
+                url: site.base_url + "sales/getSaleOrderByRefNo",
+                dataType: 'json',
+                quietMillis: 15,
+                data: function (term, page) {
+                    return {
+                        term: term,
+                        limit: 10
+                    };
+                },
+                results: function (data, page) {
+                    if (data.results != null) {
+                        return {results: data.results};
+                    } else {
+                        return {results: [{id: '', text: 'No Match Found'}]};
+                    }
+                }
+            }
+        });
+		
+    } 
+    if (true) {
+    	sale_id = __getItem('sale_id');
+        $sale_invoice.val(sale_id).select2({
             minimumInputLength: 1,
             data: [],
             initSelection: function (element, callback) {
@@ -379,9 +421,9 @@ function loadItems() {
 		item_reason      		= '';
 		item_qty_use     		= 0;
 		item_qty_by_unit     	= '';
-		if(usitems!=null)
+		if(usitems!=null )
 		{
-			 $.each(usitems, function () {
+			$.each(usitems, function () {
             var item 			= this;
             var item_id 		= site.settings.item_addition == 1 ? item.item_id : item.id;
             usitems[item_id] 	= item;
