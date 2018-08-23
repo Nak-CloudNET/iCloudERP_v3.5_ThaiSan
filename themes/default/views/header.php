@@ -2059,113 +2059,12 @@
 
                         	<?php } else { ?>
 
-                                <?php if ($GP['customers-index'] || $GP['suppliers-index'] || $GP['drivers-index'] ) { ?>
 
-                                    <li class="mm_auth mm_customers mm_suppliers mm_billers">
-                                        <a class="dropmenu" href="#">
-                                            <i class="fa fa-users"></i>
-                                            <span class="text"> <?= lang('manage_people'); ?> </span>
-                                            <span class="chevron closed"></span>
-                                        </a>
-                                        <ul>
-                                            <?php if ($GP['suppliers-index']) { ?>
-                                                <li id="suppliers_index">
-                                                    <a class="dropmenu" href="<?= site_url('suppliers'); ?>">
-                                                        <i class="fa fa-users"></i><span class="text"> <?= lang('list_suppliers'); ?></span>
-                                                        <span class="chevron closed"></span>
-                                                    </a>
-                                                    <ul>
-                                                    	<li>
-                                                    		<a class="submenu" href="<?= site_url('suppliers'); ?>">
-		                                                        <i class="fa fa-users"></i><span class="text"> <?= lang('list_suppliers'); ?></span>
-		                                                    </a>
-                                                    	</li>
-                                                    	<?php }
-			                                            if ($GP['suppliers-add']) { ?>
-			                                                <li id="suppliers_index">
-			                                                    <a class="submenu" href="<?= site_url('suppliers/add'); ?>" data-toggle="modal" data-target="#myModal">
-			                                                        <i class="fa fa-plus-circle"></i><span class="text"> <?= lang('add_supplier'); ?></span>
-			                                                    </a>
-			                                                </li>
-			                                            <?php } ?>
-			                                            <?php if ($GP['purchases-supplier_balance']) { ?>
-		                                                <li id="purchases_supplier_balance">
-		                                                    <a class="submenu" href="<?= site_url('purchases/supplier_balance'); ?>">
-		                                                        <i class="fa fa-money"></i>
-		                                                        <span class="text"> <?= lang('supplier_balance_list'); ?></span>
-		                                                    </a>
-		                                                </li>
-		                                            <?php } ?>
-                                                    </ul>
-                                                </li>
-                                           
-                                           
-                                            <?php if ($GP['customers-index']) { ?>
-                                                <li id="customers_index">
-                                                    <a class="dropmenu" href="<?= site_url('customers'); ?>">
-                                                        <i class="fa fa-users"></i><span class="text"> <?= lang('list_customers'); ?></span>
-                                                        <span class="chevron closed"></span>
-                                                    </a>
-                                                    <ul>
-                                                    	<li>
-                                                    		<a class="submenu" href="<?= site_url('customers'); ?>">
-		                                                        <i class="fa fa-users"></i><span class="text"> <?= lang('list_customers'); ?></span>
-		                                                    </a>
-                                                    	</li>
-                                                    	<?php }
-			                                            if ($GP['customers-add']) { ?>
-			                                                <li id="customers_index">
-			                                                    <a class="submenu" href="<?= site_url('customers/add'); ?>" data-toggle="modal" data-target="#myModal">
-			                                                        <i class="fa fa-plus-circle"></i><span class="text"> <?= lang('add_customer'); ?></span>
-			                                                    </a>
-			                                                </li>
-			                                            <?php } ?>
-			                                            <?php
-			                                            if ($GP['customers_balance']) { ?>
-			                                                <li id="sales_customer_balance">
-			                                                    <a class="submenu" href="<?= site_url('sales/customer_balance'); ?>">
-			                                                        <i class="fa fa-money"></i>
-			                                                        <span class="text"> <?= lang('customer_balance_list'); ?></span>
-			                                                    </a>
-			                                                </li>
-			                                            <?php }	?>
-			                                            <?php
-			                                            if ($GP['sales-opening_ar']) { ?>
-			                                                <li id="sales_customer_opening_balance">
-			                                                    <a class="submenu" href="<?= site_url('sales/customer_opening_balance'); ?>">
-			                                                        <i class="fa fa-money"></i>
-			                                                        <span class="text"> <?= lang('opening_ar'); ?></span>
-			                                                    </a>
-			                                                </li>
-			                                            <?php }?>
-                                                    </ul>
-                                                </li>
-                                           
-                                      
-                                            <?php if ($GP['drivers-index']){ ?>
-                                             <!--   <li id="drivers_index">
-                                                    <a class="submenu" href="<?/*= site_url('drivers'); */?>">
-                                                        <i class="fa fa-users"></i><span class="text"> <?/*= lang('list_drivers'); */?></span>
-                                                    </a>
-                                                </li>-->
-                                            <?php } ?>
-                                            <?php if ($GP['drivers-add']){ ?>
-                                             <!--   <li id="drivers_index">
-                                                    <a class="submenu" href="<?/*= site_url('drivers/add'); */?>" data-toggle="modal" data-target="#myModal">
-                                                        <i class="fa fa-plus-circle"></i><span class="text"> <?/*= lang('add_driver'); */?></span>
-                                                    </a>
-                                                </li>-->
-                                            <?php } ?>
-
-
-                                        </ul>
-                                    </li>
-                                <?php } ?>
 							    <?php if ($GP['products-index'] || $GP['products-return_list'] || $GP['products-print_barcodes'] || $GP['products-adjustments'] || $GP['products-list_using_stock'] || $GP['products-using_stock'] || $GP['product_stock_count']) { ?>
 								    <li class="mm_products">
 									<a class="dropmenu" href="#">
 										<i class="fa fa-barcode"></i>
-										<span class="text"> <?= lang('manage_products'); ?> 
+										<span class="text"> <?= lang('manage_products'); ?>
 										</span> <span class="chevron closed"></span>
 									</a>
 									<ul>
@@ -2199,7 +2098,7 @@
 											</ul>
 										</li>
 											<?php } ?>
-											
+
 
 											<?php if ($GP['products-items_convert']) { ?>
 												<li id="products_list_convert" class="sub_navigation">
@@ -2231,12 +2130,12 @@
 														<?php } ?>
 													</ul>
 												</li>
-												
+
 											<?php } ?>
 
-											
-											
-											
+
+
+
 											<?php if ($GP['products-return_list']) { ?>
 												<!--<li id="products_return_products" class="sub_navigation">
 													<a class="submenu" href="<?= site_url('products/return_products'); ?>">
@@ -2253,7 +2152,7 @@
 													</a>
 												</li>-->
 											<?php } ?>
-											
+
 											<?php if ($GP['products-adjustments']) { ?>
 													<li id="products_quantity_adjustments">
 														<a class="dropmenu" href="<?= site_url('products/quantity_adjustments'); ?>">
@@ -2276,9 +2175,9 @@
 															</li>
 														</ul>
 													</li>
-													
+
 											<?php } ?>
-											
+
 											<?php if ($GP['products-list_using_stock']) { ?>
                                                 <li id="products_view_using_stock" class="sub_navigation">
                                                     <a class="dropmenu"  href="<?= site_url('products/view_using_stock'); ?>">
@@ -2304,7 +2203,7 @@
 													</ul>
 												</li>
 											<?php } ?>
-											
+
                                             <?php if ($GP['transfers-index']) { ?>
                                                 <li id="transfers_list_in_transfer">
                                                     <a class="dropmenu" href="<?= site_url('transfers/list_in_transfer'); ?>">
@@ -2330,7 +2229,7 @@
                                                     </ul>
                                                 </li>
                                             <?php } ?>
-                                     
+
 											<?php if ($GP['products-count_stocks']) { ?>
 												<!--<li id="products_barcode_count_stock" class="sub_navigation">
 														<a class="submenu" href="<?/*= site_url('products/barcode_count_stock'); */?>">
@@ -2359,9 +2258,9 @@
 															</li>
 														</ul>
 													</li>
-													
+
 											<?php } ?>
-											
+
 
 											<?php if ($GP['product_import_quantity']) { ?>
 												<li id="products_update_quantity" class="sub_navigation">
