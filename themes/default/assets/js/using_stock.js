@@ -50,7 +50,7 @@ $(document).ready(function (e) {
         });
 		
     } 
-      if (true) {
+   	if (true) {
     	sale_order_id = __getItem('sale_order_id');
         $sale_order_invoice.val(sale_order_id).select2({
             minimumInputLength: 1,
@@ -421,9 +421,9 @@ function loadItems() {
 		item_reason      		= '';
 		item_qty_use     		= 0;
 		item_qty_by_unit     	= '';
-		if(usitems!=null)
+		if(usitems!=null )
 		{
-			 $.each(usitems, function () {
+			$.each(usitems, function () {
             var item 			= this;
             var item_id 		= site.settings.item_addition == 1 ? item.item_id : item.id;
             usitems[item_id] 	= item;

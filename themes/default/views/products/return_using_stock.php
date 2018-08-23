@@ -184,6 +184,7 @@
 		__setItem('authorize_id', '<?= $using_stock->authorize_id; ?>');
 		__setItem('employee_id', '<?= $using_stock->employee_id; ?>');
 		__setItem('sale_order_id', '<?= $using_stock->sale_order_id; ?>');
+		__setItem('sale_id', '<?= $using_stock->sale_id; ?>');
 		__setItem('shop', '<?= $using_stock->shop; ?>');
 		__setItem('account', '<?= $using_stock->account; ?>');
 		__setItem('plan', '<?= $using_stock->plan_id; ?>');
@@ -285,11 +286,12 @@
 						</div>
 					-->
 						<div class="form-group">
-							<?= lang('sale_invoice', 'sale_invoice'); ?>
+							<?= lang('sale_order_invoice', 'sale_order_invoice'); ?>
 							<?php
-								echo form_input('sale_invoice', '', 'id="sale_invoice" data-placeholder="' . lang("select") . ' ' . lang("sale_invoice") . '" class="form-control input-tip" style="min-width:100%;"');
+								echo form_input('sale_order_invoice', '', 'id="sale_order_invoice" data-placeholder="' . lang("select") . ' ' . lang("sale_invoice") . '" class="form-control input-tip" style="min-width:100%;"');
 							?>
 						</div>
+
 						
 					</div>
 					
@@ -326,6 +328,12 @@
                                 }
                             echo form_dropdown('shop', $billers, $using_stock->shop, 'class="form-control"   required  id="shop" placeholder="' . lang("select") . ' ' . lang("shop") . '" style="width:100%;pointer-events:none;"')
                             ?>
+						</div>
+						<div class="form-group">
+							<?= lang('sale_invoice', 'sale_invoice'); ?>
+							<?php
+								echo form_input('sale_invoice', '', 'id="sale_invoice" data-placeholder="' . lang("select") . ' ' . lang("sale_invoice") . '" class="form-control input-tip" style="min-width:100%;"');
+							?>
 						</div>
 						
 					</div>

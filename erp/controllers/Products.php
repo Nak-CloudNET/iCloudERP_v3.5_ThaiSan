@@ -5634,6 +5634,7 @@ class Products extends MY_Controller
     			'employee_id' 	=> $employee_id,
     			'customer_id' 	=> $customer_id,
                 'sale_order_id' => $sale_order_id,
+                'sale_id'       => $sale_id,
     			'shop' 			=> $shop,
     			'account' 		=> $account,
     			'note' 			=> $note,
