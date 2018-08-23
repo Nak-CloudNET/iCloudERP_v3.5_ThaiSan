@@ -282,7 +282,7 @@
 
                 </table>
             </div>
-            <div class="col-sm-6 col-xs-6" style="padding-left: 60px !important;">
+            <div class="col-sm-6 col-xs-6" style="padding-left: 17px !important;">
                 <table class="tb_f">
                     <tr>
                         <td style="width: 45%; white-space: nowrap !important;">លេខវិក្កយបត្រ / Reference</td>
@@ -602,7 +602,7 @@
                         <?php } ?>
                         <?php if($balance != 0) { ?>
                             <tr  class="border">
-                                <td colspan="<?= $col2; ?>" style="text-align: right; font-weight: bold;">នៅខ្វះ / <?= strtoupper(lang('balance')) ?>
+                                <td colspan="<?= $col3; ?>" style="text-align: right; font-weight: bold;">នៅខ្វះ / <?= strtoupper(lang('balance')) ?>
 
                                 </td>
                                 <td align="right"><?= $this->erp->formatMoney($balance); ?></td>
