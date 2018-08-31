@@ -4901,7 +4901,8 @@ class Products extends MY_Controller
 			$reference_no 	= $this->input->post('reference_no');
 			$employee_id 	= $this->input->post('employee_id');
 			$customer_id 	= $this->input->post('customer');
-            $sale_order_id  = $this->input->post('sale_invoice');
+            $sale_order_id  = $this->input->post('sale_order_invoice');
+            $sale_id        = $this->input->post('sale_invoice');
 			$plan 			= $this->input->post('plan');
 			$address 		= $this->input->post('address');
 			$warehouse_id 	= $this->input->post('from_location');
@@ -4982,6 +4983,7 @@ class Products extends MY_Controller
     			'employee_id' 	=> $employee_id,
     			'customer_id' 	=> $customer_id,
                 'sale_order_id' => $sale_order_id,
+                'sale_id'       => $sale_id,
     			'shop' 			=> $shop,
     			'account' 		=> $account,
     			'note' 			=> $note,
@@ -5560,7 +5562,8 @@ class Products extends MY_Controller
 			$reference_no 	= $this->input->post('reference_no');
 			$employee_id 	= $this->input->post('employee_id');
 			$customer_id 	= $this->input->post('customer');
-            $sale_order_id  = $this->input->post('sale_invoice');
+            $sale_order_id  = $this->input->post('sale_order_invoice');
+            $sale_id        = $this->input->post('sale_invoice');
 			$plan 			= $this->input->post('plan');
 			$address 		= $this->input->post('address');
 			$warehouse_id 	= $this->input->post('from_location');
@@ -5631,6 +5634,7 @@ class Products extends MY_Controller
     			'employee_id' 	=> $employee_id,
     			'customer_id' 	=> $customer_id,
                 'sale_order_id' => $sale_order_id,
+                'sale_id'       => $sale_id,
     			'shop' 			=> $shop,
     			'account' 		=> $account,
     			'note' 			=> $note,

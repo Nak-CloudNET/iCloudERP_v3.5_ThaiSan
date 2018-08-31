@@ -218,3 +218,4 @@ $lang['print_purchase_order']				= "Print Purchase Order";
 $lang['purchase_order']				        = "Purchase Order";
 $lang['contact']                            = "Contact";
 $lang['print_purchase']                     = "Print Purchase";
+$lang['invoice_sale_order_no']				= "Invoice Sale Order No.";

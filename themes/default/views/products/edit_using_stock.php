@@ -173,6 +173,7 @@
 		__setItem('employee_id', '<?= $using_stock->employee_id; ?>');
 		__setItem('customer', '<?= $using_stock->customer_id; ?>');
 		__setItem('sale_order_id', '<?= $using_stock->sale_order_id; ?>');
+		__setItem('sale_id', '<?= $using_stock->sale_id; ?>');
 		__setItem('shop', '<?= $using_stock->shop; ?>');
 		__setItem('account', '<?= $using_stock->account; ?>');
 		__setItem('plan', '<?= $using_stock->plan_id; ?>');
@@ -212,9 +213,9 @@
 							?>
 						</div>  --> 
 						<div class="form-group">
-							<?= lang('sale_invoice', 'sale_invoice'); ?>
+							<?= lang('sale_order_invoice', 'sale_order_invoice'); ?>
 							<?php
-								echo form_input('sale_invoice', '', 'id="sale_invoice" data-placeholder="' . lang("select") . ' ' . lang("sale_invoice") . '" class="form-control input-tip" style="min-width:100%;"');
+								echo form_input('sale_order_invoice', '', 'id="sale_order_invoice" data-placeholder="' . lang("select") . ' ' . lang("sale_invoice") . '" class="form-control input-tip" style="min-width:100%;"');
 							?>
 						</div>
 					</div>
@@ -242,17 +243,13 @@
                             ?>
 							
 						</div>
-						<div class="form-group all">
-                            <?= lang("from_location", "from_location") ?>
-                            <?php
-								$wh[""]="";
-                                foreach ($warehouses as $warehouse) {
-                                    $wh[$warehouse->id] = $warehouse->code .'-'. $warehouse->name;
-                                }
-                          
-								echo form_dropdown('from_location', $wh, $where, 'class="form-control"   required  id="from_location" placeholder="' . lang("select") . ' ' . lang("location") . '" style="width:100%;pointer-events:none;"')
-                            ?>
-                        </div>
+						<div class="form-group">
+							<?= lang('sale_invoice', 'sale_invoice'); ?>
+							<?php
+								echo form_input('sale_invoice', '', 'id="sale_invoice" data-placeholder="' . lang("select") . ' ' . lang("sale_invoice") . '" class="form-control input-tip" style="min-width:100%;"');
+							?>
+						</div>
+						
 						
 					</div>
 					<div class="col-md-4">			
@@ -267,6 +264,17 @@
                             echo form_dropdown('account', $gl, $using_stock->account, 'class="form-control"    id="account" placeholder="' . lang("select") . ' ' . lang("account") . '" style="width:100%"')
                             ?>
 						</div>
+						<div class="form-group all">
+                            <?= lang("from_location", "from_location") ?>
+                            <?php
+								$wh[""]="";
+                                foreach ($warehouses as $warehouse) {
+                                    $wh[$warehouse->id] = $warehouse->code .'-'. $warehouse->name;
+                                }
+                          
+								echo form_dropdown('from_location', $wh, $where, 'class="form-control"   required  id="from_location" placeholder="' . lang("select") . ' ' . lang("location") . '" style="width:100%;pointer-events:none;"')
+                            ?>
+                        </div>
                         <div class="form-group" style="pointer-events:none;">
                             <?= get_dropdown_project('shop', 'shop', $using_stock->shop); ?>
                         </div>

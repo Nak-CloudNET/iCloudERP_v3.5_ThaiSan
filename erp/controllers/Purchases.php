@@ -7339,6 +7339,7 @@ class Purchases extends MY_Controller
 				'biller_id'		=> $this->input->post('biller'),
 				'bank_code' 	=> $this->input->post('paid_by'),
 				'sale_id' 		=> $this->input->post('customer_invoice_no'),
+                'sale_order_id' => $this->input->post('invoice_sale_order_no'),
 				'customer_id' 	=> $this->input->post('customer_invoice')
             );
 
@@ -7379,6 +7380,7 @@ class Purchases extends MY_Controller
 			$this->data['currency'] = $this->site->getCurrency();
 			$this->data['customers'] = $this->site->getCustomers();
 			$this->data['invoices'] = $this->site->getCustomerInvoices();
+            $this->data['invoice_orders'] = $this->site->getCustomerSaleOrderInvoices();
 
 			if ($this->Owner || $this->Admin || !$this->session->userdata('biller_id')) {
 				$biller_id = $this->site->get_setting()->default_biller;
@@ -7428,6 +7430,7 @@ class Purchases extends MY_Controller
 				'biller_id'	=> $this->input->post('biller'),
 				'bank_code' => $this->input->post('paid_by'),
 				'updated_by' => $this->session->userdata('user_id'),
+                'sale_order_id' => $this->input->post('invoice_sale_order_no'),
 				'sale_id' => $this->input->post('customer_invoice_no'),
 				'customer_id' => $this->input->post('customer_invoice')
             );
@@ -7459,7 +7462,7 @@ class Purchases extends MY_Controller
             redirect("purchases/expenses");
         } else {
 			$this->load->model('accounts_model');
-             $this->load->model('pos_model');
+            $this->load->model('pos_model');
             $this->pos_settings = $this->pos_model->getSetting();
             $this->data['pos_settings'] = $this->pos_settings;
             $this->data['error'] = (validation_errors() ? validation_errors() : $this->session->flashdata('error'));
@@ -7472,6 +7475,7 @@ class Purchases extends MY_Controller
 			$this->data['billers'] = $this->site->getAllCompanies('biller');
 			$this->data['customers'] = $this->site->getCustomers();
 			$this->data['invoices'] = $this->site->getCustomerInvoices();
+            $this->data['invoice_orders'] = $this->site->getCustomerSaleOrderInvoices();
             $this->load->view($this->theme . 'purchases/edit_expense', $this->data);
         }
     }

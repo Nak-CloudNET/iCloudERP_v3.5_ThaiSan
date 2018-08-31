@@ -158,6 +158,7 @@ $lang['return']								= "Return ";
 $lang['end_date']							= "End Date ";
 $lang['customer_name']						= "Customer Name";
 $lang['invoice_no']							= "Invoice No.";
+$lang['invoice_sale_order_no']				= "Invoice Sale Order No.";
 $lang['select_customer_invoice']			= "Select Customer Invoice";
 $lang['biller']								= "Project";
 $lang['note']								= "Note";

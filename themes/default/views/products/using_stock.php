@@ -155,6 +155,9 @@
 			if (__getItem('sale_order_id')) {
 				__removeItem('sale_order_id');
 			}
+			if (__getItem('sale_id')) {
+				__removeItem('sale_id');
+			}
 			<?php $this->session->set_userdata('remove_usitem', '0');?>
 		}
 		
@@ -215,11 +218,12 @@
 							?>
 						</div>  -->
 						<div class="form-group">
-							<?= lang('sale_invoice', 'sale_invoice'); ?>
+							<?= lang('sale_order_invoice', 'sale_order_invoice'); ?>
 							<?php
-								echo form_input('sale_invoice', '', 'id="sale_invoice" data-placeholder="' . lang("select") . ' ' . lang("sale_invoice") . '" class="form-control input-tip" style="min-width:100%;"');
+								echo form_input('sale_order_invoice', '', 'id="sale_order_invoice" data-placeholder="' . lang("select") . ' ' . lang("sale_invoice") . '" class="form-control input-tip" style="min-width:100%;"');
 							?>
 						</div>
+
 					</div>
 					<div class="col-md-4">
 						<div class="form-group">
@@ -247,19 +251,14 @@
                                 ?>
 							</div>
 						</div>
-						
 						<div class="form-group">
-							<?= lang('employee', 'employee'); ?>
+							<?= lang('sale_invoice', 'sale_invoice'); ?>
 							<?php
-                            
-                                foreach ($employees as $epm) {
-                                    $em[$epm->id] = $epm->fullname;
-                                }
-                          
-                            echo form_dropdown('employee_id', $em,'', 'class="form-control"    id="employee_id" placeholder="' . lang("select") . ' ' . lang("employee") . '" style="width:100%"')
-                            ?>
-							
+								echo form_input('sale_invoice', '', 'id="sale_invoice" data-placeholder="' . lang("select") . ' ' . lang("sale_invoice") . '" class="form-control input-tip" style="min-width:100%;"');
+							?>
 						</div>
+						
+						
 					</div>
 					<div class="col-md-4">			
 						<div class="form-group">
@@ -294,6 +293,18 @@
                             }
                          ?>
                         </div>
+                        <div class="form-group">
+							<?= lang('employee', 'employee'); ?>
+							<?php
+                            
+                                foreach ($employees as $epm) {
+                                    $em[$epm->id] = $epm->fullname;
+                                }
+                          
+                            echo form_dropdown('employee_id', $em,'', 'class="form-control"    id="employee_id" placeholder="' . lang("select") . ' ' . lang("employee") . '" style="width:100%"')
+                            ?>
+							
+						</div>
 					</div>
                 </div>
 				

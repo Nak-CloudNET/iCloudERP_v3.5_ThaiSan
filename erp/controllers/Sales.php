@@ -17935,13 +17935,18 @@ class Sales extends MY_Controller
         $this->load->view($this->theme .'sales/invoice_st_a4',$this->data);
     }
 
-    function print_st_invoice_2($id=null)
+    /**
+     * @param null $id
+     */
+    function print_st_invoice_2($_type ,$id = null)
     {
+
         $this->erp->checkPermissions('add', true, 'sales');
 
         if ($this->input->get('id')) {
             $id = $this->input->get('id');
         }
+        
         $this->load->model('pos_model');
         $this->data['setting'] = $this->site->get_setting();
         $this->data['pos'] = $this->pos_model->getSetting();
@@ -17951,6 +17956,7 @@ class Sales extends MY_Controller
         $this->data['customer'] = $this->site->getCompanyByID($inv->customer_id);
         $this->data['payments'] = $this->sales_model->getPaymentsForSale($id);
         $this->data['biller'] = $this->site->getCompanyByID($inv->biller_id);
+
         $this->data['user'] = $this->site->getUser($inv->created_by);
         $this->data['warehouse'] = $this->site->getWarehouseByID($inv->warehouse_id);
         $this->data['invs'] = $inv;
@@ -17961,12 +17967,12 @@ class Sales extends MY_Controller
         $records = $this->sales_model->getAllInvoiceItems($id);
 
         foreach($records as $record){
-            $product_option = $record->option_id;
-            if($product_option != Null && $product_option != "" && $product_option != 0){
-                $item_quantity = $record->quantity;
-                //$record->quantity = 0;
-                $option_details = $this->sales_model->getProductOptionByID($product_option);
-                //$record->quantity = $item_quantity / ($option_details->qty_unit);
+        $product_option = $record->option_id;
+        if($product_option != Null && $product_option != "" && $product_option != 0){
+            $item_quantity = $record->quantity;
+
+            $option_details = $this->sales_model->getProductOptionByID($product_option);
+
             }
         }
         $this->data['rows'] = $records;
@@ -17977,6 +17983,9 @@ class Sales extends MY_Controller
         $this->data['type'] = $_type;
         $this->load->view($this->theme .'sales/invoice_st_a4_2',$this->data);
     }
+
+
+
 
     function invoice_standard_nlh($id=null)
 	{
@@ -19640,12 +19649,25 @@ function invoice_concrete_angkor($id=null)
        $row = $this->sales_model->getSaleByRef($sale_order_id);
         echo json_encode(array(array('id' => $row->id, 'text' => ($row->text))));
     }
-     function getSaleByRefNo($ref = NULL)
+    function getSaleOrderByRef($sale_order_id = NULL)
+    {
+       $row = $this->sales_model->getSaleOrderByRef($sale_order_id);
+        echo json_encode(array(array('id' => $row->id, 'text' => ($row->text))));
+    }
+    function getSaleByRefNo($ref = NULL)
     {
         if ($this->input->get('term')) {
             $ref = $this->input->get('term', TRUE);
         }
         $rows['results'] = $this->sales_model->getSaleByRefNo($ref);
+        echo json_encode($rows);
+    }
+    function getSaleOrderByRefNo($ref = NULL)
+    {
+        if ($this->input->get('term')) {
+            $ref = $this->input->get('term', TRUE);
+        }
+        $rows['results'] = $this->sales_model->getSaleOrderByRefNo($ref);
         echo json_encode($rows);
     }
 }

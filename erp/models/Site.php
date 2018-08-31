@@ -4423,11 +4423,36 @@ class Site extends CI_Model
 	{
 		
 		if($customer){
-			$this->db->select("id as id, reference_no as text");
-			$q = $this->db->get_where("sales", array('customer_id' => $customer));
+			$q=$this->db->query("
+				select customer_id,id as id, 
+				reference_no as text 
+				from erp_sales where customer_id={$customer}
+				");
 		}else{
-			$this->db->select("id as id, reference_no as text");
-			$q = $this->db->get("sales");
+			$q=$this->db->query("
+				select id as id, 
+				reference_no as text 
+				from erp_sales");
+		}
+		
+		return $q->result();
+
+        return FALSE;
+	}
+	public function getCustomerSaleOrderInvoices($customer = NULL)
+	{
+		
+		if($customer){
+			$q=$this->db->query("
+				select customer_id,id as id, 
+				reference_no as text 
+				from erp_sale_order where customer_id={$customer}
+				");
+		}else{
+			$q=$this->db->query("
+				select id as id, 
+				reference_no as text 
+				from erp_sale_order");
 		}
 		
 		return $q->result();
