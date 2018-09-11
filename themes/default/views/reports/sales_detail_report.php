@@ -403,9 +403,9 @@
 																	erp_enter_using_stock.total_cost
 																	FROM
 																		erp_enter_using_stock
-																	INNER JOIN erp_sale_order ON erp_sale_order.id = erp_enter_using_stock.sale_order_id
-																	INNER JOIN erp_enter_using_stock_items ON erp_enter_using_stock_items.reference_no = erp_enter_using_stock.reference_no	
-																	INNER JOIN erp_sales ON erp_sales.so_id = erp_sale_order.id																	
+																	LEFT JOIN erp_sale_order ON erp_sale_order.id = erp_enter_using_stock.sale_order_id
+																	LEFT JOIN erp_enter_using_stock_items ON erp_enter_using_stock_items.reference_no = erp_enter_using_stock.reference_no	
+																	LEFT JOIN erp_sales ON erp_sales.id = erp_enter_using_stock.sale_id																	
 																	WHERE erp_sales.id = {$sale->id}
 																	GROUP BY reference_no
 																	");
