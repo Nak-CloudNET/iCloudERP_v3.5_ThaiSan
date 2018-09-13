@@ -1,0 +1,85 @@
+﻿Code,Name,Parent Category Code,Image name
+S-SAFE8,Cash Box (ប្រអប់ដាក់លុយ),SAFE-01,c1.png
+S-SAFE9,Color Box,SAFE-01,c1.png
+S-SAFE7,Key Box (ប្រអប់សោ),SAFE-01,c1.png
+S-SAFE10,Partitions រនាំង,SAFE-01,c1.png
+S-CB11,គ្រែ,CBO-01,c1.png
+S-CB12,ឆ័ត្រ,CBO-01,c1.png
+S-TV13,តុ ,TV-01,c1.png
+S-TV7,តុ AA 30604 0.9m,TV-01,c1.png
+S-TV6,តុ AA 40604 1.2m,TV-01,c1.png
+S-TV5,តុ KN-CO33 1.2m,TV-01,c1.png
+S-TV3,តុ TV STD 120,TV-01,c1.png
+S-TV2,តុ TV STD 151,TV-01,c1.png
+S-TV1,តុ TV STD 188,TV-01,c1.png
+S-TV4,តុ TV STD 90,TV-01,c1.png
+S-TV9,តុ​ JY,TV-01,c1.png
+S-TV10,តុ​ ប្រជុំ,TV-01,c1.png
+S-TV11,តុ​ប្រធាន,TV-01,c1.png
+S-TV15,តុកែង,TV-01,c1.png
+S-TV8,តុបត់ ,TV-01,c1.png
+S-TV12,តុសរសេរ Begin 1m,TV-01,c1.png
+S-TV16,តុសួន,TV-01,c1.png
+S-TV14,ថតតុ,TV-01,c1.png
+S-SAFE2,ទូដែក Bool Safe,SAFE-01,c1.png
+S-SAFE6,ទូដែក Diplomat ,SAFE-01,c1.png
+S-SAFE1,ទូដែក Leeco Safe,SAFE-01,c1.png
+S-SAFE3,ទូដែក Orion ,SAFE-01,c1.png
+S-SAFE4,ទូដែក TaiYo,SAFE-01,c1.png
+S-SAFE5,ទូដែក UchiDa,SAFE-01,c1.png
+S-SAFE7,ទូដែក Yale,SAFE-01,c1.png
+S-CBO6,ទូសៀវភៅ STD 902,CBO-01,c1.png
+S-CB10,ទូស្បែកជើង,CBO-01,c1.png
+S-SCB2,ទូឯកសារ (ឈើ),SCB-01,c1.png
+S-SCB1,ទូឯកសារ (ដែក),SCB-01,c1.png
+S-CBO3,ទូឯកសារ 10ថត ,CBO-01,c1.png
+S-CBO2,ទូឯកសារ 15ថត ,CBO-01,c1.png
+S-CBO9,ទូឯកសារ S1-DAG,CBO-01,c1.png
+S-CBO8,ទូឯកសារ S2-DAG,CBO-01,c1.png
+S-CBO7,ទូឯកសារ S4-DAG,CBO-01,c1.png
+S-CBO5,ទូឯកសារ មានទ្វារ,CBO-01,c1.png
+S-CBO4,ទូឯកសារកញ្ចក់(8034-3) ទ្វារ3 ,CBO-01,c1.png
+S-CBO1,ទូឯកសារឈើ,CBO-01,c1.png
+S-WDT30,ទូអាវ  សរលោង​,WDT-01,c1.png
+S-WDT29,ទូអាវ 6062  1m0,WDT-01,c1.png
+S-WDT26,ទូអាវ 6063 ទ្វារ3  1m2,WDT-01,c1.png
+S-WDT23,ទូអាវ 6064 ទ្វារ4 ,WDT-01,c1.png
+S-WDT28,ទូអាវ 9162  1m0,WDT-01,c1.png
+S-WDT25,ទូអាវ 9163 ទ្វារ3  1m2,WDT-01,c1.png
+S-WDT22,ទូអាវ 9164 ទ្វារ4,WDT-01,c1.png
+S-WDT27,ទូអាវ 9172  1m0,WDT-01,c1.png
+S-WDT24,ទូអាវ 9173 ទ្វារ3 1.2m,WDT-01,c1.png
+S-WDT21,ទូអាវ 9174 ទ្វារ4,WDT-01,c1.png
+S-WDT15,ទូអាវ Begin 0.8m,WDT-01,c1.png
+S-WDT16,ទូអាវ Begin 0.8m ទាប,WDT-01,c1.png
+S-WDT20,ទូអាវ Begin 1.2m ថ្នាក់,WDT-01,c1.png
+S-WDT19,ទូអាវ Begin 1.2m ទ្វារ3 ទាប,WDT-01,c1.png
+S-WDT17,ទូអាវ Begin 1m2 ទ្វារ2,WDT-01,c1.png
+S-WDT18,ទូអាវ Begin 1m2 ទ្វារ3,WDT-01,c1.png
+S-WDT13,ទូអាវ MC100 ហាយឡាយ(​1m) ,WDT-01,c1.png
+S-WDT14,ទូអាវ MC150 ហាយឡាយ ,WDT-01,c1.png
+S-WDT3,ទូអាវ STD 0.8m,WDT-01,c1.png
+S-WDT4,ទូអាវ STD 0.8m ទាប,WDT-01,c1.png
+S-WDT2,ទូអាវ STD 0.9m,WDT-01,c1.png
+S-WDT10,ទូអាវ STD 1.2m ថ្នាក់,WDT-01,c1.png
+S-WDT9,ទូអាវ STD 1.2m ទ្វារ3 ទាប,WDT-01,c1.png
+S-WDT1,ទូអាវ STD 1m2 កិ 2,WDT-01,c1.png
+S-WDT8,ទូអាវ STD ឆ្នូត 1.2m ទ្វារ3,WDT-01,c1.png
+S-WDT6,ទូអាវ STD ឆ្នូត 1.35m,WDT-01,c1.png
+S-WDT11,ទូអាវ STD ឆ្នូត 1.6m ទ្វារ4,WDT-01,c1.png
+S-WDT7,ទូអាវ STD លាត 1.2m ទ្វារ3,WDT-01,c1.png
+S-WDT5,ទូអាវ STD លាត 1.35m,WDT-01,c1.png
+S-WDT12,ទូអាវ STD លាត 1.8m ទ្វារ4,WDT-01,c1.png
+S-MTTG12,ពូក,MTTG-01,c1.png
+S-MTTG11,ពូក Athens,MTTG-01,c1.png
+S-MTTG1,ពូក London,MTTG-01,c1.png
+S-MTTG5,ពូក Osaka,MTTG-01,c1.png
+S-MTTG3,ពូក Oslo,MTTG-01,c1.png
+S-MTTG4,ពូក Rome,MTTG-01,c1.png
+S-MTTG2,ពូក Venice,MTTG-01,c1.png
+S-MTTG6,ពូកកៅស៊ូ និង ពូករម៉ូ,MTTG-01,c1.png
+S-MTTG9,ពូកបត់,MTTG-01,c1.png
+S-MTTG8,ពូកបត់3កំណាត់,MTTG-01,c1.png
+S-MTTG10,ពូកប៉ិចណិច,MTTG-01,c1.png
+S-MTTG7,ពូករ៉ឺស័រដាច់,MTTG-01,c1.png
+S-TV17,សាឡុង,TV-01,c1.png

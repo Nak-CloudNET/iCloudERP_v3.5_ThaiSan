@@ -27,6 +27,7 @@
     }
 
     @media print {
+		
         .container{
             padding: 15px !important;
         }
@@ -167,7 +168,8 @@
                             <div class="myhide">
                                 <center >
                                     <?php if($biller->company) { ?>
-                                        <h3 class="header"><?= $biller->company ?></h3>
+										<h3 style="margin-top:20px;font-family:Khmer OS Muol Light !important;"><?=$biller->company_kh ?></h3>
+                                        <h3 class="header" style="font-weight:bold !important;"><?= $biller->company ?></h3>
                                     <?php } ?>
 
                                     <div style="margin-top: 15px;">
@@ -193,7 +195,7 @@
                             <div class="invoice" style="margin-top:20px;">
                                 <center>
                                     <h4 class="title">វិក្កយបត្របញ្ជាទិញ</h4>
-                                    <h4 class="title" style="margin-top: 3px;">Sale Orders Invoice</h4>
+                                    <h4 class="title" style="margin-top: 3px;">Sale Orders</h4>
                                 </center>
 
                             </div>
@@ -292,19 +294,19 @@
                     </div>
                 </th>
             </tr>
-                <tr class="border thead print">
-                    <th style="width:50px !important;"><b>ល.រ<br>No</b></th>
-                    <th style="width:300px !important;"><b>បរិយាយមុខទំនិញ<br>Description</b></th>
-                    <th style="width:150px !important;"><b>ទំហំ<br>Size</b></th>
-                    <th style="width:70px !important;"><b>ចំនួន<br>Qty</b></th>
-                    <th style="width:70px !important;"><b>ខ្នាត<br>U/N</b></th>
-                    <th style="width:80px !important;"><b>តម្លៃ<br>U/Price</b></th>
-                    <?php
-                    if($invs->product_discount > 0){ ?>
-                        <th style="width:80px !important;"><b>បញ្ចុះតម្លៃ<br>Dis</b></th>
-                    <?php } ?>
-                    <th style="width:100px !important;"><b>តម្លៃសរុប<br>Amount</b></th>
-                </tr>
+                <tr class="border thead print" style="width: 100% !important;">
+                        <th style="width:5% !important;"><b>ល.រ<br>No</b></th>
+                        <th style="width:30% !important;"><b>បរិយាយមុខទំនិញ<br>Description</b></th>
+                        <th style="width:30% !important;"><b>ទំហំ<br>Size</b></th>
+                        <th style="width:5% !important;"><b>ចំនួន<br>Qty</b></th>
+                        <th style="width:5% !important;"><b>ខ្នាត<br>Unit</b></th>
+                        <th style="width:5% !important;"><b>តម្លៃ<br>Price</b></th>
+						<?php
+							if($invs->product_discount > 0){ ?>
+								<th style="width:7% !important;"><b>បញ្ចុះតម្លៃ<br>Dis</b></th>
+						<?php }?>
+                        <th style="width:5% !important;"><b>តម្លៃសរុប<br>Amount</b></th>
+                    </tr>
                 </thead>
                 <tbody>
 
@@ -436,7 +438,7 @@
                 <tr class="border-foot">
                     <td colspan="<?= $col; ?>" style="border-top: 1px solid #FFF !important; border-left: 1px solid #FFF !important; border-bottom: 1px solid #FFF !important;"></td>
                     <td colspan="2" style="white-space: nowrap; text-align: left; font-weight: bold;">សាច់ប្រាក់សរុប/TOTAL CASH</td>
-                    <td align="right"><span style="float:left;"></span><?=$this->erp->formatMoney($invs->total); ?></td>
+                    <td align="right"><span style="float:left;"><b></span><?=$this->erp->formatMoney($invs->total); ?></b></td>
                 </tr>
                 <?php if($invs->order_discount != 0) { ?>
                     <tr class="border-foot">

@@ -18616,6 +18616,7 @@ function invoice_concrete_angkor($id=null)
         $this->data['saleman'] = $this->site->getUser($inv->saleman_by);
         $this->data['warehouse'] = $this->site->getWarehouseByID($inv->warehouse_id);
         $this->data['invs'] = $inv;
+		//$this->erp->print_arrays($inv);
         $this->data['payment_term'] = $this->sales_model->getPaymentermID($inv->payment_term);
         
         $return = $this->sales_model->getReturnBySID($id);

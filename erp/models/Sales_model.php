@@ -1300,7 +1300,7 @@ class Sales_model extends CI_Model
     {
         $this->db
             ->select("sales.*, companies.name,companies.company,companies.logo,companies.cf4,companies.phone, companies.email,
-			  quotes.reference_no as quote_no, users.username as saleman,
+			  quotes.reference_no as quote_no, users.username as saleman,companies.company_kh,
 			  (SELECT SUM(IF(erp_payments.paid_by = 'deposit', erp_payments.amount, 0)) 
 			  FROM erp_payments WHERE erp_payments.sale_id = erp_sales.id  ) as deposit,
 			   (erp_sales.paid - (SELECT SUM(IF(erp_payments.paid_by = 'deposit', erp_payments.amount, 0)) 
@@ -5005,7 +5005,7 @@ class Sales_model extends CI_Model
     }
 
     public function getSaleOrder($sale_order_id){
-        $this->db->select("sale_order.*, companies.name,erp_users.username, companies.company,companies.invoice_footer,
+        $this->db->select("sale_order.*, companies.name,erp_users.username, companies.company_kh,companies.invoice_footer,
 			CASE erp_sale_order.order_status
 			WHEN 'completed' THEN
 				'Approved'

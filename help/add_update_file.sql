@@ -14,3 +14,6 @@ ADD COLUMN `amount_quantity` decimal(15, 0) NULL AFTER `quantity_received`;
 
 ALTER TABLE `erp_sale_order_items`
 ADD COLUMN `amount_quantity` decimal(15, 0) NULL AFTER `quantity_received`;
+
+ALTER TABLE iclouderp_v3_5_thai_san.erp_enter_using_stock
+ADD COLUMN sale_order_id int(10) NULL AFTER id;

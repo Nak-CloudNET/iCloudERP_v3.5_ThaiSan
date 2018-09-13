@@ -91,7 +91,10 @@
 
 	</script>
 	<style>
-
+        #box-item{
+            display:flex;
+            flex-wrap: wrap;
+        }
 		.modal-body-scroll{
 			height: 650px;
 			overflow-y: auto;

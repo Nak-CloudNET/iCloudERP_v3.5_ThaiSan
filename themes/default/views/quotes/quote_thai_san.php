@@ -168,8 +168,10 @@
                             <div  class="col-sm-7 col-xs-7 company_addr "  style="margin-top: -20px !important;">
                                 <div class="myhide">
                                     <center >
+											<h3 style="margin-top:20px;font-family:Khmer OS Muol Light" !important;><?= $biller->company_kh?></h3>
                                         <?php if($biller->company) { ?>
-                                            <h3 class="header"><?= $biller->company ?></h3>
+											
+                                            <h3 class="header"><b><?= $biller->company ?></b></h3>
                                         <?php } ?>
 
                                         <div style="margin-top: 15px;">
@@ -192,9 +194,9 @@
 
                                     </center>
                                 </div>
-                                <div class="invoice" style="margin-top:20px;">
+                                <div class="invoice" style="margin-top:20px;font-family:"Khmer OS Muol Light" !important;">
                                     <center>
-                                        <h4 class="title">បញ្ជីសម្រង់តម្លៃ</h4>
+                                        <h1 class="title">តារាងតម្លៃ</h1>
                                         <h4 class="title" style="margin-top: 3px;">QUOTATION</h4>
                                     </center>
 
@@ -307,18 +309,31 @@
                         </div>
                     </th>
                 </tr>
-                    <tr class="border thead print">
-                        <th style="width:50px !important;"><b>ល.រ<br>No</b></th>
-                        <th style="width:300px !important;"><b>បរិយាយមុខទំនិញ<br>Description</b></th>
-                        <th style="width:150px !important;"><b>ទំហំ<br>Size</b></th>
-                        <th style="width:70px !important;"><b>ចំនួន<br>QTY</b></th>
-                        <th style="width:70px !important;"><b>ខ្នាត<br>U/N</b></th>
-                        <th style="width:80px !important;"><b>តម្លៃ<br>U/PRICE</b></th>
-						<?php 
+                    <!--<tr class="border thead print">
+                        <th class="col-sm-2 col-xs-2"><b>ល.រ<br>No</b></th>
+                        <th class="col-sm-3 col-xs-3"><b>បរិយាយមុខទំនិញ<br>Description</b></th>
+                        <th class="col-sm-2 col-xs-2"><b>ទំហំ<br>Size</b></th>
+                        <th class="col-sm-2 col-xs-2"><b>ចំនួន<br>Qty</b></th>
+                        <th class="col-sm-2 col-xs-2"><b>ខ្នាត<br>Unit</b></th>
+                        <th class="col-sm-2 col-xs-2"><b>តម្លៃ<br>Price</b></th>
+						<?php
+/*							if($invs->product_discount > 0){ */?>
+								<th style="width:7% !important;"><b>បញ្ចុះតម្លៃ<br>Dis</b></th>
+						<?php /*} */?>
+                        <th class="col-sm-2 col-xs-2"><b>តម្លៃសរុប<br>Amount</b></th>
+                    </tr>-->
+        <tr class="border thead print" style="width: 100% !important;">
+                        <th style="width:5% !important;"><b>ល.រ<br>No</b></th>
+                        <th style="width:30% !important;"><b>បរិយាយមុខទំនិញ<br>Description</b></th>
+                        <th style="width:30% !important;"><b>ទំហំ<br>Size</b></th>
+                        <th style="width:5% !important;"><b>ចំនួន<br>Qty</b></th>
+                        <th style="width:5% !important;"><b>ខ្នាត<br>Unit</b></th>
+                        <th style="width:5% !important;"><b>តម្លៃ<br>Price</b></th>
+						<?php
 							if($invs->product_discount > 0){ ?>
-								<th style="width:80px !important;"><b>បញ្ចុះតម្លៃ<br>Dis</b></th>
-						<?php } ?>		
-                        <th style="width:100px !important;"><b>តម្លៃសរុប<br>AMOUNT</b></th>
+								<th style="width:7% !important;"><b>បញ្ចុះតម្លៃ<br>Dis</b></th>
+						<?php }?>
+                        <th style="width:5% !important;"><b>តម្លៃសរុប<br>Amount</b></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -335,13 +350,13 @@
 				$cn = 1;
 				$newArr = array();
 				foreach ($rows as $count_row) {
-					$arr_count[$count_row->product_invoice]++;	
+					$arr_count[$count_row->product_invoice]++;
 				}
-				
+
                 foreach ($rows as $row) {
                     $free = lang('free');
                     $product_unit = '';
-                    $total = 0;				
+                    $total = 0;
                     if($row->product_variant){
                         $product_unit = $row->product_variant;
                     }else{
@@ -349,22 +364,22 @@
                     }
                     ?>
                     <tr class="border">
-						
+
 						<?php
-							
-							if(in_array($row->product_invoice, $arr_product_name)){ 
+
+							if(in_array($row->product_invoice, $arr_product_name)){
 								$product_name = '';
-							}else{							
+							}else{
 								$product_name = $row->product_invoice;
 								$arr_product_name[] = $row->product_invoice;
-						?>							
+						?>
 							<td style="vertical-align: top; text-align: center" rowspan="<?= $arr_count[$product_name]; ?>"><?php echo $no ?></td>
 							<td style="vertical-align: top;" rowspan="<?= $arr_count[$product_name]?>"><?= $product_name; ?></td>
-						<?php	
+						<?php
 							$no++;
-						} 
-						
-						?>						
+						}
+
+						?>
                         <td style="vertical-align: middle;text-align:center">
                             <?=$row->product_noted;?>
                         </td>
@@ -374,7 +389,7 @@
                         <td style="vertical-align: middle; text-align: center; text-align:center">
                             <?= $product_unit; ?>
                         </td>
-                        <td style="vertical-align: middle; text-align: right"><span style="float:left;">$</span>
+                        <td style="vertical-align: middle; text-align: right"><span style="float:left;"></span>
                             <?php
 								if($row->unit_price==0){
 									echo "Free";
@@ -385,12 +400,12 @@
 							?>
                         </td>
 						<?php if($invs->product_discount > 0){ ?>
-							<td style="vertical-align: middle; text-align: right"><span style="float:left;">$</span>
+							<td style="vertical-align: middle; text-align: right"><span style="float:left;"></span>
 								<?php echo $this->erp->formatMoney($row->item_discount); ?>
 							</td>
 						<?php  } ?>
-						
-                        <td style="vertical-align: middle; text-align: right"><span style="float:left;">$</span>
+
+                        <td style="vertical-align: middle; text-align: right"><span style="float:left;"></span>
                             <?php
                                 if($row->subtotal==0){
 									echo "Free";
@@ -403,13 +418,13 @@
                     </tr>
 
                     <?php
-					
+
                     $erow++;
                     $totalRow++;
-                }	
-					
+                }
+
                 ?>
-                
+
                 <?php
                 $row = 1;
                 $col =4;
@@ -451,13 +466,13 @@
 					<tr class="border-foot">
 						<td colspan="<?= $col; ?>" style="border-top: 1px solid #FFF !important; border-left: 1px solid #FFF !important; border-bottom: 1px solid #FFF !important;"></td>
 						<td colspan="2" style="white-space: nowrap; text-align: left; font-weight: bold;">សាច់ប្រាក់សរុប/TOTAL CASH</td>
-						<td align="right"><span style="float:left;">$</span><?=$this->erp->formatMoney($invs->total); ?></td>
+                        <td align="right"><b><span style="float:left;"></span><?=$this->erp->formatMoney($invs->total); ?></b></td>
 					</tr>
 					<?php if($invs->order_discount != 0) { ?>
 						<tr class="border-foot">
 							<td colspan="<?= $col; ?>" style="border-top: 1px solid #FFF !important; border-left: 1px solid #FFF !important; border-bottom: 1px solid #FFF !important;"></td>
 							<td colspan="2" style="text-align: center; font-weight: bold;">ORDER DISCOUNT</td>
-							<td align="right"><span style="float:left;">$</span><?=$this->erp->formatMoney($invs->order_discount); ?></td>
+							<td align="right"><span style="float:left;"></span><?=$this->erp->formatMoney($invs->order_discount); ?></td>
 						</tr>
 					<?php } ?>
 					
@@ -465,12 +480,16 @@
 						<tr class="border-foot">
 							<td colspan="<?= $col; ?>" style="border-top: 1px solid #FFF !important; border-left: 1px solid #FFF !important; border-bottom: 1px solid #FFF !important;"></td>
 							<td colspan="2" style="text-align: center; font-weight: bold;">SHIPPING</td>
-							<td align="right"><span style="float:left;">$</span><?=$this->erp->formatMoney($invs->shipping); ?></td>
+							<td align="right"><span style="float:left;"></span><?=$this->erp->formatMoney($invs->shipping); ?></td>
 						</tr>
+
 					<?php } ?>
-					
+                <tr>
+                    <td colspan="7" class="text-center" style="border-bottom:1px solid white; padding:20px !important;"><?=$invs->invoice_footer ?></td>
+                </tr>
 
                 </tbody>
+
                 <tfoot class="tfoot">
                     <tr>
                         <th colspan="8">
