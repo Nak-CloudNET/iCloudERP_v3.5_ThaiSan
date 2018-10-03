@@ -5,3 +5,5 @@ DROP COLUMN `amount_quantity`,
 ADD COLUMN `amount_quantity` decimal(15, 0) NULL AFTER `quantity_received`;
 ALTER TABLE `iclouderp_v3_5_thai_san`.`erp_sale_order_items` 
 ADD COLUMN `amount_quantity` decimal(15, 0) NULL AFTER `quantity_received`;
+ALTER TABLE iclouderp_v3_5_thai_san.erp_gl_trans 
+ADD COLUMN sale_order_id int(11) NULL AFTER sale_order_id;
