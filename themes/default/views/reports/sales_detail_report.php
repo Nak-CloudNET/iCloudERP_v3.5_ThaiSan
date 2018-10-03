@@ -379,11 +379,11 @@
 									$sql_where="";
 									if($sale->type == 1)
                                     {
-                                        $sql_where="erp_sale={$sale->id}";
+                                        $sql_where="WHERE erp_sales.id={$sale->id}";
                                     }
                                     if($sale->type == 3)
                                     {
-                                        $sql_where="erp_gl_trans.sale_order_id={$sale->id}";
+                                        $sql_where="WHERE erp_gl_trans.sale_order_id={$sale->id}";
                                     }
 									$sales_by_gls = $this->db->query("SELECT
 																	erp_gl_trans.sale_id,
@@ -399,7 +399,7 @@
 																	FROM
 																		erp_gl_trans
 																	LEFT JOIN erp_sales ON erp_sales.id = erp_gl_trans.sale_id																	
-																	WHERE {$sql_where}
+																	 {$sql_where}
 																	GROUP BY reference_no
 																	");
 									$usings_stock = $this->db->query("SELECT
