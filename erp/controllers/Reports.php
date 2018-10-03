@@ -22737,7 +22737,38 @@ class Reports extends MY_Controller
 					erp_return_sales
 				INNER JOIN erp_return_items ON erp_return_sales.id = erp_return_items.return_id
 				GROUP BY
-					erp_return_sales.id,reference_no";	
+					erp_return_sales.id,reference_no";
+        $order_sql="
+		        SELECT
+					erp_sale_order.id,
+					3 as type,
+					erp_sale_order.date,
+					erp_sale_order.reference_no,
+					erp_sale_order.biller,
+					erp_sale_order.biller_id,
+					erp_sale_order.total,
+					erp_sale_order.total_discount,
+					erp_sale_order.order_discount,
+					erp_sale_order.product_tax,
+					erp_sale_order.order_tax,
+					erp_sale_order.shipping,
+					erp_sale_order.grand_total,
+					erp_sale_order.total_cost,
+					erp_sale_order.paid,
+					erp_sale_order.warehouse_id,
+					erp_sale_order.customer,
+					erp_sale_order.customer_id,
+					erp_sale_order.created_by,
+					0 as pos
+				FROM
+					erp_sale_order
+				WHERE erp_sale_order.id IN 
+				(
+				select sale_order_id from erp_enter_using_stock
+				union 
+				select sale_order_id from erp_expenses
+				)
+		";
 			
         $sql3 = "";
 		$sqls = "";
@@ -22782,9 +22813,9 @@ class Reports extends MY_Controller
         }
 
         if ($this->input->get('start_date') || $this->input->get('end_date')) {
-		    $sales = $this->db->query("SELECT * FROM ({$sql1} UNION {$sql2}) AS TEMP WHERE 1=1 {$sqls} {$sql4} ORDER BY id DESC ")->result();
+		    $sales = $this->db->query("SELECT * FROM ({$sql1} UNION {$sql2} UNION {$order_sql}) AS TEMP WHERE 1=1 {$sqls} {$sql4} ORDER BY id DESC ")->result();
         } else {
-            $sales = $this->db->query("SELECT * FROM ({$sql1} UNION {$sql2}) AS TEMP WHERE 1=1 {$sql3} {$sql4} ORDER BY id DESC ")->result();
+            $sales = $this->db->query("SELECT * FROM ({$sql1} UNION {$sql2} UNION {$order_sql}) AS TEMP WHERE 1=1 {$sql3} {$sql4} ORDER BY id DESC ")->result();
         }
 									
 		$this->pagination->initialize($config);
