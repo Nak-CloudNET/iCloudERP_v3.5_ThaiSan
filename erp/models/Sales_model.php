@@ -3967,15 +3967,22 @@ class Sales_model extends CI_Model
         }
         return FALSE;
     }
-    public function getSaleByRefNo($ref)
+    public function getSaleByRefNo($ref,$customer_id)
     {
-       if($ref){
+       if($ref && $customer_id){
             $q=$this->db->query("
+                select id as id, 
+                reference_no as text 
+                from erp_sales where reference_no like '%{$ref}%' and customer_id={$customer_id}
+                ");
+        }elseif ($ref){
+           $q=$this->db->query("
                 select id as id, 
                 reference_no as text 
                 from erp_sales where reference_no like '%{$ref}%'
                 ");
-        }else{
+       }
+        else{
             $q=$this->db->query("
                 select id as id, 
                 reference_no as text 
@@ -3992,15 +3999,22 @@ class Sales_model extends CI_Model
             return $data;
         }
     }
-    public function getSaleOrderByRefNo($ref)
+    public function getSaleOrderByRefNo($ref,$customer_id)
     {
-       if($ref){
+       if($ref && $customer_id){
             $q=$this->db->query("
                 select id as id, 
                 reference_no as text 
-                from erp_sale_order where reference_no like '%{$ref}%'
+                from erp_sale_order where reference_no like '%{$ref}%' and customer_id={$customer_id}
                 ");
-        }else{
+        }elseif ($ref){
+           $q=$this->db->query("
+                select id as id, 
+                reference_no as text 
+                from erp_sale_order where reference_no like '%{$ref}%' 
+                ");
+       }
+        else{
             $q=$this->db->query("
                 select id as id, 
                 reference_no as text 

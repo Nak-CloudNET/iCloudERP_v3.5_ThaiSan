@@ -3,8 +3,10 @@ $(document).ready(function (e) {
 	var $customer = $('#customer');
 	var $sale_invoice=$('#sale_invoice');
 	var $sale_order_invoice=$('#sale_order_invoice');
+	var customer_id =__getItem('customer');
 	$customer.change(function (e) {
         __setItem('customer', $(this).val());
+        customer_id     = __getItem('customer');
         //$('#slcustomer_id').val($(this).val());
     });
     $sale_invoice.change(function (e) {
@@ -51,7 +53,8 @@ $(document).ready(function (e) {
 		
     } 
    	if (true) {
-    	sale_order_id = __getItem('sale_order_id');
+
+    	sale_order_id   = __getItem('sale_order_id');
         $sale_order_invoice.val(sale_order_id).select2({
             minimumInputLength: 1,
             data: [],
@@ -73,6 +76,7 @@ $(document).ready(function (e) {
                 data: function (term, page) {
                     return {
                         term: term,
+                        customer_id:customer_id,
                         limit: 10
                     };
                 },
@@ -110,6 +114,7 @@ $(document).ready(function (e) {
                 data: function (term, page) {
                     return {
                         term: term,
+                        customer_id:customer_id,
                         limit: 10
                     };
                 },

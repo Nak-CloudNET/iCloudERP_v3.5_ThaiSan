@@ -211,12 +211,12 @@
                                 </div>
                             </div>
 						</div>
-					<!-- 	<div class="form-group">
+					    <div class="form-group">
 							<?= lang('customer', 'customer'); ?>
 							<?php
 								echo form_input('customer', '', 'id="customer" data-placeholder="' . lang("select") . ' ' . lang("customer") . '" class="form-control input-tip" style="min-width:100%;"');
 							?>
-						</div>  -->
+						</div>
 						<div class="form-group">
 							<?= lang('sale_order_invoice', 'sale_order_invoice'); ?>
 							<?php

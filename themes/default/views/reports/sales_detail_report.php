@@ -419,41 +419,43 @@
 																	");
 
 									if($sale->type == 1 || $sale->type == 3){
-                                        foreach ($sales_detail as $sale_detail) {
-										
-											//$this->erp->print_arrays( $sale_detail);
-											$unit = isset($sale_detail->variant) ? $sale_detail->variant : $sale_detail->unit;
+									    if($sale->type == 1)
+                                        {
+                                            foreach ($sales_detail as $sale_detail) {
 
-                                            if ($sale_detail->option_id != 0) {
-                                                $total_cost = ($sale_detail->unit_cost * $sale_detail->qty_unit) * $sale_detail->quantity;
-												$unit_cost	= $sale_detail->unit_cost * $sale_detail->qty_unit;
-                                            } else {
-                                                $total_cost = $sale_detail->unit_cost * $sale_detail->quantity;
-												$unit_cost	= $sale_detail->unit_cost;
-                                            }
-											//$this->erp->print_arrays( $sale_detail->unit_cost);
-											$gross_margin = ($sale_detail->subtotal - $sale_detail->item_tax) - $total_cost;
-											$sub_total = ($total_amount - $sale->order_discount) + $sale->order_tax + $total_item_tax + $sale->shipping;
+                                                //$this->erp->print_arrays( $sale_detail);
+                                                $unit = isset($sale_detail->variant) ? $sale_detail->variant : $sale_detail->unit;
 
-											$total_discount += $sale_detail->item_discount;
-											$total_quantity += $sale_detail->quantity;
-											$total_costs += $total_cost;
-											$total_gross_margin += $gross_margin;
-											$total_amount += $sale_detail->subtotal - $sale_detail->item_tax;
-											$total_amounts += $sale_detail->subtotal - $sale_detail->item_tax;
-											$total_item_tax += $sale_detail->item_tax; 
-										    $amount = $total_amount- $sale->order_discount + $sale->shipping;
-											//$amounts +=	$amount;
+                                                if ($sale_detail->option_id != 0) {
+                                                    $total_cost = ($sale_detail->unit_cost * $sale_detail->qty_unit) * $sale_detail->quantity;
+                                                    $unit_cost	= $sale_detail->unit_cost * $sale_detail->qty_unit;
+                                                } else {
+                                                    $total_cost = $sale_detail->unit_cost * $sale_detail->quantity;
+                                                    $unit_cost	= $sale_detail->unit_cost;
+                                                }
+                                                //$this->erp->print_arrays( $sale_detail->unit_cost);
+                                                $gross_margin = ($sale_detail->subtotal - $sale_detail->item_tax) - $total_cost;
+                                                $sub_total = ($total_amount - $sale->order_discount) + $sale->order_tax + $total_item_tax + $sale->shipping;
 
-								?>
-										<tr>			
-											<td></td>
-                                            <td style="text-align:center !important;">
-                                                <ul class="enlarge">
-                                                    <li>
-                                                        <img src="<?= base_url() ?>/assets/uploads/thumbs/<?= $sale_detail->image ?>"
-                                                             class="img-responsive" style="width:50px;"/>
-                                                        <span>
+                                                $total_discount += $sale_detail->item_discount;
+                                                $total_quantity += $sale_detail->quantity;
+                                                $total_costs += $total_cost;
+                                                $total_gross_margin += $gross_margin;
+                                                $total_amount += $sale_detail->subtotal - $sale_detail->item_tax;
+                                                $total_amounts += $sale_detail->subtotal - $sale_detail->item_tax;
+                                                $total_item_tax += $sale_detail->item_tax;
+                                                $amount = $total_amount- $sale->order_discount + $sale->shipping;
+                                                //$amounts +=	$amount;
+
+                                                ?>
+                                                <tr>
+                                                    <td></td>
+                                                    <td style="text-align:center !important;">
+                                                        <ul class="enlarge">
+                                                            <li>
+                                                                <img src="<?= base_url() ?>/assets/uploads/thumbs/<?= $sale_detail->image ?>"
+                                                                     class="img-responsive" style="width:50px;"/>
+                                                                <span>
                                                           <a href="<?= base_url() ?>/assets/uploads/thumbs/<?= $sale_detail->image ?>"
                                                              data-toggle="lightbox">
                                                             <img src="<?= base_url() ?>/assets/uploads/thumbs/<?= $sale_detail->image ?>"
@@ -461,36 +463,38 @@
                                                                  class="img-thumbnail"/>
                                                           </a>
                                                         </span>
-                                                    </li>
-                                                </ul>
-                                            </td>
-											<td>(<?= $sale_detail->product_name; ?>) <?= $sale_detail->product_code ?></td>
-											
-											<td><?= $sale->biller ?></td>
-											<td class="center"><?= $warehouses_arr[$sale_detail->warehouse_id]; ?></td>
-                                            <?php if ($Owner || $Admin || $GP['products-cost']) { ?>
-                                                <td class="right"><?= $this->erp->formatMoney($unit_cost); ?></td>
-                                            <?php } ?>
-                                            <?php if ($Owner || $Admin || $GP['products-price']) { ?>
-                                                <td class="right"><?= $this->erp->formatMoney($sale_detail->unit_price); ?></td>
-                                            <?php } ?>
-											<td class="right">( <?= $this->erp->formatMoney($sale_detail->item_tax); ?> )</td>
-											<td class="right">( <?= $this->erp->formatMoney($sale_detail->item_discount); ?> )</td>
-											<td class="center"><?= $this->erp->formatQuantity($sale_detail->quantity); ?></td>
-											<td class="center"><?= $unit; ?></td>
-                                            <?php if ($Owner || $Admin || $GP['products-cost']) { ?>
-                                                <td class="right"><?= $this->erp->formatMoney($total_cost); ?></td>
-                                            <?php } ?>
-                                            <?php if ($Owner || $Admin || $GP['products-price']) { ?>
-                                                <td class="right"><?= $this->erp->formatMoney($sale_detail->subtotal - $sale_detail->item_tax); ?></td>
-                                            <?php } ?>
-                                            <?php if ($Owner || $Admin || $GP['products-cost']) { ?>
-                                                <td class="right"><?= $this->erp->formatMoney($gross_margin); ?></td>
-                                            <?php } ?>
-										</tr>
-								<?php 
-										
-										}
+                                                            </li>
+                                                        </ul>
+                                                    </td>
+                                                    <td>(<?= $sale_detail->product_name; ?>) <?= $sale_detail->product_code ?></td>
+
+                                                    <td><?= $sale->biller ?></td>
+                                                    <td class="center"><?= $warehouses_arr[$sale_detail->warehouse_id]; ?></td>
+                                                    <?php if ($Owner || $Admin || $GP['products-cost']) { ?>
+                                                        <td class="right"><?= $this->erp->formatMoney($unit_cost); ?></td>
+                                                    <?php } ?>
+                                                    <?php if ($Owner || $Admin || $GP['products-price']) { ?>
+                                                        <td class="right"><?= $this->erp->formatMoney($sale_detail->unit_price); ?></td>
+                                                    <?php } ?>
+                                                    <td class="right">( <?= $this->erp->formatMoney($sale_detail->item_tax); ?> )</td>
+                                                    <td class="right">( <?= $this->erp->formatMoney($sale_detail->item_discount); ?> )</td>
+                                                    <td class="center"><?= $this->erp->formatQuantity($sale_detail->quantity); ?></td>
+                                                    <td class="center"><?= $unit; ?></td>
+                                                    <?php if ($Owner || $Admin || $GP['products-cost']) { ?>
+                                                        <td class="right"><?= $this->erp->formatMoney($total_cost); ?></td>
+                                                    <?php } ?>
+                                                    <?php if ($Owner || $Admin || $GP['products-price']) { ?>
+                                                        <td class="right"><?= $this->erp->formatMoney($sale_detail->subtotal - $sale_detail->item_tax); ?></td>
+                                                    <?php } ?>
+                                                    <?php if ($Owner || $Admin || $GP['products-cost']) { ?>
+                                                        <td class="right"><?= $this->erp->formatMoney($gross_margin); ?></td>
+                                                    <?php } ?>
+                                                </tr>
+                                                <?php
+
+                                            }
+                                        }
+
 									
 									$html = "";
 									if($sales_by_gls->num_rows() > 0){
@@ -653,80 +657,88 @@
 									<?php }										
 									}									
 								?>
-									
-								<tr style="font-weight:bold;">
+                                    <?php
+                                    if($sale->type==1) {
+
+                                        ?>
+                                        <tr style="font-weight:bold;">
+                                            <td></td>
+                                            <td colspan="<?= $fcol; ?>"
+                                                class="info-reference_no right"><?= lang("total") ?>:
+                                            </td>
+                                            <?php if ($Owner || $Admin || $GP['products-cost']) { ?>
+                                                <td class="right"><?= $this->erp->formatMoney($total_costs); ?></td>
+                                            <?php } ?>
+                                            <td class="right"><?= $this->erp->formatMoney($total_amount); ?></td>
+                                            <?php if ($Owner || $Admin || $GP['products-cost']) { ?>
+                                                <td class="right"><?= $this->erp->formatMoney($total_gross_margin); ?></td>
+                                            <?php } ?>
+                                        </tr>
+
+                                        <tr style="font-weight:bold;">
+                                            <td></td>
+                                            <td colspan="<?= $fcol; ?>"
+                                                class="info-reference_no right"><?= lang("order_discount") ?>:
+                                            </td>
+                                            <?php if ($Owner || $Admin || $GP['products-cost']) { ?>
+                                                <td></td>
+                                            <?php } ?>
+                                            <td class="right"><?= "(" . $this->erp->formatMoney($sale->order_discount) . ")"; ?></td>
+                                            <?php if ($Owner || $Admin || $GP['products-cost']) { ?>
+                                                <td class="right"><?= "(" . $this->erp->formatMoney($sale->order_discount) . ")"; ?></td>
+                                            <?php } ?>
+                                        </tr>
+                                        <tr style="font-weight:bold;">
+                                            <td></td>
+                                            <td colspan="<?= $fcol; ?>"
+                                                class="info-reference_no right"><?= lang("shipping") ?>
+                                                :
+                                            </td>
+                                            <?php if ($Owner || $Admin || $GP['products-cost']) { ?>
+                                                <td></td>
+                                            <?php } ?>
+                                            <td class="right"><?= $this->erp->formatMoney($sale->shipping); ?></td>
+                                            <?php if ($Owner || $Admin || $GP['products-cost']) { ?>
+                                                <td class="right"><?= $this->erp->formatMoney($sale->shipping); ?></td>
+                                            <?php } ?>
+                                        </tr>
+                                        <!--<tr style="font-weight:bold;">
 									<td></td>
-                                    <td colspan="<?= $fcol; ?>" class="info-reference_no right"><?= lang("total") ?>:
-                                    </td>
-                                    <?php if ($Owner || $Admin || $GP['products-cost']) { ?>
-									<td class="right"><?= $this->erp->formatMoney($total_costs); ?></td>
-                                    <?php } ?>
-									<td class="right"><?= $this->erp->formatMoney($total_amount); ?></td>
-                                    <?php if ($Owner || $Admin || $GP['products-cost']) { ?>
-                                        <td class="right"><?= $this->erp->formatMoney($total_gross_margin); ?></td>
-                                    <?php } ?>
-								</tr>
-								
-								<tr style="font-weight:bold;">
-									<td></td>
-                                    <td colspan="<?= $fcol; ?>"
-                                        class="info-reference_no right"><?= lang("order_discount") ?>:
-                                    </td>
-                                    <?php if ($Owner || $Admin || $GP['products-cost']) { ?>
-                                        <td></td>
-                                    <?php } ?>
-									<td class="right"><?= "(".$this->erp->formatMoney($sale->order_discount).")"; ?></td>
-                                    <?php if ($Owner || $Admin || $GP['products-cost']) { ?>
-                                        <td class="right"><?= "(".$this->erp->formatMoney($sale->order_discount).")"; ?></td>
-                                    <?php } ?>
-								</tr>
-								<tr style="font-weight:bold;">
-									<td></td>
-                                    <td colspan="<?= $fcol; ?>" class="info-reference_no right"><?= lang("shipping") ?>
-                                        :
-                                    </td>
-                                    <?php if ($Owner || $Admin || $GP['products-cost']) { ?>
-									<td></td>
-                                    <?php } ?>
-									<td class="right"><?= $this->erp->formatMoney($sale->shipping); ?></td>
-                                    <?php if ($Owner || $Admin || $GP['products-cost']) { ?>
-                                        <td class="right"><?= $this->erp->formatMoney($sale->shipping); ?></td>
-                                    <?php } ?>
-								</tr>
-								<!--<tr style="font-weight:bold;">
-									<td></td>
-									<td colspan="9" class="info-reference_no right"><?= lang("order_tax")?> :</td>
+									<td colspan="9" class="info-reference_no right"><?= lang("order_tax") ?> :</td>
 									<td></td>
 									<td class="right"><?= $this->erp->formatMoney($sale->order_tax); ?></td>
 									<td colspan="3"></td>
 								</tr>-->
-								<tr style="font-weight:bold;">
-									<td></td>
-                                    <td colspan="<?= $fcol; ?>" class="info-reference_no right"><?= lang("subtotal") ?>
-                                        :
-                                    </td>
-                                    <?php if ($Owner || $Admin || $GP['products-cost']) { ?>
-									<td class="right"></td>
-                                    <?php } ?>
-									<td class="right"><?= $this->erp->formatMoney($amount); ?></td>
-                                    <?php if ($Owner || $Admin || $GP['products-cost']) { ?>
-                                        <td class="right"><?=$this->erp->formatMoney($amount-$total_costs)?></td>
-                                    <?php } ?>
-								</tr>
-								<tr style="font-weight:bold; display:none;">
-									<td></td>
-                                    <td colspan="<?= $fcol; ?>"
-                                        class="info-reference_no right"><?= lang("total_amount") ?> :
-                                    </td>
-                                    <?php if ($Owner || $Admin || $GP['products-cost']) { ?>
-									<td></td>
-                                    <?php } ?>
-									<td class="right"><?= $this->erp->formatMoney($sub_total); ?></td>
-                                    <?php if ($Owner || $Admin || $GP['products-cost']) { ?>
-                                        <td></td>
-                                    <?php } ?>
-								</tr>
-
+                                        <tr style="font-weight:bold;">
+                                            <td></td>
+                                            <td colspan="<?= $fcol; ?>"
+                                                class="info-reference_no right"><?= lang("subtotal") ?>
+                                                :
+                                            </td>
+                                            <?php if ($Owner || $Admin || $GP['products-cost']) { ?>
+                                                <td class="right"></td>
+                                            <?php } ?>
+                                            <td class="right"><?= $this->erp->formatMoney($amount); ?></td>
+                                            <?php if ($Owner || $Admin || $GP['products-cost']) { ?>
+                                                <td class="right"><?= $this->erp->formatMoney($amount - $total_costs) ?></td>
+                                            <?php } ?>
+                                        </tr>
+                                        <tr style="font-weight:bold; display:none;">
+                                            <td></td>
+                                            <td colspan="<?= $fcol; ?>"
+                                                class="info-reference_no right"><?= lang("total_amount") ?> :
+                                            </td>
+                                            <?php if ($Owner || $Admin || $GP['products-cost']) { ?>
+                                                <td></td>
+                                            <?php } ?>
+                                            <td class="right"><?= $this->erp->formatMoney($sub_total); ?></td>
+                                            <?php if ($Owner || $Admin || $GP['products-cost']) { ?>
+                                                <td></td>
+                                            <?php } ?>
+                                        </tr>
+                                        <?php
+                                    }
+                                ?>
                                     <?php
 									
 									echo $html;
@@ -757,7 +769,7 @@
 						<?php } ?>
                         </tbody>
                         <tfoot>
-					
+
 							<tr>
                                 <th colspan="<?= $fcol2; ?>" style="color:#0586ff"
                                     class="right info-foot"><?= lang("total") ?>:
@@ -770,7 +782,7 @@
                                     <th class="right" style="color:#0586ff" title=" (Amount - Order Discount) - Total Cost "><?= $this->erp->formatMoney($g_amounts - $g_total_costs); ?></th>
                                 <?php } ?>
 							</tr>
-							
+
 							<tr>
                                 <th colspan="<?= $fcol2 ?>" class="right info-foot"
                                     style="color:#0586ff"><?= lang("total_order_discount"); ?> :
@@ -783,7 +795,7 @@
                                     <th class="right" style="color:#0586ff"><?= "(".$this->erp->formatMoney($g_order_discounts).")"; ?></th>
                                 <?php } ?>
 							</tr>
-							
+
 							<tr>
                                 <th colspan="<?= $fcol2; ?>" class="right info-foot"
                                     style="color:#0586ff"><?= lang("total_shipping"); ?> :
@@ -796,9 +808,9 @@
                                     <th class="right" style="color:#0586ff"><?= $this->erp->formatMoney($g_total_shipping); ?></th>
                                 <?php } ?>
 							</tr>
-							
+
 							<!--<tr style="display:none">
-								<th colspan="10" class="right info-foot" style="color:#0586ff"><?= lang("total_tax"); ?> : </th>							
+								<th colspan="10" class="right info-foot" style="color:#0586ff"><?= lang("total_tax"); ?> : </th>
 								<th></th>
 								<th class="right" style="color:#0586ff"><?= $this->erp->formatMoney($g_total_tax); ?></th>
 								<th></th>
@@ -845,7 +857,7 @@
                                     <th class="right" style="color:#0586ff"><?= "(".$this->erp->formatMoney($total_us).")"; ?></th>
                                 <?php } ?>
 							</tr>
-							
+
 							<tr>
                                 <th colspan="<?= $fcol2; ?>" style="color:#0586ff"
                                     class="right info-foot"><?= lang("total_gross_margin"); ?> :
@@ -858,10 +870,10 @@
                                     <th class="right" style="color:#0586ff"><?= $this->erp->formatMoney($grand_totals-$g_total_costs - ($total_overh !=0 ? $total_overh : 0)); ?></th>
                                 <?php } ?>
 							</tr>
-							
+
                         </tr>
 
-						
+
                         </tfoot>
                     </table>
                 </div>
