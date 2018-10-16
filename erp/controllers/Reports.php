@@ -22767,7 +22767,7 @@ class Reports extends MY_Controller
 				select sale_order_id from erp_enter_using_stock
 				union 
 				select sale_order_id from erp_expenses
-				) 
+				)
 		";
 			
         $sql3 = "";
