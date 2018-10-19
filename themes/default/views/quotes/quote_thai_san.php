@@ -475,7 +475,7 @@
 							<td align="right"><span style="float:left;"></span><?=$this->erp->formatMoney($invs->order_discount); ?></td>
 						</tr>
 					<?php } ?>
-					
+
 					<?php if($invs->shipping != 0) { ?>
 						<tr class="border-foot">
 							<td colspan="<?= $col; ?>" style="border-top: 1px solid #FFF !important; border-left: 1px solid #FFF !important; border-bottom: 1px solid #FFF !important;"></td>
@@ -484,6 +484,33 @@
 						</tr>
 
 					<?php } ?>
+                <?php if ($invs->order_tax != 0) : ?>
+                    <tr class="border-foot">
+                        <td colspan="<?= $col; ?>" style="border-top: 1px solid #FFF !important; border-left: 1px solid #FFF !important; border-bottom: 1px solid #FFF !important;"></td>
+                        <td colspan="2" style="white-space: nowrap; text-align: left; font-weight: bold;">ពន្ធអាករ /Order Tax</td>
+                        <td align="right"><?= $this->erp->formatMoney($invs->order_tax); ?></td>
+                    </tr>
+                <?php endif; ?>
+                <tr class="border-foot">
+                    <?php if ($invs->grand_total == $invs->total) { ?>
+                        <td rowspan="<?= $row; ?>" colspan="3" style="border-left: 1px solid #FFF !important; border-bottom: 1px solid #FFF !important;">
+                            <?php if (!empty($invs->invoice_footer)) { ?>
+                                <p><strong><u>Note:</u></strong></p>
+                                <p><?= $invs->invoice_footer ?></p>
+                            <?php } ?>
+                        </td>
+                    <?php } ?>
+                    <td colspan="<?= $col; ?>" style="border-top: 1px solid #FFF !important; border-left: 1px solid #FFF !important; border-bottom: 1px solid #FFF !important;"></td>
+                    <td colspan="2" style="white-space: nowrap; text-align: left; font-weight: bold;">សរុបរួម/Total Amount</td>
+                    <td align="right">
+                        <?php
+                        if($invs->grand_total==0){echo "Free";}
+                        else{
+                            echo $this->erp->formatMoney($invs->grand_total);
+                        }
+                        ?>
+                    </td>
+                </tr>
                 <tr>
                     <td colspan="7" class="text-center" style="border-bottom:1px solid white; padding:20px !important;"><?=$invs->invoice_footer ?></td>
                 </tr>

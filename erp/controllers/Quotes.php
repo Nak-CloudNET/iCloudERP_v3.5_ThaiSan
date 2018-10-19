@@ -279,6 +279,7 @@ class Quotes extends MY_Controller
 	function quote_invoice_thai_san($id=null)
 	{
         $inv = $this->quotes_model->getQuotesData($id);
+       //$this->erp->print_arrays($inv);exit();
 		$this->data['setting'] = $this->site->get_setting();
         $this->data['customer'] = $this->site->getCompanyByID($inv->customer_id);
 		$this->data['biller'] = $this->site->getCompanyByID($this->site->get_setting()->default_biller);
