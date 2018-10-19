@@ -477,7 +477,7 @@ class Quotes_model extends CI_Model
 	}
 	
 	public function getQuotesData($quote_id=null){
-		$this->db->select('erp_quotes.*, tax_rates.name as order_tax_rate,erp_users.username,erp_companies.invoice_footer, erp_companies.company_kh')
+		$this->db->select('erp_qhuotes.*, tax_rates.name as order_tax_rate,erp_users.username,erp_companies.invoice_footer, erp_companies.company_kh')
 				 ->from('erp_quotes')
 				 ->join('tax_rates', 'erp_quotes.order_tax_id = tax_rates.id', 'left')
             ->join('erp_users', 'erp_quotes.saleman = erp_users.id', 'left')
