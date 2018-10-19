@@ -1807,7 +1807,6 @@ function loadItems() {
 		total_discount = 0;
 		$("#slTable tbody").empty();
 		sloitems = JSON.parse(__getItem('sloitems'));
-		console.log(sloitems);
 		var sale_order_price = 0;
 		if (gp) {
 			var sale_order_price = gp['sale_order-price'];
