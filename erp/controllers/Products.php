@@ -4901,8 +4901,8 @@ class Products extends MY_Controller
 			$reference_no 	= $this->input->post('reference_no');
 			$employee_id 	= $this->input->post('employee_id');
 			$customer_id 	= $this->input->post('customer');
-            $sale_order_id  = $this->input->post('sale_order_invoice');
-            $sale_id        = $this->input->post('sale_invoice');
+            $sale_order_id  = $this->input->post('sale_order_invoice')?$this->input->post('sale_order_invoice'):NULL;
+            $sale_id        = $this->input->post('sale_invoice')?$this->input->post('sale_invoice'):NULL;
 			$plan 			= $this->input->post('plan');
 			$address 		= $this->input->post('address');
 			$warehouse_id 	= $this->input->post('from_location');
@@ -4934,10 +4934,14 @@ class Products extends MY_Controller
 
 				//======================= Check Stock ========================//
 				$warehouse 		= $this->site->getWarehouseQty($product_id, $warehouse_id);
-				if($warehouse->quantity < $qty_balance OR $qty_balance == 0){
-					$this->session->set_flashdata('error', $this->lang->line("quantity_bigger") );
-					redirect($_SERVER["HTTP_REFERER"]);
-				}
+				if(!$this->Settings->overselling)
+                {
+                    if($warehouse->quantity < $qty_balance OR $qty_balance == 0){
+                        $this->session->set_flashdata('error', $this->lang->line("quantity_bigger") );
+                        redirect($_SERVER["HTTP_REFERER"]);
+                    }
+                }
+
 				//=========================== End ============================//
 
 				//================== Check Stock With Expiry =================//
@@ -5562,8 +5566,8 @@ class Products extends MY_Controller
 			$reference_no 	= $this->input->post('reference_no');
 			$employee_id 	= $this->input->post('employee_id');
 			$customer_id 	= $this->input->post('customer');
-            $sale_order_id  = $this->input->post('sale_order_invoice');
-            $sale_id        = $this->input->post('sale_invoice');
+            $sale_order_id  = $this->input->post('sale_order_invoice')?$this->input->post('sale_order_invoice'):NULL;
+            $sale_id        = $this->input->post('sale_invoice')?$this->input->post('sale_invoice'):NULL;
 			$plan 			= $this->input->post('plan');
 			$address 		= $this->input->post('address');
 			$warehouse_id 	= $this->input->post('from_location');
@@ -5595,11 +5599,14 @@ class Products extends MY_Controller
 				}
 
 				$warehouse 		= $this->site->getWarehouseQty($product_id, $warehouse_id);
+                if(!$this->Settings->overselling)
+                {
+                    if(($warehouse->quantity + $qty_old) < $qty_balance){
+                        $this->session->set_flashdata('error', $this->lang->line("quantity_bigger") );
+                        redirect($_SERVER["HTTP_REFERER"]);
+                    }
+                }
 
-				if(($warehouse->quantity + $qty_old) < $qty_balance){
-					$this->session->set_flashdata('error', $this->lang->line("quantity_bigger") );
-					redirect($_SERVER["HTTP_REFERER"]);
-				}
 
 				$item_data[] = array(
 					'product_id' 	=> $product_id,

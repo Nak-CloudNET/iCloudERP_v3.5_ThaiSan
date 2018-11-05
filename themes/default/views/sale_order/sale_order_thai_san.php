@@ -346,7 +346,7 @@
                             $arr_product_name[] = $row->product_invoice;
                             ?>
                             <td style="vertical-align: top; text-align: center" rowspan="<?= $arr_count[$product_name]; ?>"><?php echo $no ?></td>
-                            <td style="vertical-align: top;" rowspan="<?= $arr_count[$product_name]?>"><?= $product_name; ?></td>
+                            <td style="vertical-align: top;" rowspan="<?= $arr_count[$product_name]?>"><?= $row->product_name; ?></td>
                             <?php
                             $no++;
                         }

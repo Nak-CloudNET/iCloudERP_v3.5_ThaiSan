@@ -4382,6 +4382,7 @@ class Sales extends MY_Controller
         } else {
 
             if ($sale_order_id){
+
                 $sale_order = $this->sales_model->getSaleOrder($sale_order_id);
                 $this->data['sale_order'] = $sale_order;
                 $items = $this->sales_model->getSaleOrdItems($sale_order_id);
@@ -4439,7 +4440,7 @@ class Sales extends MY_Controller
 					$row->group_price_id = $item->group_price_id;
                     $row->id = $item->product_id;
                     $row->code = $item->product_code;
-                    //$row->name = $item->product_name;
+                    $row->name = $item->product_name;
                     $row->type = $item->product_type;
                     $row->qty = $item->quantity;
                     $row->discount = $item->discount ? $item->discount : '0';

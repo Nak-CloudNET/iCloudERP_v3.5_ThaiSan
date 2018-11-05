@@ -22686,6 +22686,7 @@ class Reports extends MY_Controller
 		
 		$sql1 = "SELECT
 					erp_sales.id,
+                    0 as sale_order_id,
 					1 as type,
 					erp_sales.date,
 					erp_sales.reference_no,
@@ -22714,6 +22715,7 @@ class Reports extends MY_Controller
 					
 		$sql2 = "SELECT
 					erp_return_sales.id,
+                    0 as sale_order_id,
 					2 as type,
 					erp_return_sales.date,
 					erp_return_sales.reference_no,
@@ -22740,7 +22742,8 @@ class Reports extends MY_Controller
 					erp_return_sales.id,reference_no";
         $order_sql="
 		        SELECT
-					erp_sale_order.id,
+                    0 as id,
+					erp_sale_order.id as sale_order_id,
 					3 as type,
 					erp_sale_order.date,
 					erp_sale_order.reference_no,
@@ -22815,11 +22818,10 @@ class Reports extends MY_Controller
         }
 
         if ($this->input->get('start_date') || $this->input->get('end_date')) {
-		    $sales = $this->db->query("SELECT * FROM ({$sql1} UNION {$sql2} UNION {$order_sql}) AS TEMP WHERE 1=1 {$sqls} {$sql4} ORDER BY id DESC ")->result();
+		    $sales = $this->db->query("SELECT * FROM ({$sql1} UNION {$sql2} UNION {$order_sql}) AS TEMP WHERE 1=1 {$sqls} {$sql4} ORDER BY date DESC ")->result();
         } else {
-            $sales = $this->db->query("SELECT * FROM ({$sql1} UNION {$sql2} UNION {$order_sql}) AS TEMP WHERE 1=1 {$sql3} {$sql4} ORDER BY id DESC ")->result();
-        }
-									
+            $sales = $this->db->query("SELECT * FROM ({$sql1} UNION {$sql2} UNION {$order_sql}) AS TEMP WHERE 1=1 {$sql3} {$sql4} ORDER BY date DESC ")->result();
+        }					
 		$this->pagination->initialize($config);
 		$this->data["pagination"] 		= $this->pagination->create_links();
 		$this->data['sales'] 			= $sales;

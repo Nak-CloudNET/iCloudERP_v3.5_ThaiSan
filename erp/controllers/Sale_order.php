@@ -520,7 +520,7 @@ class Sale_order extends MY_Controller
                     }
                     $row->id = $item->product_id;
                     $row->code = $item->product_code;
-                    //$row->name = $item->product_name;
+                    $row->name = $item->product_name;
 					$row->piece	 = $item->piece;
 					$row->wpiece = $item->wpiece;
 					$row->w_piece = $item->wpiece;

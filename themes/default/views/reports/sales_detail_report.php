@@ -282,14 +282,16 @@ echo form_open('reports/salesDetail_actions', 'id="action-form"');
                             $warehouses_arr[$warehouse->id] = $warehouse->name;
                         }
 
-                        $g_total = 0;
-                        $g_order_discounts = 0;
-                        $g_amounts = 0;
-                        $g_total_costs = 0;
-                        $g_gross_margin = 0;
-                        $g_total_shipping = 0;
-                        $g_total_tax =0;
-                        $grand_totals = 0;
+                        $g_total            = 0;
+                        $g_order_discounts  = 0;
+                        $g_amounts          = 0;
+                        $g_total_costs      = 0;
+                        $g_gross_margin     = 0;
+                        $g_total_shipping   = 0;
+                        $g_total_tax        = 0;
+                        $grand_totals       = 0;
+                        $total_overh        = 0;
+                        $total_us           = 0;
                         if(count($sales) > 0){
                             foreach($sales as $key => $sale){
                                 //$this->erp->print_arrays( $sale);
@@ -375,7 +377,7 @@ echo form_open('reports/salesDetail_actions', 'id="action-form"');
                                 $total_amounts=0;
                                 $amount=0;
                                 $amounts=0;
-                                $total_overh = 0;
+                                $s_total =0;
                                 $sql_where="";
                                 if($sale->type == 1)
                                 {
@@ -383,7 +385,7 @@ echo form_open('reports/salesDetail_actions', 'id="action-form"');
                                 }
                                 if($sale->type == 3)
                                 {
-                                    $sql_where="WHERE erp_gl_trans.sale_order_id={$sale->id}";
+                                    $sql_where="WHERE erp_gl_trans.sale_order_id={$sale->sale_order_id}";
                                 }
                                 $sales_by_gls = $this->db->query("SELECT
 																	erp_gl_trans.sale_id,
@@ -414,7 +416,7 @@ echo form_open('reports/salesDetail_actions', 'id="action-form"');
 																	LEFT JOIN erp_sale_order ON erp_sale_order.id = erp_enter_using_stock.sale_order_id
 																	LEFT JOIN erp_enter_using_stock_items ON erp_enter_using_stock_items.reference_no = erp_enter_using_stock.reference_no	
 																	LEFT JOIN erp_sales ON erp_sales.id = erp_enter_using_stock.sale_id																	
-																	WHERE erp_sales.id = {$sale->id} OR erp_enter_using_stock.sale_order_id={$sale->id}
+																	WHERE erp_sales.id = {$sale->id} OR erp_enter_using_stock.sale_order_id={$sale->sale_order_id}
 																	GROUP BY reference_no
 																	");
 
@@ -526,14 +528,14 @@ echo form_open('reports/salesDetail_actions', 'id="action-form"');
 													 </tr>";
                                         }
                                         $total_overh += $e_total;
-
+                                        /*
                                         $html .="<tr>
 														<td class='right' colspan='11'>".lang("subtotal")." : </td>
 														<td class='text-right'>{$this->erp->formatMoney($e_total)}</td>
 														<td></td>
 														<td class='text-right'>{$e_sub_total}</td>
 													</tr>";
-                                        /*
+
                                         $html .="<tr>
                                                     <td class='right' colspan='11'>".lang("total_gross_margin")." : </td>
                                                     <td></td>
@@ -577,13 +579,14 @@ echo form_open('reports/salesDetail_actions', 'id="action-form"');
 													 </tr>";
                                         }
                                         $total_us += $s_total;
+                                        /*
                                         $html .="<tr>
 														<td class='right' colspan='11'>".lang("Sub_Total")." : </td>
 														<td class='text-right'>{$this->erp->formatMoney($s_total)}</td>
 														<td></td>
 														<td class='text-right'>{$s_sub_total}</td>
 													</tr>";
-                                        /*
+
                                         $html .="<tr>
                                                     <td class='right' colspan='11'>".lang("total_gross_margin")." : </td>
                                                     <td></td>
@@ -592,7 +595,8 @@ echo form_open('reports/salesDetail_actions', 'id="action-form"');
                                                 </tr>" ;
                                         */
                                     }
-                                    $end_gross_marin=$total_gross_margin-$e_total-$s_total;$e_total=0;
+                                    $end_gross_marin=$total_gross_margin-$e_total-$s_total;
+                                    $all_sub_total = $e_total+$s_total;$e_total=0;
                                     if($end_gross_marin>0)
                                     {
                                         $end_gross_marin=$this->erp->formatMoney($end_gross_marin);
@@ -600,11 +604,18 @@ echo form_open('reports/salesDetail_actions', 'id="action-form"');
                                         $end_gross_marin='('.$this->erp->formatMoney(abs($end_gross_marin)).')';
                                     }
                                     $html .="<tr>
+														<td class='right' colspan='11'>".lang("subtotal")." : </td>
+														<td class='text-right'>{$this->erp->formatMoney($all_sub_total)}</td>
+														<td></td>
+														<td class='text-right'>".'('."{$this->erp->formatMoney($all_sub_total)}".')'."</td>
+													</tr>";
+                                    $html .="<tr>
 														<td class='right' colspan='11'>".lang("total_gross_margin")." : </td>
 														<td></td>
 														<td class='text-right'></td>
 														<td class='text-right'>$end_gross_marin</td>
 													</tr>";
+
                                 }else{
                                     foreach($sales_detail_returned as $sale_detail_returned){
                                         $unit = isset($sale_detail_returned->variant) ? $sale_detail_returned->variant : $sale_detail_returned->unit;
@@ -879,7 +890,7 @@ echo form_open('reports/salesDetail_actions', 'id="action-form"');
                             <?php } ?>
                             <th class="right" style="color:#0586ff"></th>
                             <?php if ($Owner || $Admin || $GP['products-cost']) { ?>
-                                <th class="right" style="color:#0586ff"><?= $this->erp->formatMoney($grand_totals-$g_total_costs - ($total_overh !=0 ? $total_overh : 0)); ?></th>
+                                <th class="right" style="color:#0586ff"><?= $this->erp->formatMoney($grand_totals-$total_us - ($total_overh !=0 ? $total_overh : 0)); ?></th>
                             <?php } ?>
                         </tr>
 
